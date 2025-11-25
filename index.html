@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.9 (Swiss Style)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.0 (Grid Fixed)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,9 +13,9 @@
         /* --- CSS VARIABLES --- */
         :root {
             /* Colors */
-            --kbob-blue: #003366; /* Bund Blue */
+            --kbob-blue: #003366; 
             --kbob-hover-blue: #004a94;
-            --accent-red: #dc0018; /* Swiss Red adjusted */
+            --accent-red: #dc0018; 
             
             /* UI Colors */
             --text-dark: #222;
@@ -30,7 +30,7 @@
             --filter-teal: #e0f2f1;
             
             /* Component Variables */
-            --header-height: 70px; /* Slightly taller for official feel */
+            --header-height: 70px;
             --footer-height: 40px;
             --table-header-bg: #003366; 
             --table-header-text: #ffffff;
@@ -51,7 +51,6 @@
         }
         
         body {
-            /* Swiss Style Font Stack */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0; padding: 0; 
             color: var(--text-dark); 
@@ -246,7 +245,7 @@
         .hero-subtitle { font-size: 1.25rem; color: var(--text-dark); line-height: 1.6; max-width: 700px; margin-bottom: 30px; font-weight: 300; }
         .hero-meta { display: flex; gap: 15px; flex-wrap: wrap; }
         
-        /* Unified Meta Badge Style - No override */
+        /* Unified Meta Badge Style */
         .meta-badge { 
             background: var(--bg-body); color: var(--kbob-blue); padding: 6px 14px; border: 1px solid #e1e4e8;
             border-radius: 50px; font-weight: 600; font-size: 0.9rem;
@@ -280,16 +279,14 @@
             font-size: 1.8rem; color: var(--kbob-blue); margin-bottom: 25px; 
             border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
-        
-        /* No max-width as requested */
         .detail-section p { font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 20px; }
 
-        /* --- TABLES (OPTIMIZED WIDTHS) --- */
+        /* --- TABLES (FIXED LAYOUT) --- */
         .data-table { 
             width: 100%; border-collapse: separate; border-spacing: 0; 
             border: 1px solid var(--border-color); border-radius: 4px; overflow: hidden; 
             background: var(--bg-white); margin-bottom: 20px;
-            table-layout: fixed; /* Allow better column control */
+            table-layout: fixed; /* Crucial for controlling widths */
         }
         .data-table th { 
             background: var(--table-header-bg); color: var(--table-header-text); 
@@ -298,34 +295,32 @@
             vertical-align: middle;
         }
         .data-table td { 
-            padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: top; /* Top align usually looks better with text wrapping */
+            padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: top;
+            overflow-wrap: break-word; /* Ensure long IFC strings break */
         }
         .data-table tr:last-child td { border-bottom: none; }
         .data-table tr:hover td { background-color: var(--hover-bg); }
 
-        /* --- COLUMN CLASSES (TH LEVEL) --- */
+        /* --- COLUMN WIDTH CLASSES (TH LEVEL) --- */
         
-        /* 1. First column (20%) */
+        /* 1. Name & Description (20%) */
         .th-w-20 { width: 20%; }
         
-        /* 2. Phases column (200px fixed & centered) */
+        /* 2. Format (Fixed & Centered) */
+        .th-w-format { width: 120px; text-align: center !important; }
+
+        /* 3. List (Fixed & Centered) */
+        .th-w-list { width: 80px; text-align: center !important; }
+
+        /* 4. Phases (200px fixed & Centered) */
         .th-w-phases { width: 200px; text-align: center !important; }
         
+        /* Note: IFC Mapping gets "auto" width (the remaining space) */
+
         /* --- TEXT CLASSES (TD LEVEL) --- */
         
-        /* 1. Primary Text (Name/Bold) */
-        .col-primary {
-            font-weight: 600;
-            color: var(--kbob-blue);
-        }
-        
-        /* 2. Value Text (Standard) */
-        .col-val {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            word-wrap: break-word; /* Prevent overflow */
-        }
-        
+        .col-primary { font-weight: 600; color: var(--kbob-blue); }
+        .col-val { font-size: 0.95rem; color: var(--text-dark); }
         .col-center { text-align: center; }
 
         /* --- BADGES & ICONS --- */
@@ -339,17 +334,15 @@
             font-family: monospace; 
             font-size: 0.85rem; 
             border: 1px solid #c5cae9;
-            white-space: nowrap;
+            white-space: normal; /* Allow badges to wrap if strictly necessary, though typically short */
         }
 
-        /* Improved List Icon: Bold and Blue */
         .list-icon-active {
             font-weight: bold;
             color: var(--kbob-blue);
-            font-size: 1.5rem !important; /* Larger */
+            font-size: 1.5rem !important;
         }
 
-        /* Phase Badges */
         .phase-compact-wrapper { display: flex; gap: 4px; justify-content: center; } 
         
         .phase-badge {
@@ -376,8 +369,11 @@
             
             /* Responsive Tables */
             .data-table { display: block; overflow-x: auto; }
-            .th-w-phases { width: 150px; } /* Slightly smaller on mobile */
-            .th-w-20 { width: 150px; } /* Fixed width on mobile to prevent squashing */
+            /* Fixed widths adjustments for mobile to prevent squash */
+            .th-w-20 { min-width: 150px; } 
+            .th-w-phases { min-width: 180px; }
+            .th-w-format { min-width: 100px; }
+            .th-w-list { min-width: 60px; }
         }
     </style>
 </head>
@@ -606,7 +602,7 @@
                 { id: 'dokumentation', text: 'Dokumentation' }
             ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            // --- REFINED TABLE ROWS WITH NEW CLASSES ---
+            // --- REFINED TABLE ROWS ---
             
             const classRows = data.classifications ? data.classifications.map(c => 
                 `<tr><td class="col-primary">${c.system}</td><td class="col-val">${c.code} - ${c.desc}</td></tr>`
@@ -634,7 +630,7 @@
                 <tr>
                     <td class="col-primary">${row.name}</td>
                     <td class="col-val">${row.desc}</td>
-                    <td class="col-val"><span class="data-badge">${row.format || '-'}</span></td>
+                    <td class="col-center"><span class="data-badge">${row.format || '-'}</span></td>
                     <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
                     <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                     <td class="col-center">${renderPhaseBadges(row.phases)}</td>
@@ -712,8 +708,8 @@
                                     <thead><tr>
                                         <th class="th-w-20">Name</th>
                                         <th class="th-w-20">Beschreibung</th>
-                                        <th>Format</th>
-                                        <th class="col-center">Liste</th>
+                                        <th class="th-w-format">Format</th>
+                                        <th class="th-w-list">Liste</th>
                                         <th>IFC Mapping</th>
                                         <th class="th-w-phases">Phasen (2-6)</th>
                                     </tr></thead>
