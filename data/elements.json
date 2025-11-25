@@ -24,7 +24,7 @@
         { "name": "Zubehör", "desc": "Griffe, Bänder, Beschläge", "phases": [0, 0, 0, 1, 1] }
     ],
     "information": [
-        { "name": "Wärmedurchgangskoeffizient", "desc": "U-Wert des Fensters", "format": "Real", "list": false, "phases": [0, 0, 1, 1, 1], "ifc": "Pset_WindowCommon.ThermalTransmittance" },
+        { "name": "Wärmedurchgangs-koeffizient", "desc": "U-Wert des Fensters", "format": "Real", "list": false, "phases": [0, 0, 1, 1, 1], "ifc": "Pset_WindowCommon.ThermalTransmittance" },
         { "name": "Schallschutzklasse", "desc": "Anforderung an Schalldämmung", "format": "String", "list": true, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.AcousticRating" },
         { "name": "Feuerwiderstand", "desc": "Brandschutzklasse nach VKF", "format": "String", "list": true, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.FireRating" },
         { "name": "IsExternal", "desc": "Definiert, ob das Bauteil zur Aussenhülle gehört", "format": "Boolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.IsExternal" }
