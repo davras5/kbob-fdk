@@ -231,6 +231,8 @@
             font-size: 0.95rem;
             line-height: 1.8;
             opacity: 0.9;
+            margin-bottom: 15px;
+            max-width: 400px;
         }
 
         .contact-info a {
@@ -240,14 +242,6 @@
 
         .contact-info a:hover {
             text-decoration: underline;
-        }
-
-        .contact-copyright {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            max-width: 280px;
-            line-height: 1.6;
         }
 
         .scroll-top-btn {
@@ -1112,9 +1106,9 @@
         <div class="container">
             <h3>Kontakt</h3>
             <div class="contact-info">
-                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+                Fellerstrasse 21 | CH-3003 Bern | <a href="/cdn-cgi/l/email-protection#d8b3bab7ba98babab4f6b9bcb5b1b6f6bbb0"><span class="__cf_email__" data-cfemail="e08b828f82a082828cce81848d898ece8388">[email&#160;protected]</span></a>
             </div>
-            <div class="contact-copyright">
+            <div class="contact-info">
                 © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
             </div>
         </div>
@@ -1129,7 +1123,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
@@ -1548,13 +1542,4 @@
                              });
                          }
                      });
-                 }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
-                 
-                 sections.forEach(section => observer.observe(section));
-             }, 100);
-        }
-
-        window.addEventListener('DOMContentLoaded', initApp);
-    </script>
-</body>
-</html>
+                 }, { threshold: 0.2, rootMargin: "
