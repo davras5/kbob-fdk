@@ -32,11 +32,14 @@
 
         /* --- GLOBAL RESET & TYPOGRAPHY --- */
         * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; height: 100%; }
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, Roboto, sans-serif;
             margin: 0; padding: 0; color: var(--text-dark); background-color: var(--bg-body);
             line-height: 1.5; -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
         }
         h1, h2, h3 { margin: 0; font-weight: 700; color: var(--text-dark); }
         .container { width: 95%; max-width: 1400px; margin: 0 auto; }
@@ -48,6 +51,7 @@
             box-shadow: var(--shadow-header); 
             position: relative; 
             z-index: 1000; 
+            flex-shrink: 0;
         }
         
         .header-top { 
@@ -92,6 +96,7 @@
 
         /* --- CONTENT AREA --- */
         #content-area {
+            flex: 1 0 auto;
             min-height: 800px;
             padding: 40px 0 60px 0;
             background-color: var(--bg-body);
@@ -99,6 +104,26 @@
         #content-area.white-bg {
             background-color: #fff !important;
             padding-top: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            height: 40px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            border-top: 1px solid #ccc;
+            font-size: 0.85rem;
+        }
+        footer a {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer a:hover {
+            color: var(--kbob-blue);
+            text-decoration: underline;
         }
 
         /* --- COMMON ELEMENTS --- */
@@ -336,18 +361,24 @@
          </div>
     </main>
 
+    <footer>
+        <div class="container">
+            <a href="https://github.com/davras5/kbob-fdk" target="_blank">Codebase</a>
+        </div>
+    </footer>
+
 
     <script>
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
-        // --- 1. DATEN LADEN ---
+        // --- 1. DATEN LADEN (REAL FETCH) ---
         let globalElementsData = [];
         let isDataLoaded = false;
 
         async function initApp() {
             try {
-                // Fetch JSON from local file
+                // REAL FETCH REQUEST - No Mock Data
                 const response = await fetch('data/elements.json');
                 
                 if (!response.ok) {
@@ -376,7 +407,7 @@
                                 <li>Die Datei liegt nicht im Ordner <code>data/</code>.</li>
                                 <li>Sie öffnen die HTML-Datei direkt (file://). Moderne Browser blockieren dies aus Sicherheitsgründen (CORS).</li>
                             </ul>
-                            <p style="margin-top: 15px; font-weight: 600; color: var(--kbob-blue);">Lösung: Bitte nutzen Sie einen lokalen Webserver (z.B. "Live Server" in VS Code).</p>
+                            <p style="margin-top: 15px; font-weight: 600; color: var(--kbob-blue);">Lösung: Bitte nutzen Sie einen lokalen Webserver (z.B. "Live Server" in VS Code) oder hosten Sie die Datei korrekt.</p>
                         </div>
                         <br><span style="color: #999; font-size: 0.8rem;">Technical Details: ${error.message}</span>
                     </div>`;
