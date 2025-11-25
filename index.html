@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V3 (High-Fidelity)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V4 (Functional Search)</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -11,16 +11,20 @@
         :root {
             --kbob-blue: #003366;
             --kbob-hover-blue: #004a94;
-            --filter-teal: #e0f2f1; /* Helles Türkis für Filter-Buttons */
+            --filter-teal: #e0f2f1;
             --filter-teal-hover: #b2dfdb;
             --text-dark: #222;
-            --text-grey: #666;
+            --text-grey: #555;
             --text-light-grey: #aaa;
             --border-color: #dadce0;
             --bg-grey: #f8f9fa;
+            /* Neuer Akzent-Hintergrund für oben */
+            --bg-accent-top: #e9ecef; 
             --accent-red: #d9534f;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 3px 6px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.12);
+            /* Stärkerer Shadow für Header/Search */
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         /* --- GLOBAL RESET & TYPOGRAPHY --- */
@@ -31,11 +35,11 @@
             line-height: 1.5; -webkit-font-smoothing: antialiased;
         }
         h1, h2, h3 { margin: 0; font-weight: 700; color: var(--text-dark); }
-        .container { width: 95%; max-width: 1400px; margin: 0 auto; } /* Breiterer Container */
+        .container { width: 95%; max-width: 1400px; margin: 0 auto; }
         .hidden { display: none !important; }
 
-        /* --- HEADER --- */
-        header { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.1); position: relative; z-index: 10; }
+        /* --- HEADER (Stronger Shadow) --- */
+        header { background: #fff; box-shadow: var(--shadow-md); position: relative; z-index: 100; }
         .header-top { display: flex; justify-content: space-between; align-items: center; padding: 12px 30px; border-bottom: 1px solid var(--border-color); }
         .logo-wrapper { display: flex; align-items: center; color: var(--text-grey); font-size: 0.9rem; line-height: 1.3; }
         .logo-swiss-cross {
@@ -47,123 +51,116 @@
         .lang-switch span { margin-left: 8px; cursor: pointer; color: var(--text-grey); }
         .lang-switch span.active, .lang-switch span:hover { color: var(--kbob-blue); text-decoration: underline; }
 
-        /* --- MAIN NAVIGATION (Bugfix: Keine Scrollbalken mehr) --- */
         .main-nav { border-bottom: 3px solid var(--kbob-blue); }
         .main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; padding-left: 20px; }
         .nav-link {
             text-decoration: none; color: var(--text-dark); padding: 16px 24px; display: block;
             font-weight: 500; font-size: 1.05rem; transition: all 0.2s; position: relative;
         }
-        /* Hover-Effekt */
         .nav-link:hover:not(.disabled):not(.active) { background: var(--bg-grey); color: var(--kbob-blue); }
-        /* Aktiver Tab: Blauer Balken unten via inset shadow, ohne Layout-Shift */
         .nav-link.active {
             color: var(--kbob-blue); font-weight: 700;
             box-shadow: inset 0 -3px 0 0 var(--kbob-blue);
-            background: rgba(0, 51, 102, 0.03); /* Ganz leichtes Blau */
+            background: rgba(0, 51, 102, 0.03);
         }
         .nav-link.disabled { color: var(--text-light-grey); cursor: default; }
 
 
-        /* --- CONTENT AREA BACKGROUND --- */
+        /* --- CONTENT AREA BACKGROUND (Split Gradient + Pattern) --- */
         #content-area {
             padding: 40px 0 60px 0; min-height: 700px;
-            /* Graues Netzwerkmuster */
-            background-color: var(--bg-grey);
-            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="2" fill="%23dce0e3"/><path d="M40 40L80 0M40 40L0 80M40 40H0" stroke="%23e6e9ec" stroke-width="1.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>');
-            background-size: 400px;
+            /* SVG Muster liegt ÜBER dem Gradienten */
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="1.5" fill="%23bdc3c7"/><path d="M40 40L80 0M40 40L0 80M40 40H0" stroke="%23dce0e3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>'),
+                linear-gradient(to bottom, var(--bg-accent-top) 0%, var(--bg-grey) 250px, #ffffff 600px);
+            background-repeat: repeat, no-repeat;
+            background-size: 400px, auto;
         }
 
 
-        /* --- COMMON PAGE ELEMENTS --- */
-        .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 30px; color: var(--text-dark); }
+        /* --- COMMON ELEMENTS --- */
+        .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 30px; color: var(--text-dark); text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
         
-        /* Central Search Bar (Wide & Centered) */
-        .central-search-container { max-width: 900px; margin: 0 auto 40px auto; position: relative; display: flex; box-shadow: var(--shadow-md); border-radius: 4px; overflow: hidden;}
+        /* Central Search Bar (Strong Shadow) */
+        .central-search-container { 
+            max-width: 900px; margin: 0 auto 40px auto; position: relative; display: flex; 
+            box-shadow: var(--shadow-lg); /* Starker Shadow */
+            border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);
+            background: #fff;
+        }
         .central-search-input { 
-            flex: 1; padding: 16px 24px; font-size: 1.1rem; border: 1px solid var(--border-color); border-right: none; outline: none; 
+            flex: 1; padding: 18px 25px; font-size: 1.15rem; border: none; outline: none; background: transparent;
         }
         .central-search-btn {
-            width: 64px; background: var(--kbob-blue); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+            width: 70px; background: var(--kbob-blue); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
         }
         .central-search-btn:hover { background: var(--kbob-hover-blue); }
         .central-search-btn .material-icons-outlined { font-size: 1.8rem; }
 
 
-        /* --- CATALOG VIEW STYLES --- */
-        /* Toolbar: A-Z Filter + View Switcher */
+        /* --- CATALOG VIEW --- */
         .catalog-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;}
         
-        /* A-Z Filter */
-        .az-filter-bar { display: flex; flex-wrap: wrap; gap: 6px; }
+        /* A-Z Filter (ALLE rechts) */
+        .az-filter-bar { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
         .az-btn { 
             border: none; background: var(--filter-teal); color: var(--kbob-blue); 
             padding: 6px 11px; cursor: pointer; border-radius: 3px; font-weight: 600; font-size: 0.9rem; transition: all 0.1s;
         }
         .az-btn:hover { background: var(--filter-teal-hover); }
         .az-btn.active { background: var(--kbob-blue); color: #fff; }
-        .az-btn.all-btn { padding-left: 14px; padding-right: 14px; } /* "ALLE" etwas breiter */
+        /* Schiebt das Element ganz nach rechts im Flex-Container */
+        .az-btn.all-btn { margin-left: auto; padding-left: 15px; padding-right: 15px; order: 99; } 
 
-        /* View Switcher Icons */
-        .view-switcher { display: flex; gap: 5px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); }
+        .view-switcher { display: flex; gap: 5px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
         .view-btn { 
             border: none; background: transparent; color: var(--text-grey); padding: 6px; 
             cursor: pointer; border-radius: 3px; display: flex;
         }
         .view-btn.active { background: var(--kbob-blue); color: #fff; }
 
-        /* Main Catalog Layout */
         .catalog-layout { display: flex; gap: 35px; align-items: flex-start; }
         
-        /* Sidebar Filter */
         .sidebar-filter { width: 240px; flex-shrink: 0; background: #fff; border-radius: 6px; box-shadow: var(--shadow-sm); overflow: hidden; border: 1px solid var(--border-color);}
-        .sidebar-header { background: #f1f3f4; padding: 14px 20px; font-weight: 700; font-size: 1.1rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
+        .sidebar-header { background: #f8f9fa; padding: 14px 20px; font-weight: 700; font-size: 1.05rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
         .filter-group { border-bottom: 1px solid var(--border-color); }
         .filter-toggle { 
             padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
-            cursor: pointer; font-weight: 600; color: var(--text-dark); transition: background 0.1s;
+            cursor: pointer; font-weight: 600; color: var(--text-dark); transition: background 0.1s; font-size: 0.95rem;
         }
-        .filter-toggle:hover { background: #f8f9fa; }
+        .filter-toggle:hover { background: #f1f3f4; }
         .filter-toggle .material-icons-outlined { font-size: 1.2rem; color: var(--text-grey); }
 
-        /* Element Grid */
         .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
 
-        /* Element Card */
         .element-card { 
             background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; 
             box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s;
         }
         .element-card:hover { 
-            transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--kbob-blue);
+            transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0, 51, 102, 0.3);
         }
-        .card-img-container { height: 170px; background: #f0f2f5; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border-color); padding: 20px; }
-        .card-img-container img { max-height: 100%; max-width: 100%; mix-blend-mode: multiply; filter: grayscale(20%) contrast(110%); }
+        .card-img-container { height: 170px; background: #fff; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f0f0; padding: 20px; position: relative;}
+        /* Leichter Schein hinter dem Bild für Tiefe */
+        .card-img-container::after { content: ''; position: absolute; width: 80%; height: 80%; background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(255,255,255,0) 70%); z-index: 0; }
+        .card-img-container img { max-height: 100%; max-width: 100%; mix-blend-mode: multiply; filter: grayscale(10%) contrast(105%); z-index: 1; }
         .card-body { padding: 18px; }
         .card-title { margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 800; color: var(--text-dark); line-height: 1.2;}
-        .card-classification { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 18px; display: block; font-weight: 500;}
+        .card-classification { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 18px; display: block; font-weight: 500; background: #f0f2f5; display: inline-block; padding: 2px 6px; border-radius: 4px;}
         
-        /* Data Icons (Compact style) */
-        .data-icons-row { display: flex; gap: 12px; font-size: 0.75rem; font-weight: 600; color: var(--text-dark); }
+        .data-icons-row { display: flex; gap: 12px; font-size: 0.75rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; padding-top: 12px;}
         .data-icon-item { display: flex; align-items: center; }
         .data-icon-item .material-icons-outlined { font-size: 1.1rem; margin-right: 3px; }
-        /* Aktiver Status: Dunkel */
-        .data-icon-item.active { color: var(--text-dark); }
-        .data-icon-item.active .material-icons-outlined { color: var(--text-dark); }
-        /* Inaktiver Status: Hellgrau */
-        .data-icon-item.disabled { color: var(--text-light-grey); }
-        .data-icon-item.disabled .material-icons-outlined { color: var(--text-light-grey); }
+        .data-icon-item.active { color: var(--text-dark); } .data-icon-item.active .material-icons-outlined { color: var(--text-dark); }
+        .data-icon-item.disabled { color: #ccc; } .data-icon-item.disabled .material-icons-outlined { color: #ccc; }
 
 
-        /* --- DETAIL VIEW STYLES --- */
+        /* --- DETAIL VIEW --- */
         .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 0.95rem; font-weight: 500;}
         .breadcrumb a { text-decoration: none; color: var(--kbob-blue); }
         .breadcrumb a:hover { text-decoration: underline; }
         
-        /* Layout direkt auf dem Hintergrund, keine umschließende weiße Box */
         .detail-layout { display: flex; gap: 40px; align-items: flex-start; }
-        
-        /* Sticky Sidebar */
         .detail-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 30px; }
         .sticky-nav { 
             display: flex; flex-direction: column; background: #fff; border-radius: 6px; 
@@ -178,20 +175,18 @@
             border-left-color: var(--kbob-blue); background: rgba(0, 51, 102, 0.05); color: var(--kbob-blue); 
         }
 
-        /* Detail Content Box */
         .detail-content-box { flex: 1; background: #fff; padding: 40px; border-radius: 8px; box-shadow: var(--shadow-md); }
         .detail-header { display: flex; justify-content: space-between; gap: 30px; margin-bottom: 50px; border-bottom: 2px solid var(--bg-grey); padding-bottom: 40px;}
         .detail-title h1 { font-size: 2.4rem; margin-bottom: 15px; color: var(--kbob-blue);}
         .detail-subtitle { font-size: 1.1rem; color: var(--text-grey); line-height: 1.6; max-width: 600px;}
         .detail-info-badge { margin-top: 25px; display: inline-flex; gap: 15px; background: var(--bg-grey); padding: 12px 20px; border-radius: 4px; border: 1px solid var(--border-color); font-family: monospace; font-size: 0.95rem;}
-        .detail-image-wrapper { flex-shrink: 0; width: 380px; height: 280px; background: var(--bg-grey); border-radius: 8px; border: 1px solid var(--border-color); padding: 30px; display: flex; align-items: center; justify-content: center;}
+        .detail-image-wrapper { flex-shrink: 0; width: 380px; height: 280px; background: #fff; border-radius: 8px; border: 1px solid var(--border-color); padding: 30px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.03);}
         .detail-image-wrapper img { max-width: 100%; max-height: 100%; mix-blend-mode: multiply; }
 
         .detail-section { margin-bottom: 70px; scroll-margin-top: 30px; }
         .detail-section h2 { font-size: 1.6rem; color: var(--kbob-blue); margin-bottom: 25px; display: flex; align-items: center;}
         .detail-section h2::before { content: ''; display: inline-block; width: 6px; height: 24px; background: var(--accent-red); margin-right: 12px; border-radius: 2px;}
 
-        /* Table Styling */
         .attr-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden;}
         .attr-table th, .attr-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
         .attr-table th { background: var(--bg-grey); font-weight: 700; color: var(--kbob-blue); border-bottom: 2px solid var(--border-color);}
@@ -201,12 +196,12 @@
         .check-icon-active { color: var(--kbob-blue); font-weight: bold; }
         .check-icon-inactive { color: var(--border-color); }
 
-
         /* --- HELPER STATES --- */
         .loading-state, .error-state { padding: 80px 20px; text-align: center; color: var(--text-grey); }
         .loading-spinner { font-size: 3rem; color: var(--kbob-blue); animation: spin 1s linear infinite; margin-bottom: 20px; display: inline-block;}
         .error-state { color: var(--accent-red); background: #fff0f0; border-radius: 8px; border: 1px solid #ffcdd2; max-width: 600px; margin: 40px auto;}
         @keyframes spin { 100% { transform: rotate(360deg); } }
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-grey); font-size: 1.1rem; background: #fff; border-radius: 8px; border: 1px dashed var(--border-color);}
     </style>
 </head>
 <body>
@@ -252,9 +247,8 @@
         // --- INITIALIZATION ---
         async function initApp() {
             try {
-                // Simulate loading delay for realism
-                contentArea.innerHTML = '<div class="container loading-state"><span class="material-icons-outlined loading-spinner">refresh</span><br>Lade Katalogdaten...</div>';
-                await new Promise(resolve => setTimeout(resolve, 600)); 
+                // Wait needed for local dev to allow CSS to load
+                await new Promise(resolve => setTimeout(resolve, 200)); 
 
                 const response = await fetch('data/elements.json');
                 if (!response.ok) throw new Error(`HTTP Status: ${response.status}`);
@@ -304,41 +298,15 @@
             }
         }
 
-        // --- VIEW RENDERERS (Updated Layouts) ---
+        // --- HELPER: Render Grid Items ---
+        function renderGridItemsHTML(items) {
+            if (items.length === 0) {
+                return '<div class="no-results">Keine Elemente gefunden, die Ihrer Suche entsprechen.</div>';
+            }
 
-        // 1. HOME PAGE
-        function renderHomePage() {
-            contentArea.innerHTML = `
-                <div class="container">
-                    <div style="text-align: center; margin: 60px 0 80px 0;">
-                        <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px;">BIM-Fachdatenkatalog</h1>
-                        <div class="central-search-container" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                            <input type="text" class="central-search-input" placeholder="Suche nach Elementen, Attributen oder Dokumenten...">
-                            <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
-                        </div>
-                    </div>
-                    
-                    <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-md); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
-                        <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder, um Anforderungen an Fachmodelle, Elemente, Dokumente und ökologische Daten effizient abzurufen.</p>
-                    </div>
-                </div>
-            `;
-        }
+            const iconStatus = (active) => active ? 'active' : 'disabled';
 
-        // 2. CATALOG PAGE (High-Fidelity Layout)
-        function renderCatalogPage() {
-            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-            // "ALLE" Button ist active und dunkelblau
-            let azHtml = `<button class="az-btn all-btn active">ALLE</button>`;
-            azHtml += alphabet.map(letter => `<button class="az-btn">${letter}</button>`).join('');
-
-            const gridHtml = globalElementsData.map(el => {
-                // Helper für Data Icons Status
-                const iconStatus = (active) => active ? 'active' : 'disabled';
-                const iconCheck = (active) => active ? 'check_circle' : 'radio_button_unchecked'; // Optional: andere Icons
-
-                return `
+            return items.map(el => `
                 <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
                     <div class="card-img-container">
                         <img src="${el.image}" alt="${el.title}">
@@ -359,21 +327,54 @@
                         </div>
                     </div>
                 </div>
-                `;
-            }).join('');
+            `).join('');
+        }
+
+
+        // --- VIEW RENDERERS ---
+
+        // 1. HOME PAGE
+        function renderHomePage() {
+            contentArea.innerHTML = `
+                <div class="container">
+                    <div style="text-align: center; margin: 60px 0 80px 0;">
+                        <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px; text-shadow: 0 2px 4px rgba(255,255,255,0.8);">BIM-Fachdatenkatalog</h1>
+                        <div class="central-search-container">
+                            <input type="text" class="central-search-input" placeholder="Suche nach Elementen (z.B. Fenster)...">
+                            <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-md); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
+                        <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
+                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder, um Anforderungen an Fachmodelle, Elemente, Dokumente und ökologische Daten effizient abzurufen.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 2. CATALOG PAGE (With Search Functionality)
+        function renderCatalogPage() {
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+            // "ALLE" Button ist active und wird per CSS nach rechts geschoben
+            let azHtml = alphabet.map(letter => `<button class="az-btn">${letter}</button>`).join('');
+            azHtml += `<button class="az-btn all-btn active">ALLE</button>`;
+
+            // Initial render with all data
+            const initialGridHtml = renderGridItemsHTML(globalElementsData);
 
             contentArea.innerHTML = `
                 <div class="container">
                     <h1 class="page-title">Element-Katalog</h1>
                     
                     <div class="central-search-container">
-                        <input type="text" class="central-search-input" placeholder="Suche nach Elementen...">
+                        <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
                         <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
                     </div>
 
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar">${azHtml}</div>
-                        <div class="view-switcher">
+                        <div class="view-switcher" style="margin-left: 20px;">
                             <button class="view-btn active" title="Rasteransicht"><span class="material-icons-outlined">grid_view</span></button>
                             <button class="view-btn" title="Listenansicht"><span class="material-icons-outlined">view_list</span></button>
                         </div>
@@ -387,13 +388,32 @@
                             <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined">expand_more</span></div></div>
                         </aside>
 
-                        <div class="element-grid">${gridHtml}</div>
+                        <div class="element-grid" id="catalogGrid">${initialGridHtml}</div>
                     </div>
                 </div>
             `;
+
+            // --- SEARCH IMPLEMENTATION ---
+            const searchInput = document.getElementById('catalogSearchInput');
+            const gridContainer = document.getElementById('catalogGrid');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                
+                // Filtere globale Daten
+                const filteredData = globalElementsData.filter(el => 
+                    el.title.toLowerCase().includes(searchTerm) || 
+                    el.classification.toLowerCase().includes(searchTerm)
+                );
+
+                // Update Grid HTML
+                gridContainer.innerHTML = renderGridItemsHTML(filteredData);
+            });
+            // Focus input for convenience
+            searchInput.focus();
         }
 
-        // 3. ELEMENT DETAIL PAGE (High-Fidelity Layout)
+        // 3. ELEMENT DETAIL PAGE
         function renderElementDetailPage(id) {
             const data = globalElementsData.find(element => element.id === id);
             if(!data) { contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>'; return; }
