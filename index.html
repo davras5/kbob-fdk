@@ -206,10 +206,78 @@
         }
 
         /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact-section {
+            background-color: #3d4f5f;
+            color: #ffffff;
+            height: 370px;
+            padding: 50px 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-section h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-copyright {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .scroll-top-btn {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .scroll-top-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* ============================================
            FOOTER
            ============================================ */
         footer {
-            background-color: var(--kbob-blue);
+            background-color: #2d3a44;
             flex-shrink: 0;
             height: var(--footer-height);
             display: flex;
@@ -991,6 +1059,20 @@
                 height: auto; 
                 padding: 6px; 
             }
+
+            /* Contact section responsive */
+            .contact-section {
+                height: auto;
+                min-height: 370px;
+                padding: 40px 20px;
+            }
+
+            .scroll-top-btn {
+                right: 20px;
+                top: auto;
+                bottom: 30px;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -1025,6 +1107,21 @@
             Anwendung wird initialisiert...
          </div>
     </main>
+
+    <section class="contact-section">
+        <div class="container">
+            <h3>Kontakt</h3>
+            <div class="contact-info">
+                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+            </div>
+            <div class="contact-copyright">
+                © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
+            </div>
+        </div>
+        <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben">
+            <span class="material-icons-outlined">keyboard_arrow_up</span>
+        </button>
+    </section>
 
     <footer>
         <div class="footer-content">
