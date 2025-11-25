@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.5</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.6</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -106,7 +106,7 @@
             padding-top: 0;
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER (FIXED ALIGNMENT) --- */
         footer {
             background-color: #003366;
             flex-shrink: 0;
@@ -119,6 +119,7 @@
             justify-content: flex-start;
             padding-left: 30px; 
             width: 100%;
+            height: 100%; /* FIX: Ensures flex container takes full height for vertical centering */
         }
 
         footer a {
@@ -323,7 +324,9 @@
             padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: middle;
         }
         .data-table tr:last-child td { border-bottom: none; }
-        .data-table tr:hover td { background-color: #e2e2e2; }
+        
+        /* FIX: Darker hover effect */
+        .data-table tr:hover td { background-color: #e1e8ed; }
         
         /* --- COMPACT PHASE BADGES --- */
         .phase-compact-wrapper {
@@ -639,7 +642,7 @@
             ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
             // --- STATIC DATA DISPLAY ---
-            // Fix: Erste Spalte 25%, Rest auto
+            // Fix: Erste Spalte 20%
             const classRows = data.classifications ? data.classifications.map(c => 
                 `<tr><td style="font-weight:600;">${c.system}</td><td>${c.code} - ${c.desc}</td></tr>`
             ).join('') : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
@@ -651,7 +654,7 @@
             // --- DYNAMIC SECTIONS ---
             
             // 1. Geometrie
-            // Fix: Phasen Spalte nach rechts (140px), Erste Spalte (25%)
+            // Fix: 1st Col 20%, Last Col 140px
             const geomRows = data.geometry && data.geometry.length > 0 ? data.geometry : [];
             const geomRowsHtml = geomRows.length > 0 ? geomRows.map(row => `
                 <tr>
@@ -662,8 +665,8 @@
             `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center; padding: 20px;">Keine spezifischen Geometrie-Anforderungen definiert.</td></tr>';
 
             // 2. Informationen
-            // Fix: Reihenfolge getauscht (IFC vor Phasen) & Breiten optimiert
-            // Spalte 1: 25%, Spalte 2: Auto, Spalte 6: 140px
+            // Fix: 1st Col 20%. 2nd Col auto but effectively smaller due to 5th col increase.
+            // IFC Mapping (5th col) set to 25% to take more space.
             const infoRows = data.information && data.information.length > 0 ? data.information : [];
             const infoRowsHtml = infoRows.length > 0 ? infoRows.map(row => `
                 <tr>
@@ -677,6 +680,7 @@
             `).join('') : '<tr><td colspan="6" style="color:#999; text-align:center; padding: 20px;">Keine Attribute (LOI) definiert.</td></tr>';
 
             // 3. Dokumentation
+            // Fix: 1st Col 20%
             const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
             const docRowsHtml = docRows.length > 0 ? docRows.map(row => `
                 <tr>
@@ -726,7 +730,7 @@
                             <div id="klassifizierung" class="detail-section">
                                 <h2>Klassifizierung</h2>
                                 <table class="data-table">
-                                    <thead><tr><th style="width:25%">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
+                                    <thead><tr><th style="width:20%">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
                                     <tbody>${classRows}</tbody>
                                 </table>
                             </div>
@@ -734,7 +738,7 @@
                             <div id="ifc" class="detail-section">
                                 <h2>IFC-Klasse</h2>
                                 <table class="data-table">
-                                    <thead><tr><th style="width:25%">Element</th><th style="width:37%">IFC 4.3</th><th>Revit ENG</th></tr></thead>
+                                    <thead><tr><th style="width:20%">Element</th><th style="width:30%">IFC 4.3</th><th>Revit ENG</th></tr></thead>
                                     <tbody>${ifcRows}</tbody>
                                 </table>
                             </div>
@@ -745,7 +749,7 @@
                                 <table class="data-table">
                                     <thead>
                                         <tr>
-                                            <th style="width: 25%;">Element</th>
+                                            <th style="width: 20%;">Element</th>
                                             <th>Beschreibung</th>
                                             <th style="width: 140px; text-align:center;">Phasen (2-6)</th>
                                         </tr>
@@ -760,11 +764,11 @@
                                 <table class="data-table">
                                     <thead>
                                         <tr>
-                                            <th style="width: 25%;">Name</th>
+                                            <th style="width: 20%;">Name</th>
                                             <th>Beschreibung</th>
                                             <th style="width: 90px;">Format</th>
                                             <th style="width: 60px; text-align:center;">Liste</th>
-                                            <th style="width: 20%;">IFC Mapping</th>
+                                            <th style="width: 25%;">IFC Mapping</th>
                                             <th style="width: 140px; text-align:center;">Phasen (2-6)</th>
                                         </tr>
                                     </thead>
@@ -778,7 +782,7 @@
                                 <table class="data-table">
                                     <thead>
                                         <tr>
-                                            <th style="width: 25%;">Dokumententyp</th>
+                                            <th style="width: 20%;">Dokumententyp</th>
                                             <th>Beschreibung</th>
                                             <th style="width: 140px; text-align:center;">Phasen (2-6)</th>
                                         </tr>
