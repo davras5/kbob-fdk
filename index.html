@@ -911,6 +911,14 @@
             white-space: normal; 
         }
 
+        .data-badge.truncate {
+            max-width: 280px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: help;
+        }
+
         .list-icon-active {
             font-weight: bold;
             color: var(--kbob-blue);
@@ -1112,7 +1120,7 @@
         <div class="container">
             <h3>Kontakt</h3>
             <div class="contact-info">
-                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+                Fellerstrasse 21 | CH-3003 Bern | <a href="/cdn-cgi/l/email-protection#016a636e634163636d2f60656c686f2f6269"><span class="__cf_email__" data-cfemail="a0cbc2cfc2e0c2c2cc8ec1c4cdc9ce8ec3c8">[email&#160;protected]</span></a>
             </div>
             <div class="contact-copyright">
                 © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
@@ -1129,7 +1137,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
@@ -1424,7 +1432,7 @@
                         <td class="col-val">${row.desc}</td>
                         <td class="col-center"><span class="data-badge">${row.format || '-'}</span></td>
                         <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
-                        <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
+                        <td class="col-val"><span class="data-badge truncate" title="${row.ifc || ''}">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
                 : '<tr><td colspan="6" class="col-center" style="color:#999; padding:20px;">Keine Attribute (LOI).</td></tr>';
@@ -1477,7 +1485,7 @@
                             <div id="ifc" class="detail-section">
                                 <h2>IFC-Klasse</h2>
                                 <table class="data-table">
-                                    <thead><tr><th class="th-w-20">Element</th><th class="th-w-20">IFC 4.3</th><th>Revit ENG</th></tr></thead>
+                                    <thead><tr><th style="width:20%">Element</th><th style="width:40%">IFC 4.3</th><th style="width:40%">Revit ENG</th></tr></thead>
                                     <tbody>${ifcRows}</tbody>
                                 </table>
                             </div>
@@ -1548,13 +1556,4 @@
                              });
                          }
                      });
-                 }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
-                 
-                 sections.forEach(section => observer.observe(section));
-             }, 100);
-        }
-
-        window.addEventListener('DOMContentLoaded', initApp);
-    </script>
-</body>
-</html>
+                 }, { threshold: 0.2, rootMargin: "
