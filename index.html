@@ -314,59 +314,37 @@
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
-        const MOCK_DATA = [
-            {
-                "id": "e1",
-                "title": "Fenster (Aussen)",
-                "classification": "IfcWindow",
-                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haus_Fenster_01.jpg/640px-Haus_Fenster_01.jpg", 
-                "lod": true, "loi": true, "epd": true,
-                "general": { "ifcClass": "IfcWindow", "type": "Bauelement" },
-                "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
-                "classifications": [
-                    { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
-                    { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" },
-                    { "system": "DIN 276", "code": "334", "desc": "Außenfenster und Außentüren" }
-                ],
-                "ifcMapping": [
-                    { "element": "Fenster", "ifc": "IfcWindow.WINDOW", "revit": "Windows" },
-                    { "element": "Oberlicht", "ifc": "IfcWindow.SKYLIGHT", "revit": "Windows" }
-                ]
-            },
-            {
-                "id": "e2",
-                "title": "Innentür (Holz)",
-                "classification": "IfcDoor",
-                "image": "", 
-                "lod": true, "loi": true, "epd": false,
-                "general": { "ifcClass": "IfcDoor", "type": "Bauelement" },
-                "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
-                "classifications": [
-                    { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" },
-                    { "system": "Uniformat II 2010", "code": "C1020", "desc": "Interior Doors" },
-                    { "system": "DIN 276", "code": "335", "desc": "Innentüren" }
-                ],
-                "ifcMapping": [
-                     { "element": "Tür", "ifc": "IfcDoor", "revit": "Doors" }
-                ]
-            }
-        ];
-
+        // Globale Variable für die Daten
         let globalElementsData = [];
         let isDataLoaded = false;
 
         async function initApp() {
             try {
-                await new Promise(resolve => setTimeout(resolve, 200)); 
-                globalElementsData = MOCK_DATA;
+                // 1. Daten per Fetch holen
+                const response = await fetch('data/elements.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                globalElementsData = await response.json();
                 isDataLoaded = true;
                 
+                // Event Listener für Routing
                 window.addEventListener('hashchange', router);
+                
+                // Initiale Route aufrufen
                 router();
 
             } catch (error) {
-                console.error("Fehler:", error);
-                contentArea.innerHTML = `<div class="container error-state">Fehler beim Laden.</div>`;
+                console.error("Fehler beim Laden der Daten:", error);
+                contentArea.innerHTML = `
+                    <div class="container error-state">
+                        <span class="material-icons-outlined" style="font-size: 3rem; color: var(--accent-red); margin-bottom:15px;">error_outline</span><br>
+                        <strong>Fehler beim Laden der Daten.</strong><br>
+                        <p style="font-size:0.9rem; margin-top:10px;">Bitte stellen Sie sicher, dass Sie diese Datei über einen Webserver (z.B. VS Code Live Server) öffnen,<br>da Browser den direkten Zugriff auf lokale JSON-Dateien blockieren.</p>
+                        <br>Details: ${error.message}
+                    </div>`;
             }
         }
 
@@ -404,8 +382,10 @@
             }
         }
 
+        // --- RENDER HELPERS ---
+
         function renderGridItemsHTML(items) {
-            if (items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
+            if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
 
             const iconStatus = (active) => active ? 'active' : 'disabled';
 
@@ -427,6 +407,20 @@
             `).join('');
         }
 
+        function renderPhaseBadges(phases) {
+            if(!phases) return '<span style="color:#ccc;">-</span>';
+            const phaseLabels = [2, 3, 4, 5, 6];
+            let badgesHtml = '<div class="phase-compact-wrapper">';
+            phases.forEach((isActive, index) => {
+                const statusClass = isActive ? 'active' : 'inactive';
+                badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phaseLabels[index]}">${phaseLabels[index]}</div>`;
+            });
+            badgesHtml += '</div>';
+            return badgesHtml;
+        }
+
+        // --- PAGE RENDERERS ---
+
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="container">
@@ -437,7 +431,6 @@
                             <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
                         </div>
                     </div>
-                    
                     <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
                         <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
                         <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
@@ -492,7 +485,6 @@
             const data = globalElementsData.find(element => element.id === id);
             if(!data) { contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>'; return; }
 
-            // removed Comments link
             const sidebarLinks = [
                 { id: 'allgemeines', text: 'Allgemeines' },
                 { id: 'klassifizierung', text: 'Klassifizierung' },
@@ -510,46 +502,20 @@
                 `<tr><td>${m.element}</td><td>${m.ifc}</td><td>${m.revit}</td></tr>`
             ).join('') : '<tr><td colspan="3">-</td></tr>';
 
-            // === SHARED HELPER FOR PHASES ===
-            const renderPhaseBadges = (phases) => {
-                const phaseLabels = [2, 3, 4, 5, 6];
-                let badgesHtml = '<div class="phase-compact-wrapper">';
-                phases.forEach((isActive, index) => {
-                    const statusClass = isActive ? 'active' : 'inactive';
-                    badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phaseLabels[index]}">${phaseLabels[index]}</div>`;
-                });
-                badgesHtml += '</div>';
-                return badgesHtml;
-            };
-
-            // === 1. GEOMETRY DATA & RENDER ===
-            const geomRowsData = [
-                { name: "Länge", desc: "Gesamtlänge des Elements", phases: [1, 1, 1, 1, 1] },
-                { name: "Breite", desc: "Gesamtbreite des Elements", phases: [1, 1, 1, 1, 1] },
-                { name: "Höhe", desc: "Gesamthöhe des Elements", phases: [1, 1, 1, 1, 1] },
-                { name: "Repräsentative Modellierung", desc: "Vereinfachte Darstellung für Pläne 1:50", phases: [0, 0, 1, 1, 1] },
-                { name: "Zubehör", desc: "Griffe, Bänder, Beschläge", phases: [0, 0, 0, 1, 1] }
-            ];
-
-            const geomRowsHtml = geomRowsData.map(row => `
+            // === 1. GEOMETRY DATA & RENDER (Dynamic from JSON) ===
+            // Falls leer im JSON, zeige Hinweis
+            const geomRows = data.geometry && data.geometry.length > 0 ? data.geometry : [];
+            const geomRowsHtml = geomRows.length > 0 ? geomRows.map(row => `
                 <tr>
                     <td style="font-weight:600">${row.name}</td>
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
                     <td>${renderPhaseBadges(row.phases)}</td>
                 </tr>
-            `).join('');
+            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center;">Keine Geometrie-Anforderungen definiert.</td></tr>';
 
-
-            // === 2. INFORMATION DATA & RENDER (Existing) ===
-            const infoRowsData = [
-                { name: "Wärmedurchgangskoeffizient", desc: "U-Wert des Fensters", format: "Real", list: false, phases: [0, 0, 1, 1, 1], ifc: "Pset_WindowCommon.ThermalTransmittance" },
-                { name: "Schallschutzklasse", desc: "Anforderung an Schalldämmung", format: "String", list: true, phases: [0, 1, 1, 1, 1], ifc: "Pset_WindowCommon.AcousticRating" },
-                { name: "Feuerwiderstand", desc: "Brandschutzklasse nach VKF", format: "String", list: true, phases: [1, 1, 1, 1, 1], ifc: "Pset_WindowCommon.FireRating" },
-                { name: "Verglasungstyp", desc: "Art der Verglasung (2-fach, 3-fach)", format: "String", list: false, phases: [0, 0, 1, 1, 0], ifc: "IfcWindow.UserDefined.Glazing" },
-                { name: "IsExternal", desc: "Definiert, ob das Bauteil zur Aussenhülle gehört", format: "Boolean", list: false, phases: [1, 1, 1, 1, 1], ifc: "Pset_WindowCommon.IsExternal" }
-            ];
-
-            const infoRowsHtml = infoRowsData.map(row => `
+            // === 2. INFORMATION DATA & RENDER (Dynamic from JSON) ===
+            const infoRows = data.information && data.information.length > 0 ? data.information : [];
+            const infoRowsHtml = infoRows.length > 0 ? infoRows.map(row => `
                 <tr>
                     <td style="font-weight:600">${row.name}</td>
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
@@ -558,28 +524,20 @@
                     <td>${renderPhaseBadges(row.phases)}</td>
                     <td><span class="ifc-code">${row.ifc}</span></td>
                 </tr>
-            `).join('');
+            `).join('') : '<tr><td colspan="6" style="color:#999; text-align:center;">Keine Attribute definiert.</td></tr>';
 
-
-            // === 3. DOCUMENTATION DATA & RENDER ===
-            const docRowsData = [
-                { name: "Vorschriften", desc: "Relevante Normen und Richtlinien", phases: [1, 0, 0, 0, 0] },
-                { name: "Produktdatenblatt", desc: "Technisches Datenblatt des Herstellers", phases: [0, 0, 1, 1, 1] },
-                { name: "Montageanleitung", desc: "Anweisungen für den korrekten Einbau", phases: [0, 0, 0, 1, 1] },
-                { name: "Wartungsheft", desc: "Unterlagen für den Betrieb", phases: [0, 0, 0, 0, 1] }
-            ];
-
-            const docRowsHtml = docRowsData.map(row => `
+            // === 3. DOCUMENTATION DATA & RENDER (Dynamic from JSON) ===
+            const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
+            const docRowsHtml = docRows.length > 0 ? docRows.map(row => `
                 <tr>
                     <td style="font-weight:600">${row.name}</td>
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
                     <td>${renderPhaseBadges(row.phases)}</td>
                 </tr>
-            `).join('');
+            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center;">Keine Dokumente gefordert.</td></tr>';
 
 
             contentArea.innerHTML = `
-                <!-- HERO -->
                 <div class="detail-hero-wrapper">
                     <div class="container">
                          <div class="detail-hero">
@@ -601,7 +559,6 @@
                     </div>
                 </div>
 
-                <!-- MAIN -->
                 <div class="container">
                     <div class="detail-layout">
                         <aside class="detail-sidebar">
@@ -632,7 +589,6 @@
                                 </table>
                             </div>
 
-                            <!-- COMPACT GEOMETRY TABLE -->
                             <div id="geometrie" class="detail-section">
                                 <h2>Geometrie</h2>
                                 <p>Definiert die geometrischen Anforderungen an das Modellelement pro Phase.</p>
@@ -648,7 +604,6 @@
                                 </table>
                             </div>
 
-                            <!-- COMPACT INFORMATION TABLE -->
                             <div id="informationen" class="detail-section">
                                 <h2>Informationen</h2>
                                 <p>Alphanumerische Attribute (LOI), die dem Element zugewiesen werden müssen.</p>
@@ -667,7 +622,6 @@
                                 </table>
                             </div>
 
-                            <!-- COMPACT DOCUMENTATION TABLE -->
                             <div id="dokumentation" class="detail-section">
                                 <h2>Dokumentation</h2>
                                 <p>Erforderliche Dokumente, die mit dem Element verknüpft oder geliefert werden müssen.</p>
@@ -688,15 +642,18 @@
                 </div>
             `;
              
-             // Add click listeners to sidebar links
+             // Setup interactions (scroll, etc.) - same as before
+             setupDetailInteractions();
+        }
+
+        // Ausgelagerte Funktion für Event-Listener in der Detailansicht
+        function setupDetailInteractions() {
              document.querySelectorAll('.sidebar-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = link.getAttribute('data-target');
                     const element = document.getElementById(targetId);
-                    if(element) {
-                        element.scrollIntoView({behavior: 'smooth', block: 'start'});
-                    }
+                    if(element) element.scrollIntoView({behavior: 'smooth', block: 'start'});
                 });
              });
 
