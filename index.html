@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.3 (Tags & Lists)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.4 (Design Tweaks)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -159,12 +159,16 @@
         }
         .central-search-btn:hover { background: var(--kbob-hover-blue); }
 
-        /* Catalog Toolbar & Filter */
+        /* Catalog Toolbar & Filter - UPDATED */
         .catalog-toolbar { 
-            display: flex; justify-content: center; gap: 20px; align-items: center; 
-            margin-bottom: 30px; flex-wrap: wrap;
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; /* Specific gap requested */
+            align-items: center; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap;
         }
-        .toolbar-right { display: flex; align-items: center; gap: 20px; }
+        /* Removed .toolbar-right as requested */
         
         .az-filter-bar { 
             display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
@@ -246,7 +250,7 @@
         .data-icon-item { display: flex; align-items: center; color: var(--text-dark); }
         .data-icon-item.disabled { color: #ccc; } 
 
-        /* List View */
+        /* List View - UPDATED */
         .element-list-container { display: flex; flex-direction: column; gap: 10px; width: 100%; }
         .element-list-item {
             display: flex; align-items: center;
@@ -257,16 +261,35 @@
         .element-list-item:hover { border-color: var(--kbob-blue); transform: translateX(4px); box-shadow: var(--shadow-card-hover); }
         .list-col-name { width: 25%; font-weight: 700; color: var(--kbob-blue); font-size: 1.05rem; }
         .list-col-desc { flex: 1; color: var(--text-grey); font-size: 0.95rem; padding-right: 20px; }
-        .list-col-tags { width: 200px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+        
+        /* Updated: Tags are now a row */
+        .list-col-tags { 
+            width: 280px; 
+            display: flex; 
+            flex-direction: row; 
+            align-items: center;
+            justify-content: flex-end; 
+            gap: 8px;
+            flex-wrap: wrap; 
+        }
 
-        /* Universal Tags */
+        /* Universal Tags - UPDATED */
         .tag-badge {
             display: inline-flex; align-items: center;
             color: #fff; font-size: 0.75rem; padding: 3px 10px;
             border-radius: 12px; font-weight: 500;
         }
         .tag-badge.tag-type { background: #6c757d; } 
-        .tag-badge.tag-ifc { background: #5a6268; font-family: monospace; } 
+        
+        /* Updated: Light grey style for IFC tags */
+        .tag-badge.tag-ifc { 
+            background: #f8f9fa; 
+            color: #222; 
+            border: 1px solid #dcdcdc;
+            padding: 5px 12px;
+            font-family: monospace; 
+            font-size: 0.85rem;
+        } 
 
         /* --- DETAIL VIEW --- */
         .detail-hero-wrapper { 
@@ -395,7 +418,7 @@
             /* List View Mobile */
             .element-list-item { flex-direction: column; align-items: flex-start; gap: 10px; }
             .list-col-name, .list-col-tags { width: 100%; align-items: flex-start; }
-            .list-col-tags { flex-direction: row; }
+            .list-col-tags { flex-direction: row; justify-content: flex-start; }
         }
     </style>
 </head>
@@ -635,14 +658,13 @@
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar">${azHtml}</div>
                         
-                        <div class="toolbar-right">
-                            <button class="filter-btn ${filterBtnActive}" onclick="toggleFilter()">
-                                <span class="material-icons-outlined">filter_list</span> Filter
-                            </button>
-                            <div class="view-switcher">
-                                <button class="view-btn ${gridActive}" onclick="switchView('grid')"><span class="material-icons-outlined">grid_view</span></button>
-                                <button class="view-btn ${listActive}" onclick="switchView('list')"><span class="material-icons-outlined">view_list</span></button>
-                            </div>
+                        <button class="filter-btn ${filterBtnActive}" onclick="toggleFilter()">
+                            <span class="material-icons-outlined">filter_list</span> Filter
+                        </button>
+                        
+                        <div class="view-switcher">
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')"><span class="material-icons-outlined">grid_view</span></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')"><span class="material-icons-outlined">view_list</span></button>
                         </div>
                     </div>
                     
