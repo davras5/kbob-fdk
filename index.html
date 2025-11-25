@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V11 (Dynamic JSON)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.2 (Clean)</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -163,9 +163,28 @@
         .element-card:hover { 
             transform: translateY(-4px); box-shadow: var(--shadow-card-hover); border-color: rgba(0, 51, 102, 0.1);
         }
-        .card-img-container { height: 180px; background: #fff; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f0f0; padding: 20px; position: relative;}
+        
+        /* --- IMAGE STYLES (FULL FRAME) --- */
+        .card-img-container { 
+            height: 180px; 
+            background: #f4f6f8; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 1px solid #f0f0f0; 
+            padding: 0; /* NO PADDING */
+            position: relative;
+            overflow: hidden; 
+        }
         .placeholder-icon { font-size: 80px; color: #eee; z-index: 1; }
-        .card-img-container img { max-height: 100%; max-width: 100%; mix-blend-mode: multiply; filter: grayscale(10%) contrast(105%); z-index: 1; }
+        
+        .card-img-container img { 
+            width: 100%; /* FULL WIDTH */
+            height: 100%; /* FULL HEIGHT */
+            object-fit: cover; /* FILL THE AREA */
+            z-index: 1; 
+        }
+
         .card-body { padding: 20px; }
         .card-title { margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 800; color: var(--text-dark); line-height: 1.3;}
         .card-classification { font-size: 0.85rem; color: var(--text-grey); margin-bottom: 18px; display: block; font-weight: 600; background: #f0f2f5; display: inline-block; padding: 4px 8px; border-radius: 4px;}
@@ -198,12 +217,20 @@
             border-radius: 50px; font-weight: 600; font-size: 0.9rem;
         }
 
+        /* --- DETAIL IMAGE (NO BORDER / FULL FRAME) --- */
         .hero-image-container { 
             flex: 0 0 50%; height: 400px; display: flex; align-items: center; justify-content: center;
-            background: #fdfdfd; border-radius: 12px; border: 1px solid #f0f0f0;
+            background: #fdfdfd; border-radius: 12px; 
+            border: none; /* NO BORDER */
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            overflow: hidden; /* KEEP ROUNDED CORNERS */
         }
-        .hero-image-container img { max-width: 90%; max-height: 90%; object-fit: contain; mix-blend-mode: multiply; }
+        .hero-image-container img { 
+            width: 100%; /* FULL WIDTH */
+            height: 100%; /* FULL HEIGHT */
+            object-fit: cover; /* COVER AREA */
+            mix-blend-mode: normal; 
+        }
         .hero-image-placeholder { font-size: 120px; color: #eee; }
 
         .detail-layout { display: flex; gap: 60px; align-items: flex-start; }
@@ -248,7 +275,7 @@
         .data-table tr:last-child td { border-bottom: none; }
         .data-table tr:hover td { background-color: #fcfcfc; }
         
-        /* --- NEW: COMPACT PHASE BADGES --- */
+        /* --- COMPACT PHASE BADGES --- */
         .phase-compact-wrapper {
             display: flex; gap: 4px; justify-content: flex-start;
         }
