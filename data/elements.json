@@ -67,7 +67,7 @@
     "id": "e3",
     "title": "Wand (Massiv)",
     "classification": "IfcWall",
-    "image": "",
+    "image": "assets/img/wall.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Tragende Wand aus Beton oder Mauerwerk.",
     "general": { "ifcClass": "IfcWall", "type": "Bauelement" },
