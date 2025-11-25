@@ -231,8 +231,6 @@
             font-size: 0.95rem;
             line-height: 1.8;
             opacity: 0.9;
-            margin-bottom: 15px;
-            max-width: 400px;
         }
 
         .contact-info a {
@@ -242,6 +240,14 @@
 
         .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        .contact-copyright {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            max-width: 280px;
+            line-height: 1.6;
         }
 
         .scroll-top-btn {
@@ -1106,9 +1112,9 @@
         <div class="container">
             <h3>Kontakt</h3>
             <div class="contact-info">
-                Fellerstrasse 21 | CH-3003 Bern | <a href="/cdn-cgi/l/email-protection#d4bfb6bbb694b6b6b8fab5b0b9bdbafab7bc"><span class="__cf_email__" data-cfemail="68030a070a280a0a0446090c050106460b00">[email&#160;protected]</span></a>
+                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
             </div>
-            <div class="contact-info">
+            <div class="contact-copyright">
                 © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
             </div>
         </div>
@@ -1123,7 +1129,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
@@ -1132,7 +1138,6 @@
         let isDataLoaded = false;
         let currentView = 'grid';
         let isFilterVisible = false;
-        let detailScrollHandler = null;
 
         // --- INITIALIZATION ---
         async function initApp() {
@@ -1160,12 +1165,6 @@
             if (!isDataLoaded) return;
             let hash = window.location.hash.slice(1) || 'home';
             let elementId = null;
-
-            // Clean up previous scroll handler when navigating away from detail page
-            if (detailScrollHandler) {
-                window.removeEventListener('scroll', detailScrollHandler);
-                detailScrollHandler = null;
-            }
 
             if (hash.startsWith('element/')) {
                 const parts = hash.split('/');
@@ -1210,9 +1209,10 @@
         // --- RENDER HELPERS ---
         function renderTagsHtml(tagsData) {
             if (!tagsData) return '';
-            return Object.entries(tagsData).map(([key, value]) => 
-                `<span class="tag-badge" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`
-            ).join('');
+            let html = '';
+            if(tagsData.ifcClass) html += `<span class="tag-badge" title="Filter nach IFC: ${tagsData.ifcClass}">IFC: ${tagsData.ifcClass}</span>`;
+            if(tagsData.type) html += `<span class="tag-badge" title="Filter nach Type: ${tagsData.type}">Type: ${tagsData.type}</span>`;
+            return html;
         }
 
         function renderGridItemsHTML(items) {
@@ -1537,12 +1537,12 @@
                  if(sectionHash) document.getElementById(sectionHash)?.scrollIntoView({behavior: 'smooth', block: 'start'});
                  
                  const sections = document.querySelectorAll('.detail-section');
-                 const stickyNavLinks = document.querySelectorAll('.sticky-nav a');
+                 const navLinks = document.querySelectorAll('.sticky-nav a');
                  
                  const observer = new IntersectionObserver((entries) => {
                      entries.forEach(entry => {
                          if (entry.isIntersecting) {
-                             stickyNavLinks.forEach(link => {
+                             navLinks.forEach(link => {
                                  const target = link.getAttribute('data-target');
                                  link.classList.toggle('active', target === entry.target.id);
                              });
@@ -1551,10 +1551,10 @@
                  }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
                  
                  sections.forEach(section => observer.observe(section));
+             }, 100);
+        }
 
-                 // Handle scroll to bottom - highlight last section
-                 detailScrollHandler = () => {
-                     const scrolledToBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 100);
-                     if (scrolledToBottom && stickyNavLinks.length > 0) {
-                         stickyNavLinks.forEach(link => link.classList.remove('active'));
-                         stickyNavLinks[stickyNavLinks.length - 1].classList.add('active');
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
