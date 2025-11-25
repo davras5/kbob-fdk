@@ -6,7 +6,7 @@
     "image": "assets/img/window.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
-    "general": { "ifcClass": "IfcWindow", "type": "Bauelement" },
+    "tags": { "ifcClass": "IfcWindow", "type": "Bauelement" },
     "classifications": [
       { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
       { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" },
@@ -41,7 +41,7 @@
     "image": "assets/img/door_interior.jpg", 
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
-    "general": { "ifcClass": "IfcDoor", "type": "Bauelement" },
+    "tags": { "ifcClass": "IfcDoor", "type": "Bauelement" },
     "classifications": [
       { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" },
       { "system": "DIN 276", "code": "335", "desc": "Innentüren" }
@@ -70,7 +70,7 @@
     "image": "assets/img/wall.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Tragende Wand aus Beton oder Mauerwerk.",
-    "general": { "ifcClass": "IfcWall", "type": "Bauelement" },
+    "tags": { "ifcClass": "IfcWall", "type": "Bauelement" },
     "classifications": [
         { "system": "eBKP-H", "code": "C2.1", "desc": "Aussenwand Konstruktion" }
     ],
@@ -87,7 +87,7 @@
     "image": "assets/img/slab.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
-    "general": { "ifcClass": "IfcSlab", "type": "Tragwerk" },
+    "tags": { "ifcClass": "IfcSlab", "type": "Tragwerk" },
     "classifications": [
         { "system": "eBKP-H", "code": "C1.1", "desc": "Bodenplatte" },
         { "system": "DIN 276", "code": "322", "desc": "Flachgründungen" }
@@ -114,7 +114,7 @@
     "image": "assets/img/roof_flat.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
-    "general": { "ifcClass": "IfcSlab", "type": "Hülle" },
+    "tags": { "ifcClass": "IfcSlab", "type": "Hülle" },
     "classifications": [
         { "system": "eBKP-H", "code": "F1.2", "desc": "Flachdach befahrbar/begrünt" },
         { "system": "DIN 276", "code": "362", "desc": "Dachbeläge" }
@@ -139,7 +139,7 @@
     "image": "assets/img/column.jpg",
     "lod": true, "loi": false, "epd": true,
     "subtitle": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
-    "general": { "ifcClass": "IfcColumn", "type": "Tragwerk" },
+    "tags": { "ifcClass": "IfcColumn", "type": "Tragwerk" },
     "classifications": [
         { "system": "eBKP-H", "code": "C2.3", "desc": "Stützen (Konstruktion)" }
     ],
