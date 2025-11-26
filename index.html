@@ -1300,7 +1300,8 @@
 
     <footer>
         <div class="footer-content">
-           <a href="https://github.com/davras5/kbob-fdk" target="_blank">Codebase</a>
+           <a href="https://github.com/davras5/kbob-fdk" target="_blank">Quellcode</a>
+           <a href="https://www.admin.ch/gov/de/start/rechtliches.html" target="_blank" style="margin-left: 30px;">Rechtliches</a>
         </div>
     </footer>
 
@@ -1591,7 +1592,7 @@
          */
         function renderSidebarHeader(activeTags) {
             const resetBtn = activeTags.length > 0 
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">replay</span></button>`
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">restart_alt</span></button>`
                 : '';
             return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
