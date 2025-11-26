@@ -566,7 +566,6 @@
             border-color: var(--kbob-blue); 
         }
         
-        /* UPDATED for Floating Tag */
         .card-img-container { 
             height: 180px; 
             background: #f4f6f8; 
@@ -575,24 +574,17 @@
             justify-content: center; 
             border-bottom: 1px solid #f0f0f0; 
             overflow: hidden; 
-            position: relative; /* Changed for floating tag */
+            position: relative; /* Essential for the absolute positioning */
         }
         
-        /* NEW Class for floating tag */
-        .floating-tag {
+        /* Floating logic applied to the standard tag-badge */
+        .card-img-container .tag-badge {
             position: absolute;
             top: 12px;
             left: 12px;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--kbob-blue);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
             z-index: 10;
-            border: 1px solid #e0e0e0;
-            letter-spacing: 0.02em;
+            background-color: rgba(240, 242, 245, 0.95); /* Slight opacity match standard color */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow for visibility on image */
         }
         
         .card-img-container img { 
@@ -686,7 +678,7 @@
 
         /* Column Layout UPDATED */
         .list-col-name { 
-            width: 20%;       /* CHANGED: Reduced from 25% */
+            width: 20%;      
             font-size: 0.95rem; 
             flex-shrink: 0; 
         }
@@ -701,7 +693,7 @@
         }
         
         .list-col-tags { 
-            width: 450px;     /* CHANGED: Increased from 280px */
+            width: 450px;    
             display: flex; 
             align-items: center;
             justify-content: flex-start;
@@ -1161,7 +1153,6 @@
         // --- INITIALIZATION ---
         async function initApp() {
             try {
-                // Fetch logic maintained as requested. 
                 // Ensure 'data/elements.json' exists with the JSON structure provided.
                 const response = await fetch('data/elements.json');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -1235,22 +1226,19 @@
             ).join('');
         }
 
-        // UPDATED: Floating disziplin tag logic
+        // UPDATED: Use standard tag-badge with positioning for disziplin
         function renderGridItemsHTML(items) {
             if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
             
             return items.map(el => {
-                // 1. Extract 'disziplin' to handle separately
                 const disziplin = el.tags && el.tags['disziplin'];
-                
-                // 2. Create a copy of tags WITHOUT 'disziplin' for the bottom area
                 const otherTags = { ...el.tags };
                 if(disziplin) delete otherTags['disziplin'];
 
                 return `
                 <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
                     <div class="card-img-container">
-                        ${disziplin ? `<span class="floating-tag">disziplin: ${disziplin}</span>` : ''}
+                        ${disziplin ? `<span class="tag-badge">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
                     </div>
                     <div class="card-body">
