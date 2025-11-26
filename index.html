@@ -293,7 +293,7 @@
             color: #FFFFFF; 
             font-weight: 400; 
             font-size: 0.85rem; 
-            opacity: 0.9;
+            opacity: 0.9; 
         }
         
         footer a:hover { 
@@ -354,12 +354,12 @@
             display: inline-flex; 
             align-items: center;
             background: #f0f2f5;        
-            color: #111;              
+            color: #111;               
             border: 1px solid #d0d7de; 
             font-size: 0.8rem; 
-            font-weight: 400;            
-            padding: 6px 12px;           
-            border-radius: 20px;         
+            font-weight: 400;             
+            padding: 6px 12px;             
+            border-radius: 20px;          
             font-family: inherit;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -566,6 +566,7 @@
             border-color: var(--kbob-blue); 
         }
         
+        /* UPDATED for Floating Tag */
         .card-img-container { 
             height: 180px; 
             background: #f4f6f8; 
@@ -574,6 +575,24 @@
             justify-content: center; 
             border-bottom: 1px solid #f0f0f0; 
             overflow: hidden; 
+            position: relative; /* Changed for floating tag */
+        }
+        
+        /* NEW Class for floating tag */
+        .floating-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--kbob-blue);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            z-index: 10;
+            border: 1px solid #e0e0e0;
+            letter-spacing: 0.02em;
         }
         
         .card-img-container img { 
@@ -665,9 +684,9 @@
             background-color: var(--hover-bg);
         }
 
-        /* Column Layout (structure only - no colors) */
+        /* Column Layout UPDATED */
         .list-col-name { 
-            width: 25%; 
+            width: 20%;       /* CHANGED: Reduced from 25% */
             font-size: 0.95rem; 
             flex-shrink: 0; 
         }
@@ -682,7 +701,7 @@
         }
         
         .list-col-tags { 
-            width: 280px; 
+            width: 450px;     /* CHANGED: Increased from 280px */
             display: flex; 
             align-items: center;
             justify-content: flex-start;
@@ -1142,6 +1161,8 @@
         // --- INITIALIZATION ---
         async function initApp() {
             try {
+                // Fetch logic maintained as requested. 
+                // Ensure 'data/elements.json' exists with the JSON structure provided.
                 const response = await fetch('data/elements.json');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 globalElementsData = await response.json();
@@ -1207,7 +1228,6 @@
         }
 
         // --- RENDER HELPERS ---
-        // CHANGED: Dynamic tag rendering - loads ALL tags from the tags object
         function renderTagsHtml(tagsData) {
             if (!tagsData) return '';
             return Object.entries(tagsData).map(([key, value]) => 
@@ -1215,21 +1235,31 @@
             ).join('');
         }
 
+        // UPDATED: Floating disziplin tag logic
         function renderGridItemsHTML(items) {
             if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
             
-            return items.map(el => `
+            return items.map(el => {
+                // 1. Extract 'disziplin' to handle separately
+                const disziplin = el.tags && el.tags['disziplin'];
+                
+                // 2. Create a copy of tags WITHOUT 'disziplin' for the bottom area
+                const otherTags = { ...el.tags };
+                if(disziplin) delete otherTags['disziplin'];
+
+                return `
                 <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
                     <div class="card-img-container">
+                        ${disziplin ? `<span class="floating-tag">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">${el.title}</h3>
                         <p class="card-subtitle">${el.subtitle || el.classification}</p>
-                        <div class="card-tags">${renderTagsHtml(el.tags)}</div>
+                        <div class="card-tags">${renderTagsHtml(otherTags)}</div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         function renderListItemsHTML(items) {
