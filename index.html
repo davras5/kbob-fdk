@@ -574,51 +574,31 @@
             border-color: var(--kbob-blue);
         }
 
-        /* Filter count badge */
-        .filter-count {
-            display: inline-flex;
+        /* Floating filter count badge on toolbar-control */
+        .toolbar-control {
+            position: relative;
+        }
+
+        .toolbar-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            display: flex;
             align-items: center;
             justify-content: center;
             background: var(--accent-red);
             color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             min-width: 20px;
             height: 20px;
-            padding: 0 6px;
+            padding: 0 5px;
             border-radius: 10px;
-            margin-left: 4px;
-            border: 1.5px solid #000;
-        }
-
-        .filter-btn.has-tags .filter-count {
-            background: #fff;
-            color: var(--kbob-blue);
-        }
-
-        /* Clear tags button */
-        .filter-clear {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: none;
-            color: inherit;
-            cursor: pointer;
-            padding: 0;
-            margin-left: 4px;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            transition: background 0.2s;
-        }
-
-        .filter-clear:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .filter-clear .material-icons-outlined {
-            font-size: 16px;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            line-height: 1;
+            box-sizing: border-box;
+            z-index: 10;
         }
 
 
@@ -661,21 +641,23 @@
 
         .sidebar-reset-btn {
             background: none;
-            border: 1px solid var(--border-color);
+            border: none;
             color: var(--text-grey);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: color 0.2s;
             font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .sidebar-reset-btn:hover {
-            background: var(--kbob-blue);
-            color: #fff;
-            border-color: var(--kbob-blue);
+            color: var(--kbob-blue);
+        }
+
+        .sidebar-reset-btn .material-icons-outlined {
+            font-size: 24px;
         }
         
         .filter-group { 
@@ -1607,37 +1589,31 @@
         }
         
         /**
-         * Render sidebar header with optional reset button
+         * Render sidebar header with optional reset icon
          */
         function renderSidebarHeader(activeTags) {
             const resetBtn = activeTags.length > 0 
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()">Zurücksetzen</button>`
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">restart_alt</span></button>`
                 : '';
             return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
         
         /**
-         * Render filter button with count and clear option
+         * Render filter button with floating badge
          */
         function renderFilterButton(type, isVisible, activeTagCount) {
             const activeClass = isVisible ? 'active' : '';
-            const hasTagsClass = activeTagCount > 0 ? 'has-tags' : '';
             
-            let countBadge = '';
-            let clearBtn = '';
-            
-            if (activeTagCount > 0) {
-                countBadge = `<span class="filter-count">${activeTagCount}</span>`;
-                clearBtn = `<button class="filter-clear" onclick="event.stopPropagation(); clearAllTagsFromURL()" title="Alle Filter entfernen"><span class="material-icons-outlined">close</span></button>`;
-            }
+            const badge = activeTagCount > 0 
+                ? `<span class="toolbar-badge">${activeTagCount}</span>` 
+                : '';
             
             return `
                 <div class="toolbar-control">
-                    <button class="filter-btn ${activeClass} ${hasTagsClass}" onclick="toggleFilter('${type}')">
+                    ${badge}
+                    <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
                         <span class="material-icons-outlined">filter_list</span> 
                         Filter
-                        ${countBadge}
-                        ${clearBtn}
                     </button>
                 </div>
             `;
