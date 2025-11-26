@@ -956,6 +956,14 @@
             border-color: var(--kbob-blue); 
         }
 
+        /* Tooltip Name Style for Informationen Table */
+        .info-name-tooltip {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            cursor: help;
+        }
+
         /* ============================================
            STATE INDICATORS
            ============================================ */
@@ -1438,14 +1446,13 @@
             const infoRowsHtml = infoRows.length > 0 
                 ? infoRows.map(row => `
                     <tr>
-                        <td class="col-val">${row.name}</td>
-                        <td class="col-val">${row.desc}</td>
+                        <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
                         <td class="col-center"><span class="data-badge">${row.format || '-'}</span></td>
                         <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
                         <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
-                : '<tr><td colspan="6" class="col-center" style="color:#999; padding:20px;">Keine Attribute (LOI).</td></tr>';
+                : '<tr><td colspan="5" class="col-center" style="color:#999; padding:20px;">Keine Attribute (LOI).</td></tr>';
 
             const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
             const docRowsHtml = docRows.length > 0 
@@ -1515,7 +1522,6 @@
                                 <table class="data-table">
                                     <thead><tr>
                                         <th class="th-w-20">Name</th>
-                                        <th class="th-w-20">Beschreibung</th>
                                         <th class="th-w-format">Format</th>
                                         <th class="th-w-list">Liste</th>
                                         <th>IFC Mapping</th>
