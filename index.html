@@ -998,7 +998,6 @@
         }
 
         .list-icon-active {
-            font-weight: bold;
             color: var(--kbob-blue);
             font-size: 1.5rem !important;
         }
@@ -1840,7 +1839,7 @@
                     <tr>
                         <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
                         <td class="col-val"><span class="data-badge">${row.format || '-'}</span></td>
-                        <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">menu</span>' : '-'}</td>
+                        <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
                         <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
