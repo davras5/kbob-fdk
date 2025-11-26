@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB Fachdatenkatalog - Mockup V3.2</title>
+    <title>KBOB Fachdatenkatalog - Mockup V3.3</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -440,6 +440,19 @@
             color: var(--kbob-blue);
         }
 
+        /* Active tag state */
+        .tag-badge.active {
+            background: var(--kbob-blue);
+            color: #fff;
+            border-color: var(--kbob-blue);
+        }
+
+        .tag-badge.active:hover {
+            background: var(--kbob-hover-blue);
+            border-color: var(--kbob-hover-blue);
+            color: #fff;
+        }
+
         /* ============================================
            CATALOG TOOLBAR
            ============================================ */
@@ -559,6 +572,122 @@
             background: var(--kbob-blue); 
             color: #fff; 
             border-color: var(--kbob-blue);
+        }
+
+        /* Filter count badge */
+        .filter-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-red);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 6px;
+            border-radius: 10px;
+            margin-left: 4px;
+        }
+
+        .filter-btn.has-tags .filter-count {
+            background: #fff;
+            color: var(--kbob-blue);
+        }
+
+        /* Clear tags button */
+        .filter-clear {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 4px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            transition: background 0.2s;
+        }
+
+        .filter-clear:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .filter-clear .material-icons-outlined {
+            font-size: 16px;
+        }
+
+        /* ============================================
+           ACTIVE FILTERS DISPLAY
+           ============================================ */
+        .active-filters-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 4px;
+        }
+
+        .active-filters-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .active-filter-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--kbob-blue);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .active-filter-tag button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .active-filter-tag button:hover {
+            opacity: 1;
+        }
+
+        .active-filter-tag button .material-icons-outlined {
+            font-size: 16px;
+        }
+
+        .clear-all-filters {
+            background: none;
+            border: 1px solid var(--text-grey);
+            color: var(--text-grey);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .clear-all-filters:hover {
+            background: var(--text-grey);
+            color: #fff;
         }
 
         /* ============================================
@@ -1068,6 +1197,22 @@
             color: var(--text-grey); 
             border: 1px dashed var(--border-color); 
             border-radius: 4px;
+            background: var(--bg-white);
+        }
+
+        .no-results h3 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .no-results .clear-filter-link {
+            color: var(--kbob-blue);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .no-results .clear-filter-link:hover {
+            color: var(--kbob-hover-blue);
         }
 
         /* ============================================
@@ -1183,12 +1328,12 @@
         </div>
         <nav class="main-nav">
             <div class="container">
-                <ul>
-                    <li><a href="#home" class="nav-link active">Startseite</a></li>
+                <ul id="main-nav-list">
+                    <li><a href="#home" class="nav-link active" data-route="home">Startseite</a></li>
                     <li><a href="#" class="nav-link disabled">Anwendungsfälle</a></li>
-                    <li><a href="#catalog" class="nav-link">Elemente</a></li>
+                    <li><a href="#catalog" class="nav-link" data-route="catalog">Elemente</a></li>
                     <li><a href="#" class="nav-link disabled">Fachmodelle</a></li>
-                    <li><a href="#documents" class="nav-link">Dokumente</a></li>
+                    <li><a href="#documents" class="nav-link" data-route="documents">Dokumente</a></li>
                     <li><a href="#" class="nav-link disabled">Ökobilanzdaten</a></li>
                     <li><a href="#" class="nav-link disabled">Handbuch & Download</a></li>
                 </ul>
@@ -1226,20 +1371,158 @@
 
     <script>
         const contentArea = document.getElementById('content-area');
-        const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
         // --- STATE ---
         let globalElementsData = [];
         let globalDocumentsData = [];
         let isDataLoaded = false;
-        let currentView = 'grid';
-        let isFilterVisible = false;
         
         // Separate view states for elements and documents
         let elementsView = 'grid';
         let documentsView = 'grid';
         let elementsFilterVisible = false;
         let documentsFilterVisible = false;
+
+        // ============================================
+        // URL UTILITY FUNCTIONS
+        // ============================================
+        
+        /**
+         * Parse the current hash and extract route, id, and tags
+         * @returns {Object} { route: string, id: string|null, tags: string[] }
+         */
+        function parseHashWithParams() {
+            const fullHash = window.location.hash.slice(1) || 'home';
+            const [hashPart, queryPart] = fullHash.split('?');
+            
+            // Parse route and id
+            let route = hashPart;
+            let id = null;
+            
+            if (hashPart.startsWith('element/')) {
+                route = 'element';
+                id = hashPart.split('/')[1];
+            } else if (hashPart.startsWith('document/')) {
+                route = 'document';
+                id = hashPart.split('/')[1];
+            }
+            
+            // Parse tags from query params
+            const tags = [];
+            if (queryPart) {
+                const params = new URLSearchParams(queryPart);
+                params.getAll('tag').forEach(tag => {
+                    if (tag && tag.includes(':')) {
+                        tags.push(tag);
+                    }
+                });
+            }
+            
+            return { route, id, tags };
+        }
+        
+        /**
+         * Get active tags from the current URL
+         * @returns {string[]} Array of tag strings like ['disziplin:Architektur', 'ifcClass:IfcWindow']
+         */
+        function getActiveTagsFromURL() {
+            return parseHashWithParams().tags;
+        }
+        
+        /**
+         * Build a hash string with tags
+         * @param {string} baseHash - The base hash without params (e.g., 'catalog', 'element/e1')
+         * @param {string[]} tags - Array of tag strings
+         * @returns {string} Complete hash string with params
+         */
+        function buildHashWithTags(baseHash, tags) {
+            if (!tags || tags.length === 0) {
+                return baseHash;
+            }
+            const params = tags.map(tag => `tag=${encodeURIComponent(tag)}`).join('&');
+            return `${baseHash}?${params}`;
+        }
+        
+        /**
+         * Toggle a tag in the URL (add if missing, remove if present)
+         * @param {string} key - Tag key (e.g., 'disziplin')
+         * @param {string} value - Tag value (e.g., 'Architektur')
+         */
+        window.toggleTagInURL = function(key, value) {
+            const tagString = `${key}:${value}`;
+            const { route, id, tags } = parseHashWithParams();
+            
+            const tagIndex = tags.indexOf(tagString);
+            if (tagIndex > -1) {
+                // Remove tag
+                tags.splice(tagIndex, 1);
+            } else {
+                // Add tag
+                tags.push(tagString);
+            }
+            
+            // Build base hash
+            let baseHash = route;
+            if (id) {
+                baseHash = `${route}/${id}`;
+            }
+            
+            // Navigate to new URL
+            window.location.hash = buildHashWithTags(baseHash, tags);
+        }
+        
+        /**
+         * Clear all tags from URL
+         */
+        window.clearAllTagsFromURL = function() {
+            const { route, id } = parseHashWithParams();
+            let baseHash = route;
+            if (id) {
+                baseHash = `${route}/${id}`;
+            }
+            window.location.hash = baseHash;
+        }
+        
+        /**
+         * Navigate to a route while preserving current tags
+         * @param {string} targetRoute - Target route (e.g., 'catalog', 'documents')
+         */
+        function navigateWithTags(targetRoute) {
+            const tags = getActiveTagsFromURL();
+            window.location.hash = buildHashWithTags(targetRoute, tags);
+        }
+        
+        /**
+         * Filter data by active tags (AND logic - must match all tags)
+         * @param {Array} data - Array of data items
+         * @param {string[]} activeTags - Array of tag strings
+         * @returns {Array} Filtered data
+         */
+        function filterDataByTags(data, activeTags) {
+            if (!activeTags || activeTags.length === 0) {
+                return data;
+            }
+            
+            return data.filter(item => {
+                if (!item.tags) return false;
+                
+                return activeTags.every(tagString => {
+                    const [key, value] = tagString.split(':');
+                    return item.tags[key] === value;
+                });
+            });
+        }
+        
+        /**
+         * Check if a specific tag is active
+         * @param {string} key - Tag key
+         * @param {string} value - Tag value
+         * @returns {boolean}
+         */
+        function isTagActive(key, value) {
+            const activeTags = getActiveTagsFromURL();
+            return activeTags.includes(`${key}:${value}`);
+        }
 
         // --- INITIALIZATION ---
         async function initApp() {
@@ -1257,6 +1540,10 @@
                 globalDocumentsData = await documentsResponse.json();
                 
                 isDataLoaded = true;
+                
+                // Setup nav link click handlers for tag preservation
+                setupNavLinks();
+                
                 window.addEventListener('hashchange', router);
                 router();
             } catch (error) {
@@ -1270,60 +1557,65 @@
                     </div>`;
             }
         }
+        
+        /**
+         * Setup nav links to preserve tags when switching tabs
+         */
+        function setupNavLinks() {
+            document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const route = link.getAttribute('data-route');
+                    if (route) {
+                        e.preventDefault();
+                        navigateWithTags(route);
+                    }
+                });
+            });
+        }
 
         // --- ROUTER ---
         function router() {
             if (!isDataLoaded) return;
-            let hash = window.location.hash.slice(1) || 'home';
-            let elementId = null;
-            let documentId = null;
+            
+            const { route, id, tags } = parseHashWithParams();
 
-            if (hash.startsWith('element/')) {
-                const parts = hash.split('/');
-                hash = parts[0]; 
-                elementId = parts[1]; 
-            } else if (hash.startsWith('document/')) {
-                const parts = hash.split('/');
-                hash = parts[0]; 
-                documentId = parts[1]; 
-            }
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href').substring(1);
+            // Update nav active states
+            document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
+                const linkRoute = link.getAttribute('data-route');
                 let isActive = false;
-                if (hash === 'element') {
-                    isActive = (href === 'catalog');
-                } else if (hash === 'document') {
-                    isActive = (href === 'documents');
+                if (route === 'element') {
+                    isActive = (linkRoute === 'catalog');
+                } else if (route === 'document') {
+                    isActive = (linkRoute === 'documents');
                 } else {
-                    isActive = (href === hash);
+                    isActive = (linkRoute === route);
                 }
                 link.classList.toggle('active', isActive);
             });
 
             contentArea.classList.remove('white-bg');
 
-            switch(hash) {
+            switch(route) {
                 case 'home': renderHomePage(); break;
-                case 'catalog': renderCatalogPage(); break;
-                case 'documents': renderDocumentsCatalogPage(); break;
+                case 'catalog': renderCatalogPage(tags); break;
+                case 'documents': renderDocumentsCatalogPage(tags); break;
                 case 'element': 
-                    if(elementId) {
+                    if(id) {
                         contentArea.classList.add('white-bg'); 
-                        renderElementDetailPage(elementId);
+                        renderElementDetailPage(id, tags);
                     } else {
-                        window.location.hash = '#catalog';
+                        navigateWithTags('catalog');
                     }
                     break;
                 case 'document': 
-                    if(documentId) {
+                    if(id) {
                         contentArea.classList.add('white-bg'); 
-                        renderDocumentDetailPage(documentId);
+                        renderDocumentDetailPage(id, tags);
                     } else {
-                        window.location.hash = '#documents';
+                        navigateWithTags('documents');
                     }
                     break;
-                default: window.location.hash = '#home';
+                default: navigateWithTags('home');
             }
         }
 
@@ -1331,57 +1623,133 @@
         window.switchView = function(view, type = 'elements') {
             if (type === 'elements') {
                 elementsView = view;
-                renderCatalogPage();
+                renderCatalogPage(getActiveTagsFromURL());
             } else {
                 documentsView = view;
-                renderDocumentsCatalogPage();
+                renderDocumentsCatalogPage(getActiveTagsFromURL());
             }
         }
 
         window.toggleFilter = function(type = 'elements') {
             if (type === 'elements') {
                 elementsFilterVisible = !elementsFilterVisible;
-                renderCatalogPage();
+                renderCatalogPage(getActiveTagsFromURL());
             } else {
                 documentsFilterVisible = !documentsFilterVisible;
-                renderDocumentsCatalogPage();
+                renderDocumentsCatalogPage(getActiveTagsFromURL());
             }
         }
 
         // --- RENDER HELPERS ---
-        function renderTagsHtml(tagsData) {
+        function renderTagsHtml(tagsData, activeTags = []) {
             if (!tagsData) return '';
-            return Object.entries(tagsData).map(([key, value]) => 
-                `<span class="tag-badge" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`
-            ).join('');
+            return Object.entries(tagsData).map(([key, value]) => {
+                const tagString = `${key}:${value}`;
+                const isActive = activeTags.includes(tagString);
+                const activeClass = isActive ? 'active' : '';
+                return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${key}', '${value}')" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`;
+            }).join('');
+        }
+        
+        /**
+         * Render active filters bar
+         */
+        function renderActiveFiltersBar(activeTags) {
+            if (!activeTags || activeTags.length === 0) return '';
+            
+            const tagBadges = activeTags.map(tagString => {
+                const [key, value] = tagString.split(':');
+                return `
+                    <span class="active-filter-tag">
+                        ${key}: ${value}
+                        <button onclick="toggleTagInURL('${key}', '${value}')" title="Filter entfernen">
+                            <span class="material-icons-outlined">close</span>
+                        </button>
+                    </span>
+                `;
+            }).join('');
+            
+            return `
+                <div class="active-filters-bar">
+                    <span class="active-filters-label">Aktive Filter:</span>
+                    ${tagBadges}
+                    <button class="clear-all-filters" onclick="clearAllTagsFromURL()">Alle entfernen</button>
+                </div>
+            `;
+        }
+        
+        /**
+         * Render filter button with count and clear option
+         */
+        function renderFilterButton(type, isVisible, activeTagCount) {
+            const activeClass = isVisible ? 'active' : '';
+            const hasTagsClass = activeTagCount > 0 ? 'has-tags' : '';
+            
+            let countBadge = '';
+            let clearBtn = '';
+            
+            if (activeTagCount > 0) {
+                countBadge = `<span class="filter-count">${activeTagCount}</span>`;
+                clearBtn = `<button class="filter-clear" onclick="event.stopPropagation(); clearAllTagsFromURL()" title="Alle Filter entfernen"><span class="material-icons-outlined">close</span></button>`;
+            }
+            
+            return `
+                <div class="toolbar-control">
+                    <button class="filter-btn ${activeClass} ${hasTagsClass}" onclick="toggleFilter('${type}')">
+                        <span class="material-icons-outlined">filter_list</span> 
+                        Filter
+                        ${countBadge}
+                        ${clearBtn}
+                    </button>
+                </div>
+            `;
+        }
+        
+        /**
+         * Render no results message with clear filter option
+         */
+        function renderNoResults(hasActiveTags) {
+            if (hasActiveTags) {
+                return `
+                    <div class="no-results">
+                        <h3>Keine Ergebnisse gefunden</h3>
+                        <p>Die aktiven Filter ergeben keine Treffer.</p>
+                        <p><span class="clear-filter-link" onclick="clearAllTagsFromURL()">Filter zurücksetzen</span></p>
+                    </div>
+                `;
+            }
+            return '<div class="no-results">Keine Elemente gefunden.</div>';
         }
 
         // Elements Grid/List Renderers
-        function renderGridItemsHTML(items) {
-            if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
+        function renderGridItemsHTML(items, activeTags = []) {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
             
             return items.map(el => {
                 const disziplin = el.tags && el.tags['disziplin'];
                 const otherTags = { ...el.tags };
                 if(disziplin) delete otherTags['disziplin'];
+                
+                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
+                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
 
                 return `
-                <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
+                <div class="element-card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card-img-container">
-                        ${disziplin ? `<span class="tag-badge">disziplin: ${disziplin}</span>` : ''}
+                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">${el.title}</h3>
                         <p class="card-subtitle">${el.subtitle || el.classification}</p>
-                        <div class="card-tags">${renderTagsHtml(otherTags)}</div>
+                        <div class="card-tags">${renderTagsHtml(otherTags, activeTags)}</div>
                     </div>
                 </div>
             `}).join('');
         }
 
-        function renderListItemsHTML(items) {
-            if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
+        function renderListItemsHTML(items, activeTags = []) {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
             
             const headerHtml = `
                 <div class="list-header-row">
@@ -1392,10 +1760,10 @@
             `;
 
             const itemsHtml = items.map(el => `
-                <div class="element-list-item" onclick="window.location.hash='#element/${el.id}'">
+                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="list-col-name">${el.title}</div>
                     <div class="list-col-desc">${el.subtitle || el.classification}</div>
-                    <div class="list-col-tags">${renderTagsHtml(el.tags)}</div>
+                    <div class="list-col-tags">${renderTagsHtml(el.tags, activeTags)}</div>
                 </div>
             `).join('');
 
@@ -1403,31 +1771,34 @@
         }
 
         // Documents Grid/List Renderers
-        function renderDocGridItemsHTML(items) {
-            if (!items || items.length === 0) return '<div class="no-results">Keine Dokumente gefunden.</div>';
+        function renderDocGridItemsHTML(items, activeTags = []) {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
             
             return items.map(doc => {
                 const disziplin = doc.tags && doc.tags['disziplin'];
                 const otherTags = { ...doc.tags };
                 if(disziplin) delete otherTags['disziplin'];
+                
+                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
+                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
 
                 return `
-                <div class="element-card" onclick="window.location.hash='#document/${doc.id}'">
+                <div class="element-card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card-img-container">
-                        ${disziplin ? `<span class="tag-badge">disziplin: ${disziplin}</span>` : ''}
+                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon">description</span>'}
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">${doc.title}</h3>
                         <p class="card-subtitle">${doc.description || doc.category}</p>
-                        <div class="card-tags">${renderTagsHtml(otherTags)}</div>
+                        <div class="card-tags">${renderTagsHtml(otherTags, activeTags)}</div>
                     </div>
                 </div>
             `}).join('');
         }
 
-        function renderDocListItemsHTML(items) {
-            if (!items || items.length === 0) return '<div class="no-results">Keine Dokumente gefunden.</div>';
+        function renderDocListItemsHTML(items, activeTags = []) {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
             
             const headerHtml = `
                 <div class="list-header-row">
@@ -1438,10 +1809,10 @@
             `;
 
             const itemsHtml = items.map(doc => `
-                <div class="element-list-item" onclick="window.location.hash='#document/${doc.id}'">
+                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="list-col-name">${doc.title}</div>
                     <div class="list-col-desc">${doc.description || doc.category}</div>
-                    <div class="list-col-tags">${renderTagsHtml(doc.tags)}</div>
+                    <div class="list-col-tags">${renderTagsHtml(doc.tags, activeTags)}</div>
                 </div>
             `).join('');
 
@@ -1473,13 +1844,16 @@
                 }
             });
 
-            let filteredData = (letter === 'ALL') 
-                ? globalElementsData 
-                : globalElementsData.filter(el => el.title.trim().toUpperCase().startsWith(letter));
+            const activeTags = getActiveTagsFromURL();
+            let filteredData = filterDataByTags(globalElementsData, activeTags);
+            
+            if (letter !== 'ALL') {
+                filteredData = filteredData.filter(el => el.title.trim().toUpperCase().startsWith(letter));
+            }
             
             contentContainer.innerHTML = (elementsView === 'grid') 
-                ? `<div class="element-grid">${renderGridItemsHTML(filteredData)}</div>`
-                : renderListItemsHTML(filteredData);
+                ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags)}</div>`
+                : renderListItemsHTML(filteredData, activeTags);
         };
 
         // Filter by letter - Documents
@@ -1495,23 +1869,26 @@
                 }
             });
 
-            let filteredData = (letter === 'ALL') 
-                ? globalDocumentsData 
-                : globalDocumentsData.filter(doc => doc.title.trim().toUpperCase().startsWith(letter));
+            const activeTags = getActiveTagsFromURL();
+            let filteredData = filterDataByTags(globalDocumentsData, activeTags);
+            
+            if (letter !== 'ALL') {
+                filteredData = filteredData.filter(doc => doc.title.trim().toUpperCase().startsWith(letter));
+            }
             
             contentContainer.innerHTML = (documentsView === 'grid') 
-                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData)}</div>`
-                : renderDocListItemsHTML(filteredData);
+                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags)}</div>`
+                : renderDocListItemsHTML(filteredData, activeTags);
         };
 
         // --- GLOBAL SEARCH (Homepage) ---
         function performGlobalSearch(query) {
             const results = {
-                anwendungsfaelle: [], // Future: globalAnwendungsfaelleData
+                anwendungsfaelle: [],
                 elemente: [],
-                fachmodelle: [], // Future: globalFachmodelleData
+                fachmodelle: [],
                 dokumente: [],
-                oekobilanzdaten: [] // Future: globalOekobilanzdatenData
+                oekobilanzdaten: []
             };
             
             const searchTerm = query.toLowerCase().trim();
@@ -1641,8 +2018,11 @@
             setupGlobalSearch();
         }
 
-        function renderCatalogPage() {
-            const usedLetters = new Set(globalElementsData.map(el => el.title.trim().charAt(0).toUpperCase()));
+        function renderCatalogPage(activeTags = []) {
+            // Filter data by active tags
+            const filteredByTags = filterDataByTags(globalElementsData, activeTags);
+            
+            const usedLetters = new Set(filteredByTags.map(el => el.title.trim().charAt(0).toUpperCase()));
             const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
             
             let azHtml = alphabet.map(letter => {
@@ -1652,7 +2032,6 @@
             azHtml += `<button class="az-btn all-btn active" onclick="filterCatalogByLetter('ALL')">ALLE</button>`;
 
             const filterPanelClass = elementsFilterVisible ? '' : 'closed';
-            const filterBtnActive = elementsFilterVisible ? 'active' : '';
             const gridActive = elementsView === 'grid' ? 'active' : '';
             const listActive = elementsView === 'list' ? 'active' : '';
 
@@ -1666,14 +2045,12 @@
                         </div>
                     </div>
                     
+                    ${renderActiveFiltersBar(activeTags)}
+                    
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar toolbar-control">${azHtml}</div>
                         
-                        <div class="toolbar-control">
-                            <button class="filter-btn ${filterBtnActive}" onclick="toggleFilter('elements')">
-                                <span class="material-icons-outlined">filter_list</span> Filter
-                            </button>
-                        </div>
+                        ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')"><span class="material-icons-outlined">grid_view</span></button>
@@ -1691,8 +2068,8 @@
                         
                         <div id="catalogContent" style="flex:1; min-width:0;">
                              ${elementsView === 'grid' 
-                                ? `<div class="element-grid">${renderGridItemsHTML(globalElementsData)}</div>` 
-                                : renderListItemsHTML(globalElementsData)
+                                ? `<div class="element-grid">${renderGridItemsHTML(filteredByTags, activeTags)}</div>` 
+                                : renderListItemsHTML(filteredByTags, activeTags)
                             }
                         </div>
                     </div>
@@ -1704,21 +2081,27 @@
                 searchInput.addEventListener('input', (e) => {
                     document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
                     const searchTerm = e.target.value.toLowerCase();
-                    const filteredData = globalElementsData.filter(el => 
+                    
+                    // First filter by tags, then by search term
+                    let filteredData = filterDataByTags(globalElementsData, activeTags);
+                    filteredData = filteredData.filter(el => 
                         el.title.toLowerCase().includes(searchTerm) || 
                         el.classification.toLowerCase().includes(searchTerm)
                     );
                     
                     const container = document.getElementById('catalogContent');
                     container.innerHTML = (elementsView === 'grid') 
-                        ? `<div class="element-grid">${renderGridItemsHTML(filteredData)}</div>`
-                        : renderListItemsHTML(filteredData);
+                        ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags)}</div>`
+                        : renderListItemsHTML(filteredData, activeTags);
                 });
             }
         }
 
-        function renderDocumentsCatalogPage() {
-            const usedLetters = new Set(globalDocumentsData.map(doc => doc.title.trim().charAt(0).toUpperCase()));
+        function renderDocumentsCatalogPage(activeTags = []) {
+            // Filter data by active tags
+            const filteredByTags = filterDataByTags(globalDocumentsData, activeTags);
+            
+            const usedLetters = new Set(filteredByTags.map(doc => doc.title.trim().charAt(0).toUpperCase()));
             const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
             
             let azHtml = alphabet.map(letter => {
@@ -1728,7 +2111,6 @@
             azHtml += `<button class="az-btn all-btn active" onclick="filterDocumentsByLetter('ALL')">ALLE</button>`;
 
             const filterPanelClass = documentsFilterVisible ? '' : 'closed';
-            const filterBtnActive = documentsFilterVisible ? 'active' : '';
             const gridActive = documentsView === 'grid' ? 'active' : '';
             const listActive = documentsView === 'list' ? 'active' : '';
 
@@ -1742,14 +2124,12 @@
                         </div>
                     </div>
                     
+                    ${renderActiveFiltersBar(activeTags)}
+                    
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar toolbar-control">${azHtml}</div>
                         
-                        <div class="toolbar-control">
-                            <button class="filter-btn ${filterBtnActive}" onclick="toggleFilter('documents')">
-                                <span class="material-icons-outlined">filter_list</span> Filter
-                            </button>
-                        </div>
+                        ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')"><span class="material-icons-outlined">grid_view</span></button>
@@ -1767,8 +2147,8 @@
                         
                         <div id="documentsContent" style="flex:1; min-width:0;">
                              ${documentsView === 'grid' 
-                                ? `<div class="element-grid">${renderDocGridItemsHTML(globalDocumentsData)}</div>` 
-                                : renderDocListItemsHTML(globalDocumentsData)
+                                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>` 
+                                : renderDocListItemsHTML(filteredByTags, activeTags)
                             }
                         </div>
                     </div>
@@ -1780,7 +2160,10 @@
                 searchInput.addEventListener('input', (e) => {
                     document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
                     const searchTerm = e.target.value.toLowerCase();
-                    const filteredData = globalDocumentsData.filter(doc => 
+                    
+                    // First filter by tags, then by search term
+                    let filteredData = filterDataByTags(globalDocumentsData, activeTags);
+                    filteredData = filteredData.filter(doc => 
                         doc.title.toLowerCase().includes(searchTerm) || 
                         doc.category.toLowerCase().includes(searchTerm) ||
                         doc.description.toLowerCase().includes(searchTerm)
@@ -1788,13 +2171,13 @@
                     
                     const container = document.getElementById('documentsContent');
                     container.innerHTML = (documentsView === 'grid') 
-                        ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData)}</div>`
-                        : renderDocListItemsHTML(filteredData);
+                        ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags)}</div>`
+                        : renderDocListItemsHTML(filteredData, activeTags);
                 });
             }
         }
 
-        function renderElementDetailPage(id) {
+        function renderElementDetailPage(id, activeTags = []) {
             const data = globalElementsData.find(element => element.id === id);
             if(!data) { 
                 contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>'; 
@@ -1855,15 +2238,18 @@
                     </tr>`).join('') 
                 : '<tr><td colspan="3" class="col-center" style="color:#999; padding:20px;">Keine Dokumente.</td></tr>';
 
+            // Build back link with tags preserved
+            const backLink = buildHashWithTags('catalog', activeTags);
+
             contentArea.innerHTML = `
                 <div class="detail-hero-wrapper">
                     <div class="container">
                          <div class="detail-hero">
                              <div class="hero-content">
-                                <div class="breadcrumb"><a href="#catalog"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
+                                <div class="breadcrumb"><a href="#${backLink}"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
                                 <h1 class="hero-title">${data.title}</h1>
                                 <p class="hero-subtitle">${data.subtitle || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags)}</div>
+                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                              </div>
                              <div class="hero-image-container">
                                 ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">image</span>'}
@@ -1937,23 +2323,25 @@
             setupDetailInteractions();
         }
 
-        function renderDocumentDetailPage(id) {
+        function renderDocumentDetailPage(id, activeTags = []) {
             const data = globalDocumentsData.find(doc => doc.id === id);
             if(!data) { 
                 contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden. Detail-Seite für Dokumente ist noch in Entwicklung.</div>'; 
                 return; 
             }
             
-            // Placeholder detail page for documents
+            // Build back link with tags preserved
+            const backLink = buildHashWithTags('documents', activeTags);
+            
             contentArea.innerHTML = `
                 <div class="detail-hero-wrapper">
                     <div class="container">
                          <div class="detail-hero">
                              <div class="hero-content">
-                                <div class="breadcrumb"><a href="#documents"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
+                                <div class="breadcrumb"><a href="#${backLink}"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
                                 <h1 class="hero-title">${data.title}</h1>
                                 <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags)}</div>
+                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                              </div>
                              <div class="hero-image-container">
                                 ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">description</span>'}
