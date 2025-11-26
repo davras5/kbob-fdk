@@ -901,7 +901,7 @@
 
         /* Table Column Widths */
         .th-w-20 { width: 20%; }
-        .th-w-format { width: 120px; text-align: center !important; }
+        .th-w-format { width: 100px; }
         .th-w-list { width: 80px; text-align: center !important; }
         .th-w-phases { width: 200px; text-align: center !important; }
         
@@ -1447,7 +1447,7 @@
                 ? infoRows.map(row => `
                     <tr>
                         <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
-                        <td class="col-center"><span class="data-badge">${row.format || '-'}</span></td>
+                        <td class="col-val"><span class="data-badge">${row.format || '-'}</span></td>
                         <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
                         <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
@@ -1502,7 +1502,7 @@
                             <div id="ifc" class="detail-section">
                                 <h2>IFC-Klasse</h2>
                                 <table class="data-table">
-                                    <thead><tr><th class="th-w-20">Element</th><th class="th-w-20">IFC 4.3</th><th>Revit ENG</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Element</th><th>IFC 4.3</th><th>Revit ENG</th></tr></thead>
                                     <tbody>${ifcRows}</tbody>
                                 </table>
                             </div>
