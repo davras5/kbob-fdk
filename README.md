@@ -6,6 +6,14 @@ This application serves as an interactive prototype to make BIM requirements, cl
 
 - Deployed: [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
+<p align="center">
+  <img src="assets/readme/preview1.jpg" width="45%"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/readme/preview2.jpg" width="45%"/>
+  &nbsp;&nbsp;&nbsp;
+</p>
+
+
 ## About the Project
 
 The KBOB BIM Data Catalog defines information requirements for the ordering and management of buildings. This project visualizes this data as a "Single Source of Truth" in a modern, responsive web application.
