@@ -4,7 +4,7 @@ A web mockup for the digital **BIM Data Catalog** of KBOB (Coordination Conferen
 
 This application serves as an interactive prototype to make BIM requirements, classifications, and attributes (LOI) for building elements accessible via the web.
 
-**Live Demo:** [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
+- Deployed: [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
 ## About the Project
 
