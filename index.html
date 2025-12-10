@@ -313,7 +313,7 @@
         }
 
         /* ============================================
-           HEADER
+           HEADER (Swiss Federal Design)
            ============================================ */
         header {
             background: var(--color-white);
@@ -321,37 +321,67 @@
             position: relative;
             z-index: var(--z-sticky);
             flex-shrink: 0;
-            border-bottom: 4px solid var(--color-primary); /* Swiss Federal red line */
         }
 
         .header__top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--space-md) var(--space-lg);
-            border-bottom: 1px solid var(--color-border-light);
+            padding: var(--space-lg) var(--space-xl);
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            position: relative; /* For mobile lang-switch positioning */
         }
 
-        .logo-wrapper {
+        .header__branding {
             display: flex;
             align-items: center;
-            color: var(--color-text-primary);
-            font-size: var(--text-body-sm);
-            line-height: var(--line-height-tight);
+            gap: var(--space-md);
         }
 
-        .logo-swiss-cross {
-            margin-right: var(--space-md);
-            width: 32px;
-            height: 32px;
+        /* Swiss Coat of Arms */
+        .header__logo {
+            width: 60px;
+            height: 68px;
             flex-shrink: 0;
         }
 
-        .logo-swiss-cross svg {
+        .header__logo img {
             width: 100%;
             height: 100%;
         }
 
+        /* Multilingual Confederation Text */
+        .header__confederation {
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-normal);
+            white-space: nowrap;
+        }
+
+        /* Vertical Separator Line */
+        .header__separator {
+            width: 1px;
+            height: 60px;
+            background-color: var(--color-border);
+            margin: 0 var(--space-lg);
+            flex-shrink: 0;
+        }
+
+        /* Main Title (KBOB / Fachdatenkatalog) */
+        .header__title {
+            font-size: var(--text-h3);
+            font-weight: var(--font-weight-bold);
+            color: #333;
+            line-height: var(--line-height-tight);
+        }
+
+        .header__title span {
+            display: block;
+        }
+
+        /* Language Switch */
         .lang-switch {
             font-weight: var(--font-weight-medium);
             color: var(--color-interactive);
@@ -373,10 +403,18 @@
         }
 
         /* ============================================
-           NAVIGATION
+           NAVIGATION (Swiss Federal Style)
            ============================================ */
         .main-nav {
             background: var(--color-white);
+            border-top: 1px solid var(--color-border-light);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .main-nav .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
         }
 
         .main-nav ul {
@@ -385,27 +423,28 @@
             margin: 0;
             display: flex;
             flex-wrap: wrap;
+            gap: var(--space-xl);
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--color-text-secondary);
-            padding: var(--space-sm) var(--space-md);
+            padding: var(--space-md) 0;
             display: block;
             font-weight: var(--font-weight-medium);
             font-size: var(--text-body);
             transition: all var(--transition-fast);
-            border-bottom: 2px solid transparent;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px; /* Overlap border */
         }
 
         .nav-link:hover:not(.disabled):not(.active) {
-            background: var(--color-surface);
-            color: var(--color-interactive);
+            color: var(--color-text-primary);
         }
 
         .nav-link.active {
-            color: var(--color-primary);
-            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-semibold);
             border-bottom-color: var(--color-primary);
         }
 
@@ -1646,6 +1685,35 @@
 
         /* Tablet and below (max-width: 992px) */
         @media (max-width: 992px) {
+            /* Header responsive */
+            .header__top {
+                padding: var(--space-md) var(--space-lg);
+                flex-wrap: wrap;
+                gap: var(--space-md);
+            }
+
+            .header__logo {
+                width: 48px;
+                height: 54px;
+            }
+
+            .header__separator {
+                height: 48px;
+                margin: 0 var(--space-md);
+            }
+
+            .header__title {
+                font-size: var(--text-h4);
+            }
+
+            .main-nav .container {
+                padding: 0 var(--space-lg);
+            }
+
+            .main-nav ul {
+                gap: var(--space-lg);
+            }
+
             .catalog-layout,
             .detail-layout {
                 flex-direction: column;
@@ -1743,6 +1811,58 @@
 
         /* Mobile (max-width: 576px) */
         @media (max-width: 576px) {
+            /* Header mobile */
+            .header__top {
+                padding: var(--space-md);
+            }
+
+            .header__branding {
+                flex-wrap: wrap;
+            }
+
+            .header__logo {
+                width: 40px;
+                height: 45px;
+            }
+
+            .header__confederation {
+                font-size: 10px;
+            }
+
+            .header__separator {
+                display: none;
+            }
+
+            .header__title {
+                width: 100%;
+                margin-top: var(--space-sm);
+                padding-top: var(--space-sm);
+                border-top: 1px solid var(--color-border-light);
+                font-size: var(--text-body);
+            }
+
+            .lang-switch {
+                position: absolute;
+                top: var(--space-md);
+                right: var(--space-md);
+            }
+
+            .main-nav .container {
+                padding: 0 var(--space-md);
+            }
+
+            .main-nav ul {
+                gap: var(--space-md);
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: var(--space-xs);
+            }
+
+            .nav-link {
+                white-space: nowrap;
+                font-size: var(--text-body-sm);
+            }
+
             .container {
                 padding-left: var(--space-sm);
                 padding-right: var(--space-sm);
@@ -1788,15 +1908,25 @@
 
     <header>
         <div class="header__top">
-            <div class="logo-wrapper">
-                <div class="logo-swiss-cross" aria-hidden="true">
-                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schweizerkreuz">
-                        <rect width="32" height="32" rx="16" fill="#DC0018"/>
-                        <path d="M14 8h4v16h-4V8z" fill="#FFFFFF"/>
-                        <path d="M8 14h16v4H8v-4z" fill="#FFFFFF"/>
-                    </svg>
+            <div class="header__branding">
+                <!-- Swiss Coat of Arms -->
+                <div class="header__logo">
+                    <img src="assets/swiss-logo-flag.svg" alt="Schweizerisches Wappen">
                 </div>
-                <div>Schweizerische Eidgenossenschaft <br> <strong>KBOB / BBL</strong></div>
+                <!-- Multilingual Confederation Text -->
+                <div class="header__confederation">
+                    Schweizerische Eidgenossenschaft<br>
+                    Confédération suisse<br>
+                    Confederazione Svizzera<br>
+                    Confederaziun svizra
+                </div>
+                <!-- Vertical Separator -->
+                <div class="header__separator" aria-hidden="true"></div>
+                <!-- Main Title -->
+                <div class="header__title">
+                    <span>KBOB</span>
+                    <span>Fachdatenkatalog</span>
+                </div>
             </div>
             <div class="lang-switch">
                 <span class="active">DE</span> <span>FR</span> <span>IT</span>
