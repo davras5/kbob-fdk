@@ -335,14 +335,14 @@
 
         .header__branding {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-md);
         }
 
         /* Swiss Coat of Arms */
         .header__logo {
-            width: 60px;
-            height: 68px;
+            width: 34px;
+            height: auto;
             flex-shrink: 0;
         }
 
@@ -372,13 +372,17 @@
         /* Main Title (KBOB / Fachdatenkatalog) */
         .header__title {
             font-size: var(--text-h3);
-            font-weight: var(--font-weight-bold);
+            font-weight: var(--font-weight-normal);
             color: #333;
             line-height: var(--line-height-tight);
         }
 
         .header__title span {
             display: block;
+        }
+
+        .header__title span:first-child {
+            font-weight: var(--font-weight-bold);
         }
 
         /* Language Switch */
