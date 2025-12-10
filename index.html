@@ -904,12 +904,12 @@
         .tag-badge {
             display: inline-flex;
             align-items: center;
-            background: var(--color-surface);
+            background: var(--color-bg-alt);
             color: var(--color-text-primary);
-            border: 1px solid var(--color-border-light);
-            font-size: var(--text-caption);
-            font-weight: var(--font-weight-normal);
-            padding: var(--space-xs) var(--space-sm);
+            border: none;
+            font-size: var(--text-body-sm);
+            font-weight: var(--font-weight-medium);
+            padding: var(--space-sm) var(--space-md);
             border-radius: var(--border-radius-full);
             font-family: var(--font-family-primary);
             cursor: pointer;
@@ -917,22 +917,17 @@
         }
 
         .tag-badge:hover {
-            background-color: var(--color-surface-alt);
-            border-color: var(--color-border);
-            color: var(--color-primary);
+            background-color: var(--color-border);
         }
 
         /* Active tag state */
         .tag-badge.active {
-            background: var(--color-primary);
+            background: var(--color-text-primary);
             color: var(--color-white);
-            border-color: var(--color-primary);
         }
 
         .tag-badge.active:hover {
-            background: var(--color-primary-light);
-            border-color: var(--color-primary-light);
-            color: var(--color-white);
+            background: var(--color-black);
         }
 
         /* ============================================
