@@ -1,64 +1,181 @@
 # Style Guide
 
-**Swiss Federal Design System Adaptation**  
-Version 1.0 | Prototype Application
+**Webguidelines Bund V04.00 Adaptation**  
+Version 2.0 | Fachanwendung
 
 ---
 
 ## Table of Contents
 
-1. [Design Philosophy](#design-philosophy)
-2. [Color System](#color-system)
-3. [Typography](#typography)
-4. [Spacing & Layout](#spacing--layout)
-5. [Components](#components)
-6. [Icons](#icons)
-7. [Accessibility](#accessibility)
-8. [Naming Conventions](#naming-conventions)
-9. [CSS Variables Reference](#css-variables-reference)
+1. [Compliance Context](#compliance-context)
+2. [Design Philosophy](#design-philosophy)
+3. [Brand Elements](#brand-elements)
+4. [Color System](#color-system)
+5. [Typography](#typography)
+6. [Spacing & Layout](#spacing--layout)
+7. [Components](#components)
+8. [Icons](#icons)
+9. [Accessibility](#accessibility)
+10. [Naming Conventions](#naming-conventions)
+11. [CSS Variables Reference](#css-variables-reference)
+
+---
+
+## Compliance Context
+
+This style guide implements the **Webguidelines Bund V04.00** (Regelwerk vom 06.03.2024) for a Fachanwendung (specialized application) context. It adapts the official Swiss Federal Design System without importing CSS directly.
+
+### Application Type: Fachanwendung
+
+Per Regelwerk Section 1.3.1.3, this application:
+- Operates outside the Standard-Dienst Webauftritte
+- SHOULD adopt WGL Bund UI components at minimum in look & feel
+- CAN use blue for interaction/status colors (instead of red)
+- Must report new component developments to BK (support@bk.admin.ch)
+
+### Compliance Deadline
+
+Fachanwendungen must adopt WGL Bund V04.00 appearance by **31.07.2027**.
+
+### Reference Implementation
+
+See [swisstopo.admin.ch](https://www.swisstopo.admin.ch/en) for a live example of the modern CD Bund.
 
 ---
 
 ## Design Philosophy
 
-This application follows design principles inspired by the Swiss Federal Design System (Webguidelines Bund), adapted for a prototype context. The design aims to be clean, professional, and recognizable as a Swiss federal application while allowing flexibility for development.
+This application follows design principles from the Webguidelines Bund V04.00, reflecting the official Markenwerte (brand values) of the Swiss Federal Administration.
 
 ### Core Principles
 
-**Clarity over decoration**  
-Every design element serves a purpose. Avoid decorative elements that don't contribute to usability or communication.
+**Clarity over decoration** (Klar)  
+Every design element serves a purpose. Simple layouts, structured typography, clear hierarchy, and intuitive navigation guide users to information efficiently.
 
-**Consistency creates trust**  
+**Consistency creates trust** (Qualitativ)  
 Consistent use of colors, typography, and spacing signals professionalism and reliability—essential for government applications.
 
-**Content first**  
-Design supports content, not the other way around. Typography and layout guide users to information efficiently.
+**Content first** (Diskret/Zurückhaltend)  
+Design supports content, not the other way around. Subtle colors, no "blinking" effects, no frills. The opposite of attention-grabbing commercial design.
 
-**Accessible by default**  
-All design decisions consider accessibility. Color contrast, font sizes, and interactive elements meet WCAG 2.1 AA standards.
+**Accessible by default** (Qualitativ)  
+All design decisions consider accessibility. Color contrast, font sizes, and interactive elements meet WCAG 2.1 AA standards per eCH-0059.
+
+**Efficient navigation** (Effizient)  
+Users should reach their goal in 1-3 clicks. Content is concise and to the point ("auf den Punkt gebracht").
+
+**Timeless design** (Zeitlos/Klassisch)  
+Not following every trend. A design that ages well—visually and technically—and still works after years.
 
 ### Swiss Design Characteristics
 
 - **Grid-based layouts**: Structured, aligned content
-- **Sans-serif typography**: Clean, readable text
+- **Sans-serif typography**: Clean, readable text (Noto Sans)
 - **Generous whitespace**: Breathing room improves comprehension
 - **Restrained color palette**: Limited colors applied purposefully
 - **Functional minimalism**: Every element earns its place
+- **Light appearance**: Standard websites are "eher hell" (rather light)
+
+---
+
+## Brand Elements
+
+Per Regelwerk Section 2, these elements are mandatory for all *.admin.ch websites.
+
+### Bundeslogo + Bereichszusatz
+
+The federal logo must always be present on admin.ch websites.
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Logo always present | Required |
+| White background | Required (except dark mode) |
+| Fully visible at ≥1024px | Desktop: full logo with Bereichszusatz |
+| Can minimize at <1024px | Mobile: coat of arms only acceptable |
+| Can hide on scroll | Allowed |
+| Placement | Top-left (SHOULD for Fachanwendungen) |
+
+```css
+/* Logo container */
+.logo-container {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Responsive logo behavior */
+@media (max-width: 1023px) {
+  .logo--full { display: none; }
+  .logo--minimal { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .logo--full { display: block; }
+  .logo--minimal { display: none; }
+}
+```
+
+### Favicon
+
+All websites must use the official Bundes-Favicon.
+
+```html
+<link rel="icon" type="image/x-icon" href="/assets/favicon-bund.ico">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon-bund.svg">
+```
+
+### Required Footer Content
+
+Per Regelwerk Section 3, organization websites must include:
+
+- Legal information page (Rechtliches)
+- Privacy policy (Datenschutz)
+- Accessibility statement (Barrierefreiheit)
+- Terms of use (Nutzungsbestimmungen)
+- Cookie notice (if cookies are used)
+
+```html
+<footer class="footer">
+  <div class="footer__legal">
+    <a href="/legal">Rechtliches</a>
+    <a href="/privacy">Datenschutz</a>
+    <a href="/accessibility">Barrierefreiheit</a>
+    <a href="/terms">Nutzungsbestimmungen</a>
+  </div>
+</footer>
+```
+
+### TopDrawer Element
+
+Standard websites require the "Alle Schweizer Bundesbehörden" top drawer. For Fachanwendungen, justified exceptions are possible.
 
 ---
 
 ## Color System
 
-The color palette adapts the official Swiss Federal Corporate Design colors. Colors are organized into semantic categories for consistent application.
+The color palette implements the official Swiss Federal Corporate Design colors per WGL Bund V04.00.
 
 ### Primary Colors
 
 | Color | Hex | CSS Variable | Usage |
 |-------|-----|--------------|-------|
-| **Confederation Red** | `#DC0018` | `--color-primary` | Primary brand color, accents, selected states, important actions |
+| **Confederation Red** | `#DC0018` | `--color-primary` | Logo banner, favicon, selected states |
 | **Accent Red** | `#F7001D` | `--color-primary-light` | Hover states, highlights |
-| **Interactive Blue** | `#006699` | `--color-interactive` | Links, interactive elements, buttons |
+| **Interactive Blue** | `#006699` | `--color-interactive` | Links, buttons, interactive elements |
 | **Focus Blue** | `#66AFE9` | `--color-focus` | Focus states, input highlights |
+
+### Fachanwendung Color Option
+
+Per Regelwerk Section 2, Fachanwendungen CAN use blue for interaction and status elements instead of red:
+
+```css
+/* Standard Website Bund: Red interactions */
+--color-interaction: var(--color-primary);      /* #DC0018 */
+
+/* Fachanwendung/Intranet: Blue interactions (optional) */
+--color-interaction: var(--color-interactive);  /* #006699 */
+```
 
 ### Neutral Colors
 
@@ -95,18 +212,19 @@ The color palette adapts the official Swiss Federal Corporate Design colors. Col
 ### Color Application Rules
 
 **Red (`--color-primary`)**
-- Header separator line (4px solid)
-- Selected navigation items
+- Logo banner and favicon
+- Selected navigation items (Standard Website Bund)
 - Active/selected states
 - Important call-to-action buttons
 - Do NOT use for large background areas
 
 **Blue (`--color-interactive`)**
 - All hyperlinks
-- Secondary buttons
+- Interactive buttons
 - Interactive icons
 - Form focus states
-- Clickable elements (non-primary)
+- Clickable elements
+- Interaction/status elements (Fachanwendungen)
 
 **Grays**
 - Use darker grays for text hierarchy
@@ -115,7 +233,7 @@ The color palette adapts the official Swiss Federal Corporate Design colors. Col
 
 ### Contrast Requirements
 
-All text must meet WCAG 2.1 AA contrast ratios:
+All text must meet WCAG 2.1 AA contrast ratios per eCH-0059:
 - Normal text (< 18pt): 4.5:1 minimum
 - Large text (≥ 18pt or 14pt bold): 3:1 minimum
 - UI components and graphics: 3:1 minimum
@@ -134,11 +252,11 @@ All text must meet WCAG 2.1 AA contrast ratios:
 
 ### Font Stack
 
-Since Frutiger (the official Swiss Federal font) requires licensing, use the following open-source alternatives:
+Per Regelwerk Section 2, **Noto Sans** is the required web font. Frutiger may only be used until 31.07.2027.
 
 **Primary Font (UI & Text)**
 ```css
---font-family-primary: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+--font-family-primary: 'Noto Sans', 'Helvetica Neue', 'Arial', sans-serif;
 ```
 
 **Monospace (Code & Data)**
@@ -146,7 +264,12 @@ Since Frutiger (the official Swiss Federal font) requires licensing, use the fol
 --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 ```
 
-Inter is recommended as it was designed for screen readability and shares the clarity of Swiss-style typography.
+**Font Import**
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+```
 
 ### Type Scale
 
@@ -169,7 +292,7 @@ Use a consistent type scale based on a 1.25 ratio (Major Third):
 **Headings**
 - Use `--color-text-primary` (#333333)
 - Font weight: 600 (Semi-bold)
-- Avoid all-caps except for short labels
+- Avoid all-caps except for short labels (per Markenwerte: "keine Caps")
 - Maximum 70-80 characters per line
 
 **Body Text**
@@ -220,12 +343,13 @@ Use a 12-column grid with consistent gutters:
 
 **Breakpoints**
 
-| Name | Width | CSS Variable |
-|------|-------|--------------|
-| **sm** | 576px | `--breakpoint-sm` |
-| **md** | 768px | `--breakpoint-md` |
-| **lg** | 992px | `--breakpoint-lg` |
-| **xl** | 1200px | `--breakpoint-xl` |
+| Name | Width | CSS Variable | Notes |
+|------|-------|--------------|-------|
+| **sm** | 576px | `--breakpoint-sm` | Small devices |
+| **md** | 768px | `--breakpoint-md` | Tablets |
+| **lg** | 992px | `--breakpoint-lg` | Desktops |
+| **xl** | 1200px | `--breakpoint-xl` | Large screens |
+| **logo** | 1024px | `--breakpoint-logo` | Logo full/minimal switch |
 
 ### Layout Principles
 
@@ -258,16 +382,23 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
 .btn--primary {
   background-color: var(--color-primary);      /* #DC0018 */
   color: var(--color-white);
-  border-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   padding: var(--space-sm) var(--space-md);    /* 8px 16px */
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   border-radius: var(--border-radius);
   cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 .btn--primary:hover:not(:disabled) {
-  background-color: var(--color-primary-light); /* #F7001D */
-  border-color: var(--color-primary-light);
+  background-color: var(--color-primary-dark); /* #B00014 */
+  border-color: var(--color-primary-dark);
+}
+
+.btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 ```
 
@@ -276,10 +407,13 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
 .btn--secondary {
   background-color: var(--color-interactive);   /* #006699 */
   color: var(--color-white);
-  border-color: var(--color-interactive);
+  border: 1px solid var(--color-interactive);
   padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 .btn--secondary:hover:not(:disabled) {
@@ -295,8 +429,11 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
   color: var(--color-interactive);
   border: 1px solid var(--color-interactive);
   padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-medium);
   border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .btn--outline:hover:not(:disabled) {
@@ -310,7 +447,13 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
 .btn--ghost {
   background-color: transparent;
   color: var(--color-interactive);
-  border-color: transparent;
+  border: 1px solid transparent;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
 
 .btn--ghost:hover:not(:disabled) {
@@ -330,10 +473,12 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
 ```css
 .form-input {
   border: 1px solid var(--color-border);        /* #CCCCCC */
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   padding: var(--space-sm) var(--space-md);     /* 8px 16px */
+  font-family: var(--font-family-primary);
   font-size: var(--text-body);
   background-color: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-input:focus {
@@ -350,18 +495,24 @@ All buttons use the `.btn` base class with BEM modifiers for variants.
 **Labels**
 ```css
 .form-label {
+  font-family: var(--font-family-primary);
   font-size: var(--text-label);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
   display: block;
+}
+
+.form-label--required::after {
+  content: " *";
+  color: var(--color-error);
 }
 ```
 
 **Select Dropdowns**
 - Same styling as inputs
 - Include chevron icon on right
-- Native select for accessibility
+- Use native select for accessibility
 
 ### Cards
 
@@ -377,7 +528,7 @@ Cards use BEM naming convention with `__` for elements.
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .card:hover {
@@ -405,6 +556,7 @@ Cards use BEM naming convention with `__` for elements.
 }
 
 .card__title {
+  font-family: var(--font-family-primary);
   font-size: var(--text-h4);
   font-weight: var(--font-weight-bold);
   color: var(--color-interactive);
@@ -432,12 +584,13 @@ Cards use BEM naming convention with `__` for elements.
 .table {
   width: 100%;
   border-collapse: collapse;
+  font-family: var(--font-family-primary);
 }
 
 .table th {
   background-color: var(--color-surface);       /* #F2F7F9 */
   color: var(--color-text-primary);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   text-align: left;
   padding: var(--space-sm) var(--space-md);
   border-bottom: 2px solid var(--color-border);
@@ -457,18 +610,32 @@ Cards use BEM naming convention with `__` for elements.
 ### Navigation
 
 **Header**
-- Height: 60-80px
-- Background: `--color-white`
-- Border bottom: 4px solid `--color-primary` (red line)
-- Logo on left, navigation on right
+```css
+.header {
+  background-color: var(--color-white);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 1024px) {
+  .header {
+    min-height: 80px;
+    padding: 0 var(--space-lg);
+  }
+}
+```
 
 **Navigation Links**
 ```css
 .nav-link {
+  font-family: var(--font-family-primary);
   color: var(--color-text-secondary);
   text-decoration: none;
   padding: var(--space-sm) var(--space-md);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
 }
 
 .nav-link:hover {
@@ -476,8 +643,8 @@ Cards use BEM naming convention with `__` for elements.
 }
 
 .nav-link.active {
-  color: var(--color-primary);
-  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-interactive);
+  font-weight: var(--font-weight-semibold);
 }
 ```
 
@@ -487,6 +654,7 @@ Alerts use BEM naming with `--` for modifiers.
 
 ```css
 .alert {
+  font-family: var(--font-family-primary);
   padding: var(--space-md);
   border-radius: var(--border-radius);
   border-left: 4px solid;
@@ -522,18 +690,52 @@ Alerts use BEM naming with `--` for modifiers.
 
 ## Icons
 
-### Icon Guidelines
+### Icon Style Requirements (WGL Bund V04.00)
 
-- Use simple, one-color icons
-- Size: 16px (inline), 20px (default), 24px (large)
-- Color: Inherit from text or use `--color-interactive`
-- Provide aria-labels for standalone icons
+Per Regelwerk Section 2, icons must follow this style:
+
+| Requirement | Description |
+|-------------|-------------|
+| **Line-based** (linienartig) | Outline style, not filled |
+| **Single-color** (einfarbig) | One color only, inherit or explicit |
+| **Angular** (eher eckig als rund) | Prefer squared corners over rounded |
+| **Reduced** (reduziert) | Minimal detail |
+| **Flat** (flat) | No shadows or depth effects |
+| **No 3D** (kein 3d) | No three-dimensional appearance |
+| **No gradients** (ohne Verläufe) | Solid colors only |
+
+The WGL Bund V04.00 uses icons from the Oblique library.
+
+### Icon Sizing
+
+| Context | Size | Usage |
+|---------|------|-------|
+| Inline | 16px | Within text |
+| Default | 20px | Buttons, navigation |
+| Large | 24px | Standalone, headers |
+
+### Icon Colors
+
+```css
+.icon {
+  /* Inherit text color by default */
+  color: currentColor;
+}
+
+.icon--interactive {
+  color: var(--color-interactive);
+}
+
+.icon--muted {
+  color: var(--color-text-muted);
+}
+```
 
 ### Recommended Icon Libraries
 
-1. **Lucide Icons** (recommended): Clean, consistent, open-source
+1. **Lucide Icons** (recommended): Clean, consistent, matches WGL Bund style
 2. **Feather Icons**: Simple and minimal
-3. **Heroicons**: Good for UI elements
+3. **Heroicons (outline)**: Good for UI elements
 
 ### Icon Usage
 
@@ -543,7 +745,7 @@ Alerts use BEM naming with `--` for modifiers.
 
 <!-- Interactive icon (needs label) -->
 <button aria-label="Download PDF">
-  <span class="icon icon--download"></span>
+  <span class="icon icon--download" aria-hidden="true"></span>
 </button>
 
 <!-- Icon with text -->
@@ -557,6 +759,8 @@ Alerts use BEM naming with `--` for modifiers.
 
 ## Accessibility
 
+Per Regelwerk Section 5.2 and eCH-0059, websites must meet **WCAG 2.1 Level AA**.
+
 ### Checklist
 
 - [ ] Color contrast meets WCAG 2.1 AA (4.5:1 for text)
@@ -568,6 +772,22 @@ Alerts use BEM naming with `--` for modifiers.
 - [ ] Language is declared (`lang` attribute)
 - [ ] Heading hierarchy is logical (h1 → h2 → h3)
 - [ ] Skip link provided for main content
+
+### Language Declaration
+
+```html
+<!-- German -->
+<html lang="de">
+
+<!-- French -->
+<html lang="fr">
+
+<!-- Italian -->
+<html lang="it">
+
+<!-- English -->
+<html lang="en">
+```
 
 ### Focus States
 
@@ -607,11 +827,11 @@ A skip link allows keyboard users to bypass navigation and jump directly to main
 
 ```html
 <body>
-  <a href="#content-area" class="sr-only sr-only--focusable">
+  <a href="#main-content" class="sr-only sr-only--focusable">
     Zum Hauptinhalt springen
   </a>
   <header>...</header>
-  <main id="content-area">...</main>
+  <main id="main-content">...</main>
 </body>
 ```
 
@@ -632,6 +852,7 @@ The skip link is visually hidden until focused:
   white-space: normal;
   background-color: var(--color-white);
   color: var(--color-interactive);
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semibold);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-lg);
@@ -686,7 +907,7 @@ Use semantic naming with kebab-case:
 
 ### File Naming
 
-- Components: `ComponentName.vue` (PascalCase)
+- Components: `ComponentName.js` (PascalCase)
 - Styles: `component-name.css` (kebab-case)
 - Utilities: `_utilities.css` (prefixed with underscore)
 - Images: `icon-name.svg`, `image-description.png` (kebab-case)
@@ -748,7 +969,8 @@ Complete CSS custom properties for copy-paste implementation:
      TYPOGRAPHY
      ===================== */
   
-  --font-family-primary: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+  /* WGL Bund V04.00: Noto Sans required */
+  --font-family-primary: 'Noto Sans', 'Helvetica Neue', 'Arial', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   --text-display: 2.25rem;    /* 36px */
@@ -794,6 +1016,7 @@ Complete CSS custom properties for copy-paste implementation:
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  --breakpoint-logo: 1024px;  /* Logo full/minimal switch */
   
   /* =====================
      BORDERS & SHADOWS
@@ -854,22 +1077,42 @@ Complete CSS custom properties for copy-paste implementation:
 
 ### Essential Typography
 
-| Element | Size | Weight |
-|---------|------|--------|
-| Heading 1 | 28px | 600 |
-| Heading 2 | 24px | 600 |
-| Body | 16px | 400 |
-| Label | 14px | 500 |
+| Element | Size | Weight | Font |
+|---------|------|--------|------|
+| Heading 1 | 28px | 600 | Noto Sans |
+| Heading 2 | 24px | 600 | Noto Sans |
+| Body | 16px | 400 | Noto Sans |
+| Label | 14px | 500 | Noto Sans |
 
 ---
 
 ## References
 
-- [Swiss Design System (Webguidelines Bund)](https://github.com/swiss/designsystem)
-- [Swiss Confederation Styleguide](https://swiss.github.io/styleguide/en/)
-- [geo.admin.ch Map Viewer](https://github.com/geoadmin/web-mapviewer)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+### Official Documentation
+
+- [WGL Bund V04.00 Storybook](https://swiss.github.io/designsystem/?path=/docs/get-started--docs) — Code library
+- [GitHub Repository](https://github.com/swiss/designsystem) — Source code
+- [Figma Library](https://www.figma.com/design/3UYgqxmcJbG0hpWuti3y8U/) — Design System Core Library
+- [BK CD Bund Page](https://www.bk.admin.ch/bk/de/home/dokumentation/cd-bund/das-erscheinungsbild-der-schweizerischen-bundesverwaltung-im-int.html) — Official guidelines
+
+### Reference Implementation
+
+- [swisstopo.admin.ch](https://www.swisstopo.admin.ch/en) — Modern CD Bund example
+
+### Standards
+
+- [eCH-0059 Accessibility](https://www.ech.ch/de/ech/ech-0059/3.0) — Swiss accessibility standard
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) — Web accessibility
+
+### Legacy (Unsupported)
+
+- ~~[swiss.github.io/styleguide](https://swiss.github.io/styleguide/en/)~~ — Old design system, no longer maintained
+
+### Contact
+
+- **New component developments**: support@bk.admin.ch
+- **General WGL Bund questions**: webforum@bk.admin.ch
 
 ---
 
-*This style guide is an adaptation of Swiss Federal design principles for prototype development. For official federal applications, consult the official Webguidelines Bund and CD Bund documentation.*
+*This style guide implements Webguidelines Bund V04.00 (Regelwerk vom 06.03.2024) for Fachanwendung development. For Standard Website Bund applications using the Standard-Dienst Webauftritte, use the official Storybook components directly.*
