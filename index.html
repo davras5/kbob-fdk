@@ -6,8 +6,8 @@
     <title>KBOB Fachdatenkatalog - Mockup V3.3</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     
     <style>
         /* ============================================
@@ -26,7 +26,7 @@
             /* Interactive Colors */
             --color-interactive: #006699;
             --color-interactive-hover: #005580;
-            --color-focus: #6666ee;
+            --color-focus: #66AFE9;
 
             /* Neutral Colors */
             --color-black: #000000;
@@ -36,7 +36,7 @@
             --color-border: #CCCCCC;
             --color-border-light: #D5D5D5;
             --color-bg-alt: #E5E5E5;
-            --color-bg-light: #f0f4f7;
+            --color-bg-light: #F5F5F5;
             --color-white: #FFFFFF;
 
             /* Surface Colors */
@@ -63,7 +63,7 @@
                TYPOGRAPHY
                ===================== */
 
-            --font-family-primary: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+            --font-family-primary: 'Noto Sans', 'Helvetica Neue', 'Arial', sans-serif;
             --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
             /* Type Scale (Major Third - 1.25 ratio) */
@@ -113,6 +113,7 @@
             --breakpoint-md: 768px;
             --breakpoint-lg: 992px;
             --breakpoint-xl: 1200px;
+            --breakpoint-logo: 1024px;  /* Logo full/minimal switch */
 
             /* Component Dimensions */
             --header-height: 70px;
@@ -268,22 +269,29 @@
         }
 
         /* ============================================
-           ICON SYSTEM (Swiss Federal Design)
+           ICON SYSTEM (Swiss Federal Design - Lucide)
            ============================================ */
 
-        /* Base Icon Wrapper */
-        .icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px; /* Default icon size */
-            color: inherit;
+        /* Lucide Icon Base Styles */
+        [data-lucide] {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            display: inline-block;
+            vertical-align: middle;
             flex-shrink: 0;
         }
 
         /* Icon Sizes */
-        .icon--sm { font-size: 16px; }
-        .icon--lg { font-size: 24px; }
+        [data-lucide].icon--sm { width: 16px; height: 16px; }
+        [data-lucide].icon--lg { width: 24px; height: 24px; }
+        [data-lucide].icon--xl { width: 80px; height: 80px; stroke-width: 1; }
+        [data-lucide].icon--3xl { width: 48px; height: 48px; stroke-width: 1.5; }
+        [data-lucide].icon--4xl { width: 64px; height: 64px; stroke-width: 1; }
 
         /* Interactive Icon (inherits link color) */
         .icon--interactive {
@@ -308,7 +316,7 @@
             text-decoration: underline;
         }
 
-        .icon-link .icon {
+        .icon-link [data-lucide] {
             flex-shrink: 0;
         }
 
@@ -629,7 +637,6 @@
         }
 
         .info-box__icon {
-            font-size: 4rem;
             color: var(--color-text-muted);
             margin-bottom: var(--space-md);
             display: block;
@@ -637,7 +644,6 @@
 
         /* Status/Empty States */
         .status-icon {
-            font-size: 3rem;
             color: var(--color-primary);
             margin-bottom: var(--space-md);
             display: inline-block;
@@ -761,7 +767,7 @@
         .form-input:focus {
             border-color: var(--color-focus);
             outline: none;
-            box-shadow: none;
+            box-shadow: 0 0 0 3px rgba(102, 175, 233, 0.25);
         }
 
         .form-input:invalid {
@@ -1168,8 +1174,9 @@
             color: var(--color-primary);
         }
 
-        .sidebar-reset-btn .material-icons-outlined {
-            font-size: var(--space-lg);
+        .sidebar-reset-btn [data-lucide] {
+            width: var(--space-lg);
+            height: var(--space-lg);
         }
 
         .filter-group {
@@ -1205,7 +1212,7 @@
         /* Card Component - Swiss Federal CD Style */
         .card {
             background: var(--color-white);
-            border-radius: 0;
+            border-radius: var(--border-radius);
             overflow: hidden;
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -1262,7 +1269,6 @@
         }
 
         .placeholder-icon {
-            font-size: 80px;
             color: var(--color-bg-alt);
         }
 
@@ -1512,7 +1518,6 @@
         }
 
         .hero-image-placeholder {
-            font-size: 120px;
             color: var(--color-bg-alt);
         }
 
@@ -1678,7 +1683,8 @@
 
         .list-icon-active {
             color: var(--color-success);
-            font-size: var(--text-h2) !important;
+            width: 20px;
+            height: 20px;
         }
 
         /* Phase Badges */
@@ -1729,7 +1735,8 @@
         }
 
         .loading-spinner {
-            font-size: var(--text-display);
+            width: 36px;
+            height: 36px;
             color: var(--color-primary);
             animation: spin 1s linear infinite;
             margin-bottom: var(--space-md);
@@ -2493,7 +2500,7 @@
 
     <main id="content-area">
          <div class="container loading-state">
-            <span class="material-icons-outlined loading-spinner" aria-hidden="true">replay</span><br>
+            <i data-lucide="refresh-cw" class="loading-spinner" aria-hidden="true"></i><br>
             Anwendung wird initialisiert...
          </div>
     </main>
@@ -2509,7 +2516,7 @@
             </div>
         </div>
         <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben" aria-label="Nach oben scrollen">
-            <span class="material-icons-outlined" aria-hidden="true">keyboard_arrow_up</span>
+            <i data-lucide="chevron-up" aria-hidden="true"></i>
         </button>
     </section>
 
@@ -2708,11 +2715,12 @@
                 console.error("Fehler beim Laden der Daten:", error);
                 contentArea.innerHTML = `
                     <div class="container error-state">
-                        <span class="material-icons-outlined status-icon status-icon--error" aria-hidden="true">error_outline</span><br>
+                        <i data-lucide="alert-circle" class="status-icon status-icon--error icon--3xl" aria-hidden="true"></i><br>
                         <h2>Fehler beim Laden der Daten</h2>
                         <p>Konnte JSON-Dateien nicht laden.</p>
                         <br><span class="error-detail">${error.message}</span>
                     </div>`;
+                lucide.createIcons();
             }
         }
         
@@ -2765,15 +2773,20 @@
                         navigateWithTags('catalog');
                     }
                     break;
-                case 'document': 
+                case 'document':
                     if(id) {
-                        contentArea.classList.add('white-bg'); 
+                        contentArea.classList.add('white-bg');
                         renderDocumentDetailPage(id, tags);
                     } else {
                         navigateWithTags('documents');
                     }
                     break;
                 default: navigateWithTags('home');
+            }
+
+            // Initialize Lucide icons after rendering
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         }
 
@@ -2814,7 +2827,7 @@
          */
         function renderSidebarHeader(activeTags) {
             const resetBtn = activeTags.length > 0
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><span class="material-icons-outlined" aria-hidden="true">refresh</span></button>`
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i></button>`
                 : '';
             return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
@@ -2826,12 +2839,12 @@
             const activeClass = isVisible ? 'active' : '';
 
             const resetBtn = activeTagCount > 0
-                ? `<button class="reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><span class="material-icons-outlined" aria-hidden="true">refresh</span> Zurücksetzen</button>`
+                ? `<button class="reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
                 : '';
 
             return `
                 <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
-                    <span class="material-icons-outlined" aria-hidden="true">filter_list</span>
+                    <i data-lucide="filter" aria-hidden="true"></i>
                     Filter${activeTagCount > 0 ? `<span class="filter-count-badge">${activeTagCount}</span>` : ''}
                 </button>
                 ${resetBtn}
@@ -2874,7 +2887,7 @@
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
-                        ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">image</span>'}
+                        ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
@@ -2929,7 +2942,7 @@
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
-                        ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">description</span>'}
+                        ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<i data-lucide="file-text" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
@@ -3102,7 +3115,7 @@
                         <div class="central-search-container">
                             <div class="central-search-wrapper">
                                 <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                                <button class="central-search-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
@@ -3131,22 +3144,22 @@
                         <div class="central-search-left">
                             <div class="central-search-wrapper">
                                 <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
-                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                                <button class="central-search-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Klassifikation <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
                         </aside>
                         
                         <div id="catalogContent" style="flex:1; min-width:0;">
@@ -3195,22 +3208,22 @@
                         <div class="central-search-left">
                             <div class="central-search-wrapper">
                                 <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
-                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                                <button class="central-search-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Format <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
                         </aside>
                         
                         <div id="documentsContent" style="flex:1; min-width:0;">
@@ -3290,7 +3303,7 @@
                     <tr>
                         <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
                         <td class="col-val"><span class="data-badge">${row.format || '-'}</span></td>
-                        <td class="col-center">${row.list ? '<span class="material-icons-outlined list-icon-active">check_circle</span>' : '-'}</td>
+                        <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
                         <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
@@ -3314,13 +3327,13 @@
                     <div class="container">
                          <div class="detail-hero">
                              <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
+                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                                 <h1 class="hero-title">${data.title}</h1>
                                 <p class="hero-subtitle">${data.subtitle || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
                                 <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                              </div>
                              <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">image</span>'}
+                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
                              </div>
                          </div>
                     </div>
@@ -3406,20 +3419,20 @@
                     <div class="container">
                          <div class="detail-hero">
                              <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
+                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                                 <h1 class="hero-title">${data.title}</h1>
                                 <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
                                 <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                              </div>
                              <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">description</span>'}
+                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
                              </div>
                          </div>
                     </div>
                 </div>
                 <div class="container">
                     <div class="info-box info-box--centered">
-                        <span class="material-icons-outlined info-box__icon">construction</span>
+                        <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
                         <h2 class="info-box__title">In Entwicklung</h2>
                         <p class="info-box__text">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
                     </div>
@@ -3458,7 +3471,13 @@
              }, 100);
         }
 
-        window.addEventListener('DOMContentLoaded', initApp);
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons for loading state
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            initApp();
+        });
     </script>
 </body>
 </html>
