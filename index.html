@@ -74,6 +74,7 @@
             --text-h2: 1.5rem;          /* 24px */
             --text-h3: 1.25rem;         /* 20px */
             --text-h4: 1.125rem;        /* 18px */
+            --text-h5: 1rem;            /* 16px */
             --text-body: 1rem;          /* 16px */
             --text-body-sm: 0.875rem;   /* 14px */
             --text-caption: 0.75rem;    /* 12px */
@@ -101,6 +102,7 @@
             --space-xl: 32px;
             --space-2xl: 48px;
             --space-3xl: 64px;
+            --space-4xl: 80px;
 
             /* =====================
                LAYOUT
@@ -109,6 +111,7 @@
             --container-max-width: 1564px;
             --container-padding: 16px;
             --grid-gutter: 24px;
+            --content-padding: var(--space-4xl);  /* Horizontal padding for main content areas */
 
             /* Breakpoints */
             --breakpoint-sm: 576px;
@@ -623,7 +626,11 @@
             padding: 0 var(--space-xl);
         }
 
-        .breadcrumb-row {
+        /* Simplified structure: removed .breadcrumb-row and .toolbar-row wrappers */
+        .breadcrumb-bar__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: var(--space-md) 0;
         }
 
@@ -667,12 +674,6 @@
 
         .breadcrumb-nav .breadcrumb-current {
             color: var(--color-text-primary);
-        }
-
-        .toolbar-row {
-            display: flex;
-            justify-content: flex-end;
-            padding: var(--space-lg) 0;
         }
 
         .page-toolbar {
@@ -733,7 +734,8 @@
             justify-content: space-between;
         }
 
-        .contact-section .contact-content {
+        /* Simplified: .contact-content wrapper removed, using .contact-details directly */
+        .contact-details {
             flex: 1;
         }
 
@@ -748,6 +750,7 @@
             font-size: var(--text-body-sm);
             line-height: 1.8;
             opacity: 0.9;
+            font-style: normal;  /* Reset address element default italic */
         }
 
         .contact-info a {
@@ -760,6 +763,7 @@
         }
 
         .contact-copyright {
+            display: block;  /* Reset small element default inline */
             margin-top: var(--space-md);
             font-size: var(--text-caption);
             opacity: 0.7;
@@ -823,7 +827,7 @@
            SHARED COMPONENTS
            ============================================ */
         .page-header {
-            padding-left: 80px;
+            padding-inline: var(--content-padding);
             padding-top: var(--space-3xl);
             padding-bottom: var(--space-2xl);
         }
@@ -1508,8 +1512,7 @@
            ============================================ */
         .home-section {
             margin: var(--space-3xl) 0;
-            padding-left: 80px;
-            padding-right: 80px;
+            padding-inline: var(--content-padding);
         }
 
         .home-section__header {
@@ -2503,10 +2506,10 @@
         /* ============================================
            CATALOG LAYOUT
            ============================================ */
-        .catalog-layout {
-            display: flex;
-            gap: var(--space-xl);
-            align-items: flex-start;
+        /* Simplified: .catalog-layout wrapper removed, using .catalog-content directly */
+        .catalog-content {
+            flex: 1;
+            min-width: 0;
         }
 
         /* Filter Bar (Horizontal) */
@@ -2693,12 +2696,7 @@
             color: var(--color-border);
         }
 
-        .card__content {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 0;
-        }
+        /* .card__content wrapper removed - .card__body and .card__footer are now direct children */
 
         .card__body {
             padding: var(--space-lg) var(--space-lg) var(--space-md);
@@ -2865,13 +2863,14 @@
         /* ============================================
            DETAIL VIEW
            ============================================ */
-        .detail-hero-wrapper {
+        /* Simplified: merged .detail-hero-wrapper and .detail-hero */
+        .detail-hero {
             background: var(--color-bg-light);
             padding: var(--space-2xl) 0 var(--space-3xl) 0;
             margin-bottom: var(--space-2xl);
         }
 
-        .detail-hero {
+        .detail-hero__inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -3225,7 +3224,6 @@
                 gap: var(--space-lg);
             }
 
-            .catalog-layout,
             .detail-layout {
                 flex-direction: column;
             }
@@ -3321,6 +3319,10 @@
 
         /* Mobile (max-width: 576px) */
         @media (max-width: 576px) {
+            :root {
+                --content-padding: var(--space-md);  /* Reduce content padding on mobile */
+            }
+
             /* Header mobile */
             .header__top {
                 padding: var(--space-md);
@@ -3386,10 +3388,7 @@
                 padding-right: var(--space-sm);
             }
 
-            .page-header {
-                padding-left: var(--space-md);
-                padding-right: var(--space-md);
-            }
+            /* .page-header now inherits from --content-padding variable */
 
             .page-title {
                 font-size: var(--text-h1);
@@ -3937,21 +3936,17 @@
     </header>
 
     <div class="breadcrumb-bar" id="breadcrumb-bar">
-        <div class="container">
-            <div class="breadcrumb-row">
-                <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
-                    <a href="#home">Startseite</a>
-                </nav>
-            </div>
-            <div class="toolbar-row">
-                <div class="page-toolbar">
-                    <button class="toolbar-btn" onclick="window.print()" title="Drucken" aria-label="Seite drucken">
-                        <i data-lucide="printer" aria-hidden="true"></i>
-                    </button>
-                    <button class="toolbar-btn" onclick="shareCurrentPage()" title="Teilen" aria-label="Seite teilen">
-                        <i data-lucide="share-2" aria-hidden="true"></i>
-                    </button>
-                </div>
+        <div class="container breadcrumb-bar__inner">
+            <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="#home">Startseite</a>
+            </nav>
+            <div class="page-toolbar">
+                <button class="toolbar-btn" onclick="window.print()" title="Drucken" aria-label="Seite drucken">
+                    <i data-lucide="printer" aria-hidden="true"></i>
+                </button>
+                <button class="toolbar-btn" onclick="shareCurrentPage()" title="Teilen" aria-label="Seite teilen">
+                    <i data-lucide="share-2" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -3965,14 +3960,14 @@
 
     <section class="contact-section">
         <div class="container">
-            <div class="contact-content">
+            <div class="contact-details">
                 <h3>Kontakt</h3>
-                <div class="contact-info">
+                <address class="contact-info">
                     Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
-                </div>
-                <div class="contact-copyright">
+                </address>
+                <small class="contact-copyright">
                     © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
-                </div>
+                </small>
             </div>
             <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben" aria-label="Nach oben scrollen">
                 <i data-lucide="chevron-up" aria-hidden="true"></i>
@@ -4621,21 +4616,19 @@
                 const cardId = `element-${el.id}`;
 
                 return `
-                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card__image">
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
-                    <div class="card__content">
-                        <div class="card__body">
-                            <h3 class="card__title">${el.title}</h3>
-                            <p class="card__subtitle">${el.subtitle || el.classification}</p>
-                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(el.tags)}'>${renderCardTagsHtml(cardId, el.tags, activeTags)}</div>` : ''}
-                        </div>
-                        <div class="card__footer card__footer--end">
-                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-                        </div>
+                    <div class="card__body">
+                        <h3 class="card__title">${el.title}</h3>
+                        <p class="card__subtitle">${el.subtitle || el.classification}</p>
+                        ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(el.tags)}'>${renderCardTagsHtml(cardId, el.tags, activeTags)}</div>` : ''}
                     </div>
-                </div>
+                    <footer class="card__footer card__footer--end">
+                        <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                    </footer>
+                </article>
             `}).join('');
         }
 
@@ -4670,21 +4663,19 @@
                 const cardId = `document-${doc.id}`;
 
                 return `
-                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card__image">
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<i data-lucide="file-text" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
-                    <div class="card__content">
-                        <div class="card__body">
-                            <h3 class="card__title">${doc.title}</h3>
-                            <p class="card__subtitle">${doc.description || doc.category}</p>
-                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(doc.tags)}'>${renderCardTagsHtml(cardId, doc.tags, activeTags)}</div>` : ''}
-                        </div>
-                        <div class="card__footer card__footer--end">
-                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-                        </div>
+                    <div class="card__body">
+                        <h3 class="card__title">${doc.title}</h3>
+                        <p class="card__subtitle">${doc.description || doc.category}</p>
+                        ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(doc.tags)}'>${renderCardTagsHtml(cardId, doc.tags, activeTags)}</div>` : ''}
                     </div>
-                </div>
+                    <footer class="card__footer card__footer--end">
+                        <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                    </footer>
+                </article>
             `}).join('');
         }
 
@@ -4719,21 +4710,19 @@
                 const cardId = `usecase-${item.id}`;
 
                 return `
-                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="workflow" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
-                    <div class="card__content">
-                        <div class="card__body">
-                            <h3 class="card__title">${item.title}</h3>
-                            <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-                        </div>
-                        <div class="card__footer card__footer--end">
-                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-                        </div>
+                    <div class="card__body">
+                        <h3 class="card__title">${item.title}</h3>
+                        <p class="card__subtitle">${item.description || item.category}</p>
+                        ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                     </div>
-                </div>
+                    <footer class="card__footer card__footer--end">
+                        <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                    </footer>
+                </article>
             `}).join('');
         }
 
@@ -4768,21 +4757,19 @@
                 const cardId = `model-${item.id}`;
 
                 return `
-                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="boxes" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
-                    <div class="card__content">
-                        <div class="card__body">
-                            <h3 class="card__title">${item.title}</h3>
-                            <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-                        </div>
-                        <div class="card__footer card__footer--end">
-                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-                        </div>
+                    <div class="card__body">
+                        <h3 class="card__title">${item.title}</h3>
+                        <p class="card__subtitle">${item.description || item.category}</p>
+                        ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                     </div>
-                </div>
+                    <footer class="card__footer card__footer--end">
+                        <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                    </footer>
+                </article>
             `}).join('');
         }
 
@@ -4817,21 +4804,19 @@
                 const cardId = `epd-${item.id}`;
 
                 return `
-                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="leaf" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
-                    <div class="card__content">
-                        <div class="card__body">
-                            <h3 class="card__title">${item.title}</h3>
-                            <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-                        </div>
-                        <div class="card__footer card__footer--end">
-                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-                        </div>
+                    <div class="card__body">
+                        <h3 class="card__title">${item.title}</h3>
+                        <p class="card__subtitle">${item.description || item.category}</p>
+                        ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                     </div>
-                </div>
+                    <footer class="card__footer card__footer--end">
+                        <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                    </footer>
+                </article>
             `}).join('');
         }
 
@@ -5309,48 +5294,46 @@
                 </div>
 
                 <!-- Section 2: Themen - Light Background -->
-                <div class="home-themen-section">
-                    <div class="container">
-                        <section class="home-section">
-                            <div class="home-section__header">
-                                <h2 class="home-section__title">Themen</h2>
-                                <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
-                            </div>
-                            <div class="quick-access-grid">
-                                <a href="#usecases" class="quick-card" data-route="usecases">
-                                    <span class="quick-card__kpi">${globalUsecasesData.length} Einträge</span>
-                                    <h3 class="quick-card__title">Anwendungsfälle</h3>
-                                    <p class="quick-card__desc">BIM-Anwendungsfälle für Planung, Koordination und Betrieb</p>
-                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                                </a>
-                                <a href="#elements" class="quick-card" data-route="elements">
-                                    <span class="quick-card__kpi">${globalElementsData.length} Einträge</span>
-                                    <h3 class="quick-card__title">Elemente</h3>
-                                    <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
-                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                                </a>
-                                <a href="#models" class="quick-card" data-route="models">
-                                    <span class="quick-card__kpi">${globalModelsData.length} Einträge</span>
-                                    <h3 class="quick-card__title">Fachmodelle</h3>
-                                    <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
-                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                                </a>
-                                <a href="#documents" class="quick-card" data-route="documents">
-                                    <span class="quick-card__kpi">${globalDocumentsData.length} Einträge</span>
-                                    <h3 class="quick-card__title">Dokumente</h3>
-                                    <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
-                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                                </a>
-                                <a href="#epds" class="quick-card" data-route="epds">
-                                    <span class="quick-card__kpi">${globalEpdsData.length} Einträge</span>
-                                    <h3 class="quick-card__title">Ökobilanzdaten</h3>
-                                    <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
-                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                                </a>
-                            </div>
-                        </section>
+                <section class="home-themen-section">
+                    <div class="container home-section">
+                        <header class="home-section__header">
+                            <h2 class="home-section__title">Themen</h2>
+                            <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
+                        </header>
+                        <div class="quick-access-grid">
+                            <a href="#usecases" class="quick-card" data-route="usecases">
+                                <span class="quick-card__kpi">${globalUsecasesData.length} Einträge</span>
+                                <h3 class="quick-card__title">Anwendungsfälle</h3>
+                                <p class="quick-card__desc">BIM-Anwendungsfälle für Planung, Koordination und Betrieb</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                            </a>
+                            <a href="#elements" class="quick-card" data-route="elements">
+                                <span class="quick-card__kpi">${globalElementsData.length} Einträge</span>
+                                <h3 class="quick-card__title">Elemente</h3>
+                                <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                            </a>
+                            <a href="#models" class="quick-card" data-route="models">
+                                <span class="quick-card__kpi">${globalModelsData.length} Einträge</span>
+                                <h3 class="quick-card__title">Fachmodelle</h3>
+                                <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                            </a>
+                            <a href="#documents" class="quick-card" data-route="documents">
+                                <span class="quick-card__kpi">${globalDocumentsData.length} Einträge</span>
+                                <h3 class="quick-card__title">Dokumente</h3>
+                                <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                            </a>
+                            <a href="#epds" class="quick-card" data-route="epds">
+                                <span class="quick-card__kpi">${globalEpdsData.length} Einträge</span>
+                                <h3 class="quick-card__title">Ökobilanzdaten</h3>
+                                <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                            </a>
+                        </div>
                     </div>
-                </div>`;
+                </section>`;
 
             setupGlobalSearch();
 
@@ -5542,13 +5525,11 @@
                         </div>
                     </div>
 
-                    <div class="catalog-layout">
-                        <div id="catalogContent" style="flex:1; min-width:0;">
-                             ${elementsView === 'grid' 
-                                ? `<div class="element-grid">${renderGridItemsHTML(filteredByTags, activeTags)}</div>` 
-                                : renderListItemsHTML(filteredByTags, activeTags)
-                            }
-                        </div>
+                    <div id="catalogContent" class="catalog-content">
+                        ${elementsView === 'grid'
+                            ? `<div class="element-grid">${renderGridItemsHTML(filteredByTags, activeTags)}</div>`
+                            : renderListItemsHTML(filteredByTags, activeTags)
+                        }
                     </div>
                 </div>`;
 
@@ -5615,13 +5596,11 @@
                         </div>
                     </div>
 
-                    <div class="catalog-layout">
-                        <div id="documentsContent" style="flex:1; min-width:0;">
-                             ${documentsView === 'grid'
-                                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>`
-                                : renderDocListItemsHTML(filteredByTags, activeTags)
-                            }
-                        </div>
+                    <div id="documentsContent" class="catalog-content">
+                        ${documentsView === 'grid'
+                            ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>`
+                            : renderDocListItemsHTML(filteredByTags, activeTags)
+                        }
                     </div>
                 </div>`;
 
@@ -5717,21 +5696,19 @@
             const backLink = buildHashWithTags('elements', activeTags);
 
             contentArea.innerHTML = `
-                <div class="detail-hero-wrapper">
-                    <div class="container">
-                         <div class="detail-hero">
-                             <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                                <h1 class="hero-title">${data.title}</h1>
-                                <p class="hero-subtitle">${data.subtitle || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                             </div>
-                             <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
-                             </div>
-                         </div>
+                <section class="detail-hero">
+                    <div class="container detail-hero__inner">
+                        <div class="hero-content">
+                            <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                            <h1 class="hero-title">${data.title}</h1>
+                            <p class="hero-subtitle">${data.subtitle || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
+                            <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                        </div>
+                        <div class="hero-image-container">
+                            ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
+                        </div>
                     </div>
-                </div>
+                </section>
 
                 <div class="container">
                     <div class="detail-layout">
@@ -5809,21 +5786,19 @@
             const backLink = buildHashWithTags('documents', activeTags);
             
             contentArea.innerHTML = `
-                <div class="detail-hero-wrapper">
-                    <div class="container">
-                         <div class="detail-hero">
-                             <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                                <h1 class="hero-title">${data.title}</h1>
-                                <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                             </div>
-                             <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
-                             </div>
-                         </div>
+                <section class="detail-hero">
+                    <div class="container detail-hero__inner">
+                        <div class="hero-content">
+                            <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                            <h1 class="hero-title">${data.title}</h1>
+                            <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
+                            <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                        </div>
+                        <div class="hero-image-container">
+                            ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
+                        </div>
                     </div>
-                </div>
+                </section>
                 <div class="container">
                     <div class="info-box info-box--centered">
                         <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
@@ -5872,13 +5847,11 @@
                         </div>
                     </div>
 
-                    <div class="catalog-layout">
-                        <div id="usecasesContent" style="flex:1; min-width:0;">
-                             ${usecasesView === 'grid'
-                                ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredByTags, activeTags)}</div>`
-                                : renderUsecasesListItemsHTML(filteredByTags, activeTags)
-                            }
-                        </div>
+                    <div id="usecasesContent" class="catalog-content">
+                        ${usecasesView === 'grid'
+                            ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredByTags, activeTags)}</div>`
+                            : renderUsecasesListItemsHTML(filteredByTags, activeTags)
+                        }
                     </div>
                 </div>`;
 
@@ -5914,21 +5887,19 @@
             const backLink = buildHashWithTags('usecases', activeTags);
 
             contentArea.innerHTML = `
-                <div class="detail-hero-wrapper">
-                    <div class="container">
-                         <div class="detail-hero">
-                             <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                                <h1 class="hero-title">${data.title}</h1>
-                                <p class="hero-subtitle">${data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                             </div>
-                             <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
-                             </div>
-                         </div>
+                <section class="detail-hero">
+                    <div class="container detail-hero__inner">
+                        <div class="hero-content">
+                            <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                            <h1 class="hero-title">${data.title}</h1>
+                            <p class="hero-subtitle">${data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.'}</p>
+                            <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                        </div>
+                        <div class="hero-image-container">
+                            ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
+                        </div>
                     </div>
-                </div>
+                </section>
                 <div class="container">
                     <div class="info-box info-box--centered">
                         <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
@@ -5977,13 +5948,11 @@
                         </div>
                     </div>
 
-                    <div class="catalog-layout">
-                        <div id="modelsContent" style="flex:1; min-width:0;">
-                             ${modelsView === 'grid'
-                                ? `<div class="element-grid">${renderModelsGridItemsHTML(filteredByTags, activeTags)}</div>`
-                                : renderModelsListItemsHTML(filteredByTags, activeTags)
-                            }
-                        </div>
+                    <div id="modelsContent" class="catalog-content">
+                        ${modelsView === 'grid'
+                            ? `<div class="element-grid">${renderModelsGridItemsHTML(filteredByTags, activeTags)}</div>`
+                            : renderModelsListItemsHTML(filteredByTags, activeTags)
+                        }
                     </div>
                 </div>`;
 
@@ -6019,21 +5988,19 @@
             const backLink = buildHashWithTags('models', activeTags);
 
             contentArea.innerHTML = `
-                <div class="detail-hero-wrapper">
-                    <div class="container">
-                         <div class="detail-hero">
-                             <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                                <h1 class="hero-title">${data.title}</h1>
-                                <p class="hero-subtitle">${data.description || 'Ein Fachmodell des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                             </div>
-                             <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
-                             </div>
-                         </div>
+                <section class="detail-hero">
+                    <div class="container detail-hero__inner">
+                        <div class="hero-content">
+                            <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                            <h1 class="hero-title">${data.title}</h1>
+                            <p class="hero-subtitle">${data.description || 'Ein Fachmodell des KBOB Datenkatalogs.'}</p>
+                            <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                        </div>
+                        <div class="hero-image-container">
+                            ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
+                        </div>
                     </div>
-                </div>
+                </section>
                 <div class="container">
                     <div class="info-box info-box--centered">
                         <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
@@ -6082,13 +6049,11 @@
                         </div>
                     </div>
 
-                    <div class="catalog-layout">
-                        <div id="epdsContent" style="flex:1; min-width:0;">
-                             ${epdsView === 'grid'
-                                ? `<div class="element-grid">${renderEpdsGridItemsHTML(filteredByTags, activeTags)}</div>`
-                                : renderEpdsListItemsHTML(filteredByTags, activeTags)
-                            }
-                        </div>
+                    <div id="epdsContent" class="catalog-content">
+                        ${epdsView === 'grid'
+                            ? `<div class="element-grid">${renderEpdsGridItemsHTML(filteredByTags, activeTags)}</div>`
+                            : renderEpdsListItemsHTML(filteredByTags, activeTags)
+                        }
                     </div>
                 </div>`;
 
@@ -6124,21 +6089,19 @@
             const backLink = buildHashWithTags('epds', activeTags);
 
             contentArea.innerHTML = `
-                <div class="detail-hero-wrapper">
-                    <div class="container">
-                         <div class="detail-hero">
-                             <div class="hero-content">
-                                <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                                <h1 class="hero-title">${data.title}</h1>
-                                <p class="hero-subtitle">${data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.'}</p>
-                                <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                             </div>
-                             <div class="hero-image-container">
-                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
-                             </div>
-                         </div>
+                <section class="detail-hero">
+                    <div class="container detail-hero__inner">
+                        <div class="hero-content">
+                            <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                            <h1 class="hero-title">${data.title}</h1>
+                            <p class="hero-subtitle">${data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.'}</p>
+                            <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                        </div>
+                        <div class="hero-image-container">
+                            ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
+                        </div>
                     </div>
-                </div>
+                </section>
                 <div class="container">
                     <div class="info-box info-box--centered">
                         <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
