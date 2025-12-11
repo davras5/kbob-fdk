@@ -3404,6 +3404,11 @@
                         : renderListItemsHTML(filteredData, activeTags);
                 });
             }
+
+            // Re-initialize Lucide icons after rendering
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
 
         function renderDocumentsCatalogPage(activeTags = []) {
@@ -3464,10 +3469,15 @@
                     );
                     
                     const container = document.getElementById('documentsContent');
-                    container.innerHTML = (documentsView === 'grid') 
+                    container.innerHTML = (documentsView === 'grid')
                         ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags)}</div>`
                         : renderDocListItemsHTML(filteredData, activeTags);
                 });
+            }
+
+            // Re-initialize Lucide icons after rendering
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         }
 
