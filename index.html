@@ -1062,12 +1062,12 @@
 
         /* Active tag state */
         .tag-badge.active {
-            background: var(--color-text-primary);
+            background: var(--color-surface-dark);
             color: var(--color-white);
         }
 
         .tag-badge.active:hover {
-            background: var(--color-black);
+            background: var(--color-surface-darker);
         }
 
         /* ============================================
@@ -1148,8 +1148,12 @@
         }
 
         .view-btn.active {
-            background: var(--color-bg-alt);
-            color: var(--color-text-primary);
+            background: var(--color-surface-dark);
+            color: var(--color-white);
+        }
+
+        .view-btn.active:hover {
+            background: var(--color-surface-darker);
         }
 
         .view-btn + .view-btn {
@@ -1180,11 +1184,17 @@
         }
 
         .filter-btn.active {
-            border-color: var(--color-border);
-            background: var(--color-bg-light);
+            background: var(--color-surface-dark);
+            color: var(--color-white);
+            border-color: var(--color-surface-dark);
         }
 
-        /* Reset Filter Button */
+        .filter-btn.active:hover {
+            background: var(--color-surface-darker);
+            border-color: var(--color-surface-darker);
+        }
+
+        /* Reset Filter Button - extends filter-btn with danger hover */
         .reset-filter-btn {
             display: flex;
             align-items: center;
@@ -1204,8 +1214,8 @@
 
         .reset-filter-btn:hover {
             color: var(--color-primary);
-            border-color: var(--color-border);
-            background: var(--color-bg-light);
+            border-color: var(--color-primary);
+            background: var(--color-white);
         }
 
         /* Filter Count Badge */
