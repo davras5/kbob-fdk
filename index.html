@@ -30,19 +30,19 @@
 
             /* Neutral Colors */
             --color-black: #000000;
-            --color-text-primary: #333333;
-            --color-text-secondary: #454545;
-            --color-text-muted: #757575;
-            --color-border: #D5D5D5;
-            --color-border-light: #E0E0E0;
-            --color-bg-alt: #F0F0F0;
-            --color-bg-light: #F7F7F7;
+            --color-text-primary: #1a2a3a;
+            --color-text-secondary: #4a5568;
+            --color-text-muted: #718096;
+            --color-border: #e2e8f0;
+            --color-border-light: #edf2f7;
+            --color-bg-alt: #f7fafc;
+            --color-bg-light: #fafafa;
             --color-white: #FFFFFF;
 
             /* Surface Colors */
-            --color-surface: #F2F7F9;
-            --color-surface-alt: #E7EDEF;
-            --color-surface-blue: #D8E8EF;
+            --color-surface: #f7fafc;
+            --color-surface-alt: #edf2f7;
+            --color-surface-blue: #ebf4ff;
             --color-highlight: #FFFAB2;
 
             /* Status Colors */
@@ -209,7 +209,7 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: var(--space-sm); height: var(--space-sm); }
-        ::-webkit-scrollbar-track { background: var(--color-bg-light); }
+        ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--border-radius); }
         ::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
 
@@ -477,11 +477,10 @@
             flex: 1 0 auto;
             min-height: 600px;
             padding: var(--space-2xl) 0 var(--space-3xl) 0;
-            background-color: var(--color-bg-light);
+            background-color: var(--color-white);
         }
 
         #content-area.white-bg {
-            background-color: var(--color-white) !important;
             padding-top: 0;
         }
 
@@ -844,8 +843,8 @@
         }
 
         .quick-card:hover {
-            border-color: var(--color-interactive);
-            box-shadow: var(--shadow-md);
+            border-color: var(--color-border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             transform: translateY(-2px);
         }
 
@@ -1761,7 +1760,6 @@
         .filter-bar {
             background: var(--color-white);
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
             border: 1px solid var(--color-border-light);
             margin-bottom: var(--space-xl);
             display: flex;
@@ -1886,9 +1884,9 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: none;
-            transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--color-border-light);
+            transition: all var(--transition-normal);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -1896,9 +1894,8 @@
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
-            outline: 1px solid var(--color-white);
-            outline-offset: -1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-border);
         }
 
         .card:hover .card__title {
@@ -2116,9 +2113,10 @@
            DETAIL VIEW
            ============================================ */
         .detail-hero-wrapper {
-            background: var(--color-bg-light);
+            background: var(--color-white);
             padding: var(--space-2xl) 0 var(--space-3xl) 0;
             margin-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--color-border-light);
         }
 
         .detail-hero {
