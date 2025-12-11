@@ -2,7 +2,7 @@
   {
     "id": "epd1",
     "title": "Beton C25/30",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=200&fit=crop",
     "category": "Baustoffe",
     "subcategory": "Massivbau",
     "description": "Umweltproduktdeklaration für Normalbeton der Festigkeitsklasse C25/30",
@@ -21,7 +21,7 @@
   {
     "id": "epd2",
     "title": "Betonstahl",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Baustoffe",
     "subcategory": "Massivbau",
     "description": "Ökobilanz für Bewehrungsstahl nach SN EN 10080",
@@ -40,7 +40,7 @@
   {
     "id": "epd3",
     "title": "Kalksandstein",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Baustoffe",
     "subcategory": "Mauerwerk",
     "description": "EPD für Kalksandstein-Mauerwerk nach DIN 106",
@@ -59,7 +59,7 @@
   {
     "id": "epd4",
     "title": "Konstruktionsholz",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1518173946687-a4c036bc844f?w=400&h=200&fit=crop",
     "category": "Baustoffe",
     "subcategory": "Holzbau",
     "description": "Umweltdaten für Brettschichtholz (BSH) aus Fichtenholz",
@@ -78,7 +78,7 @@
   {
     "id": "epd5",
     "title": "Mineralwolle",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1590644365607-1c5bd4d79f44?w=400&h=200&fit=crop",
     "category": "Dämmstoffe",
     "subcategory": "Fassade",
     "description": "Ökobilanz für Steinwolle-Dämmplatten",
@@ -97,7 +97,7 @@
   {
     "id": "epd6",
     "title": "Dreifachverglasung",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "category": "Bauteile",
     "subcategory": "Fenster",
     "description": "EPD für 3-fach Isolierverglasung mit Wärmeschutzbeschichtung",
@@ -116,7 +116,7 @@
   {
     "id": "epd7",
     "title": "Aluminiumfassade",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "category": "Bauteile",
     "subcategory": "Fassade",
     "description": "Umweltdaten für Aluminium-Pfosten-Riegel-Fassade",
@@ -135,7 +135,7 @@
   {
     "id": "epd8",
     "title": "Photovoltaikmodul",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=200&fit=crop",
     "category": "Technik",
     "subcategory": "Erneuerbare Energie",
     "description": "Ökobilanz für monokristalline Solarmodule",
@@ -154,7 +154,7 @@
   {
     "id": "epd9",
     "title": "Wärmepumpe Luft/Wasser",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Technik",
     "subcategory": "Heizung",
     "description": "EPD für Luft-Wasser-Wärmepumpen bis 15 kW",
@@ -173,7 +173,7 @@
   {
     "id": "epd10",
     "title": "Linoleum",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400&h=200&fit=crop",
     "category": "Ausbau",
     "subcategory": "Bodenbelag",
     "description": "Umweltproduktdeklaration für Linoleum-Bodenbelag",

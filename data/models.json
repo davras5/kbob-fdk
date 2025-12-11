@@ -2,7 +2,7 @@
   {
     "id": "m1",
     "title": "Architekturmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Architektur",
     "description": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
@@ -19,7 +19,7 @@
   {
     "id": "m2",
     "title": "Tragwerksmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Statik",
     "description": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
@@ -36,7 +36,7 @@
   {
     "id": "m3",
     "title": "HLKS-Modell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Haustechnik",
     "description": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
@@ -53,7 +53,7 @@
   {
     "id": "m4",
     "title": "Elektromodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Elektrotechnik",
     "description": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
@@ -70,7 +70,7 @@
   {
     "id": "m5",
     "title": "Koordinationsmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "category": "Koordination",
     "subcategory": "Zusammenführung",
     "description": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
@@ -87,7 +87,7 @@
   {
     "id": "m6",
     "title": "Aussenraummodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1518173946687-a4c036bc844f?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Landschaftsarchitektur",
     "description": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
@@ -104,7 +104,7 @@
   {
     "id": "m7",
     "title": "Brandschutzmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=200&fit=crop",
     "category": "Spezialmodelle",
     "subcategory": "Brandschutz",
     "description": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
@@ -121,7 +121,7 @@
   {
     "id": "m8",
     "title": "Baugrubenmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "category": "Spezialmodelle",
     "subcategory": "Tiefbau",
     "description": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
@@ -138,7 +138,7 @@
   {
     "id": "m9",
     "title": "Bestandsmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Bestand",
     "subcategory": "As-Built",
     "description": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
@@ -155,7 +155,7 @@
   {
     "id": "m10",
     "title": "Fassadenmodell",
-    "image": "",
+    "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
     "subcategory": "Fassade",
     "description": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
