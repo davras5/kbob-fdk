@@ -1022,16 +1022,16 @@
         }
 
         .quick-card__kpi {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid var(--color-text-primary);
             color: var(--color-text-primary);
-            font-size: var(--text-body-sm);
+            font-size: var(--text-h4);
             font-weight: var(--font-weight-semibold);
-            padding: var(--space-xs) var(--space-sm);
-            margin-top: var(--space-md);
-            align-self: center;
+            padding: var(--space-sm) var(--space-md);
+            margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) var(--space-lg) calc(-1 * var(--space-xl));
+            width: calc(100% + 2 * var(--space-xl));
         }
 
         .quick-card__arrow-btn {
@@ -3950,56 +3950,31 @@
                             </div>
                             <div class="quick-access-grid">
                                 <a href="#elements" class="quick-card" data-route="elements">
+                                    <span class="quick-card__kpi">${globalElementsData.length} Datensätze</span>
                                     <h3 class="quick-card__title">Elemente</h3>
                                     <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
-                                    <span class="quick-card__kpi">${globalElementsData.length} Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
+                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <h3 class="quick-card__title">Fachmodelle</h3>
                                     <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
-                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#documents" class="quick-card" data-route="documents">
+                                    <span class="quick-card__kpi">${globalDocumentsData.length} Datensätze</span>
                                     <h3 class="quick-card__title">Dokumente</h3>
                                     <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
-                                    <span class="quick-card__kpi">${globalDocumentsData.length} Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
+                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <h3 class="quick-card__title">Ökobilanzdaten</h3>
                                     <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
-                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                             </div>
                         </section>
-                    </div>
-                </div>
-
-                <!-- Section 3: Über den Fachdatenkatalog - White Background, BLW Style -->
-                <div class="home-about-section">
-                    <div class="container">
-                        <div class="about-blw">
-                            <div class="about-blw__content">
-                                <p>Wir setzen uns dafür ein, dass Planerinnen und Planer einheitlich und digital zusammenarbeiten können. Ein standardisierter, offener Fachdatenkatalog ist wichtig. Im Fokus der KBOB steht zudem die nachhaltige Bauwerksdokumentation für öffentliche Bauten.</p>
-                                <div class="about-blw__buttons">
-                                    <a href="#handbook" class="about-blw__btn">
-                                        Mehr über den KBOB FDK
-                                        <i data-lucide="arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                    <a href="#catalog" class="about-blw__btn">
-                                        Zum Katalog
-                                        <i data-lucide="arrow-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="about-blw__image">
-                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop" alt="Modernes Bauprojekt">
-                                <span class="about-blw__image-credit">© Unsplash</span>
-                            </div>
-                        </div>
                     </div>
                 </div>`;
 
