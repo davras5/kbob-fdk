@@ -418,6 +418,106 @@
             font-weight: var(--font-weight-bold);
         }
 
+        /* Header Controls (Kontakt, Search) */
+        .header__controls {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: var(--space-sm);
+        }
+
+        .header__links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .header__link {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+        }
+
+        .header__link:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        .header__search {
+            position: relative;
+        }
+
+        .header__search-toggle {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .header__search-toggle:hover {
+            color: var(--color-primary);
+        }
+
+        .header__search-toggle svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .header__search-form {
+            display: none;
+            position: absolute;
+            top: calc(100% + var(--space-sm));
+            right: 0;
+            width: 200px;
+            border: 2px solid var(--color-interactive);
+            border-radius: var(--border-radius);
+            background: var(--color-white);
+            overflow: hidden;
+            z-index: var(--z-dropdown);
+        }
+
+        .header__search.open .header__search-form {
+            display: flex;
+        }
+
+        .header__search.open .header__search-toggle {
+            color: var(--color-interactive);
+        }
+
+        .header__search-input {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            outline: none;
+            font-size: var(--text-body);
+            font-family: inherit;
+        }
+
+        .header__search-submit {
+            background: none;
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header__search-submit:hover {
+            color: var(--color-interactive);
+        }
+
+        .header__search-submit svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* ============================================
            NAVIGATION (Swiss Federal Style)
            ============================================ */
@@ -936,6 +1036,350 @@
         /* Home Search Dropdown - positioned below home search */
         .home-search-container .search-dropdown {
             margin-top: var(--space-sm);
+        }
+
+        /* ============================================
+           SEARCH RESULTS PAGE
+           ============================================ */
+        .search-hero {
+            background-color: var(--color-nav);
+            padding: var(--space-3xl) 0;
+        }
+
+        .search-hero__title {
+            font-size: var(--text-display);
+            color: var(--color-white);
+            margin: 0 0 var(--space-xl) 0;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .search-hero__form {
+            max-width: 700px;
+        }
+
+        .search-hero__input-wrapper {
+            display: flex;
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 56px;
+        }
+
+        .search-hero__input {
+            flex: 1;
+            border: none;
+            padding: 0 var(--space-lg);
+            font-size: var(--text-h4);
+            font-family: inherit;
+            outline: none;
+        }
+
+        .search-hero__submit {
+            background: none;
+            border: none;
+            padding: 0 var(--space-lg);
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-hero__submit:hover {
+            color: var(--color-text-primary);
+        }
+
+        .search-hero__submit svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Search Results Section */
+        .search-results {
+            padding: var(--space-xl) 0 var(--space-3xl) 0;
+        }
+
+        .search-results__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .search-results__count {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+        }
+
+        .search-results__controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .search-results__sort {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .search-results__sort:hover {
+            color: var(--color-text-primary);
+        }
+
+        .search-results__sort svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .search-results__view-toggle {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .search-results__view-btn {
+            padding: var(--space-sm) var(--space-md);
+            background: var(--color-white);
+            border: none;
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-results__view-btn:not(:last-child) {
+            border-right: 1px solid var(--color-border);
+        }
+
+        .search-results__view-btn:hover {
+            color: var(--color-text-primary);
+        }
+
+        .search-results__view-btn.active {
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+        }
+
+        .search-results__view-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Search Results List View */
+        .search-results__list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .search-result-item {
+            padding: var(--space-lg) 0;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .search-result-item__meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            font-size: var(--text-body-sm);
+            color: var(--color-text-muted);
+        }
+
+        .search-result-item__type {
+            color: var(--color-text-secondary);
+        }
+
+        .search-result-item__date::before {
+            content: "|";
+            margin-right: var(--space-sm);
+        }
+
+        .search-result-item__title {
+            font-size: var(--text-h4);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-sm) 0;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .search-result-item__title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .search-result-item__title a:hover {
+            color: var(--color-primary);
+        }
+
+        .search-result-item__desc {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Search Results Grid View */
+        .search-results__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .search-result-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow var(--transition-fast);
+        }
+
+        .search-result-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-result-card__meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-body-sm);
+            color: var(--color-text-muted);
+        }
+
+        .search-result-card__type {
+            color: var(--color-text-secondary);
+        }
+
+        .search-result-card__date::before {
+            content: "|";
+            margin-right: var(--space-sm);
+        }
+
+        .search-result-card__title {
+            font-size: var(--text-h5);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-sm) 0;
+            font-weight: var(--font-weight-semibold);
+            line-height: 1.3;
+        }
+
+        .search-result-card__title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .search-result-card__title a:hover {
+            color: var(--color-primary);
+        }
+
+        .search-result-card__desc {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.5;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .search-result-card__footer {
+            margin-top: var(--space-lg);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .search-result-card__link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .search-result-card__link:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .search-result-card__link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Search Results Empty State */
+        .search-results__empty {
+            text-align: center;
+            padding: var(--space-3xl) 0;
+            color: var(--color-text-muted);
+        }
+
+        .search-results__empty-icon {
+            margin-bottom: var(--space-lg);
+            color: var(--color-border);
+        }
+
+        .search-results__empty-icon svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        .search-results__empty-title {
+            font-size: var(--text-h4);
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .search-results__empty-text {
+            font-size: var(--text-body);
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .search-results__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .search-results__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-results__header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+
+            .search-hero__title {
+                font-size: var(--text-h1);
+            }
+
+            .search-hero__input {
+                font-size: var(--text-body);
+            }
         }
 
         /* ============================================
@@ -2640,6 +3084,16 @@
                 font-size: var(--text-body);
             }
 
+            .header__controls {
+                position: absolute;
+                top: var(--space-md);
+                right: var(--space-lg);
+            }
+
+            .header__search-form {
+                width: 180px;
+            }
+
             .main-nav .container {
                 padding: 0 var(--space-lg);
             }
@@ -2774,10 +3228,18 @@
                 font-size: var(--text-body);
             }
 
-            .lang-switch {
+            .header__controls {
                 position: absolute;
                 top: var(--space-md);
                 right: var(--space-md);
+            }
+
+            .header__links {
+                display: none;
+            }
+
+            .header__search-form {
+                width: 160px;
             }
 
             .main-nav .container {
@@ -3321,8 +3783,22 @@
                     <span>Fachdatenkatalog</span>
                 </div>
             </a>
-            <div class="lang-switch">
-                <span class="active">DE</span> <span>FR</span> <span>IT</span>
+            <div class="header__controls">
+                <div class="header__links">
+                    <a href="#kontakt" class="header__link">Kontakt</a>
+                </div>
+                <div class="header__search">
+                    <button class="header__search-toggle" id="headerSearchToggle" aria-expanded="false" aria-controls="headerSearchForm">
+                        <span>Suche</span>
+                        <i data-lucide="search" aria-hidden="true"></i>
+                    </button>
+                    <form class="header__search-form" id="headerSearchForm" role="search" aria-label="Website durchsuchen">
+                        <input type="search" id="headerSearchInput" class="header__search-input" placeholder="Suche" autocomplete="off">
+                        <button type="submit" class="header__search-submit" aria-label="Suchen">
+                            <i data-lucide="search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
         <nav class="main-nav">
@@ -3393,6 +3869,9 @@
         let usecasesFilterVisible = false;
         let modelsFilterVisible = false;
         let epdsFilterVisible = false;
+        let searchView = 'list';
+        let currentSearchQuery = '';
+        let currentSearchSort = 'date-desc';
 
         // Track which cards have expanded tags (show all tags)
         const expandedCardTags = new Set();
@@ -3430,8 +3909,9 @@
                 id = hashPart.split('/')[1];
             }
             
-            // Parse tags from query params
+            // Parse query params
             const tags = [];
+            let searchQuery = '';
             if (queryPart) {
                 const params = new URLSearchParams(queryPart);
                 params.getAll('tag').forEach(tag => {
@@ -3439,9 +3919,10 @@
                         tags.push(tag);
                     }
                 });
+                searchQuery = params.get('q') || '';
             }
 
-            return { route, id, tags };
+            return { route, id, tags, searchQuery };
         }
 
         /**
@@ -3573,10 +4054,13 @@
                 globalEpdsData = await epdsResponse.json();
 
                 isDataLoaded = true;
-                
+
                 // Setup nav link click handlers for tag preservation
                 setupNavLinks();
-                
+
+                // Setup header search toggle and form
+                setupHeaderSearch();
+
                 window.addEventListener('hashchange', router);
                 router();
             } catch (error) {
@@ -3610,8 +4094,8 @@
         // --- ROUTER ---
         function router() {
             if (!isDataLoaded) return;
-            
-            const { route, id, tags } = parseHashWithParams();
+
+            const { route, id, tags, searchQuery } = parseHashWithParams();
 
             // Update nav active states
             document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
@@ -3637,6 +4121,7 @@
 
             switch(route) {
                 case 'home': renderHomePage(); break;
+                case 'search': renderSearchResultsPage(searchQuery); break;
                 case 'elements': renderCatalogPage(tags); break;
                 case 'documents': renderDocumentsCatalogPage(tags); break;
                 case 'usecases': renderUsecasesCatalogPage(tags); break;
@@ -4241,6 +4726,289 @@
                 }
             });
         }
+
+        // --- HEADER SEARCH ---
+        function setupHeaderSearch() {
+            const toggle = document.getElementById('headerSearchToggle');
+            const searchContainer = document.querySelector('.header__search');
+            const form = document.getElementById('headerSearchForm');
+            const input = document.getElementById('headerSearchInput');
+
+            if (!toggle || !searchContainer || !form || !input) return;
+
+            // Toggle search form visibility
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = searchContainer.classList.contains('open');
+                searchContainer.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', !isOpen);
+                if (!isOpen) {
+                    input.focus();
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const query = input.value.trim();
+                if (query.length >= 2) {
+                    searchContainer.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    window.location.hash = `search?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            // Close on click outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.header__search')) {
+                    searchContainer.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Close on Escape
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchContainer.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    input.blur();
+                }
+            });
+        }
+
+        // --- FULL SEARCH (Search Results Page) ---
+        function performFullSearch(query) {
+            const results = [];
+            const searchTerm = query.toLowerCase().trim();
+            if (searchTerm.length < 2) return results;
+
+            // Search Use Cases
+            globalUsecasesData.forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm) ||
+                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))) {
+                    results.push({
+                        type: 'Artikel',
+                        category: 'usecase',
+                        id: item.id,
+                        title: item.title,
+                        description: item.description || '',
+                        date: item.date || null
+                    });
+                }
+            });
+
+            // Search Elements
+            globalElementsData.forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm) ||
+                    item.classification.toLowerCase().includes(searchTerm) ||
+                    (item.subtitle && item.subtitle.toLowerCase().includes(searchTerm))) {
+                    results.push({
+                        type: 'Element',
+                        category: 'element',
+                        id: item.id,
+                        title: item.title,
+                        description: item.subtitle || item.classification || '',
+                        date: item.date || null
+                    });
+                }
+            });
+
+            // Search Models
+            globalModelsData.forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm) ||
+                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))) {
+                    results.push({
+                        type: 'Artikel',
+                        category: 'model',
+                        id: item.id,
+                        title: item.title,
+                        description: item.description || '',
+                        date: item.date || null
+                    });
+                }
+            });
+
+            // Search Documents
+            globalDocumentsData.forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm) ||
+                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))) {
+                    results.push({
+                        type: 'Artikel',
+                        category: 'document',
+                        id: item.id,
+                        title: item.title,
+                        description: item.description || '',
+                        date: item.date || null
+                    });
+                }
+            });
+
+            // Search EPDs
+            globalEpdsData.forEach(item => {
+                if (item.title.toLowerCase().includes(searchTerm) ||
+                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.description && item.description.toLowerCase().includes(searchTerm))) {
+                    results.push({
+                        type: 'Artikel',
+                        category: 'epd',
+                        id: item.id,
+                        title: item.title,
+                        description: item.description || '',
+                        date: item.date || null
+                    });
+                }
+            });
+
+            // Sort results by date (newest first)
+            if (currentSearchSort === 'date-desc') {
+                results.sort((a, b) => {
+                    if (!a.date && !b.date) return 0;
+                    if (!a.date) return 1;
+                    if (!b.date) return -1;
+                    return new Date(b.date) - new Date(a.date);
+                });
+            } else if (currentSearchSort === 'date-asc') {
+                results.sort((a, b) => {
+                    if (!a.date && !b.date) return 0;
+                    if (!a.date) return 1;
+                    if (!b.date) return -1;
+                    return new Date(a.date) - new Date(b.date);
+                });
+            }
+
+            return results;
+        }
+
+        function formatSearchDate(dateStr) {
+            if (!dateStr) return '';
+            const date = new Date(dateStr);
+            if (isNaN(date.getTime())) return '';
+            return date.toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function renderSearchResultsPage(query) {
+            currentSearchQuery = query || '';
+            const results = performFullSearch(currentSearchQuery);
+            const resultCount = results.length;
+
+            let resultsHtml = '';
+            if (resultCount === 0 && currentSearchQuery.length >= 2) {
+                resultsHtml = `
+                    <div class="search-results__empty">
+                        <div class="search-results__empty-icon"><i data-lucide="search-x" aria-hidden="true"></i></div>
+                        <h3 class="search-results__empty-title">Keine Ergebnisse gefunden</h3>
+                        <p class="search-results__empty-text">Versuchen Sie es mit anderen Suchbegriffen.</p>
+                    </div>
+                `;
+            } else if (searchView === 'list') {
+                resultsHtml = `<div class="search-results__list">`;
+                results.forEach(item => {
+                    const dateStr = formatSearchDate(item.date);
+                    resultsHtml += `
+                        <div class="search-result-item">
+                            <div class="search-result-item__meta">
+                                <span class="search-result-item__type">${item.type}</span>
+                                ${dateStr ? `<span class="search-result-item__date">${dateStr}</span>` : ''}
+                            </div>
+                            <h3 class="search-result-item__title"><a href="#${item.category}/${item.id}">${item.title}</a></h3>
+                            <p class="search-result-item__desc">${item.description}</p>
+                        </div>
+                    `;
+                });
+                resultsHtml += `</div>`;
+            } else {
+                resultsHtml = `<div class="search-results__grid">`;
+                results.forEach(item => {
+                    const dateStr = formatSearchDate(item.date);
+                    resultsHtml += `
+                        <div class="search-result-card">
+                            <div class="search-result-card__meta">
+                                <span class="search-result-card__type">${item.type}</span>
+                                ${dateStr ? `<span class="search-result-card__date">${dateStr}</span>` : ''}
+                            </div>
+                            <h3 class="search-result-card__title"><a href="#${item.category}/${item.id}">${item.title}</a></h3>
+                            <p class="search-result-card__desc">${item.description}</p>
+                            <div class="search-result-card__footer">
+                                <a href="#${item.category}/${item.id}" class="search-result-card__link" aria-label="${item.title} öffnen">
+                                    <i data-lucide="arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                resultsHtml += `</div>`;
+            }
+
+            contentArea.innerHTML = `
+                <div class="search-hero">
+                    <div class="container">
+                        <h1 class="search-hero__title">Suche</h1>
+                        <form class="search-hero__form" id="searchPageForm" role="search">
+                            <div class="search-hero__input-wrapper">
+                                <input type="search" id="searchPageInput" class="search-hero__input" value="${currentSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
+                                <button type="submit" class="search-hero__submit" aria-label="Suchen">
+                                    <i data-lucide="search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="search-results">
+                    <div class="container">
+                        ${currentSearchQuery.length >= 2 ? `
+                        <div class="search-results__header">
+                            <span class="search-results__count">${resultCount} Suchergebnisse</span>
+                            <div class="search-results__controls">
+                                <button class="search-results__sort" onclick="toggleSearchSort()">
+                                    <span>${currentSearchSort === 'date-desc' ? 'Nach Datum sortieren (Absteigend)' : 'Nach Datum sortieren (Aufsteigend)'}</span>
+                                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <div class="search-results__view-toggle">
+                                    <button class="search-results__view-btn ${searchView === 'list' ? 'active' : ''}" onclick="switchSearchView('list')" title="Listenansicht" aria-label="Listenansicht">
+                                        <i data-lucide="list" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="search-results__view-btn ${searchView === 'grid' ? 'active' : ''}" onclick="switchSearchView('grid')" title="Rasteransicht" aria-label="Rasteransicht">
+                                        <i data-lucide="layout-grid" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+                        ${resultsHtml}
+                    </div>
+                </div>
+            `;
+
+            // Setup search form on results page
+            const searchForm = document.getElementById('searchPageForm');
+            const searchInput = document.getElementById('searchPageInput');
+            if (searchForm && searchInput) {
+                searchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const newQuery = searchInput.value.trim();
+                    if (newQuery.length >= 2) {
+                        window.location.hash = `search?q=${encodeURIComponent(newQuery)}`;
+                    }
+                });
+            }
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        window.switchSearchView = function(view) {
+            searchView = view;
+            renderSearchResultsPage(currentSearchQuery);
+        };
+
+        window.toggleSearchSort = function() {
+            currentSearchSort = currentSearchSort === 'date-desc' ? 'date-asc' : 'date-desc';
+            renderSearchResultsPage(currentSearchQuery);
+        };
 
         // --- PAGE RENDERERS ---
         function renderHomePage() {
