@@ -347,6 +347,8 @@
             display: flex;
             align-items: flex-start;
             gap: var(--space-md);
+            text-decoration: none;
+            color: inherit;
         }
 
         /* Swiss Coat of Arms */
@@ -3289,14 +3291,9 @@
     </style>
 </head>
 <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#content-area" class="sr-only sr-only--focusable">
-        Zum Hauptinhalt springen
-    </a>
-
     <header>
         <div class="header__top">
-            <div class="header__branding">
+            <a href="#home" class="header__branding">
                 <!-- Swiss Coat of Arms -->
                 <div class="header__logo">
                     <img src="assets/swiss-logo-flag.svg" alt="Schweizerisches Wappen">
@@ -3315,7 +3312,7 @@
                     <span>KBOB</span>
                     <span>Fachdatenkatalog</span>
                 </div>
-            </div>
+            </a>
             <div class="lang-switch">
                 <span class="active">DE</span> <span>FR</span> <span>IT</span>
             </div>
