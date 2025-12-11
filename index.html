@@ -638,6 +638,7 @@
         .breadcrumb-nav {
             display: flex;
             align-items: center;
+            height: 50px;
             gap: var(--space-sm);
             font-size: var(--text-body-sm);
             color: var(--color-text-secondary);
@@ -680,6 +681,7 @@
         .page-toolbar {
             display: flex;
             align-items: center;
+            height: 50px;
             gap: var(--space-lg);
             align-self: flex-end; /* Position toolbar to the right in vertical breadcrumb layout */
         }
@@ -1022,7 +1024,10 @@
         }
 
         .home-themen-section .home-section {
-            margin: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            background: transparent;
+            /* Preserve margin: 0 auto from .container for horizontal centering */
         }
 
         /* About Section - BLW Style */
