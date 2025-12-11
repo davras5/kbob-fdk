@@ -822,24 +822,35 @@
         }
 
         .btn--primary:hover:not(:disabled) {
-            background-color: var(--color-primary-light);
-            border-color: var(--color-primary-light);
+            background-color: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
         }
 
-        /* Secondary Button - Outline style */
+        .btn--primary:active:not(:disabled),
+        .btn--primary.active {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-surface-dark);
+        }
+
+        /* Secondary Button - Interactive Blue */
         .btn--secondary {
-            background-color: transparent;
-            color: var(--color-primary);
-            border-color: var(--color-primary);
+            background-color: var(--color-interactive);
+            color: var(--color-white);
+            border-color: var(--color-interactive);
         }
 
         .btn--secondary:hover:not(:disabled) {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-color: var(--color-primary);
+            background-color: var(--color-interactive-hover);
+            border-color: var(--color-interactive-hover);
         }
 
-        /* Outline Button */
+        .btn--secondary:active:not(:disabled),
+        .btn--secondary.active {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-surface-dark);
+        }
+
+        /* Outline Button - Primary Red outline */
         .btn--outline {
             background-color: transparent;
             color: var(--color-primary);
@@ -851,15 +862,28 @@
             color: var(--color-white);
         }
 
+        .btn--outline:active:not(:disabled),
+        .btn--outline.active {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-surface-dark);
+            color: var(--color-white);
+        }
+
         /* Ghost Button */
         .btn--ghost {
             background-color: transparent;
-            color: var(--color-primary);
+            color: var(--color-text-primary);
             border-color: transparent;
         }
 
         .btn--ghost:hover:not(:disabled) {
             background-color: var(--color-surface);
+        }
+
+        .btn--ghost:active:not(:disabled),
+        .btn--ghost.active {
+            background-color: var(--color-surface-dark);
+            color: var(--color-white);
         }
 
         /* Button Sizes */
@@ -871,6 +895,113 @@
         .btn--lg {
             padding: var(--space-md) var(--space-lg);
             font-size: var(--text-h4);
+        }
+
+        /* ============================================
+           TOGGLE SWITCH (Swiss Federal Design)
+           ============================================ */
+
+        /* Toggle Switch Container */
+        .toggle-switch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-switch__input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* Toggle Track */
+        .toggle-switch__track {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            background-color: var(--color-border);
+            border-radius: 13px;
+            transition: background-color var(--transition-fast);
+        }
+
+        /* Toggle Thumb */
+        .toggle-switch__thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast);
+        }
+
+        /* Checked State */
+        .toggle-switch__input:checked + .toggle-switch__track {
+            background-color: var(--color-surface-dark);
+        }
+
+        .toggle-switch__input:checked + .toggle-switch__track .toggle-switch__thumb {
+            transform: translateX(22px);
+        }
+
+        /* Hover State */
+        .toggle-switch:hover .toggle-switch__track {
+            background-color: var(--color-text-muted);
+        }
+
+        .toggle-switch:hover .toggle-switch__input:checked + .toggle-switch__track {
+            background-color: var(--color-surface-darker);
+        }
+
+        /* Focus State */
+        .toggle-switch__input:focus-visible + .toggle-switch__track {
+            outline: 2px solid var(--color-focus);
+            outline-offset: 2px;
+        }
+
+        /* Disabled State */
+        .toggle-switch--disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .toggle-switch--disabled .toggle-switch__track {
+            pointer-events: none;
+        }
+
+        /* Toggle Label */
+        .toggle-switch__label {
+            font-size: var(--text-body);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-primary);
+        }
+
+        /* Small Toggle Variant */
+        .toggle-switch--sm .toggle-switch__track {
+            width: 36px;
+            height: 20px;
+            border-radius: 10px;
+        }
+
+        .toggle-switch--sm .toggle-switch__thumb {
+            width: 14px;
+            height: 14px;
+            top: 3px;
+            left: 3px;
+        }
+
+        .toggle-switch--sm .toggle-switch__input:checked + .toggle-switch__track .toggle-switch__thumb {
+            transform: translateX(16px);
+        }
+
+        .toggle-switch--sm .toggle-switch__label {
+            font-size: var(--text-body-sm);
         }
 
         /* ============================================
@@ -1062,12 +1193,12 @@
 
         /* Active tag state */
         .tag-badge.active {
-            background: var(--color-text-primary);
+            background: var(--color-surface-dark);
             color: var(--color-white);
         }
 
         .tag-badge.active:hover {
-            background: var(--color-black);
+            background: var(--color-surface-darker);
         }
 
         /* ============================================
@@ -1148,8 +1279,12 @@
         }
 
         .view-btn.active {
-            background: var(--color-bg-alt);
-            color: var(--color-text-primary);
+            background: var(--color-surface-dark);
+            color: var(--color-white);
+        }
+
+        .view-btn.active:hover {
+            background: var(--color-surface-darker);
         }
 
         .view-btn + .view-btn {
@@ -1180,11 +1315,17 @@
         }
 
         .filter-btn.active {
-            border-color: var(--color-border);
-            background: var(--color-bg-light);
+            background: var(--color-surface-dark);
+            color: var(--color-white);
+            border-color: var(--color-surface-dark);
         }
 
-        /* Reset Filter Button */
+        .filter-btn.active:hover {
+            background: var(--color-surface-darker);
+            border-color: var(--color-surface-darker);
+        }
+
+        /* Reset Filter Button - extends filter-btn with danger hover */
         .reset-filter-btn {
             display: flex;
             align-items: center;
@@ -1204,8 +1345,8 @@
 
         .reset-filter-btn:hover {
             color: var(--color-primary);
-            border-color: var(--color-border);
-            background: var(--color-bg-light);
+            border-color: var(--color-primary);
+            background: var(--color-white);
         }
 
         /* Filter Count Badge */
