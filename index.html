@@ -608,133 +608,164 @@
             margin: calc(-1 * var(--space-lg)) auto var(--space-2xl) auto;
         }
 
-        /* Handbook Page */
-        .handbook-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
+        /* Handbook Page - Accordion Style (Swiss Federal CD) */
+        .handbook-accordion {
             margin-top: var(--space-xl);
         }
 
-        @media (max-width: 992px) {
-            .handbook-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .accordion-item {
+            border-top: 1px solid var(--color-border);
         }
 
-        @media (max-width: 768px) {
-            .handbook-grid {
-                grid-template-columns: 1fr;
-            }
+        .accordion-item:last-child {
+            border-bottom: 1px solid var(--color-border);
         }
 
-        .handbook-card {
-            background: var(--color-white);
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-lg) 0;
+            cursor: pointer;
+            background: transparent;
             border: none;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+            transition: color var(--transition-fast);
         }
 
-        .handbook-card__header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            padding: var(--space-lg);
-            background: var(--color-surface);
+        .accordion-header:hover {
+            color: var(--color-primary);
         }
 
-        .handbook-card__icon {
-            width: 48px;
-            height: 48px;
-            background: var(--color-white);
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .handbook-card__icon i {
-            width: 24px;
-            height: 24px;
-            color: var(--color-surface-dark);
-        }
-
-        .handbook-card__title {
+        .accordion-title {
             font-size: var(--text-h4);
-            color: var(--color-text-primary);
             font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
             margin: 0;
         }
 
-        .handbook-card__desc {
-            font-size: var(--text-body-sm);
-            color: var(--color-text-muted);
-            margin: var(--space-xs) 0 0 0;
+        .accordion-header:hover .accordion-title {
+            color: var(--color-primary);
         }
 
-        .handbook-card__body {
-            padding: 0;
-            flex: 1;
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--color-text-secondary);
+            transition: transform var(--transition-fast);
+            flex-shrink: 0;
         }
 
-        .handbook-list {
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding-bottom: var(--space-xl);
+        }
+
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+
+        .accordion-description {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: var(--line-height-normal);
+        }
+
+        /* Download Item List */
+        .download-list {
             list-style: none;
             padding: 0;
             margin: 0;
-        }
-
-        .handbook-list li {
-            border-bottom: 1px solid var(--color-border-light);
-        }
-
-        .handbook-list li:last-child {
-            border-bottom: none;
-        }
-
-        .handbook-link {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .download-item {
+            display: flex;
+            align-items: flex-start;
             gap: var(--space-md);
-            padding: var(--space-md) var(--space-lg);
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: all var(--transition-fast);
         }
 
-        .handbook-link:hover {
-            background: var(--color-bg-light);
-            color: var(--color-interactive);
-        }
-
-        .handbook-link i:first-child {
-            width: 20px;
-            height: 20px;
+        .download-item__icon {
+            width: 24px;
+            height: 24px;
+            color: var(--color-primary);
             flex-shrink: 0;
-            color: var(--color-text-muted);
+            margin-top: 2px;
         }
 
-        .handbook-link:hover i:first-child {
-            color: var(--color-interactive);
-        }
-
-        .handbook-link span {
+        .download-item__content {
             flex: 1;
         }
 
-        .handbook-link .external-icon {
-            width: 16px;
-            height: 16px;
-            color: var(--color-text-muted);
-            flex-shrink: 0;
+        .download-item__link {
+            font-size: var(--text-body);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            text-decoration: underline;
+            display: block;
+            margin-bottom: var(--space-xs);
         }
 
-        .handbook-link:hover .external-icon {
-            color: var(--color-interactive);
+        .download-item__link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .download-item__meta {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-muted);
+        }
+
+        .download-item__meta span {
+            margin-right: var(--space-sm);
+        }
+
+        .download-item__meta span:not(:last-child)::after {
+            content: "|";
+            margin-left: var(--space-sm);
+            color: var(--color-border);
+        }
+
+        /* External Link Item */
+        .external-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-md) 0;
+        }
+
+        .external-item__icon {
+            width: 20px;
+            height: 20px;
+            color: var(--color-text-muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .external-item__link {
+            font-size: var(--text-body);
+            color: var(--color-primary);
+            text-decoration: underline;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .external-item__link:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .external-item__link .external-icon {
+            width: 14px;
+            height: 14px;
         }
 
         /* Home Page Hero Section Wrapper */
@@ -838,81 +869,69 @@
             }
         }
 
-        /* Quick Access Card */
+        /* Quick Access Card - Swiss Federal CD Style */
         .quick-card {
             background: var(--color-white);
             border: none;
-            border-radius: var(--border-radius-lg);
+            border-radius: 0;
             padding: var(--space-xl);
+            padding-bottom: calc(var(--space-xl) + 48px);
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            transition: all var(--transition-fast);
+            transition: box-shadow var(--transition-fast);
             position: relative;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            box-shadow: none;
+            min-height: 200px;
         }
 
         .quick-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
-            transform: translateY(-2px);
-        }
-
-        .quick-card__icon {
-            width: 56px;
-            height: 56px;
-            background: var(--color-surface);
-            border-radius: var(--border-radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--space-lg);
-        }
-
-        .quick-card__icon i {
-            width: 28px;
-            height: 28px;
-            color: var(--color-surface-dark);
-        }
-
-        .quick-card:hover .quick-card__icon {
-            background: var(--color-interactive);
-        }
-
-        .quick-card:hover .quick-card__icon i {
-            color: var(--color-white);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .quick-card__title {
             font-size: var(--text-h4);
-            font-weight: var(--font-weight-semibold);
+            font-weight: var(--font-weight-bold);
             color: var(--color-text-primary);
-            margin: 0 0 var(--space-sm) 0;
-        }
-
-        .quick-card:hover .quick-card__title {
-            color: var(--color-interactive);
+            margin: 0 0 var(--space-md) 0;
+            line-height: var(--line-height-snug);
         }
 
         .quick-card__desc {
-            font-size: var(--text-body-sm);
-            color: var(--color-text-muted);
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
             margin: 0;
-            flex: 1;
+            line-height: var(--line-height-normal);
         }
 
-        .quick-card__arrow {
+        .quick-card__arrow-btn {
             position: absolute;
-            top: var(--space-lg);
+            bottom: var(--space-lg);
             right: var(--space-lg);
-            width: 20px;
-            height: 20px;
-            color: var(--color-border);
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-primary);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all var(--transition-fast);
         }
 
-        .quick-card:hover .quick-card__arrow {
-            color: var(--color-interactive);
-            transform: translateX(4px);
+        .quick-card__arrow-btn i {
+            width: 20px;
+            height: 20px;
+            color: var(--color-primary);
+            transition: transform var(--transition-fast);
+        }
+
+        .quick-card:hover .quick-card__arrow-btn {
+            background: var(--color-primary);
+        }
+
+        .quick-card:hover .quick-card__arrow-btn i {
+            color: var(--color-white);
+            transform: translateX(2px);
         }
 
         /* About Box */
@@ -3800,36 +3819,24 @@
                         </div>
                         <div class="quick-access-grid">
                             <a href="#elements" class="quick-card" data-route="elements">
-                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
-                                <div class="quick-card__icon">
-                                    <i data-lucide="layers" aria-hidden="true"></i>
-                                </div>
                                 <h3 class="quick-card__title">Elemente</h3>
                                 <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                             </a>
                             <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
-                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
-                                <div class="quick-card__icon">
-                                    <i data-lucide="boxes" aria-hidden="true"></i>
-                                </div>
                                 <h3 class="quick-card__title">Fachmodelle</h3>
                                 <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                             </a>
                             <a href="#documents" class="quick-card" data-route="documents">
-                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
-                                <div class="quick-card__icon">
-                                    <i data-lucide="file-text" aria-hidden="true"></i>
-                                </div>
                                 <h3 class="quick-card__title">Dokumente</h3>
                                 <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                             </a>
                             <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
-                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
-                                <div class="quick-card__icon">
-                                    <i data-lucide="leaf" aria-hidden="true"></i>
-                                </div>
                                 <h3 class="quick-card__title">Ökobilanzdaten</h3>
                                 <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                             </a>
                         </div>
                     </section>
@@ -3898,105 +3905,130 @@
                     <h1 class="page-title">Handbuch & Download</h1>
                     <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
 
-                    <div class="handbook-grid">
-                        <article class="handbook-card">
-                            <div class="handbook-card__header">
-                                <div class="handbook-card__icon">
-                                    <i data-lucide="download" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h2 class="handbook-card__title">Downloads</h2>
-                                    <p class="handbook-card__desc">Vorlagen und Prüfdateien</p>
-                                </div>
-                            </div>
-                            <div class="handbook-card__body">
-                                <ul class="handbook-list">
-                                    <li>
-                                        <a href="#" class="handbook-link">
-                                            <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
-                                            <span>Excel-Vorlagen Bauwerksdokumentation</span>
-                                        </a>
+                    <div class="handbook-accordion">
+                        <!-- Downloads Section -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">
+                                <h2 class="accordion-title">Downloads</h2>
+                                <i data-lucide="chevron-down" class="accordion-icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="accordion-description">Vorlagen und Prüfdateien für die digitale Bauwerksdokumentation.</p>
+                                <ul class="download-list">
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">Excel-Vorlagen Bauwerksdokumentation</a>
+                                            <div class="download-item__meta">
+                                                <span>XLSX</span>
+                                                <span>245 kB</span>
+                                                <span>15. Oktober 2024</span>
+                                            </div>
+                                        </div>
                                     </li>
-                                    <li>
-                                        <a href="#" class="handbook-link">
-                                            <i data-lucide="file-check" aria-hidden="true"></i>
-                                            <span>IDS-Dateien (BIM-Prüfdateien)</span>
-                                        </a>
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">IDS-Dateien (BIM-Prüfdateien)</a>
+                                            <div class="download-item__meta">
+                                                <span>IDS</span>
+                                                <span>128 kB</span>
+                                                <span>15. Oktober 2024</span>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
-                        </article>
+                        </div>
 
-                        <article class="handbook-card">
-                            <div class="handbook-card__header">
-                                <div class="handbook-card__icon">
-                                    <i data-lucide="book-open" aria-hidden="true"></i>
-                                </div>
-                                <div>
-                                    <h2 class="handbook-card__title">Dokumentation</h2>
-                                    <p class="handbook-card__desc">Anleitungen und Referenzmaterial</p>
-                                </div>
-                            </div>
-                            <div class="handbook-card__body">
-                                <ul class="handbook-list">
-                                    <li>
-                                        <a href="#" class="handbook-link">
-                                            <i data-lucide="notebook-text" aria-hidden="true"></i>
-                                            <span>Anwendungshandbuch</span>
-                                        </a>
+                        <!-- Dokumentation Section -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">
+                                <h2 class="accordion-title">Dokumentation</h2>
+                                <i data-lucide="chevron-down" class="accordion-icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="accordion-description">Anleitungen und Referenzmaterial für die Anwendung des Fachdatenkatalogs.</p>
+                                <ul class="download-list">
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">Anwendungshandbuch</a>
+                                            <div class="download-item__meta">
+                                                <span>PDF</span>
+                                                <span>2.4 MB</span>
+                                                <span>23. September 2024</span>
+                                            </div>
+                                        </div>
                                     </li>
-                                    <li>
-                                        <a href="#" class="handbook-link">
-                                            <i data-lucide="code" aria-hidden="true"></i>
-                                            <span>API-Dokumentation</span>
-                                        </a>
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">API-Dokumentation</a>
+                                            <div class="download-item__meta">
+                                                <span>PDF</span>
+                                                <span>890 kB</span>
+                                                <span>23. September 2024</span>
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
-                        </article>
+                        </div>
 
-                        <article class="handbook-card">
-                            <div class="handbook-card__header">
-                                <div class="handbook-card__icon">
-                                    <i data-lucide="globe" aria-hidden="true"></i>
+                        <!-- Vernetzte Datenquellen Section -->
+                        <div class="accordion-item">
+                            <button class="accordion-header" aria-expanded="false">
+                                <h2 class="accordion-title">Vernetzte Datenquellen</h2>
+                                <i data-lucide="chevron-down" class="accordion-icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p class="accordion-description">Nationale Dateninfrastrukturen und verknüpfte Dienste der Bundesverwaltung.</p>
+                                <div class="external-item">
+                                    <i data-lucide="database" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="https://lindas.admin.ch/" target="_blank" rel="noopener" class="external-item__link">
+                                        LINDAS – Linked Data Service
+                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                    </a>
                                 </div>
-                                <div>
-                                    <h2 class="handbook-card__title">Vernetzte Datenquellen</h2>
-                                    <p class="handbook-card__desc">Nationale Dateninfrastrukturen</p>
+                                <div class="external-item">
+                                    <i data-lucide="share-2" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="https://www.i14y.admin.ch/de/home" target="_blank" rel="noopener" class="external-item__link">
+                                        I14Y – Interoperabilitätsplattform
+                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="external-item">
+                                    <i data-lucide="languages" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="https://www.termdat.bk.admin.ch/" target="_blank" rel="noopener" class="external-item__link">
+                                        TERMDAT – Terminologiedatenbank
+                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="handbook-card__body">
-                                <ul class="handbook-list">
-                                    <li>
-                                        <a href="https://lindas.admin.ch/" target="_blank" rel="noopener" class="handbook-link">
-                                            <i data-lucide="database" aria-hidden="true"></i>
-                                            <span>LINDAS – Linked Data Service</span>
-                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.i14y.admin.ch/de/home" target="_blank" rel="noopener" class="handbook-link">
-                                            <i data-lucide="share-2" aria-hidden="true"></i>
-                                            <span>I14Y – Interoperabilitätsplattform</span>
-                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.termdat.bk.admin.ch/" target="_blank" rel="noopener" class="handbook-link">
-                                            <i data-lucide="languages" aria-hidden="true"></i>
-                                            <span>TERMDAT – Terminologiedatenbank</span>
-                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
+                        </div>
                     </div>
                 </div>`;
 
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Initialize accordion functionality
+            initAccordion();
+        }
+
+        function initAccordion() {
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const isOpen = item.classList.contains('open');
+
+                    // Toggle current item
+                    item.classList.toggle('open');
+                    header.setAttribute('aria-expanded', !isOpen);
+                });
+            });
         }
 
         function renderCatalogPage(activeTags = []) {
