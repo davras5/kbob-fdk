@@ -526,6 +526,13 @@
             box-shadow: var(--shadow-md);
         }
 
+        /* Hide native browser clear button on search inputs */
+        .header__search-input::-webkit-search-cancel-button,
+        .search-hero__input::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
         .header__search-submit {
             position: absolute;
             right: 8px;
