@@ -465,9 +465,9 @@
             cursor: pointer;
             font-size: var(--text-body-sm);
             color: var(--color-text-secondary);
-            padding: 0;
+            padding: var(--space-xs);
             font-family: inherit;
-            transition: opacity 0.2s ease, visibility 0.2s;
+            transition: color 0.2s ease, opacity 0.2s ease;
         }
 
         .header__search-toggle:hover {
@@ -479,62 +479,69 @@
             height: 16px;
         }
 
-        /* Hide toggle when search is open */
+        /* Hide toggle when search is open - fade out smoothly */
         .header__search.open .header__search-toggle {
             opacity: 0;
-            visibility: hidden;
-            position: absolute;
             pointer-events: none;
         }
 
+        /* Progressive disclosure: form expands from 0 width */
         .header__search-form {
-            display: flex;
-            width: 220px;
-            border: 2px solid var(--color-focus-input);
-            border-radius: var(--border-radius);
-            background: var(--color-white);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateX(20px);
-            visibility: hidden;
             position: absolute;
             right: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: 0;
+            opacity: 0;
             pointer-events: none;
-            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            transition: width 0.3s ease-out, opacity 0.2s ease-out;
         }
 
-        /* Slide in from right when open */
+        /* Expanded state - width-based animation */
         .header__search.open .header__search-form {
+            width: 260px;
             opacity: 1;
-            transform: translateX(0);
-            visibility: visible;
-            position: relative;
             pointer-events: auto;
-            box-shadow: var(--shadow-md);
         }
 
         .header__search-input {
-            flex: 1;
-            padding: var(--space-sm) var(--space-md);
-            border: none;
-            outline: none;
-            font-size: var(--text-body);
+            width: 100%;
+            padding: var(--space-sm) 2.5rem var(--space-sm) var(--space-md);
+            border: 2px solid var(--color-focus-input);
+            border-radius: var(--border-radius);
+            font-size: var(--text-body-sm);
             font-family: inherit;
+            outline: none;
+            background: #fafaff;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .header__search-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .header__search-input:focus {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
         }
 
         .header__search-submit {
+            position: absolute;
+            right: 8px;
             background: none;
             border: none;
-            padding: var(--space-sm) var(--space-md);
+            padding: 4px;
             cursor: pointer;
-            color: var(--color-text-muted);
+            color: var(--color-focus-input);
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: color 0.2s ease;
         }
 
         .header__search-submit:hover {
-            color: var(--color-focus-input);
+            color: var(--color-primary);
         }
 
         .header__search-submit svg {
@@ -3212,8 +3219,8 @@
                 right: var(--space-lg);
             }
 
-            .header__search-form {
-                width: 180px;
+            .header__search.open .header__search-form {
+                width: 200px;
             }
 
             .main-nav .container {
@@ -3363,8 +3370,8 @@
                 display: none;
             }
 
-            .header__search-form {
-                width: 160px;
+            .header__search.open .header__search-form {
+                width: 180px;
             }
 
             .main-nav .container {
@@ -4998,7 +5005,7 @@
             });
         }
 
-        // --- HEADER SEARCH ---
+        // --- HEADER SEARCH (Progressive Disclosure Toggle) ---
         function setupHeaderSearch() {
             const toggle = document.getElementById('headerSearchToggle');
             const searchContainer = document.querySelector('.header__search');
@@ -5007,14 +5014,27 @@
 
             if (!toggle || !searchContainer || !form || !input) return;
 
+            let isExpanded = false;
+
+            function expandSearch() {
+                isExpanded = true;
+                searchContainer.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+                // Delay focus slightly to allow animation to start
+                setTimeout(() => input.focus(), 100);
+            }
+
+            function collapseSearch() {
+                isExpanded = false;
+                searchContainer.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
             // Toggle search form visibility
             toggle.addEventListener('click', (e) => {
                 e.preventDefault();
-                const isOpen = searchContainer.classList.contains('open');
-                searchContainer.classList.toggle('open');
-                toggle.setAttribute('aria-expanded', !isOpen);
-                if (!isOpen) {
-                    input.focus();
+                if (!isExpanded) {
+                    expandSearch();
                 }
             });
 
@@ -5023,26 +5043,23 @@
                 e.preventDefault();
                 const query = input.value.trim();
                 if (query.length >= 2) {
-                    searchContainer.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
+                    collapseSearch();
                     window.location.hash = `search?q=${encodeURIComponent(query)}`;
                 }
             });
 
             // Close on click outside
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.header__search')) {
-                    searchContainer.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
+                if (isExpanded && !e.target.closest('.header__search')) {
+                    collapseSearch();
                 }
             });
 
             // Close on Escape
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    searchContainer.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                    input.blur();
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isExpanded) {
+                    collapseSearch();
+                    toggle.focus(); // Return focus to toggle for accessibility
                 }
             });
         }
