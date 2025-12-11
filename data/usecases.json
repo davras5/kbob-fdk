@@ -1,142 +1,296 @@
 [
   {
-    "id": "uc1",
-    "title": "Koordinationsmodell",
+    "id": "uc000",
+    "title": "Grundsätzliches",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
+    "category": "Grundlagen",
+    "subcategory": "Projektsetup",
+    "description": "Übergreifende Anwendungsfälle, die die Grundlagen für den Einsatz der BIM-Methode bilden, wie AIA, BAP und Projektbesprechungen.",
+    "tags": ["BIM-Management", "AIA", "BAP", "Grundlagen"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "000", "desc": "Grundsätzliches" },
+      { "system": "SIA", "code": "SIA 2051", "desc": "BIM – Grundlagen zur Anwendung der Methode" }
+    ],
+    "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "uc010",
+    "title": "Bestandserfassung und -modellierung",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
+    "category": "Bestand",
+    "subcategory": "Erfassung",
+    "description": "Erfassung der wesentlichen Aspekte des Bestandes durch ein geeignetes Aufmass (z.B. Laserscan, Photogrammetrie) und Überführung in ein Bestandsmodell.",
+    "tags": ["Bestandsaufnahme", "Laserscan", "Punktwolke", "Vermessung"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "010", "desc": "Bestandserfassung und -modellierung" },
+      { "system": "ISO 19650", "code": "4.3.1", "desc": "Existing conditions modeling" }
+    ],
+    "phases": [1, 1, 1, 0, 0, 0, 0, 0, 0, 1]
+  },
+  {
+    "id": "uc020",
+    "title": "Bedarfsplanung",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
+    "category": "Planung",
+    "subcategory": "Bedarf",
+    "description": "Erstellen eines generischen Bedarfsmodells bzw. digitalisierte Aufstellung einer Bedarfsplanung mit Raumprogramm und Flächenanforderungen.",
+    "tags": ["Bedarfsplanung", "Raumprogramm", "Flächenmanagement"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "020", "desc": "Bedarfsplanung" },
+      { "system": "SIA", "code": "SIA 416", "desc": "Flächen und Volumen von Gebäuden" }
+    ],
+    "phases": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "id": "uc030",
+    "title": "Planungsvarianten",
+    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
+    "category": "Planung",
+    "subcategory": "Variantenvergleich",
+    "description": "Erstellung von Planungsvarianten als BIM-Modell zur Vereinfachung der Analyse und Bewertung hinsichtlich Kosten, Terminen und baulich-konstruktiver Gestaltung.",
+    "tags": ["Variantenvergleich", "Machbarkeitsstudie", "Entwurf"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "030", "desc": "Planungsvarianten" },
+      { "system": "SIA", "code": "SIA 112", "desc": "Modell Bauplanung" }
+    ],
+    "phases": [1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "id": "uc040",
+    "title": "Visualisierung",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
+    "category": "Kommunikation",
+    "subcategory": "Darstellung",
+    "description": "Bedarfsgerechte Visualisierung unter Zuhilfenahme der BIM-Modelle als Basis für Projektkommunikation oder Öffentlichkeitsarbeit (fotorealistische Abbildungen, Animationen).",
+    "tags": ["Visualisierung", "Rendering", "Animation", "Kommunikation"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "040", "desc": "Visualisierung" },
+      { "system": "ISO 19650", "code": "4.4.1", "desc": "Design visualization" }
+    ],
+    "phases": [0, 1, 1, 1, 1, 1, 1, 1, 0, 0]
+  },
+  {
+    "id": "uc050",
+    "title": "Koordination der Fachgewerke",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Koordination",
     "subcategory": "Modellbasiert",
-    "description": "Zusammenführung verschiedener Fachmodelle zur Kollisionsprüfung und visuellen Abstimmung",
-    "tags": ["BIM-Koordination", "Koordination"],
+    "description": "Regelmässiges Zusammenführen der Fachmodelle in einem Koordinationsmodell mit anschliessender automatisierter Kollisionsprüfung und systematischer Konfliktbehebung.",
+    "tags": ["BIM-Koordination", "Fachmodelle", "Kollisionsprüfung", "Clash Detection"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-K01", "desc": "Koordinationsmodell" },
+      { "system": "BIM-D AWF", "code": "050", "desc": "Koordination der Fachgewerke" },
       { "system": "ISO 19650", "code": "4.5.1", "desc": "Information coordination" }
     ],
     "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
   },
   {
-    "id": "uc2",
-    "title": "Mengenermittlung",
+    "id": "uc060",
+    "title": "Planungsfortschrittskontrolle und Qualitätsprüfung",
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
-    "category": "Kostenplanung",
-    "subcategory": "Quantifizierung",
-    "description": "Automatisierte Ableitung von Bauteilmengen aus dem BIM-Modell für Kostenschätzungen",
-    "tags": ["Kostenplanung", "Kostenplanung"],
+    "category": "Qualitätssicherung",
+    "subcategory": "Controlling",
+    "description": "Nutzung des Modells für die Planungsfortschrittskontrolle als Grundlage des Controllings sowie Durchführung der Qualitätsprüfung und Planungsfreigabe.",
+    "tags": ["Qualitätssicherung", "Modellprüfung", "Controlling", "Freigabe"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-Q01", "desc": "Mengenermittlung (QTO)" },
-      { "system": "ISO 19650", "code": "4.6.2", "desc": "Quantity take-off" }
+      { "system": "BIM-D AWF", "code": "060", "desc": "Planungsfortschrittskontrolle und Qualitätsprüfung" },
+      { "system": "ISO 19650", "code": "4.5.2", "desc": "Model validation" }
+    ],
+    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "uc070",
+    "title": "Bemessung und Nachweisführung",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Analyse",
+    "subcategory": "Simulation",
+    "description": "Nutzung des Modells für Bemessung und Nachweisführung, einschliesslich Simulationen wie Energie, Tageslicht, Akustik oder Brandschutz.",
+    "tags": ["Simulation", "Energie", "Statik", "Nachweisführung"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "070", "desc": "Bemessung und Nachweisführung" },
+      { "system": "SIA", "code": "SIA 380/1", "desc": "Heizwärmebedarf" }
+    ],
+    "phases": [0, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+  },
+  {
+    "id": "uc080",
+    "title": "Ableitung von Planunterlagen",
+    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
+    "category": "Dokumentation",
+    "subcategory": "Planableitung",
+    "description": "Ableitung relevanter Teile der Planung aus dem Bauwerksdatenmodell und Überführung in 2D-Planformate gemäss den jeweiligen Richtlinien.",
+    "tags": ["Planableitung", "2D-Pläne", "Dokumentation"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "080", "desc": "Ableitung von Planunterlagen" },
+      { "system": "SIA", "code": "SIA 400", "desc": "Planbearbeitung im Bauwesen" }
     ],
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
   },
   {
-    "id": "uc3",
-    "title": "Kollisionsprüfung",
-    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
-    "category": "Qualitätssicherung",
-    "subcategory": "Clash Detection",
-    "description": "Erkennung und Dokumentation geometrischer Konflikte zwischen Bauteilen verschiedener Fachmodelle",
-    "tags": ["BIM-Koordination", "Qualitätssicherung"],
+    "id": "uc090",
+    "title": "Genehmigungsprozess",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "category": "Behörden",
+    "subcategory": "Baubewilligung",
+    "description": "Durchführung der Prüfläufe zur behördlichen Freigabe der Planung auf Basis von BIM-Modellen und den daraus abgeleiteten Unterlagen für das Baubewilligungsverfahren.",
+    "tags": ["Baubewilligung", "Behörden", "Genehmigung"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-Q02", "desc": "Kollisionsprüfung" },
-      { "system": "ISO 19650", "code": "4.5.3", "desc": "Clash detection" }
+      { "system": "BIM-D AWF", "code": "090", "desc": "Genehmigungsprozess" },
+      { "system": "ISO 19650", "code": "4.8.1", "desc": "Regulatory approval" }
     ],
-    "phases": [0, 0, 1, 1, 1, 1, 1, 0, 0, 0]
+    "phases": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
   },
   {
-    "id": "uc4",
-    "title": "4D-Bauzeitplanung",
+    "id": "uc100",
+    "title": "Mengen- und Kostenermittlung",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
+    "category": "Kostenplanung",
+    "subcategory": "Quantifizierung",
+    "description": "Ermittlung strukturierter und bauteilbezogener Mengen (Volumen, Flächen, Längen, Stückzahlen) anhand des Modells und Aufstellung der Kostenschätzungen nach eBKP-H.",
+    "tags": ["Kostenplanung", "Mengenermittlung", "eBKP-H", "QTO"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "100", "desc": "Mengen- und Kostenermittlung" },
+      { "system": "SIA", "code": "SN 506 511", "desc": "Baukostenplan Hochbau eBKP-H" }
+    ],
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
+  },
+  {
+    "id": "uc110",
+    "title": "Leistungsverzeichnis, Ausschreibung, Vergabe",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "category": "Ausschreibung",
+    "subcategory": "AVA",
+    "description": "Modellgestütztes Erzeugen mengenbezogener Positionen des Leistungsverzeichnisses sowie modellbasierte Ausschreibung und Vergabe auf Basis der vorliegenden Planung.",
+    "tags": ["Ausschreibung", "LV", "Vergabe", "AVA"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "110", "desc": "Leistungsverzeichnis, Ausschreibung, Vergabe" },
+      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
+    ],
+    "phases": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "uc120",
+    "title": "Terminplanung der Ausführung",
     "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400&h=200&fit=crop",
     "category": "Terminplanung",
-    "subcategory": "Simulation",
-    "description": "Verknüpfung des 3D-Modells mit dem Terminplan zur Visualisierung des Bauablaufs",
-    "tags": ["Projektmanagement", "Terminplanung"],
+    "subcategory": "4D-Simulation",
+    "description": "Nutzung eines durch Verknüpfung von Vorgängen der Terminplanung mit den zugehörigen Modellelementen erstellten 4D-Modells zur Darstellung und Überprüfung des geplanten Bauablaufs.",
+    "tags": ["Terminplanung", "4D-BIM", "Bauablauf", "Simulation"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-T01", "desc": "4D-Simulation" },
+      { "system": "BIM-D AWF", "code": "120", "desc": "Terminplanung der Ausführung" },
       { "system": "ISO 19650", "code": "4.7.1", "desc": "Construction sequencing" }
     ],
     "phases": [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
   },
   {
-    "id": "uc5",
-    "title": "5D-Kostenplanung",
+    "id": "uc130",
+    "title": "Logistikplanung",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Bauausführung",
+    "subcategory": "Logistik",
+    "description": "Unterstützung der Planung und Kommunikation von Logistikabläufen (Baustelleneinrichtung, Baustelleninfrastruktur, Verkehrsphasen) auf Basis von 4D-Modellen.",
+    "tags": ["Logistik", "Baustelleneinrichtung", "Verkehrsführung"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "130", "desc": "Logistikplanung" },
+      { "system": "ISO 19650", "code": "4.7.2", "desc": "Site logistics" }
+    ],
+    "phases": [0, 0, 0, 0, 1, 1, 1, 1, 0, 0]
+  },
+  {
+    "id": "uc140",
+    "title": "Baufortschrittskontrolle",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Bauausführung",
+    "subcategory": "Controlling",
+    "description": "Nutzung des Modells für die terminliche Baufortschrittskontrolle als Grundlage des Projekt-Controllings.",
+    "tags": ["Baufortschritt", "Controlling", "Soll-Ist-Vergleich"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "140", "desc": "Baufortschrittskontrolle" },
+      { "system": "ISO 19650", "code": "4.7.3", "desc": "Progress monitoring" }
+    ],
+    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+  },
+  {
+    "id": "uc150",
+    "title": "Änderungs- und Nachtragsmanagement",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "category": "Bauausführung",
+    "subcategory": "Änderungen",
+    "description": "Nutzung des Modells zur Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung und zur Erfassung von Nachträgen.",
+    "tags": ["Änderungsmanagement", "Nachträge", "Dokumentation"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "150", "desc": "Änderungs- und Nachtragsmanagement" },
+      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
+    ],
+    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+  },
+  {
+    "id": "uc160",
+    "title": "Abrechnung von Bauleistungen",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
-    "category": "Kostenplanung",
-    "subcategory": "Kostenkontrolle",
-    "description": "Integration von Kosteninformationen in das BIM-Modell für dynamische Kostenüberwachung",
-    "tags": ["Kostenplanung", "Kostenplanung"],
+    "category": "Bauausführung",
+    "subcategory": "Abrechnung",
+    "description": "Nutzung des Modells zur regelmässigen Dokumentation und zur Plausibilisierung von Bauleistungen und Abschlagsrechnungen.",
+    "tags": ["Abrechnung", "Kostenkontrolle", "Rechnungsprüfung"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-C01", "desc": "5D-Kostenmodell" },
-      { "system": "ISO 19650", "code": "4.6.3", "desc": "Cost estimation" }
+      { "system": "BIM-D AWF", "code": "160", "desc": "Abrechnung von Bauleistungen" },
+      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
+    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
   },
   {
-    "id": "uc6",
-    "title": "Raumanalyse",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
-    "category": "Flächenmanagement",
-    "subcategory": "Analyse",
-    "description": "Auswertung von Raumdaten, Flächen und Nutzungsarten aus dem BIM-Modell",
-    "tags": ["Architektur", "Flächenmanagement"],
+    "id": "uc170",
+    "title": "Abnahme- und Mängelmanagement",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
+    "category": "Bauausführung",
+    "subcategory": "Qualität",
+    "description": "Nutzung des Modells zur Verortung und Dokumentation von Ausführungsmängeln und deren Nachverfolgung zur Behebung sowie zu klärender Punkte.",
+    "tags": ["Mängelmanagement", "Abnahme", "Qualitätssicherung"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-A01", "desc": "Raumanalyse" },
-      { "system": "GEFMA", "code": "130-10", "desc": "Flächenmanagement" }
+      { "system": "BIM-D AWF", "code": "170", "desc": "Abnahme- und Mängelmanagement" },
+      { "system": "ISO 19650", "code": "4.8.2", "desc": "Defects management" }
     ],
-    "phases": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    "phases": [0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
   },
   {
-    "id": "uc7",
-    "title": "Baugesuchsvisualisierung",
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
-    "category": "Behörden",
-    "subcategory": "Visualisierung",
-    "description": "Erstellung von Visualisierungen und Dokumenten für Baubewilligungsverfahren",
-    "tags": ["Architektur", "Behörden"],
-    "classifications": [
-      { "system": "KBOB-UC", "code": "UC-V01", "desc": "Baugesuchsvisualisierung" },
-      { "system": "ISO 19650", "code": "4.8.1", "desc": "Regulatory approval" }
-    ],
-    "phases": [0, 0, 1, 1, 0, 0, 0, 0, 0, 0]
-  },
-  {
-    "id": "uc8",
-    "title": "Energiesimulation",
-    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
-    "category": "Nachhaltigkeit",
-    "subcategory": "Simulation",
-    "description": "Energetische Analyse des Gebäudemodells zur Optimierung der Gebäudeperformance",
-    "tags": ["Haustechnik", "Nachhaltigkeit"],
-    "classifications": [
-      { "system": "KBOB-UC", "code": "UC-E01", "desc": "Energiesimulation" },
-      { "system": "GEFMA", "code": "124-50", "desc": "Energiemanagement" }
-    ],
-    "phases": [0, 1, 1, 1, 1, 0, 0, 0, 0, 0]
-  },
-  {
-    "id": "uc9",
-    "title": "Facility Management Übergabe",
+    "id": "uc180",
+    "title": "Inbetriebnahmemanagement",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
-    "category": "Betrieb",
-    "subcategory": "Datenübergabe",
-    "description": "Strukturierte Übergabe von Modelldaten und Dokumentation an das Facility Management",
-    "tags": ["Facility Management", "Betrieb"],
+    "category": "Übergabe",
+    "subcategory": "Inbetriebnahme",
+    "description": "Digitale, modellbasierte Unterstützung der Aufgaben des Inbetriebnahmemanagements von der Planungsphase bis zur Übergabe in den bestimmungsgemässen Betrieb.",
+    "tags": ["Inbetriebnahme", "Übergabe", "Gebäudetechnik"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-FM01", "desc": "FM-Übergabe" },
-      { "system": "GEFMA", "code": "922-10", "desc": "Dokumentation" }
+      { "system": "BIM-D AWF", "code": "180", "desc": "Inbetriebnahmemanagement" },
+      { "system": "GEFMA", "code": "190", "desc": "Betreiberverantwortung" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+    "phases": [0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
   },
   {
-    "id": "uc10",
-    "title": "As-Built Dokumentation",
+    "id": "uc190",
+    "title": "Projekt- und Bauwerksdokumentation",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
-    "subcategory": "Bestandsaufnahme",
-    "description": "Erstellung und Pflege des As-Built-Modells nach Fertigstellung",
-    "tags": ["BIM-Koordination", "Dokumentation"],
+    "subcategory": "As-Built",
+    "description": "Erstellung eines Wie-gebaut-Modells als digitale Bauwerksakte mit detaillierten Informationen zur Ausführung sowie Verweise auf Prüfprotokolle und weitere Dokumente.",
+    "tags": ["As-Built", "Dokumentation", "Bauwerksakte"],
     "classifications": [
-      { "system": "KBOB-UC", "code": "UC-D01", "desc": "As-Built Dokumentation" },
+      { "system": "BIM-D AWF", "code": "190", "desc": "Projekt- und Bauwerksdokumentation" },
       { "system": "ISO 19650", "code": "4.9.1", "desc": "As-built information" }
     ],
     "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+  },
+  {
+    "id": "uc200",
+    "title": "Nutzung für Betrieb und Erhaltung",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "FM",
+    "description": "Übernahme von Daten aus dem Wie-gebaut-Modell in entsprechende CAFM-Systeme sowie Aktualisierung des Modells im Falle von Instandsetzungsmassnahmen.",
+    "tags": ["Facility Management", "CAFM", "Betrieb", "Erhaltung"],
+    "classifications": [
+      { "system": "BIM-D AWF", "code": "200", "desc": "Nutzung für Betrieb und Erhaltung" },
+      { "system": "GEFMA", "code": "922", "desc": "Dokumentation im FM" }
+    ],
+    "phases": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
   }
 ]
