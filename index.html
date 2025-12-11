@@ -991,7 +991,11 @@
 
         /* Home Page Hero Section Wrapper */
         .home-hero-section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-2xl) var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         /* Themen Section - Light background */
@@ -1099,36 +1103,27 @@
         }
 
         /* Home Page Hero */
-        .home-hero {
-            text-align: left;
-            margin: 0;
-        }
-
         .home-hero__title {
             font-size: var(--text-display);
             color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            padding-top: var(--space-lg);
+            margin: 0 0 var(--space-md) 0;
             letter-spacing: -1px;
             font-weight: var(--font-weight-bold);
-            text-align: left;
         }
 
         .hero__description {
             font-size: var(--text-body);
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-xl);
+            margin: 0 0 var(--space-xl) 0;
             font-weight: var(--font-weight-normal);
-            padding-left: 80px;
-            text-align: left;
             line-height: 1.6;
             max-width: 700px;
         }
 
         /* Home Search Container - for dropdown positioning */
-        .home-hero .home-search-container {
+        .home-hero-section .home-search-container {
             max-width: 600px;
-            margin: 0;
+            width: 100%;
             position: relative;
         }
 
@@ -5292,18 +5287,14 @@
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="home-hero-section">
-                    <div class="container">
-                        <div class="home-hero">
-                            <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                            <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
-                            <div class="home-search-container">
-                                <div class="gallery-filter-wrapper">
-                                    <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                    <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                                </div>
-                                <div id="globalSearchDropdown" class="search-dropdown"></div>
-                            </div>
+                    <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
+                    <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
+                    <div class="home-search-container">
+                        <div class="gallery-filter-wrapper">
+                            <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                            <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                         </div>
+                        <div id="globalSearchDropdown" class="search-dropdown"></div>
                     </div>
                 </div>
 
