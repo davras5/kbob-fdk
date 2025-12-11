@@ -608,22 +608,77 @@
         }
 
         /* Handbook Page */
-        .handbook-section {
-            margin-bottom: var(--space-2xl);
-            max-width: 700px;
+        .handbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
         }
 
-        .handbook-section h2 {
-            font-size: var(--text-h3);
+        @media (max-width: 992px) {
+            .handbook-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .handbook-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .handbook-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .handbook-card__header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .handbook-card__icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .handbook-card__icon i {
+            width: 24px;
+            height: 24px;
+            color: var(--color-surface-dark);
+        }
+
+        .handbook-card__title {
+            font-size: var(--text-h4);
             color: var(--color-text-primary);
-            margin-bottom: var(--space-xs);
             font-weight: var(--font-weight-semibold);
+            margin: 0;
         }
 
-        .handbook-section > p {
-            font-size: var(--text-small);
+        .handbook-card__desc {
+            font-size: var(--text-body-sm);
             color: var(--color-text-muted);
-            margin-bottom: var(--space-md);
+            margin: var(--space-xs) 0 0 0;
+        }
+
+        .handbook-card__body {
+            padding: 0;
+            flex: 1;
         }
 
         .handbook-list {
@@ -643,15 +698,16 @@
         .handbook-link {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) 0;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-lg);
             color: var(--color-text-primary);
             text-decoration: none;
-            transition: color 0.15s ease;
+            transition: all var(--transition-fast);
         }
 
         .handbook-link:hover {
-            color: var(--color-accent);
+            background: var(--color-bg-light);
+            color: var(--color-interactive);
         }
 
         .handbook-link i:first-child {
@@ -662,14 +718,22 @@
         }
 
         .handbook-link:hover i:first-child {
-            color: var(--color-accent);
+            color: var(--color-interactive);
+        }
+
+        .handbook-link span {
+            flex: 1;
         }
 
         .handbook-link .external-icon {
-            width: 14px;
-            height: 14px;
-            margin-left: auto;
+            width: 16px;
+            height: 16px;
             color: var(--color-text-muted);
+            flex-shrink: 0;
+        }
+
+        .handbook-link:hover .external-icon {
+            color: var(--color-interactive);
         }
 
         /* Home Page Hero */
@@ -3482,71 +3546,100 @@
                     <h1 class="page-title">Handbuch & Download</h1>
                     <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
 
-                    <section class="handbook-section">
-                        <h2>Downloads</h2>
-                        <p>Vorlagen und Prüfdateien für die praktische Anwendung der Dokumentationsstandards.</p>
-                        <ul class="handbook-list">
-                            <li>
-                                <a href="#" class="handbook-link">
-                                    <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
-                                    <span>Excel-Vorlagen Bauwerksdokumentation</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="handbook-link">
-                                    <i data-lucide="file-check" aria-hidden="true"></i>
-                                    <span>IDS-Dateien (BIM-Prüfdateien)</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                    <div class="handbook-grid">
+                        <article class="handbook-card">
+                            <div class="handbook-card__header">
+                                <div class="handbook-card__icon">
+                                    <i data-lucide="download" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="handbook-card__title">Downloads</h2>
+                                    <p class="handbook-card__desc">Vorlagen und Prüfdateien</p>
+                                </div>
+                            </div>
+                            <div class="handbook-card__body">
+                                <ul class="handbook-list">
+                                    <li>
+                                        <a href="#" class="handbook-link">
+                                            <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
+                                            <span>Excel-Vorlagen Bauwerksdokumentation</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="handbook-link">
+                                            <i data-lucide="file-check" aria-hidden="true"></i>
+                                            <span>IDS-Dateien (BIM-Prüfdateien)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
 
-                    <section class="handbook-section">
-                        <h2>Dokumentation</h2>
-                        <p>Anleitungen und Referenzmaterial für Anwender und Entwickler.</p>
-                        <ul class="handbook-list">
-                            <li>
-                                <a href="#" class="handbook-link">
+                        <article class="handbook-card">
+                            <div class="handbook-card__header">
+                                <div class="handbook-card__icon">
                                     <i data-lucide="book-open" aria-hidden="true"></i>
-                                    <span>Anwendungshandbuch</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="handbook-link">
-                                    <i data-lucide="code" aria-hidden="true"></i>
-                                    <span>API-Dokumentation</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                                </div>
+                                <div>
+                                    <h2 class="handbook-card__title">Dokumentation</h2>
+                                    <p class="handbook-card__desc">Anleitungen und Referenzmaterial</p>
+                                </div>
+                            </div>
+                            <div class="handbook-card__body">
+                                <ul class="handbook-list">
+                                    <li>
+                                        <a href="#" class="handbook-link">
+                                            <i data-lucide="notebook-text" aria-hidden="true"></i>
+                                            <span>Anwendungshandbuch</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="handbook-link">
+                                            <i data-lucide="code" aria-hidden="true"></i>
+                                            <span>API-Dokumentation</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
 
-                    <section class="handbook-section">
-                        <h2>Vernetzte Datenquellen</h2>
-                        <p>Die Fachdaten sind mit folgenden nationalen Dateninfrastrukturen verknüpft:</p>
-                        <ul class="handbook-list">
-                            <li>
-                                <a href="https://lindas.admin.ch/" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
-                                    <i data-lucide="database" aria-hidden="true"></i>
-                                    <span>LINDAS – Linked Data Service</span>
-                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.i14y.admin.ch/de/home" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
-                                    <i data-lucide="share-2" aria-hidden="true"></i>
-                                    <span>I14Y – Interoperabilitätsplattform</span>
-                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.termdat.bk.admin.ch/" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
-                                    <i data-lucide="languages" aria-hidden="true"></i>
-                                    <span>TERMDAT – Terminologiedatenbank</span>
-                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                        <article class="handbook-card">
+                            <div class="handbook-card__header">
+                                <div class="handbook-card__icon">
+                                    <i data-lucide="globe" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h2 class="handbook-card__title">Vernetzte Datenquellen</h2>
+                                    <p class="handbook-card__desc">Nationale Dateninfrastrukturen</p>
+                                </div>
+                            </div>
+                            <div class="handbook-card__body">
+                                <ul class="handbook-list">
+                                    <li>
+                                        <a href="https://lindas.admin.ch/" target="_blank" rel="noopener" class="handbook-link">
+                                            <i data-lucide="database" aria-hidden="true"></i>
+                                            <span>LINDAS – Linked Data Service</span>
+                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.i14y.admin.ch/de/home" target="_blank" rel="noopener" class="handbook-link">
+                                            <i data-lucide="share-2" aria-hidden="true"></i>
+                                            <span>I14Y – Interoperabilitätsplattform</span>
+                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.termdat.bk.admin.ch/" target="_blank" rel="noopener" class="handbook-link">
+                                            <i data-lucide="languages" aria-hidden="true"></i>
+                                            <span>TERMDAT – Terminologiedatenbank</span>
+                                            <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
                 </div>`;
 
             if (typeof lucide !== 'undefined') {
