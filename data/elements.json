@@ -4,8 +4,8 @@
     "title": "Fenster (Aussen)",
     "classification": "IfcWindow",
     "image": "assets/img/window.jpg",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
+    "category": "Architektur",
+    "description": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
     "tags": ["IfcWindow", "Architektur"],
     "classifications": [
       { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
@@ -47,8 +47,8 @@
     "title": "Innentür (Holz)",
     "classification": "IfcDoor",
     "image": "assets/img/door_interior.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
+    "category": "Architektur",
+    "description": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
     "tags": ["IfcDoor", "Architektur"],
     "classifications": [
       { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" }
@@ -84,8 +84,8 @@
     "title": "Wand (Massiv)",
     "classification": "IfcWall",
     "image": "assets/img/wall.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Tragende Wand aus Beton oder Mauerwerk.",
+    "category": "Architektur",
+    "description": "Tragende Wand aus Beton oder Mauerwerk.",
     "tags": ["IfcWall", "Architektur"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.1", "desc": "Aussenwand Konstruktion" }
@@ -119,8 +119,8 @@
     "title": "Bodenplatte (Stahlbeton)",
     "classification": "IfcSlab",
     "image": "assets/img/slab.jpg",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
+    "category": "Tragwerk",
+    "description": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
     "tags": ["IfcSlab", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C1.1", "desc": "Bodenplatte" }
@@ -152,8 +152,8 @@
     "title": "Dach (Flachdach)",
     "classification": "IfcSlab",
     "image": "assets/img/roof_flat.jpg",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
+    "category": "Architektur",
+    "description": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
     "tags": ["IfcSlab", "Architektur"],
     "classifications": [
         { "system": "eBKP-H", "code": "F1.2", "desc": "Flachdach befahrbar/begrünt" }
@@ -186,8 +186,8 @@
     "title": "Stütze (Fertigteil)",
     "classification": "IfcColumn",
     "image": "assets/img/column.jpg",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
+    "category": "Tragwerk",
+    "description": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
     "tags": ["IfcColumn", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.3", "desc": "Stützen (Konstruktion)" }
@@ -219,8 +219,8 @@
     "title": "Unterzug (Stahlbeton)",
     "classification": "IfcBeam",
     "image": "assets/img/beam.jpg",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
+    "category": "Tragwerk",
+    "description": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
     "tags": ["IfcBeam", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.2", "desc": "Unterzüge, Träger" }
@@ -251,8 +251,8 @@
     "title": "Lüftungskanal (rechteckig)",
     "classification": "IfcDuctSegment",
     "image": "assets/img/duct_rect.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
+    "category": "Haustechnik",
+    "description": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
     "tags": ["IfcDuctSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D5.1", "desc": "Luftverteilung" }
@@ -287,8 +287,8 @@
     "title": "Lüftungsgerät (Zentralgerät)",
     "classification": "IfcAirTerminalBox",
     "image": "assets/img/ahu.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
+    "category": "Haustechnik",
+    "description": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
     "tags": ["IfcUnitaryEquipment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D5.2", "desc": "Lüftungsgeräte" }
@@ -323,8 +323,8 @@
     "title": "Heizungsrohr",
     "classification": "IfcPipeSegment",
     "image": "assets/img/pipe_heating.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
+    "category": "Haustechnik",
+    "description": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
     "tags": ["IfcPipeSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D2.1", "desc": "Wärmeverteilung" }
@@ -358,8 +358,8 @@
     "title": "Heizkörper (Flachheizkörper)",
     "classification": "IfcSpaceHeater",
     "image": "assets/img/radiator.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Flachheizkörper Typ 22, mit Thermostatkopf.",
+    "category": "Haustechnik",
+    "description": "Flachheizkörper Typ 22, mit Thermostatkopf.",
     "tags": ["IfcSpaceHeater", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D2.2", "desc": "Wärmeabgabe" }
@@ -392,8 +392,8 @@
     "title": "Sanitärobjekt (WC)",
     "classification": "IfcSanitaryTerminal",
     "image": "assets/img/wc.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Wand-WC mit Unterputzspülkasten.",
+    "category": "Haustechnik",
+    "description": "Wand-WC mit Unterputzspülkasten.",
     "tags": ["IfcSanitaryTerminal", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D8.2", "desc": "Sanitäre Einrichtungen" }
@@ -428,8 +428,8 @@
     "title": "Elektroverteiler (UV)",
     "classification": "IfcDistributionBoard",
     "image": "assets/img/distribution_board.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Unterverteiler für Stockwerksversorgung.",
+    "category": "Haustechnik",
+    "description": "Unterverteiler für Stockwerksversorgung.",
     "tags": ["IfcDistributionBoard", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D4.1", "desc": "Elektrische Verteilung" }
@@ -463,8 +463,8 @@
     "title": "Kabeltrasse",
     "classification": "IfcCableCarrierSegment",
     "image": "assets/img/cable_tray.jpg",
-    "lod": true, "loi": false, "epd": false,
-    "subtitle": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
+    "category": "Haustechnik",
+    "description": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
     "tags": ["IfcCableCarrierSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D4.2", "desc": "Kabelführung" }
@@ -497,8 +497,8 @@
     "title": "Aufzug",
     "classification": "IfcTransportElement",
     "image": "assets/img/elevator.jpg",
-    "lod": true, "loi": true, "epd": false,
-    "subtitle": "Personenaufzug mit maschinenraumloser Technik (MRL).",
+    "category": "Haustechnik",
+    "description": "Personenaufzug mit maschinenraumloser Technik (MRL).",
     "tags": ["IfcTransportElement", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D6.1", "desc": "Aufzugsanlagen" }
