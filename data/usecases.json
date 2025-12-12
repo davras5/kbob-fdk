@@ -5,28 +5,91 @@
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Grundlagen",
     "subcategory": "Projektsetup",
-    "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination, unabhängig von Bauvolumen oder Methodik.",
-    "tags": ["BIM-Management", "AIA", "BAP", "Grundlagen", "Minimalstandard"],
-    "minimalstandard": true,
+    "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination – unabhängig von Bauvolumen oder Methodik.",
+    "tags": ["Grundlagen", "AIA", "BAP", "Minimalstandard"],
+    "phases": [1, 2, 3, 4, 5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc000",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "000", "desc": "Grundsätzliches" },
-      { "system": "SIA", "code": "SIA 2051", "desc": "BIM – Grundlagen zur Anwendung der Methode" }
+      { "system": "BIM-D AWF", "code": "000" },
+      { "system": "SIA", "code": "SIA 2051" }
     ],
-    "phases": [1, 2, 3, 4, 5, 6]
+    "standards": ["SIA 2051", "ISO 19650"],
+    "goals": [
+      "Einheitliche Projektgrundlagen schaffen",
+      "Klare Informationsanforderungen definieren",
+      "Verbindliche Abwicklungsplanung sicherstellen"
+    ],
+    "inputs": [
+      "Projektauftrag",
+      "Organisatorische Rahmenbedingungen",
+      "Vorlagen AIA/BAP"
+    ],
+    "outputs": [
+      "Auftraggeber-Informationsanforderungen (AIA)",
+      "BIM-Abwicklungsplan (BAP)",
+      "Projektorganisation"
+    ],
+    "roles": [
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Definition der Projektziele", "Freigabe AIA"],
+        "contributing": ["Abstimmung mit Stakeholdern"],
+        "informed": []
+      },
+      {
+        "actor": "BIM-Manager",
+        "responsible": ["Erstellung AIA und BAP", "Definition Informationsanforderungen"],
+        "contributing": [],
+        "informed": ["Projektänderungen"]
+      }
+    ]
   },
   {
     "id": "uc010",
-    "title": "Bestandserfassung und -modellierung",
+    "title": "Bestandserfassung",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Bestand",
     "subcategory": "Erfassung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
     "tags": ["Bestandsaufnahme", "Laserscan", "Punktwolke", "Vermessung"],
+    "phases": [1, 2, 3, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc010",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "010", "desc": "Bestandserfassung und -modellierung" },
-      { "system": "ISO 19650", "code": "4.3.1", "desc": "Existing conditions modeling" }
+      { "system": "BIM-D AWF", "code": "010" },
+      { "system": "ISO 19650", "code": "4.3.1" }
     ],
-    "phases": [1, 2, 3, 6]
+    "standards": ["SIA 405", "ISO 19650"],
+    "goals": [
+      "Vollständige Dokumentation des Ist-Zustands",
+      "Grundlage für Umbau- und Sanierungsplanung",
+      "Digitale Datenbasis für FM"
+    ],
+    "inputs": [
+      "Bestandspläne (falls vorhanden)",
+      "Zugang zum Objekt",
+      "Anforderungen an Detaillierungsgrad"
+    ],
+    "outputs": [
+      "Punktwolke / Vermessungsdaten",
+      "Bestandsdokumentation",
+      "Bestandsmodell (optional)"
+    ],
+    "roles": [
+      {
+        "actor": "Vermesser",
+        "responsible": ["Durchführung der Bestandsaufnahme", "Erstellung Punktwolke"],
+        "contributing": [],
+        "informed": ["Qualitätsanforderungen"]
+      },
+      {
+        "actor": "BIM-Autor",
+        "responsible": ["Modellierung des Bestands"],
+        "contributing": ["Abstimmung Detaillierungsgrad"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc020",
@@ -36,11 +99,43 @@
     "subcategory": "Bedarf",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": ["Bedarfsplanung", "Raumprogramm", "Flächenmanagement"],
+    "phases": [1, 2],
+    "process_url": "https://prozesse.bbl.admin.ch/uc020",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "020", "desc": "Bedarfsplanung" },
-      { "system": "SIA", "code": "SIA 416", "desc": "Flächen und Volumen von Gebäuden" }
+      { "system": "BIM-D AWF", "code": "020" },
+      { "system": "SIA", "code": "SIA 416" }
     ],
-    "phases": [1, 2, 3]
+    "standards": ["SIA 416", "DIN 18205"],
+    "goals": [
+      "Klare Definition der Nutzeranforderungen",
+      "Basis für Flächenplanung und Kostenrahmen",
+      "Vermeidung von Fehlplanungen"
+    ],
+    "inputs": [
+      "Nutzeranforderungen",
+      "Strategische Vorgaben",
+      "Bestandsdaten (bei Umbau)"
+    ],
+    "outputs": [
+      "Raumprogramm",
+      "Funktionsdiagramm",
+      "Flächenbedarfsnachweis"
+    ],
+    "roles": [
+      {
+        "actor": "Nutzervertreter",
+        "responsible": ["Definition der Anforderungen"],
+        "contributing": [],
+        "informed": ["Ergebnisse der Bedarfsplanung"]
+      },
+      {
+        "actor": "Planer",
+        "responsible": ["Erstellung Raumprogramm", "Dokumentation"],
+        "contributing": ["Abstimmung mit Nutzer"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc030",
@@ -48,13 +143,45 @@
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Planung",
     "subcategory": "Variantenvergleich",
-    "description": "Erstellung und Dokumentation von Planungsvarianten zur vergleichenden Bewertung hinsichtlich Nachhaltigkeit, Wirtschaftlichkeit, Gestaltung und weiterer projektspezifischer Kriterien.",
-    "tags": ["Variantenvergleich", "Machbarkeitsstudie", "Entwurf"],
+    "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
+    "tags": ["Variantenvergleich", "Machbarkeitsstudie", "Entwurf", "Nachhaltigkeit"],
+    "phases": [1, 2, 3],
+    "process_url": "https://prozesse.bbl.admin.ch/uc030",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "030", "desc": "Planungsvarianten" },
-      { "system": "SIA", "code": "SIA 112", "desc": "Modell Bauplanung" }
+      { "system": "BIM-D AWF", "code": "030" },
+      { "system": "SIA", "code": "SIA 112" }
     ],
-    "phases": [1, 2, 3, 4]
+    "standards": ["SIA 112", "SNBS"],
+    "goals": [
+      "Fundierte Entscheidungsgrundlage für Varianten",
+      "Bewertung nach Nachhaltigkeitskriterien",
+      "Transparenter Auswahlprozess"
+    ],
+    "inputs": [
+      "Raumprogramm",
+      "Bewertungskriterien",
+      "Rahmenbedingungen (Budget, Termine)"
+    ],
+    "outputs": [
+      "Variantendokumentation",
+      "Bewertungsmatrix",
+      "Empfehlung Vorzugsvariante"
+    ],
+    "roles": [
+      {
+        "actor": "Architekt",
+        "responsible": ["Erstellung der Planungsvarianten"],
+        "contributing": [],
+        "informed": ["Bewertungsergebnisse"]
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Definition Bewertungskriterien", "Variantenentscheid"],
+        "contributing": ["Bewertung"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc040",
@@ -64,39 +191,135 @@
     "subcategory": "Darstellung",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": ["Visualisierung", "Rendering", "Animation", "Kommunikation"],
+    "phases": [2, 3, 4, 5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc040",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "040", "desc": "Visualisierung" },
-      { "system": "ISO 19650", "code": "4.4.1", "desc": "Design visualization" }
+      { "system": "BIM-D AWF", "code": "040" },
+      { "system": "ISO 19650", "code": "4.4.1" }
     ],
-    "phases": [2, 3, 4, 5, 6]
+    "standards": [],
+    "goals": [
+      "Verständliche Darstellung für Entscheidungsträger",
+      "Unterstützung der Öffentlichkeitsarbeit",
+      "Frühzeitige Erkennung von Gestaltungsfragen"
+    ],
+    "inputs": [
+      "Planungsunterlagen / 3D-Modell",
+      "Anforderungen an Darstellung",
+      "Kontextdaten (Umgebung, Gelände)"
+    ],
+    "outputs": [
+      "Visualisierungen / Renderings",
+      "Animationen",
+      "Virtuelle Rundgänge"
+    ],
+    "roles": [
+      {
+        "actor": "Visualisierer",
+        "responsible": ["Erstellung der Visualisierungen"],
+        "contributing": [],
+        "informed": ["Planungsänderungen"]
+      },
+      {
+        "actor": "Architekt",
+        "responsible": ["Bereitstellung Planungsdaten"],
+        "contributing": ["Abstimmung Darstellung"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc050",
     "title": "Koordination der Fachgewerke",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Koordination",
-    "subcategory": "Modellbasiert",
+    "subcategory": "Fachkoordination",
     "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
-    "tags": ["BIM-Koordination", "Fachmodelle", "Kollisionsprüfung", "Clash Detection"],
+    "tags": ["Koordination", "Fachmodelle", "Kollisionsprüfung", "Clash Detection"],
+    "phases": [3, 4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc050",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "050", "desc": "Koordination der Fachgewerke" },
-      { "system": "ISO 19650", "code": "4.5.1", "desc": "Information coordination" }
+      { "system": "BIM-D AWF", "code": "050" },
+      { "system": "ISO 19650", "code": "4.5.1" }
     ],
-    "phases": [2, 3, 4, 5, 6]
+    "standards": ["ISO 19650", "SIA 2051"],
+    "goals": [
+      "Frühzeitige Erkennung von Planungskonflikten",
+      "Reduzierung von Kollisionen auf der Baustelle",
+      "Verbesserte Abstimmung zwischen Gewerken"
+    ],
+    "inputs": [
+      "Fachmodelle (Architektur, Tragwerk, TGA)",
+      "Koordinationsregeln",
+      "Prüfkriterien"
+    ],
+    "outputs": [
+      "Koordinationsmodell",
+      "Kollisionsbericht",
+      "Protokoll Konfliktbehebung"
+    ],
+    "roles": [
+      {
+        "actor": "BIM-Gesamtkoordinator",
+        "responsible": ["Zusammenführung Fachmodelle", "Kollisionsprüfung", "Koordination Konfliktbehebung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Fachplaner",
+        "responsible": ["Bereitstellung Fachmodelle", "Behebung von Konflikten"],
+        "contributing": ["Abstimmung"],
+        "informed": ["Kollisionsbericht"]
+      }
+    ]
   },
   {
     "id": "uc060",
-    "title": "Planungsfortschrittskontrolle und Qualitätsprüfung",
+    "title": "Qualitätsprüfung",
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Qualitätssicherung",
     "subcategory": "Controlling",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": ["Qualitätssicherung", "Modellprüfung", "Controlling", "Freigabe"],
+    "phases": [2, 3, 4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc060",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "060", "desc": "Planungsfortschrittskontrolle und Qualitätsprüfung" },
-      { "system": "ISO 19650", "code": "4.5.2", "desc": "Model validation" }
+      { "system": "BIM-D AWF", "code": "060" },
+      { "system": "ISO 19650", "code": "4.5.2" }
     ],
-    "phases": [2, 3, 4, 5, 6]
+    "standards": ["ISO 19650", "SIA 2051"],
+    "goals": [
+      "Sicherstellung der Planungsqualität",
+      "Nachvollziehbare Freigabeprozesse",
+      "Frühzeitige Erkennung von Abweichungen"
+    ],
+    "inputs": [
+      "Planungsunterlagen / Modelle",
+      "Prüfkriterien (AIA/BAP)",
+      "Referenzdaten"
+    ],
+    "outputs": [
+      "Prüfbericht",
+      "Freigabeprotokoll",
+      "Mängelliste"
+    ],
+    "roles": [
+      {
+        "actor": "BIM-Gesamtkoordinator",
+        "responsible": ["Qualitätsprüfung", "Dokumentation"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Freigabe"],
+        "contributing": ["Prüfung"],
+        "informed": ["Prüfberichte"]
+      }
+    ]
   },
   {
     "id": "uc070",
@@ -104,13 +327,45 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Analyse",
     "subcategory": "Simulation",
-    "description": "Durchführung von Fachkonzepten, Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
+    "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
     "tags": ["Simulation", "Energie", "Statik", "Nachweisführung"],
+    "phases": [3, 4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc070",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "070", "desc": "Bemessung und Nachweisführung" },
-      { "system": "SIA", "code": "SIA 380/1", "desc": "Heizwärmebedarf" }
+      { "system": "BIM-D AWF", "code": "070" },
+      { "system": "SIA", "code": "SIA 380/1" }
     ],
-    "phases": [2, 3, 4, 5]
+    "standards": ["SIA 380/1", "SIA 261", "SIA 181"],
+    "goals": [
+      "Normgerechte Bemessung und Nachweise",
+      "Optimierung der Gebäudeperformance",
+      "Erfüllung behördlicher Anforderungen"
+    ],
+    "inputs": [
+      "Planungsunterlagen / 3D-Modell",
+      "Materialkenndaten",
+      "Normen und Anforderungen"
+    ],
+    "outputs": [
+      "Berechnungen und Nachweise",
+      "Simulationsergebnisse",
+      "Behördliche Dokumente"
+    ],
+    "roles": [
+      {
+        "actor": "Fachplaner",
+        "responsible": ["Durchführung Berechnungen", "Erstellung Nachweise"],
+        "contributing": [],
+        "informed": ["Planungsänderungen"]
+      },
+      {
+        "actor": "BIM-Autor",
+        "responsible": ["Bereitstellung Modelldaten"],
+        "contributing": ["Abstimmung Informationsgehalt"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc080",
@@ -120,11 +375,43 @@
     "subcategory": "Planableitung",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": ["Planableitung", "2D-Pläne", "Dokumentation"],
+    "phases": [3, 4, 5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc080",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "080", "desc": "Ableitung von Planunterlagen" },
-      { "system": "SIA", "code": "SIA 400", "desc": "Planbearbeitung im Bauwesen" }
+      { "system": "BIM-D AWF", "code": "080" },
+      { "system": "SIA", "code": "SIA 400" }
     ],
-    "phases": [3, 4, 5, 6]
+    "standards": ["SIA 400", "SIA 2014"],
+    "goals": [
+      "Konsistente Planunterlagen aus einer Datenquelle",
+      "Reduzierung manueller Nachbearbeitung",
+      "Einhaltung von Darstellungsstandards"
+    ],
+    "inputs": [
+      "3D-Modell / Planungsdaten",
+      "Planungsrichtlinien",
+      "Darstellungsvorlagen"
+    ],
+    "outputs": [
+      "Grundrisse, Schnitte, Ansichten",
+      "Detailpläne",
+      "Listen und Tabellen"
+    ],
+    "roles": [
+      {
+        "actor": "BIM-Autor",
+        "responsible": ["Ableitung der Pläne aus Modell", "Nachbearbeitung"],
+        "contributing": [],
+        "informed": ["Freigabeergebnisse"]
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Freigabe der Planunterlagen"],
+        "contributing": [],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc090",
@@ -134,11 +421,43 @@
     "subcategory": "Baubewilligung",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": ["Baubewilligung", "Behörden", "Genehmigung"],
+    "phases": [3, 4],
+    "process_url": "https://prozesse.bbl.admin.ch/uc090",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "090", "desc": "Genehmigungsprozess" },
-      { "system": "ISO 19650", "code": "4.8.1", "desc": "Regulatory approval" }
+      { "system": "BIM-D AWF", "code": "090" },
+      { "system": "ISO 19650", "code": "4.8.1" }
     ],
-    "phases": [4, 5]
+    "standards": ["RPG", "BauG"],
+    "goals": [
+      "Vollständige Gesuchsunterlagen",
+      "Effiziente Bewilligungsverfahren",
+      "Rechtssicherheit"
+    ],
+    "inputs": [
+      "Planunterlagen",
+      "Nachweise und Berechnungen",
+      "Formulare und Anträge"
+    ],
+    "outputs": [
+      "Baugesuch",
+      "Baubewilligung",
+      "Auflagen"
+    ],
+    "roles": [
+      {
+        "actor": "Architekt",
+        "responsible": ["Zusammenstellung Gesuchsunterlagen", "Einreichung"],
+        "contributing": [],
+        "informed": ["Behördliche Rückfragen"]
+      },
+      {
+        "actor": "Bauherr",
+        "responsible": ["Antragstellung"],
+        "contributing": [],
+        "informed": ["Bewilligungsentscheid"]
+      }
+    ]
   },
   {
     "id": "uc100",
@@ -148,39 +467,141 @@
     "subcategory": "Quantifizierung",
     "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
     "tags": ["Kostenplanung", "Mengenermittlung", "eBKP-H", "QTO"],
+    "phases": [2, 3, 4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc100",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "100", "desc": "Mengen- und Kostenermittlung" },
-      { "system": "SIA", "code": "SN 506 511", "desc": "Baukostenplan Hochbau eBKP-H" }
+      { "system": "BIM-D AWF", "code": "100" },
+      { "system": "SIA", "code": "SN 506 511" }
     ],
-    "phases": [3, 4, 5, 6]
+    "standards": ["eBKP-H", "SIA 416", "DIN 276"],
+    "goals": [
+      "Transparente, nachvollziehbare Kostenermittlung",
+      "Frühzeitige Kostensicherheit für Entscheidungen",
+      "Vergleichbarkeit von Planungsvarianten"
+    ],
+    "inputs": [
+      "Planungsunterlagen (2D oder 3D)",
+      "Raumprogramm / Flächenprogramm",
+      "Kostenkennwerte (eBKP-H)"
+    ],
+    "outputs": [
+      "Mengengerüst nach Bauteilen",
+      "Kostenschätzung / Kostenberechnung",
+      "Kostenvergleich bei Varianten"
+    ],
+    "roles": [
+      {
+        "actor": "BIM-Autor",
+        "responsible": ["Modellbasierte und händische Ableitung von Mengen", "Verknüpfung von Mengen mit Kosten"],
+        "contributing": [],
+        "informed": ["Ergebnisse der Qualitätsprüfung"]
+      },
+      {
+        "actor": "BIM-Gesamtkoordinator",
+        "responsible": ["Qualitätsprüfung und Dokumentation", "Bereitstellung der Ergebnisse"],
+        "contributing": ["Erfassung von Anforderungen im BAP"],
+        "informed": ["Ergebnisse der Plausibilitätsprüfung"]
+      },
+      {
+        "actor": "Kostenplaner",
+        "responsible": ["Kostengliederung nach eBKP-H", "Zuordnung Kostenkennwerte"],
+        "contributing": ["Plausibilisierung Mengen"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc110",
-    "title": "Leistungsverzeichnis, Ausschreibung, Vergabe",
+    "title": "Leistungsverzeichnis und Ausschreibung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Ausschreibung",
     "subcategory": "AVA",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": ["Ausschreibung", "LV", "Vergabe", "AVA"],
+    "phases": [4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc110",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "110", "desc": "Leistungsverzeichnis, Ausschreibung, Vergabe" },
-      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
+      { "system": "BIM-D AWF", "code": "110" },
+      { "system": "SIA", "code": "SIA 118" }
     ],
-    "phases": [6]
+    "standards": ["SIA 118", "NPK", "BöB"],
+    "goals": [
+      "Vollständige und präzise Leistungsbeschreibung",
+      "Vergleichbare Angebote",
+      "Rechtskonforme Vergabe"
+    ],
+    "inputs": [
+      "Planungsunterlagen",
+      "Mengengerüst",
+      "NPK-Kataloge"
+    ],
+    "outputs": [
+      "Leistungsverzeichnis",
+      "Ausschreibungsunterlagen",
+      "Vergabeempfehlung"
+    ],
+    "roles": [
+      {
+        "actor": "Kostenplaner",
+        "responsible": ["Erstellung Leistungsverzeichnis"],
+        "contributing": [],
+        "informed": ["Vergabeentscheid"]
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Vergabeentscheid"],
+        "contributing": ["Angebotsprüfung"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc120",
     "title": "Terminplanung der Ausführung",
     "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400&h=200&fit=crop",
     "category": "Terminplanung",
-    "subcategory": "4D-Simulation",
+    "subcategory": "Bauablauf",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
-    "tags": ["Terminplanung", "4D-BIM", "Bauablauf", "Simulation"],
+    "tags": ["Terminplanung", "4D", "Bauablauf", "Bauprogramm"],
+    "phases": [4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc120",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "120", "desc": "Terminplanung der Ausführung" },
-      { "system": "ISO 19650", "code": "4.7.1", "desc": "Construction sequencing" }
+      { "system": "BIM-D AWF", "code": "120" },
+      { "system": "ISO 19650", "code": "4.7.1" }
     ],
-    "phases": [4, 5, 6]
+    "standards": ["SIA 118"],
+    "goals": [
+      "Realistische Bauablaufplanung",
+      "Frühzeitige Erkennung von Terminrisiken",
+      "Visualisierung für Kommunikation"
+    ],
+    "inputs": [
+      "Planungsunterlagen / 3D-Modell",
+      "Terminvorgaben",
+      "Ressourcenplanung"
+    ],
+    "outputs": [
+      "Bauprogramm",
+      "4D-Simulation (optional)",
+      "Meilensteinplan"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Erstellung Bauprogramm", "Terminüberwachung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Unternehmer",
+        "responsible": ["Detailterminplanung"],
+        "contributing": ["Abstimmung Bauablauf"],
+        "informed": ["Terminänderungen"]
+      }
+    ]
   },
   {
     "id": "uc130",
@@ -190,11 +611,43 @@
     "subcategory": "Logistik",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": ["Logistik", "Baustelleneinrichtung", "Verkehrsführung"],
+    "phases": [4, 5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc130",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "130", "desc": "Logistikplanung" },
-      { "system": "ISO 19650", "code": "4.7.2", "desc": "Site logistics" }
+      { "system": "BIM-D AWF", "code": "130" },
+      { "system": "ISO 19650", "code": "4.7.2" }
     ],
-    "phases": [5, 6]
+    "standards": ["SUVA", "BauAV"],
+    "goals": [
+      "Effiziente Baustellenorganisation",
+      "Sichere Verkehrsführung",
+      "Minimierung von Störungen"
+    ],
+    "inputs": [
+      "Baustellenplan",
+      "Terminplan",
+      "Materialplanung"
+    ],
+    "outputs": [
+      "Baustelleneinrichtungsplan",
+      "Logistikkonzept",
+      "Verkehrsphasenplan"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Logistikplanung", "Koordination"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Unternehmer",
+        "responsible": ["Umsetzung Logistik"],
+        "contributing": ["Abstimmung"],
+        "informed": ["Änderungen"]
+      }
+    ]
   },
   {
     "id": "uc140",
@@ -202,13 +655,45 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Controlling",
-    "description": "ystematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
+    "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
     "tags": ["Baufortschritt", "Controlling", "Soll-Ist-Vergleich"],
+    "phases": [5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc140",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "140", "desc": "Baufortschrittskontrolle" },
-      { "system": "ISO 19650", "code": "4.7.3", "desc": "Progress monitoring" }
+      { "system": "BIM-D AWF", "code": "140" },
+      { "system": "ISO 19650", "code": "4.7.3" }
     ],
-    "phases": [5, 6]
+    "standards": ["SIA 118"],
+    "goals": [
+      "Transparente Fortschrittsdokumentation",
+      "Frühzeitige Erkennung von Abweichungen",
+      "Basis für Steuerungsmassnahmen"
+    ],
+    "inputs": [
+      "Bauprogramm (Soll)",
+      "Baustellenbegehungen",
+      "Rapporte"
+    ],
+    "outputs": [
+      "Fortschrittsbericht",
+      "Soll-Ist-Vergleich",
+      "Fotodokumentation"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Fortschrittserfassung", "Dokumentation"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Controlling", "Steuerung"],
+        "contributing": [],
+        "informed": ["Fortschrittsbericht"]
+      }
+    ]
   },
   {
     "id": "uc150",
@@ -218,11 +703,43 @@
     "subcategory": "Änderungen",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
     "tags": ["Änderungsmanagement", "Nachträge", "Dokumentation"],
+    "phases": [5],
+    "process_url": "https://prozesse.bbl.admin.ch/uc150",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "150", "desc": "Änderungs- und Nachtragsmanagement" },
-      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
+      { "system": "BIM-D AWF", "code": "150" },
+      { "system": "SIA", "code": "SIA 118" }
     ],
-    "phases": [5, 6]
+    "standards": ["SIA 118"],
+    "goals": [
+      "Nachvollziehbare Änderungsdokumentation",
+      "Transparente Nachtragsbewertung",
+      "Kontrolle der Kostenauswirkungen"
+    ],
+    "inputs": [
+      "Änderungsanträge",
+      "Vertragsdokumente",
+      "Planungsunterlagen"
+    ],
+    "outputs": [
+      "Änderungsprotokoll",
+      "Nachtragsbewertung",
+      "Freigabedokumentation"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Erfassung Änderungen", "Dokumentation"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Freigabe Änderungen", "Nachtragsentscheid"],
+        "contributing": ["Bewertung"],
+        "informed": []
+      }
+    ]
   },
   {
     "id": "uc160",
@@ -232,11 +749,43 @@
     "subcategory": "Abrechnung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": ["Abrechnung", "Kostenkontrolle", "Rechnungsprüfung"],
+    "phases": [5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc160",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "160", "desc": "Abrechnung von Bauleistungen" },
-      { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
+      { "system": "BIM-D AWF", "code": "160" },
+      { "system": "SIA", "code": "SIA 118" }
     ],
-    "phases": [5, 6]
+    "standards": ["SIA 118"],
+    "goals": [
+      "Korrekte Leistungsabrechnung",
+      "Plausible Mengenermittlung",
+      "Transparente Kostenkontrolle"
+    ],
+    "inputs": [
+      "Leistungsverzeichnis",
+      "Aufmassprotokolle",
+      "Rechnungen"
+    ],
+    "outputs": [
+      "Geprüfte Rechnungen",
+      "Zahlungsfreigabe",
+      "Kostenverfolgung"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Aufmass", "Rechnungsprüfung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": ["Zahlungsfreigabe"],
+        "contributing": [],
+        "informed": ["Kostenstand"]
+      }
+    ]
   },
   {
     "id": "uc170",
@@ -246,11 +795,43 @@
     "subcategory": "Qualität",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": ["Mängelmanagement", "Abnahme", "Qualitätssicherung"],
+    "phases": [5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc170",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "170", "desc": "Abnahme- und Mängelmanagement" },
-      { "system": "ISO 19650", "code": "4.8.2", "desc": "Defects management" }
+      { "system": "BIM-D AWF", "code": "170" },
+      { "system": "ISO 19650", "code": "4.8.2" }
     ],
-    "phases": [5, 6]
+    "standards": ["SIA 118", "OR"],
+    "goals": [
+      "Vollständige Mängelerfassung",
+      "Nachvollziehbare Mängelverfolgung",
+      "Dokumentierte Abnahme"
+    ],
+    "inputs": [
+      "Abnahmeprotokolle",
+      "Qualitätsanforderungen",
+      "Planungsunterlagen"
+    ],
+    "outputs": [
+      "Mängelliste",
+      "Abnahmeprotokoll",
+      "Nachweis Mängelbehebung"
+    ],
+    "roles": [
+      {
+        "actor": "Bauleiter",
+        "responsible": ["Mängelerfassung", "Nachverfolgung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Unternehmer",
+        "responsible": ["Mängelbehebung"],
+        "contributing": [],
+        "informed": ["Mängelliste"]
+      }
+    ]
   },
   {
     "id": "uc180",
@@ -260,25 +841,89 @@
     "subcategory": "Inbetriebnahme",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": ["Inbetriebnahme", "Übergabe", "Gebäudetechnik"],
+    "phases": [5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc180",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "180", "desc": "Inbetriebnahmemanagement" },
-      { "system": "GEFMA", "code": "190", "desc": "Betreiberverantwortung" }
+      { "system": "BIM-D AWF", "code": "180" },
+      { "system": "GEFMA", "code": "190" }
     ],
-    "phases": [5, 6]
+    "standards": ["SIA 118", "GEFMA 190"],
+    "goals": [
+      "Systematische Inbetriebnahme aller Anlagen",
+      "Dokumentierte Funktionsprüfung",
+      "Geordnete Übergabe an Betrieb"
+    ],
+    "inputs": [
+      "Anlagendokumentation",
+      "Prüfprotokolle",
+      "Betriebsanleitungen"
+    ],
+    "outputs": [
+      "Inbetriebnahmeprotokoll",
+      "Einweisungsdokumentation",
+      "Übergabeprotokoll"
+    ],
+    "roles": [
+      {
+        "actor": "Inbetriebnahme-Manager",
+        "responsible": ["Koordination IBN", "Funktionsprüfung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Betreiber",
+        "responsible": ["Übernahme"],
+        "contributing": ["Einweisung"],
+        "informed": ["IBN-Protokolle"]
+      }
+    ]
   },
   {
     "id": "uc190",
     "title": "Projekt- und Bauwerksdokumentation",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
-    "subcategory": "As-Built",
-    "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation (BWD) gemäss KBOB-Richtlinie: Projektdokumentation (PD) während der Phasen 1–5, bedarfsorientierte Überführung in die Objektdokumentation (OD) für den Betrieb sowie Sicherung aufbewahrungspflichtiger Unterlagen in der Archivdokumentation (AD).",
-    "tags": ["As-Built", "Dokumentation", "Bauwerksakte"],
+    "subcategory": "Bauwerksdokumentation",
+    "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation: Projektdokumentation (PD) während Planung und Bau, Objektdokumentation (OD) für den Betrieb, Archivdokumentation (AD) für aufbewahrungspflichtige Unterlagen.",
+    "tags": ["Bauwerksdokumentation", "Projektdokumentation", "Objektdokumentation", "Archiv"],
+    "phases": [1, 2, 3, 4, 5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc190",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "190", "desc": "Projekt- und Bauwerksdokumentation" },
-      { "system": "ISO 19650", "code": "4.9.1", "desc": "As-built information" }
+      { "system": "BIM-D AWF", "code": "190" },
+      { "system": "KBOB", "code": "BWD" }
     ],
-    "phases": [5, 6]
+    "standards": ["KBOB BWD-Richtlinie", "SIA 112"],
+    "goals": [
+      "Vollständige Projektdokumentation",
+      "Geordnete Übergabe an Betrieb",
+      "Rechtssichere Archivierung"
+    ],
+    "inputs": [
+      "Alle Projektunterlagen",
+      "Revisionspläne",
+      "Prüfprotokolle und Nachweise"
+    ],
+    "outputs": [
+      "Projektdokumentation (PD)",
+      "Objektdokumentation (OD)",
+      "Archivdokumentation (AD)"
+    ],
+    "roles": [
+      {
+        "actor": "BIM-Gesamtkoordinator",
+        "responsible": ["Zusammenstellung Dokumentation", "Qualitätsprüfung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Betreiber",
+        "responsible": ["Übernahme OD"],
+        "contributing": ["Definition Anforderungen"],
+        "informed": ["Liefertermine"]
+      }
+    ]
   },
   {
     "id": "uc200",
@@ -288,10 +933,449 @@
     "subcategory": "FM",
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": ["Facility Management", "CAFM", "Betrieb", "Erhaltung"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc200",
+    "examples": [],
     "classifications": [
-      { "system": "BIM-D AWF", "code": "200", "desc": "Nutzung für Betrieb und Erhaltung" },
-      { "system": "GEFMA", "code": "922", "desc": "Dokumentation im FM" }
+      { "system": "BIM-D AWF", "code": "200" },
+      { "system": "GEFMA", "code": "922" }
     ],
-    "phases": [6]
+    "standards": ["GEFMA 922", "SIA 469"],
+    "goals": [
+      "Effiziente Datennutzung im Betrieb",
+      "Integration in CAFM-Systeme",
+      "Aktuelle Dokumentation über Lebenszyklus"
+    ],
+    "inputs": [
+      "Objektdokumentation (OD)",
+      "CAFM-Anforderungen",
+      "Betriebskonzept"
+    ],
+    "outputs": [
+      "CAFM-Datensatz",
+      "Betriebsdokumentation",
+      "Aktualisierte Bestandsdaten"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Datenübernahme", "Pflege CAFM"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "BIM-Gesamtkoordinator",
+        "responsible": ["Datenbereitstellung"],
+        "contributing": ["Abstimmung Datenformat"],
+        "informed": []
+      }
+    ]
+  },
+  {
+    "id": "uc210",
+    "title": "Gewährleistungsmanagement",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Gewährleistung",
+    "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
+    "tags": ["Gewährleistung", "Garantie", "Mängelrüge"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc210",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-01" }
+    ],
+    "standards": ["SIA 118", "OR"],
+    "goals": [
+      "Fristgerechte Geltendmachung von Ansprüchen",
+      "Vollständige Dokumentation",
+      "Vermeidung von Fristversäumnissen"
+    ],
+    "inputs": [
+      "Abnahmeprotokolle",
+      "Gewährleistungsfristen",
+      "Mängelmeldungen"
+    ],
+    "outputs": [
+      "Mängelrügen",
+      "Gewährleistungsverfolgung",
+      "Abschlussdokumentation"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Fristenüberwachung", "Mängelrügen"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Projektleiter",
+        "responsible": [],
+        "contributing": ["Unterstützung bei komplexen Fällen"],
+        "informed": ["Gewährleistungsstatus"]
+      }
+    ]
+  },
+  {
+    "id": "uc220",
+    "title": "Wartungs- und Inspektionsmanagement",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Wartung",
+    "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
+    "tags": ["Wartung", "Inspektion", "Instandhaltung"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc220",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-02" },
+      { "system": "GEFMA", "code": "124" }
+    ],
+    "standards": ["SIA 469", "GEFMA 124"],
+    "goals": [
+      "Werterhaltung der Anlagen",
+      "Vermeidung von Ausfällen",
+      "Erfüllung Betreiberverantwortung"
+    ],
+    "inputs": [
+      "Wartungspläne",
+      "Anlagendokumentation",
+      "Herstellervorgaben"
+    ],
+    "outputs": [
+      "Wartungsprotokolle",
+      "Inspektionsberichte",
+      "Massnahmenplanung"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Wartungsplanung", "Beauftragung"],
+        "contributing": [],
+        "informed": ["Wartungsberichte"]
+      },
+      {
+        "actor": "Servicetechniker",
+        "responsible": ["Durchführung Wartung", "Dokumentation"],
+        "contributing": [],
+        "informed": []
+      }
+    ]
+  },
+  {
+    "id": "uc230",
+    "title": "Instandhaltungs- und Instandsetzungsmanagement",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Instandhaltung",
+    "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
+    "tags": ["Instandhaltung", "Instandsetzung", "Reparatur"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc230",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-03" }
+    ],
+    "standards": ["SIA 469", "DIN 31051"],
+    "goals": [
+      "Werterhaltung des Gebäudes",
+      "Minimierung von Ausfallzeiten",
+      "Kostenoptimierte Massnahmenplanung"
+    ],
+    "inputs": [
+      "Schadensmeldungen",
+      "Inspektionsergebnisse",
+      "Zustandsbewertung"
+    ],
+    "outputs": [
+      "Massnahmenplan",
+      "Ausführungsdokumentation",
+      "Aktualisierte Zustandsdaten"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Massnahmenplanung", "Beauftragung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Unternehmer",
+        "responsible": ["Ausführung"],
+        "contributing": [],
+        "informed": ["Auftrag"]
+      }
+    ]
+  },
+  {
+    "id": "uc240",
+    "title": "Flächen- und Raumbelegungsmanagement",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Flächenmanagement",
+    "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
+    "tags": ["Flächenmanagement", "Raumbelegung", "Arbeitsplatz"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc240",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-04" }
+    ],
+    "standards": ["SIA 416", "DIN 277"],
+    "goals": [
+      "Optimale Flächenauslastung",
+      "Transparente Raumbelegung",
+      "Bedarfsgerechte Arbeitsplatzvergabe"
+    ],
+    "inputs": [
+      "Flächendaten",
+      "Nutzungsanforderungen",
+      "Belegungsdaten"
+    ],
+    "outputs": [
+      "Belegungsplan",
+      "Flächenauswertungen",
+      "Optimierungsvorschläge"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Flächenplanung", "Belegungssteuerung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Nutzer",
+        "responsible": [],
+        "contributing": ["Bedarfsmeldung"],
+        "informed": ["Zuweisung"]
+      }
+    ]
+  },
+  {
+    "id": "uc250",
+    "title": "Energiemanagement",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Energie",
+    "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
+    "tags": ["Energiemanagement", "Monitoring", "Performance", "Nachhaltigkeit"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc250",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-05" }
+    ],
+    "standards": ["ISO 50001", "SIA 380/1"],
+    "goals": [
+      "Reduktion Energieverbrauch",
+      "Transparentes Verbrauchsmonitoring",
+      "Erreichung Klimaziele"
+    ],
+    "inputs": [
+      "Verbrauchsdaten",
+      "Zielwerte",
+      "Gebäudedaten"
+    ],
+    "outputs": [
+      "Energiebericht",
+      "Benchmarking",
+      "Optimierungsmassnahmen"
+    ],
+    "roles": [
+      {
+        "actor": "Energiemanager",
+        "responsible": ["Monitoring", "Analyse", "Massnahmenplanung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "FM-Manager",
+        "responsible": [],
+        "contributing": ["Umsetzung Massnahmen"],
+        "informed": ["Energiebericht"]
+      }
+    ]
+  },
+  {
+    "id": "uc260",
+    "title": "Betreiberverantwortung",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "category": "Betrieb",
+    "subcategory": "Compliance",
+    "description": "Erfüllung und Dokumentation der gesetzlichen Betreiberpflichten, Sicherheitsprüfungen und Nachweise.",
+    "tags": ["Betreiberverantwortung", "Sicherheit", "Compliance"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc260",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "FM-06" },
+      { "system": "GEFMA", "code": "190" }
+    ],
+    "standards": ["GEFMA 190", "VKF", "SUVA"],
+    "goals": [
+      "Erfüllung gesetzlicher Pflichten",
+      "Rechtssichere Dokumentation",
+      "Sicherheit für Nutzer"
+    ],
+    "inputs": [
+      "Gesetzliche Vorgaben",
+      "Prüfpflichten",
+      "Anlagendokumentation"
+    ],
+    "outputs": [
+      "Prüfberichte",
+      "Nachweisdokumentation",
+      "Massnahmenplan"
+    ],
+    "roles": [
+      {
+        "actor": "FM-Manager",
+        "responsible": ["Koordination Prüfungen", "Dokumentation"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Prüfstelle",
+        "responsible": ["Durchführung Prüfungen"],
+        "contributing": [],
+        "informed": []
+      }
+    ]
+  },
+  {
+    "id": "uc270",
+    "title": "Nachhaltigkeitsnachweise",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Nachhaltigkeit",
+    "subcategory": "Zertifizierung",
+    "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
+    "tags": ["Nachhaltigkeit", "SNBS", "Minergie", "Ökobilanz", "LCA"],
+    "phases": [2, 3, 4, 5, 6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc270",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "NH-01" }
+    ],
+    "standards": ["SNBS", "Minergie", "SIA 2032", "SIA 2040"],
+    "goals": [
+      "Erreichung Nachhaltigkeitszertifikat",
+      "Transparente Nachweisführung",
+      "Optimierung Umweltwirkung"
+    ],
+    "inputs": [
+      "Planungsunterlagen",
+      "Materialdaten",
+      "Energiekonzept"
+    ],
+    "outputs": [
+      "Ökobilanz",
+      "LCC-Berechnung",
+      "Zertifikat"
+    ],
+    "roles": [
+      {
+        "actor": "Nachhaltigkeitsberater",
+        "responsible": ["Erstellung Nachweise", "Zertifizierungsprozess"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Fachplaner",
+        "responsible": ["Datenlieferung"],
+        "contributing": ["Optimierung"],
+        "informed": ["Bewertungsergebnisse"]
+      }
+    ]
+  },
+  {
+    "id": "uc280",
+    "title": "Rückbauplanung",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Rückbau",
+    "subcategory": "Planung",
+    "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
+    "tags": ["Rückbau", "Abbruch", "Kreislaufwirtschaft", "Entsorgung"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc280",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "RB-01" }
+    ],
+    "standards": ["VVEA", "SIA 430"],
+    "goals": [
+      "Schadstofffreier Rückbau",
+      "Maximale Materialrückgewinnung",
+      "Umweltgerechte Entsorgung"
+    ],
+    "inputs": [
+      "Bestandsdokumentation",
+      "Schadstoffkataster",
+      "Materialdaten"
+    ],
+    "outputs": [
+      "Rückbaukonzept",
+      "Entsorgungskonzept",
+      "Materialkataster"
+    ],
+    "roles": [
+      {
+        "actor": "Rückbauplaner",
+        "responsible": ["Rückbauplanung", "Entsorgungskonzept"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Schadstoffexperte",
+        "responsible": ["Schadstoffkataster"],
+        "contributing": ["Sanierungskonzept"],
+        "informed": []
+      }
+    ]
+  },
+  {
+    "id": "uc290",
+    "title": "Bauteilbörse und Wiederverwendung",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
+    "category": "Rückbau",
+    "subcategory": "Kreislaufwirtschaft",
+    "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
+    "tags": ["Bauteilbörse", "Wiederverwendung", "ReUse", "Kreislaufwirtschaft"],
+    "phases": [6],
+    "process_url": "https://prozesse.bbl.admin.ch/uc290",
+    "examples": [],
+    "classifications": [
+      { "system": "NRW-HE", "code": "RB-02" }
+    ],
+    "standards": ["VVEA", "SIA 430"],
+    "goals": [
+      "Ressourcenschonung durch Wiederverwendung",
+      "Reduktion Abfallaufkommen",
+      "Wirtschaftlicher Mehrwert"
+    ],
+    "inputs": [
+      "Materialkataster",
+      "Zustandsbewertung Bauteile",
+      "Marktanalyse"
+    ],
+    "outputs": [
+      "Bauteilkatalog",
+      "Vermittlung / Verkauf",
+      "Dokumentation Wiederverwendung"
+    ],
+    "roles": [
+      {
+        "actor": "Rückbauplaner",
+        "responsible": ["Identifikation Bauteile", "Bewertung"],
+        "contributing": [],
+        "informed": []
+      },
+      {
+        "actor": "Bauherr",
+        "responsible": ["Entscheid Wiederverwendung"],
+        "contributing": [],
+        "informed": ["Potenzialanalyse"]
+      }
+    ]
   }
 ]
