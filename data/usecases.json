@@ -791,7 +791,7 @@
   {
     "id": "uc120",
     "title": "Terminplanung der Ausführung",
-    "image": "assets/img/usecase/uc190.jpg",
+    "image": "assets/img/usecase/uc120.jpg",
     "category": "Terminplanung",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
     "tags": [
