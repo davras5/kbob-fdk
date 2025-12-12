@@ -45,7 +45,7 @@
     "id": "uc010",
     "title": "Bestandserfassung",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
-    "category": "Bestand",
+    "category": "Planung",
     "subcategory": "Erfassung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
     "tags": ["Entwicklung", "Planung", "Betrieb", "Stufe 1", "Stufe 2", "Bestandsaufnahme", "Vermessung"],
