@@ -393,7 +393,7 @@
   {
     "id": "uc060",
     "title": "Qualitätsprüfung",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc060.jpg",
     "category": "Qualitätssicherung",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": [
