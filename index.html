@@ -4664,7 +4664,7 @@
             switch(route) {
                 case 'home': renderHomePage(); break;
                 case 'search': renderSearchResultsPage(searchQuery); break;
-                case 'elements': renderCatalogPage(tags); break;
+                case 'elements': renderCatalogPage(tags, category); break;
                 case 'documents': renderDocumentsCatalogPage(tags, category); break;
                 case 'usecases': renderUsecasesCatalogPage(tags, category); break;
                 case 'models': renderModelsCatalogPage(tags, category); break;
@@ -4723,7 +4723,7 @@
         window.switchView = function(view, type = 'elements') {
             if (type === 'elements') {
                 elementsView = view;
-                renderCatalogPage(getActiveTagsFromURL());
+                renderCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
             } else if (type === 'documents') {
                 documentsView = view;
                 renderDocumentsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
@@ -4742,7 +4742,7 @@
         window.toggleFilter = function(type = 'elements') {
             if (type === 'elements') {
                 elementsFilterVisible = !elementsFilterVisible;
-                renderCatalogPage(getActiveTagsFromURL());
+                renderCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
             } else if (type === 'documents') {
                 documentsFilterVisible = !documentsFilterVisible;
                 renderDocumentsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
@@ -4887,16 +4887,18 @@
         const arrowSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
         // Elements Grid/List Renderers
-        function renderGridItemsHTML(items, activeTags = []) {
-            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
+        function renderGridItemsHTML(items, activeTags = [], activeCategory = '') {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
 
             return items.map(el => {
                 const hasTags = el.tags && Array.isArray(el.tags) && el.tags.length > 0;
                 const cardId = `element-${el.id}`;
+                const isCategoryActive = activeCategory === el.category;
 
                 return `
-                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags, activeCategory)}'">
                     <div class="card__image">
+                        ${el.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${el.category}')">${el.category}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__body">
@@ -4911,9 +4913,9 @@
             `}).join('');
         }
 
-        function renderListItemsHTML(items, activeTags = []) {
-            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
-            
+        function renderListItemsHTML(items, activeTags = [], activeCategory = '') {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
+
             const headerHtml = `
                 <div class="list-header-row">
                     <div class="list-col-name">Name</div>
@@ -4922,13 +4924,18 @@
                 </div>
             `;
 
-            const itemsHtml = items.map(el => `
-                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
-                    <div class="list-col-name">${el.title}</div>
+            const itemsHtml = items.map(el => {
+                const isCategoryActive = activeCategory === el.category;
+                return `
+                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags, activeCategory)}'">
+                    <div class="list-col-name">
+                        ${el.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${el.category}')">${el.category}</span>` : ''}
+                        ${el.title}
+                    </div>
                     <div class="list-col-desc">${el.description || el.classification}</div>
                     <div class="list-col-tags">${renderTagsHtml(el.tags, activeTags)}</div>
                 </div>
-            `).join('');
+            `}).join('');
 
             return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
         }
@@ -5890,13 +5897,15 @@
             });
         }
 
-        function renderCatalogPage(activeTags = []) {
-            // Filter data by active tags
-            const filteredByTags = filterDataByTags(globalElementsData, activeTags);
-            
+        function renderCatalogPage(activeTags = [], activeCategory = '') {
+            // Apply both category and tag filtering
+            let filteredData = filterDataByCategory(globalElementsData, activeCategory);
+            filteredData = filterDataByTags(filteredData, activeTags);
+
             const filterPanelClass = elementsFilterVisible ? '' : 'closed';
             const gridActive = elementsView === 'grid' ? 'active' : '';
             const listActive = elementsView === 'list' ? 'active' : '';
+            const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
                 <div class="container">
@@ -5911,7 +5920,7 @@
                                 <button type="button" class="search-clear-btn" id="catalogSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
-                            ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
+                            ${renderFilterButton('elements', elementsFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
@@ -5920,7 +5929,7 @@
                     </div>
 
                     <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags)}
+                        ${renderFilterBarHeader(activeTags, activeCategory)}
                         <div class="filter-bar__groups">
                             <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
                             <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
@@ -5930,8 +5939,8 @@
 
                     <div id="catalogContent" class="catalog-content">
                         ${elementsView === 'grid'
-                            ? `<div class="element-grid">${renderGridItemsHTML(filteredByTags, activeTags)}</div>`
-                            : renderListItemsHTML(filteredByTags, activeTags)
+                            ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
+                            : renderListItemsHTML(filteredData, activeTags, activeCategory)
                         }
                     </div>
                 </div>`;
@@ -5941,18 +5950,19 @@
                 searchInput.addEventListener('input', (e) => {
                     document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
                     const searchTerm = e.target.value.toLowerCase();
-                    
-                    // First filter by tags, then by search term
-                    let filteredData = filterDataByTags(globalElementsData, activeTags);
-                    filteredData = filteredData.filter(el => 
-                        el.title.toLowerCase().includes(searchTerm) || 
+
+                    // First filter by category and tags, then by search term
+                    let searchFilteredData = filterDataByCategory(globalElementsData, activeCategory);
+                    searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
+                    searchFilteredData = searchFilteredData.filter(el =>
+                        el.title.toLowerCase().includes(searchTerm) ||
                         el.classification.toLowerCase().includes(searchTerm)
                     );
-                    
+
                     const container = document.getElementById('catalogContent');
-                    container.innerHTML = (elementsView === 'grid') 
-                        ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags)}</div>`
-                        : renderListItemsHTML(filteredData, activeTags);
+                    container.innerHTML = (elementsView === 'grid')
+                        ? `<div class="element-grid">${renderGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
+                        : renderListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
             }
 
