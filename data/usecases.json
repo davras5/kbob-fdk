@@ -4,13 +4,31 @@
     "title": "Minimalstandard",
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Grundlagen",
-    "subcategory": "Projektsetup",
     "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination – unabhängig von Bauvolumen oder Methodik.",
-    "tags": ["Entwicklung", "Planung", "Ausführung", "Betrieb", "Rückbau", "Stufe 1", "Projektmanagement", "Grundlagen"],
-    "phases": [1, 2, 3, 4, 5, 6],
+    "tags": [
+      "Entwicklung",
+      "Planung",
+      "Ausführung",
+      "Betrieb",
+      "Rückbau",
+      "Stufe 1",
+      "Projektmanagement",
+      "Grundlagen"
+    ],
+    "phases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc000",
     "examples": [],
-    "standards": ["SIA 2051", "ISO 19650"],
+    "standards": [
+      "SIA 2051",
+      "ISO 19650"
+    ],
     "goals": [
       "Einheitliche Projektgrundlagen schaffen",
       "Klare Informationsanforderungen definieren",
@@ -29,15 +47,25 @@
     "roles": [
       {
         "actor": "Projektleiter",
-        "responsible": ["Definition der Projektziele", "Freigabe AIA"],
-        "contributing": ["Abstimmung mit Stakeholdern"],
+        "responsible": [
+          "Definition der Projektziele",
+          "Freigabe AIA"
+        ],
+        "contributing": [
+          "Abstimmung mit Stakeholdern"
+        ],
         "informed": []
       },
       {
         "actor": "BIM-Manager",
-        "responsible": ["Erstellung AIA und BAP", "Definition Informationsanforderungen"],
+        "responsible": [
+          "Erstellung AIA und BAP",
+          "Definition Informationsanforderungen"
+        ],
         "contributing": [],
-        "informed": ["Projektänderungen"]
+        "informed": [
+          "Projektänderungen"
+        ]
       }
     ]
   },
@@ -46,13 +74,28 @@
     "title": "Bestandserfassung",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Planung",
-    "subcategory": "Erfassung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
-    "tags": ["Entwicklung", "Planung", "Betrieb", "Stufe 1", "Stufe 2", "Bestandsaufnahme", "Vermessung"],
-    "phases": [1, 2, 3, 6],
+    "tags": [
+      "Entwicklung",
+      "Planung",
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Bestandsaufnahme",
+      "Vermessung"
+    ],
+    "phases": [
+      1,
+      2,
+      3,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc010",
     "examples": [],
-    "standards": ["SIA 405", "ISO 19650"],
+    "standards": [
+      "SIA 405",
+      "ISO 19650"
+    ],
     "goals": [
       "Vollständige Dokumentation des Ist-Zustands",
       "Grundlage für Umbau- und Sanierungsplanung",
@@ -71,14 +114,23 @@
     "roles": [
       {
         "actor": "Vermesser",
-        "responsible": ["Durchführung der Bestandsaufnahme", "Erstellung Punktwolke"],
+        "responsible": [
+          "Durchführung der Bestandsaufnahme",
+          "Erstellung Punktwolke"
+        ],
         "contributing": [],
-        "informed": ["Qualitätsanforderungen"]
+        "informed": [
+          "Qualitätsanforderungen"
+        ]
       },
       {
         "actor": "BIM-Autor",
-        "responsible": ["Modellierung des Bestands"],
-        "contributing": ["Abstimmung Detaillierungsgrad"],
+        "responsible": [
+          "Modellierung des Bestands"
+        ],
+        "contributing": [
+          "Abstimmung Detaillierungsgrad"
+        ],
         "informed": []
       }
     ]
@@ -88,13 +140,24 @@
     "title": "Bedarfsplanung",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
     "category": "Planung",
-    "subcategory": "Bedarf",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
-    "tags": ["Entwicklung", "Planung", "Stufe 1", "Flächenmanagement", "Nutzeranforderungen"],
-    "phases": [1, 2],
+    "tags": [
+      "Entwicklung",
+      "Planung",
+      "Stufe 1",
+      "Flächenmanagement",
+      "Nutzeranforderungen"
+    ],
+    "phases": [
+      1,
+      2
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc020",
     "examples": [],
-    "standards": ["SIA 416", "DIN 18205"],
+    "standards": [
+      "SIA 416",
+      "DIN 18205"
+    ],
     "goals": [
       "Klare Definition der Nutzeranforderungen",
       "Basis für Flächenplanung und Kostenrahmen",
@@ -113,14 +176,23 @@
     "roles": [
       {
         "actor": "Nutzervertreter",
-        "responsible": ["Definition der Anforderungen"],
+        "responsible": [
+          "Definition der Anforderungen"
+        ],
         "contributing": [],
-        "informed": ["Ergebnisse der Bedarfsplanung"]
+        "informed": [
+          "Ergebnisse der Bedarfsplanung"
+        ]
       },
       {
         "actor": "Planer",
-        "responsible": ["Erstellung Raumprogramm", "Dokumentation"],
-        "contributing": ["Abstimmung mit Nutzer"],
+        "responsible": [
+          "Erstellung Raumprogramm",
+          "Dokumentation"
+        ],
+        "contributing": [
+          "Abstimmung mit Nutzer"
+        ],
         "informed": []
       }
     ]
@@ -130,13 +202,26 @@
     "title": "Planungsvarianten",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Planung",
-    "subcategory": "Variantenvergleich",
     "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
-    "tags": ["Entwicklung", "Planung", "Stufe 1", "Stufe 2", "Variantenvergleich", "Nachhaltigkeit"],
-    "phases": [1, 2, 3],
+    "tags": [
+      "Entwicklung",
+      "Planung",
+      "Stufe 1",
+      "Stufe 2",
+      "Variantenvergleich",
+      "Nachhaltigkeit"
+    ],
+    "phases": [
+      1,
+      2,
+      3
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc030",
     "examples": [],
-    "standards": ["SIA 112", "SNBS"],
+    "standards": [
+      "SIA 112",
+      "SNBS"
+    ],
     "goals": [
       "Fundierte Entscheidungsgrundlage für Varianten",
       "Bewertung nach Nachhaltigkeitskriterien",
@@ -155,14 +240,23 @@
     "roles": [
       {
         "actor": "Architekt",
-        "responsible": ["Erstellung der Planungsvarianten"],
+        "responsible": [
+          "Erstellung der Planungsvarianten"
+        ],
         "contributing": [],
-        "informed": ["Bewertungsergebnisse"]
+        "informed": [
+          "Bewertungsergebnisse"
+        ]
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Definition Bewertungskriterien", "Variantenentscheid"],
-        "contributing": ["Bewertung"],
+        "responsible": [
+          "Definition Bewertungskriterien",
+          "Variantenentscheid"
+        ],
+        "contributing": [
+          "Bewertung"
+        ],
         "informed": []
       }
     ]
@@ -172,10 +266,23 @@
     "title": "Visualisierung",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "category": "Kommunikation",
-    "subcategory": "Darstellung",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
-    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 2", "Stufe 3", "Kommunikation", "Visualisierung"],
-    "phases": [2, 3, 4, 5, 6],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Betrieb",
+      "Stufe 2",
+      "Stufe 3",
+      "Kommunikation",
+      "Visualisierung"
+    ],
+    "phases": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc040",
     "examples": [],
     "standards": [],
@@ -197,14 +304,22 @@
     "roles": [
       {
         "actor": "Visualisierer",
-        "responsible": ["Erstellung der Visualisierungen"],
+        "responsible": [
+          "Erstellung der Visualisierungen"
+        ],
         "contributing": [],
-        "informed": ["Planungsänderungen"]
+        "informed": [
+          "Planungsänderungen"
+        ]
       },
       {
         "actor": "Architekt",
-        "responsible": ["Bereitstellung Planungsdaten"],
-        "contributing": ["Abstimmung Darstellung"],
+        "responsible": [
+          "Bereitstellung Planungsdaten"
+        ],
+        "contributing": [
+          "Abstimmung Darstellung"
+        ],
         "informed": []
       }
     ]
@@ -214,13 +329,26 @@
     "title": "Koordination der Fachgewerke",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Koordination",
-    "subcategory": "Fachkoordination",
     "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
-    "tags": ["Planung", "Ausführung", "Stufe 2", "Stufe 3", "Koordination", "Qualitätssicherung"],
-    "phases": [3, 4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 2",
+      "Stufe 3",
+      "Koordination",
+      "Qualitätssicherung"
+    ],
+    "phases": [
+      3,
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc050",
     "examples": [],
-    "standards": ["ISO 19650", "SIA 2051"],
+    "standards": [
+      "ISO 19650",
+      "SIA 2051"
+    ],
     "goals": [
       "Frühzeitige Erkennung von Planungskonflikten",
       "Reduzierung von Kollisionen auf der Baustelle",
@@ -239,15 +367,26 @@
     "roles": [
       {
         "actor": "BIM-Gesamtkoordinator",
-        "responsible": ["Zusammenführung Fachmodelle", "Kollisionsprüfung", "Koordination Konfliktbehebung"],
+        "responsible": [
+          "Zusammenführung Fachmodelle",
+          "Kollisionsprüfung",
+          "Koordination Konfliktbehebung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Fachplaner",
-        "responsible": ["Bereitstellung Fachmodelle", "Behebung von Konflikten"],
-        "contributing": ["Abstimmung"],
-        "informed": ["Kollisionsbericht"]
+        "responsible": [
+          "Bereitstellung Fachmodelle",
+          "Behebung von Konflikten"
+        ],
+        "contributing": [
+          "Abstimmung"
+        ],
+        "informed": [
+          "Kollisionsbericht"
+        ]
       }
     ]
   },
@@ -256,13 +395,27 @@
     "title": "Qualitätsprüfung",
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Qualitätssicherung",
-    "subcategory": "Controlling",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
-    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Qualitätssicherung", "Controlling"],
-    "phases": [2, 3, 4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 1",
+      "Stufe 2",
+      "Qualitätssicherung",
+      "Controlling"
+    ],
+    "phases": [
+      2,
+      3,
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc060",
     "examples": [],
-    "standards": ["ISO 19650", "SIA 2051"],
+    "standards": [
+      "ISO 19650",
+      "SIA 2051"
+    ],
     "goals": [
       "Sicherstellung der Planungsqualität",
       "Nachvollziehbare Freigabeprozesse",
@@ -281,15 +434,24 @@
     "roles": [
       {
         "actor": "BIM-Gesamtkoordinator",
-        "responsible": ["Qualitätsprüfung", "Dokumentation"],
+        "responsible": [
+          "Qualitätsprüfung",
+          "Dokumentation"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Freigabe"],
-        "contributing": ["Prüfung"],
-        "informed": ["Prüfberichte"]
+        "responsible": [
+          "Freigabe"
+        ],
+        "contributing": [
+          "Prüfung"
+        ],
+        "informed": [
+          "Prüfberichte"
+        ]
       }
     ]
   },
@@ -298,13 +460,27 @@
     "title": "Bemessung und Nachweisführung",
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Analyse",
-    "subcategory": "Simulation",
     "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
-    "tags": ["Planung", "Ausführung", "Stufe 2", "Stufe 3", "Simulation", "Nachweisführung"],
-    "phases": [3, 4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 2",
+      "Stufe 3",
+      "Simulation",
+      "Nachweisführung"
+    ],
+    "phases": [
+      3,
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc070",
     "examples": [],
-    "standards": ["SIA 380/1", "SIA 261", "SIA 181"],
+    "standards": [
+      "SIA 380/1",
+      "SIA 261",
+      "SIA 181"
+    ],
     "goals": [
       "Normgerechte Bemessung und Nachweise",
       "Optimierung der Gebäudeperformance",
@@ -323,14 +499,23 @@
     "roles": [
       {
         "actor": "Fachplaner",
-        "responsible": ["Durchführung Berechnungen", "Erstellung Nachweise"],
+        "responsible": [
+          "Durchführung Berechnungen",
+          "Erstellung Nachweise"
+        ],
         "contributing": [],
-        "informed": ["Planungsänderungen"]
+        "informed": [
+          "Planungsänderungen"
+        ]
       },
       {
         "actor": "BIM-Autor",
-        "responsible": ["Bereitstellung Modelldaten"],
-        "contributing": ["Abstimmung Informationsgehalt"],
+        "responsible": [
+          "Bereitstellung Modelldaten"
+        ],
+        "contributing": [
+          "Abstimmung Informationsgehalt"
+        ],
         "informed": []
       }
     ]
@@ -340,13 +525,28 @@
     "title": "Ableitung von Planunterlagen",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
-    "subcategory": "Planableitung",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
-    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 1", "Stufe 2", "Dokumentation", "Planableitung"],
-    "phases": [3, 4, 5, 6],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Dokumentation",
+      "Planableitung"
+    ],
+    "phases": [
+      3,
+      4,
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc080",
     "examples": [],
-    "standards": ["SIA 400", "SIA 2014"],
+    "standards": [
+      "SIA 400",
+      "SIA 2014"
+    ],
     "goals": [
       "Konsistente Planunterlagen aus einer Datenquelle",
       "Reduzierung manueller Nachbearbeitung",
@@ -365,13 +565,20 @@
     "roles": [
       {
         "actor": "BIM-Autor",
-        "responsible": ["Ableitung der Pläne aus Modell", "Nachbearbeitung"],
+        "responsible": [
+          "Ableitung der Pläne aus Modell",
+          "Nachbearbeitung"
+        ],
         "contributing": [],
-        "informed": ["Freigabeergebnisse"]
+        "informed": [
+          "Freigabeergebnisse"
+        ]
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Freigabe der Planunterlagen"],
+        "responsible": [
+          "Freigabe der Planunterlagen"
+        ],
         "contributing": [],
         "informed": []
       }
@@ -382,13 +589,23 @@
     "title": "Genehmigungsprozess",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Behörden",
-    "subcategory": "Baubewilligung",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
-    "tags": ["Planung", "Stufe 1", "Behörden", "Genehmigung"],
-    "phases": [3, 4],
+    "tags": [
+      "Planung",
+      "Stufe 1",
+      "Behörden",
+      "Genehmigung"
+    ],
+    "phases": [
+      3,
+      4
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc090",
     "examples": [],
-    "standards": ["RPG", "BauG"],
+    "standards": [
+      "RPG",
+      "BauG"
+    ],
     "goals": [
       "Vollständige Gesuchsunterlagen",
       "Effiziente Bewilligungsverfahren",
@@ -407,15 +624,24 @@
     "roles": [
       {
         "actor": "Architekt",
-        "responsible": ["Zusammenstellung Gesuchsunterlagen", "Einreichung"],
+        "responsible": [
+          "Zusammenstellung Gesuchsunterlagen",
+          "Einreichung"
+        ],
         "contributing": [],
-        "informed": ["Behördliche Rückfragen"]
+        "informed": [
+          "Behördliche Rückfragen"
+        ]
       },
       {
         "actor": "Bauherr",
-        "responsible": ["Antragstellung"],
+        "responsible": [
+          "Antragstellung"
+        ],
         "contributing": [],
-        "informed": ["Bewilligungsentscheid"]
+        "informed": [
+          "Bewilligungsentscheid"
+        ]
       }
     ]
   },
@@ -424,13 +650,28 @@
     "title": "Mengen- und Kostenermittlung",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
     "category": "Kostenplanung",
-    "subcategory": "Quantifizierung",
     "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
-    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Kostenplanung", "Mengenermittlung"],
-    "phases": [2, 3, 4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 1",
+      "Stufe 2",
+      "Kostenplanung",
+      "Mengenermittlung"
+    ],
+    "phases": [
+      2,
+      3,
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc100",
     "examples": [],
-    "standards": ["eBKP-H", "SIA 416", "DIN 276"],
+    "standards": [
+      "eBKP-H",
+      "SIA 416",
+      "DIN 276"
+    ],
     "goals": [
       "Transparente, nachvollziehbare Kostenermittlung",
       "Frühzeitige Kostensicherheit für Entscheidungen",
@@ -449,20 +690,37 @@
     "roles": [
       {
         "actor": "BIM-Autor",
-        "responsible": ["Modellbasierte und händische Ableitung von Mengen", "Verknüpfung von Mengen mit Kosten"],
+        "responsible": [
+          "Modellbasierte und händische Ableitung von Mengen",
+          "Verknüpfung von Mengen mit Kosten"
+        ],
         "contributing": [],
-        "informed": ["Ergebnisse der Qualitätsprüfung"]
+        "informed": [
+          "Ergebnisse der Qualitätsprüfung"
+        ]
       },
       {
         "actor": "BIM-Gesamtkoordinator",
-        "responsible": ["Qualitätsprüfung und Dokumentation", "Bereitstellung der Ergebnisse"],
-        "contributing": ["Erfassung von Anforderungen im BAP"],
-        "informed": ["Ergebnisse der Plausibilitätsprüfung"]
+        "responsible": [
+          "Qualitätsprüfung und Dokumentation",
+          "Bereitstellung der Ergebnisse"
+        ],
+        "contributing": [
+          "Erfassung von Anforderungen im BAP"
+        ],
+        "informed": [
+          "Ergebnisse der Plausibilitätsprüfung"
+        ]
       },
       {
         "actor": "Kostenplaner",
-        "responsible": ["Kostengliederung nach eBKP-H", "Zuordnung Kostenkennwerte"],
-        "contributing": ["Plausibilisierung Mengen"],
+        "responsible": [
+          "Kostengliederung nach eBKP-H",
+          "Zuordnung Kostenkennwerte"
+        ],
+        "contributing": [
+          "Plausibilisierung Mengen"
+        ],
         "informed": []
       }
     ]
@@ -472,13 +730,26 @@
     "title": "Leistungsverzeichnis und Ausschreibung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Ausschreibung",
-    "subcategory": "AVA",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
-    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Ausschreibung", "Vergabe"],
-    "phases": [4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 1",
+      "Stufe 2",
+      "Ausschreibung",
+      "Vergabe"
+    ],
+    "phases": [
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc110",
     "examples": [],
-    "standards": ["SIA 118", "NPK", "BöB"],
+    "standards": [
+      "SIA 118",
+      "NPK",
+      "BöB"
+    ],
     "goals": [
       "Vollständige und präzise Leistungsbeschreibung",
       "Vergleichbare Angebote",
@@ -497,14 +768,22 @@
     "roles": [
       {
         "actor": "Kostenplaner",
-        "responsible": ["Erstellung Leistungsverzeichnis"],
+        "responsible": [
+          "Erstellung Leistungsverzeichnis"
+        ],
         "contributing": [],
-        "informed": ["Vergabeentscheid"]
+        "informed": [
+          "Vergabeentscheid"
+        ]
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Vergabeentscheid"],
-        "contributing": ["Angebotsprüfung"],
+        "responsible": [
+          "Vergabeentscheid"
+        ],
+        "contributing": [
+          "Angebotsprüfung"
+        ],
         "informed": []
       }
     ]
@@ -514,13 +793,25 @@
     "title": "Terminplanung der Ausführung",
     "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400&h=200&fit=crop",
     "category": "Terminplanung",
-    "subcategory": "Bauablauf",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
-    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Stufe 3", "Terminplanung", "Bauablauf"],
-    "phases": [4, 5],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Stufe 1",
+      "Stufe 2",
+      "Stufe 3",
+      "Terminplanung",
+      "Bauablauf"
+    ],
+    "phases": [
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc120",
     "examples": [],
-    "standards": ["SIA 118"],
+    "standards": [
+      "SIA 118"
+    ],
     "goals": [
       "Realistische Bauablaufplanung",
       "Frühzeitige Erkennung von Terminrisiken",
@@ -539,15 +830,24 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Erstellung Bauprogramm", "Terminüberwachung"],
+        "responsible": [
+          "Erstellung Bauprogramm",
+          "Terminüberwachung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Unternehmer",
-        "responsible": ["Detailterminplanung"],
-        "contributing": ["Abstimmung Bauablauf"],
-        "informed": ["Terminänderungen"]
+        "responsible": [
+          "Detailterminplanung"
+        ],
+        "contributing": [
+          "Abstimmung Bauablauf"
+        ],
+        "informed": [
+          "Terminänderungen"
+        ]
       }
     ]
   },
@@ -556,13 +856,24 @@
     "title": "Logistikplanung",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Bauausführung",
-    "subcategory": "Logistik",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
-    "tags": ["Ausführung", "Stufe 2", "Stufe 3", "Logistik", "Baustellenorganisation"],
-    "phases": [4, 5],
+    "tags": [
+      "Ausführung",
+      "Stufe 2",
+      "Stufe 3",
+      "Logistik",
+      "Baustellenorganisation"
+    ],
+    "phases": [
+      4,
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc130",
     "examples": [],
-    "standards": ["SUVA", "BauAV"],
+    "standards": [
+      "SUVA",
+      "BauAV"
+    ],
     "goals": [
       "Effiziente Baustellenorganisation",
       "Sichere Verkehrsführung",
@@ -581,15 +892,24 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Logistikplanung", "Koordination"],
+        "responsible": [
+          "Logistikplanung",
+          "Koordination"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Unternehmer",
-        "responsible": ["Umsetzung Logistik"],
-        "contributing": ["Abstimmung"],
-        "informed": ["Änderungen"]
+        "responsible": [
+          "Umsetzung Logistik"
+        ],
+        "contributing": [
+          "Abstimmung"
+        ],
+        "informed": [
+          "Änderungen"
+        ]
       }
     ]
   },
@@ -598,13 +918,22 @@
     "title": "Baufortschrittskontrolle",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Bauausführung",
-    "subcategory": "Controlling",
     "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
-    "tags": ["Ausführung", "Stufe 1", "Stufe 2", "Controlling", "Fortschrittskontrolle"],
-    "phases": [5],
+    "tags": [
+      "Ausführung",
+      "Stufe 1",
+      "Stufe 2",
+      "Controlling",
+      "Fortschrittskontrolle"
+    ],
+    "phases": [
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc140",
     "examples": [],
-    "standards": ["SIA 118"],
+    "standards": [
+      "SIA 118"
+    ],
     "goals": [
       "Transparente Fortschrittsdokumentation",
       "Frühzeitige Erkennung von Abweichungen",
@@ -623,15 +952,23 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Fortschrittserfassung", "Dokumentation"],
+        "responsible": [
+          "Fortschrittserfassung",
+          "Dokumentation"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Controlling", "Steuerung"],
+        "responsible": [
+          "Controlling",
+          "Steuerung"
+        ],
         "contributing": [],
-        "informed": ["Fortschrittsbericht"]
+        "informed": [
+          "Fortschrittsbericht"
+        ]
       }
     ]
   },
@@ -640,13 +977,21 @@
     "title": "Änderungs- und Nachtragsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Bauausführung",
-    "subcategory": "Änderungen",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
-    "tags": ["Ausführung", "Stufe 1", "Änderungsmanagement", "Kostenplanung"],
-    "phases": [5],
+    "tags": [
+      "Ausführung",
+      "Stufe 1",
+      "Änderungsmanagement",
+      "Kostenplanung"
+    ],
+    "phases": [
+      5
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc150",
     "examples": [],
-    "standards": ["SIA 118"],
+    "standards": [
+      "SIA 118"
+    ],
     "goals": [
       "Nachvollziehbare Änderungsdokumentation",
       "Transparente Nachtragsbewertung",
@@ -665,14 +1010,22 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Erfassung Änderungen", "Dokumentation"],
+        "responsible": [
+          "Erfassung Änderungen",
+          "Dokumentation"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Freigabe Änderungen", "Nachtragsentscheid"],
-        "contributing": ["Bewertung"],
+        "responsible": [
+          "Freigabe Änderungen",
+          "Nachtragsentscheid"
+        ],
+        "contributing": [
+          "Bewertung"
+        ],
         "informed": []
       }
     ]
@@ -682,13 +1035,23 @@
     "title": "Abrechnung von Bauleistungen",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
     "category": "Bauausführung",
-    "subcategory": "Abrechnung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
-    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Kostenplanung", "Abrechnung"],
-    "phases": [5, 6],
+    "tags": [
+      "Ausführung",
+      "Betrieb",
+      "Stufe 1",
+      "Kostenplanung",
+      "Abrechnung"
+    ],
+    "phases": [
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc160",
     "examples": [],
-    "standards": ["SIA 118"],
+    "standards": [
+      "SIA 118"
+    ],
     "goals": [
       "Korrekte Leistungsabrechnung",
       "Plausible Mengenermittlung",
@@ -707,15 +1070,22 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Aufmass", "Rechnungsprüfung"],
+        "responsible": [
+          "Aufmass",
+          "Rechnungsprüfung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Projektleiter",
-        "responsible": ["Zahlungsfreigabe"],
+        "responsible": [
+          "Zahlungsfreigabe"
+        ],
         "contributing": [],
-        "informed": ["Kostenstand"]
+        "informed": [
+          "Kostenstand"
+        ]
       }
     ]
   },
@@ -724,13 +1094,24 @@
     "title": "Abnahme- und Mängelmanagement",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Bauausführung",
-    "subcategory": "Qualität",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
-    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Qualitätssicherung", "Mängelmanagement"],
-    "phases": [5, 6],
+    "tags": [
+      "Ausführung",
+      "Betrieb",
+      "Stufe 1",
+      "Qualitätssicherung",
+      "Mängelmanagement"
+    ],
+    "phases": [
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc170",
     "examples": [],
-    "standards": ["SIA 118", "OR"],
+    "standards": [
+      "SIA 118",
+      "OR"
+    ],
     "goals": [
       "Vollständige Mängelerfassung",
       "Nachvollziehbare Mängelverfolgung",
@@ -749,15 +1130,22 @@
     "roles": [
       {
         "actor": "Bauleiter",
-        "responsible": ["Mängelerfassung", "Nachverfolgung"],
+        "responsible": [
+          "Mängelerfassung",
+          "Nachverfolgung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Unternehmer",
-        "responsible": ["Mängelbehebung"],
+        "responsible": [
+          "Mängelbehebung"
+        ],
         "contributing": [],
-        "informed": ["Mängelliste"]
+        "informed": [
+          "Mängelliste"
+        ]
       }
     ]
   },
@@ -766,13 +1154,25 @@
     "title": "Inbetriebnahmemanagement",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
     "category": "Übergabe",
-    "subcategory": "Inbetriebnahme",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
-    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Stufe 2", "Inbetriebnahme", "Übergabe"],
-    "phases": [5, 6],
+    "tags": [
+      "Ausführung",
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Inbetriebnahme",
+      "Übergabe"
+    ],
+    "phases": [
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc180",
     "examples": [],
-    "standards": ["SIA 118", "GEFMA 190"],
+    "standards": [
+      "SIA 118",
+      "GEFMA 190"
+    ],
     "goals": [
       "Systematische Inbetriebnahme aller Anlagen",
       "Dokumentierte Funktionsprüfung",
@@ -791,15 +1191,24 @@
     "roles": [
       {
         "actor": "Inbetriebnahme-Manager",
-        "responsible": ["Koordination IBN", "Funktionsprüfung"],
+        "responsible": [
+          "Koordination IBN",
+          "Funktionsprüfung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Betreiber",
-        "responsible": ["Übernahme"],
-        "contributing": ["Einweisung"],
-        "informed": ["IBN-Protokolle"]
+        "responsible": [
+          "Übernahme"
+        ],
+        "contributing": [
+          "Einweisung"
+        ],
+        "informed": [
+          "IBN-Protokolle"
+        ]
       }
     ]
   },
@@ -808,13 +1217,29 @@
     "title": "Projekt- und Bauwerksdokumentation",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
-    "subcategory": "Bauwerksdokumentation",
     "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation: Projektdokumentation (PD) während Planung und Bau, Objektdokumentation (OD) für den Betrieb, Archivdokumentation (AD) für aufbewahrungspflichtige Unterlagen.",
-    "tags": ["Entwicklung", "Planung", "Ausführung", "Betrieb", "Stufe 1", "Dokumentation"],
-    "phases": [1, 2, 3, 4, 5, 6],
+    "tags": [
+      "Entwicklung",
+      "Planung",
+      "Ausführung",
+      "Betrieb",
+      "Stufe 1",
+      "Dokumentation"
+    ],
+    "phases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc190",
     "examples": [],
-    "standards": ["KBOB BWD-Richtlinie", "SIA 112"],
+    "standards": [
+      "KBOB BWD-Richtlinie",
+      "SIA 112"
+    ],
     "goals": [
       "Vollständige Projektdokumentation",
       "Geordnete Übergabe an Betrieb",
@@ -833,15 +1258,24 @@
     "roles": [
       {
         "actor": "BIM-Gesamtkoordinator",
-        "responsible": ["Zusammenstellung Dokumentation", "Qualitätsprüfung"],
+        "responsible": [
+          "Zusammenstellung Dokumentation",
+          "Qualitätsprüfung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Betreiber",
-        "responsible": ["Übernahme OD"],
-        "contributing": ["Definition Anforderungen"],
-        "informed": ["Liefertermine"]
+        "responsible": [
+          "Übernahme OD"
+        ],
+        "contributing": [
+          "Definition Anforderungen"
+        ],
+        "informed": [
+          "Liefertermine"
+        ]
       }
     ]
   },
@@ -850,13 +1284,23 @@
     "title": "Nutzung für Betrieb und Erhaltung",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "FM",
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
-    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Facility Management", "CAFM"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Facility Management",
+      "CAFM"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc200",
     "examples": [],
-    "standards": ["GEFMA 922", "SIA 469"],
+    "standards": [
+      "GEFMA 922",
+      "SIA 469"
+    ],
     "goals": [
       "Effiziente Datennutzung im Betrieb",
       "Integration in CAFM-Systeme",
@@ -875,14 +1319,21 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Datenübernahme", "Pflege CAFM"],
+        "responsible": [
+          "Datenübernahme",
+          "Pflege CAFM"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "BIM-Gesamtkoordinator",
-        "responsible": ["Datenbereitstellung"],
-        "contributing": ["Abstimmung Datenformat"],
+        "responsible": [
+          "Datenbereitstellung"
+        ],
+        "contributing": [
+          "Abstimmung Datenformat"
+        ],
         "informed": []
       }
     ]
@@ -892,13 +1343,22 @@
     "title": "Gewährleistungsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Gewährleistung",
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
-    "tags": ["Betrieb", "Stufe 1", "Gewährleistung", "Mängelmanagement"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Gewährleistung",
+      "Mängelmanagement"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc210",
     "examples": [],
-    "standards": ["SIA 118", "OR"],
+    "standards": [
+      "SIA 118",
+      "OR"
+    ],
     "goals": [
       "Fristgerechte Geltendmachung von Ansprüchen",
       "Vollständige Dokumentation",
@@ -917,15 +1377,22 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Fristenüberwachung", "Mängelrügen"],
+        "responsible": [
+          "Fristenüberwachung",
+          "Mängelrügen"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Projektleiter",
         "responsible": [],
-        "contributing": ["Unterstützung bei komplexen Fällen"],
-        "informed": ["Gewährleistungsstatus"]
+        "contributing": [
+          "Unterstützung bei komplexen Fällen"
+        ],
+        "informed": [
+          "Gewährleistungsstatus"
+        ]
       }
     ]
   },
@@ -934,13 +1401,23 @@
     "title": "Wartungs- und Inspektionsmanagement",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Wartung",
     "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
-    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Wartung", "Instandhaltung"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Wartung",
+      "Instandhaltung"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc220",
     "examples": [],
-    "standards": ["SIA 469", "GEFMA 124"],
+    "standards": [
+      "SIA 469",
+      "GEFMA 124"
+    ],
     "goals": [
       "Werterhaltung der Anlagen",
       "Vermeidung von Ausfällen",
@@ -959,13 +1436,21 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Wartungsplanung", "Beauftragung"],
+        "responsible": [
+          "Wartungsplanung",
+          "Beauftragung"
+        ],
         "contributing": [],
-        "informed": ["Wartungsberichte"]
+        "informed": [
+          "Wartungsberichte"
+        ]
       },
       {
         "actor": "Servicetechniker",
-        "responsible": ["Durchführung Wartung", "Dokumentation"],
+        "responsible": [
+          "Durchführung Wartung",
+          "Dokumentation"
+        ],
         "contributing": [],
         "informed": []
       }
@@ -976,13 +1461,22 @@
     "title": "Instandhaltungs- und Instandsetzungsmanagement",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Instandhaltung",
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
-    "tags": ["Betrieb", "Stufe 1", "Instandhaltung", "Werterhaltung"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Instandhaltung",
+      "Werterhaltung"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc230",
     "examples": [],
-    "standards": ["SIA 469", "DIN 31051"],
+    "standards": [
+      "SIA 469",
+      "DIN 31051"
+    ],
     "goals": [
       "Werterhaltung des Gebäudes",
       "Minimierung von Ausfallzeiten",
@@ -1001,15 +1495,22 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Massnahmenplanung", "Beauftragung"],
+        "responsible": [
+          "Massnahmenplanung",
+          "Beauftragung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Unternehmer",
-        "responsible": ["Ausführung"],
+        "responsible": [
+          "Ausführung"
+        ],
         "contributing": [],
-        "informed": ["Auftrag"]
+        "informed": [
+          "Auftrag"
+        ]
       }
     ]
   },
@@ -1018,13 +1519,23 @@
     "title": "Flächen- und Raumbelegungsmanagement",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Flächenmanagement",
     "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
-    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Flächenmanagement", "Arbeitsplatz"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Stufe 2",
+      "Flächenmanagement",
+      "Arbeitsplatz"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc240",
     "examples": [],
-    "standards": ["SIA 416", "DIN 277"],
+    "standards": [
+      "SIA 416",
+      "DIN 277"
+    ],
     "goals": [
       "Optimale Flächenauslastung",
       "Transparente Raumbelegung",
@@ -1043,15 +1554,22 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Flächenplanung", "Belegungssteuerung"],
+        "responsible": [
+          "Flächenplanung",
+          "Belegungssteuerung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Nutzer",
         "responsible": [],
-        "contributing": ["Bedarfsmeldung"],
-        "informed": ["Zuweisung"]
+        "contributing": [
+          "Bedarfsmeldung"
+        ],
+        "informed": [
+          "Zuweisung"
+        ]
       }
     ]
   },
@@ -1060,13 +1578,23 @@
     "title": "Energiemanagement",
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Energie",
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
-    "tags": ["Betrieb", "Stufe 2", "Stufe 3", "Energiemanagement", "Nachhaltigkeit"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 2",
+      "Stufe 3",
+      "Energiemanagement",
+      "Nachhaltigkeit"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc250",
     "examples": [],
-    "standards": ["ISO 50001", "SIA 380/1"],
+    "standards": [
+      "ISO 50001",
+      "SIA 380/1"
+    ],
     "goals": [
       "Reduktion Energieverbrauch",
       "Transparentes Verbrauchsmonitoring",
@@ -1085,15 +1613,23 @@
     "roles": [
       {
         "actor": "Energiemanager",
-        "responsible": ["Monitoring", "Analyse", "Massnahmenplanung"],
+        "responsible": [
+          "Monitoring",
+          "Analyse",
+          "Massnahmenplanung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "FM-Manager",
         "responsible": [],
-        "contributing": ["Umsetzung Massnahmen"],
-        "informed": ["Energiebericht"]
+        "contributing": [
+          "Umsetzung Massnahmen"
+        ],
+        "informed": [
+          "Energiebericht"
+        ]
       }
     ]
   },
@@ -1102,13 +1638,23 @@
     "title": "Betreiberverantwortung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Betrieb",
-    "subcategory": "Compliance",
     "description": "Erfüllung und Dokumentation der gesetzlichen Betreiberpflichten, Sicherheitsprüfungen und Nachweise.",
-    "tags": ["Betrieb", "Stufe 1", "Compliance", "Sicherheit"],
-    "phases": [6],
+    "tags": [
+      "Betrieb",
+      "Stufe 1",
+      "Compliance",
+      "Sicherheit"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc260",
     "examples": [],
-    "standards": ["GEFMA 190", "VKF", "SUVA"],
+    "standards": [
+      "GEFMA 190",
+      "VKF",
+      "SUVA"
+    ],
     "goals": [
       "Erfüllung gesetzlicher Pflichten",
       "Rechtssichere Dokumentation",
@@ -1127,13 +1673,18 @@
     "roles": [
       {
         "actor": "FM-Manager",
-        "responsible": ["Koordination Prüfungen", "Dokumentation"],
+        "responsible": [
+          "Koordination Prüfungen",
+          "Dokumentation"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Prüfstelle",
-        "responsible": ["Durchführung Prüfungen"],
+        "responsible": [
+          "Durchführung Prüfungen"
+        ],
         "contributing": [],
         "informed": []
       }
@@ -1144,13 +1695,31 @@
     "title": "Nachhaltigkeitsnachweise",
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Nachhaltigkeit",
-    "subcategory": "Zertifizierung",
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
-    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 2", "Stufe 3", "Nachhaltigkeit", "Zertifizierung"],
-    "phases": [2, 3, 4, 5, 6],
+    "tags": [
+      "Planung",
+      "Ausführung",
+      "Betrieb",
+      "Stufe 2",
+      "Stufe 3",
+      "Nachhaltigkeit",
+      "Zertifizierung"
+    ],
+    "phases": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc270",
     "examples": [],
-    "standards": ["SNBS", "Minergie", "SIA 2032", "SIA 2040"],
+    "standards": [
+      "SNBS",
+      "Minergie",
+      "SIA 2032",
+      "SIA 2040"
+    ],
     "goals": [
       "Erreichung Nachhaltigkeitszertifikat",
       "Transparente Nachweisführung",
@@ -1169,15 +1738,24 @@
     "roles": [
       {
         "actor": "Nachhaltigkeitsberater",
-        "responsible": ["Erstellung Nachweise", "Zertifizierungsprozess"],
+        "responsible": [
+          "Erstellung Nachweise",
+          "Zertifizierungsprozess"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Fachplaner",
-        "responsible": ["Datenlieferung"],
-        "contributing": ["Optimierung"],
-        "informed": ["Bewertungsergebnisse"]
+        "responsible": [
+          "Datenlieferung"
+        ],
+        "contributing": [
+          "Optimierung"
+        ],
+        "informed": [
+          "Bewertungsergebnisse"
+        ]
       }
     ]
   },
@@ -1186,13 +1764,23 @@
     "title": "Rückbauplanung",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Rückbau",
-    "subcategory": "Planung",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
-    "tags": ["Rückbau", "Stufe 1", "Stufe 2", "Kreislaufwirtschaft", "Entsorgung"],
-    "phases": [6],
+    "tags": [
+      "Rückbau",
+      "Stufe 1",
+      "Stufe 2",
+      "Kreislaufwirtschaft",
+      "Entsorgung"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc280",
     "examples": [],
-    "standards": ["VVEA", "SIA 430"],
+    "standards": [
+      "VVEA",
+      "SIA 430"
+    ],
     "goals": [
       "Schadstofffreier Rückbau",
       "Maximale Materialrückgewinnung",
@@ -1211,14 +1799,21 @@
     "roles": [
       {
         "actor": "Rückbauplaner",
-        "responsible": ["Rückbauplanung", "Entsorgungskonzept"],
+        "responsible": [
+          "Rückbauplanung",
+          "Entsorgungskonzept"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Schadstoffexperte",
-        "responsible": ["Schadstoffkataster"],
-        "contributing": ["Sanierungskonzept"],
+        "responsible": [
+          "Schadstoffkataster"
+        ],
+        "contributing": [
+          "Sanierungskonzept"
+        ],
         "informed": []
       }
     ]
@@ -1228,13 +1823,23 @@
     "title": "Bauteilbörse und Wiederverwendung",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Rückbau",
-    "subcategory": "Kreislaufwirtschaft",
     "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
-    "tags": ["Rückbau", "Stufe 2", "Stufe 3", "Kreislaufwirtschaft", "Wiederverwendung"],
-    "phases": [6],
+    "tags": [
+      "Rückbau",
+      "Stufe 2",
+      "Stufe 3",
+      "Kreislaufwirtschaft",
+      "Wiederverwendung"
+    ],
+    "phases": [
+      6
+    ],
     "process_url": "https://prozesse.bbl.admin.ch/uc290",
     "examples": [],
-    "standards": ["VVEA", "SIA 430"],
+    "standards": [
+      "VVEA",
+      "SIA 430"
+    ],
     "goals": [
       "Ressourcenschonung durch Wiederverwendung",
       "Reduktion Abfallaufkommen",
@@ -1253,15 +1858,22 @@
     "roles": [
       {
         "actor": "Rückbauplaner",
-        "responsible": ["Identifikation Bauteile", "Bewertung"],
+        "responsible": [
+          "Identifikation Bauteile",
+          "Bewertung"
+        ],
         "contributing": [],
         "informed": []
       },
       {
         "actor": "Bauherr",
-        "responsible": ["Entscheid Wiederverwendung"],
+        "responsible": [
+          "Entscheid Wiederverwendung"
+        ],
         "contributing": [],
-        "informed": ["Potenzialanalyse"]
+        "informed": [
+          "Potenzialanalyse"
+        ]
       }
     ]
   }
