@@ -1762,7 +1762,7 @@
   {
     "id": "uc280",
     "title": "Rückbauplanung",
-    "image": "https://prozesse.bbl.admin.ch/uc280",
+    "image": "assets/img/usecase/uc280.jpg",
     "category": "Rückbau",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
     "tags": [
