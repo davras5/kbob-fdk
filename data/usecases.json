@@ -138,7 +138,7 @@
   {
     "id": "uc020",
     "title": "Bedarfsplanung",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc020.jpg",
     "category": "Planung",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": [
@@ -200,7 +200,7 @@
   {
     "id": "uc030",
     "title": "Planungsvarianten",
-    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc030.jpg",
     "category": "Planung",
     "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
     "tags": [
