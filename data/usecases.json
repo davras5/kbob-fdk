@@ -20,7 +20,7 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Bestand",
     "subcategory": "Erfassung",
-    "description": "Erfassung der wesentlichen Aspekte des Bestandes durch ein geeignetes Aufmass (z.B. Laserscan, Photogrammetrie) und Überführung in ein Bestandsmodell.",
+    "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
     "tags": ["Bestandsaufnahme", "Laserscan", "Punktwolke", "Vermessung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "010", "desc": "Bestandserfassung und -modellierung" },
