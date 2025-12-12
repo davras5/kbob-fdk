@@ -272,7 +272,7 @@
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
     "subcategory": "As-Built",
-    "description": "Erstellung eines Wie-gebaut-Modells als digitale Bauwerksakte mit detaillierten Informationen zur Ausführung sowie Verweise auf Prüfprotokolle und weitere Dokumente.",
+    "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation (BWD) gemäss KBOB-Richtlinie: Projektdokumentation (PD) während der Phasen 1–5, bedarfsorientierte Überführung in die Objektdokumentation (OD) für den Betrieb sowie Sicherung aufbewahrungspflichtiger Unterlagen in der Archivdokumentation (AD).",
     "tags": ["As-Built", "Dokumentation", "Bauwerksakte"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "190", "desc": "Projekt- und Bauwerksdokumentation" },
