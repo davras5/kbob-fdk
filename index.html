@@ -153,6 +153,7 @@
                ===================== */
 
             --z-dropdown: 100;
+            --z-topbar: 150;
             --z-sticky: 200;
             --z-modal-backdrop: 300;
             --z-modal: 400;
@@ -408,6 +409,8 @@
         .top-bar {
             background: #3e5060;
             height: 46px;
+            position: relative;
+            z-index: var(--z-topbar);
         }
 
         .top-bar__container {
@@ -440,6 +443,10 @@
 
         .lang-dropdown__toggle:hover {
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-dropdown__toggle:focus {
+            outline: none;
         }
 
         .lang-dropdown__toggle svg {
@@ -482,6 +489,11 @@
         }
 
         .lang-dropdown__item:hover {
+            background: #0066b3;
+        }
+
+        .lang-dropdown__item:focus {
+            outline: none;
             background: #0066b3;
         }
 
