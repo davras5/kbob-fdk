@@ -1045,27 +1045,17 @@
             line-height: var(--line-height-normal);
         }
 
-        /* Info Sections (Text + Image Side by Side) */
+        /* Info Sections (BLW Style - Vertical: H2 → Text → Image) */
         .info-sections {
             display: flex;
             flex-direction: column;
             gap: var(--space-3xl);
-            margin: var(--space-xl) 0 var(--space-3xl) 0;
         }
 
         .info-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-2xl);
-            align-items: center;
-        }
-
-        .info-section--reverse {
-            direction: rtl;
-        }
-
-        .info-section--reverse > * {
-            direction: ltr;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
         }
 
         .info-section__content {
@@ -1098,35 +1088,15 @@
 
         .info-section__image {
             width: 100%;
+            max-width: 800px;
             height: auto;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
-            object-fit: cover;
-            aspect-ratio: 16 / 10;
+            display: block;
         }
 
         .info-section__caption {
             font-size: var(--text-body-sm);
             color: var(--color-text-muted);
             line-height: var(--line-height-normal);
-            padding-left: var(--space-sm);
-            border-left: 2px solid var(--color-primary);
-        }
-
-        /* Responsive: Stack on smaller screens */
-        @media (max-width: 900px) {
-            .info-section {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-
-            .info-section--reverse {
-                direction: ltr;
-            }
-
-            .info-section__image {
-                aspect-ratio: 16 / 9;
-            }
         }
 
         /* Handbook Layout with Sticky TOC (BLW Style) */
@@ -1135,14 +1105,21 @@
             grid-template-columns: 1fr 280px;
             gap: var(--space-3xl);
             align-items: start;
-            margin: var(--space-xl) 0 var(--space-3xl) 0;
+            margin: var(--space-xl) 0;
         }
 
         .handbook-main {
             min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3xl);
         }
 
         .handbook-main .info-sections {
+            margin: 0;
+        }
+
+        .handbook-main .handbook-accordion {
             margin: 0;
         }
 
@@ -6455,7 +6432,7 @@
                                 </article>
 
                                 <!-- Abschnitt 2: Die Lösung -->
-                                <article id="informationsaustausch" class="info-section info-section--reverse">
+                                <article id="informationsaustausch" class="info-section">
                                     <div class="info-section__content">
                                         <h2 class="info-section__header">Klare Spielregeln für den Informationsaustausch</h2>
                                         <p class="info-section__description">Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt – der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.</p>
@@ -6478,37 +6455,8 @@
                                     </figure>
                                 </article>
                             </div>
-                        </div>
 
-                        <!-- Sticky Table of Contents -->
-                        <aside class="handbook-toc" aria-label="Inhaltsverzeichnis">
-                            <h2 class="handbook-toc__title">Inhaltsverzeichnis</h2>
-                            <nav>
-                                <ul class="handbook-toc__list">
-                                    <li class="handbook-toc__item active">
-                                        <a href="#silos-zu-standards" class="handbook-toc__link">
-                                            <span>Von Silos zu Standards</span>
-                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li class="handbook-toc__item">
-                                        <a href="#informationsaustausch" class="handbook-toc__link">
-                                            <span>Klare Spielregeln für den Informationsaustausch</span>
-                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li class="handbook-toc__item">
-                                        <a href="#datenoekosystem" class="handbook-toc__link">
-                                            <span>Ein Baustein im Datenökosystem Schweiz</span>
-                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </aside>
-                    </div>
-
-                    <div class="handbook-accordion">
+                            <div class="handbook-accordion">
                         <!-- Downloads Section -->
                         <div class="accordion-item open">
                             <button class="accordion-header" aria-expanded="true">
@@ -6702,6 +6650,35 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                        <!-- Sticky Table of Contents -->
+                        <aside class="handbook-toc" aria-label="Inhaltsverzeichnis">
+                            <h2 class="handbook-toc__title">Inhaltsverzeichnis</h2>
+                            <nav>
+                                <ul class="handbook-toc__list">
+                                    <li class="handbook-toc__item active">
+                                        <a href="#silos-zu-standards" class="handbook-toc__link">
+                                            <span>Von Silos zu Standards</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="handbook-toc__item">
+                                        <a href="#informationsaustausch" class="handbook-toc__link">
+                                            <span>Klare Spielregeln für den Informationsaustausch</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="handbook-toc__item">
+                                        <a href="#datenoekosystem" class="handbook-toc__link">
+                                            <span>Ein Baustein im Datenökosystem Schweiz</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
                     </div>
                 </div>`;
 
