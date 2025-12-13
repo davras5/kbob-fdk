@@ -5701,8 +5701,8 @@
             // Search Elements
             results.elemente = globalElementsData
                 .filter(el =>
-                    el.title.toLowerCase().includes(searchTerm) ||
-                    el.classification.toLowerCase().includes(searchTerm) ||
+                    (el.title && el.title.toLowerCase().includes(searchTerm)) ||
+                    (el.classification && el.classification.toLowerCase().includes(searchTerm)) ||
                     (el.description && el.description.toLowerCase().includes(searchTerm))
                 )
                 .slice(0, 3);
@@ -5710,8 +5710,8 @@
             // Search Documents
             results.dokumente = globalDocumentsData
                 .filter(doc =>
-                    doc.title.toLowerCase().includes(searchTerm) ||
-                    doc.category.toLowerCase().includes(searchTerm) ||
+                    (doc.title && doc.title.toLowerCase().includes(searchTerm)) ||
+                    (doc.category && doc.category.toLowerCase().includes(searchTerm)) ||
                     (doc.description && doc.description.toLowerCase().includes(searchTerm))
                 )
                 .slice(0, 3);
@@ -5719,8 +5719,8 @@
             // Search Usecases
             results.anwendungsfaelle = globalUsecasesData
                 .filter(item =>
-                    item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))
                 )
                 .slice(0, 3);
@@ -5728,8 +5728,8 @@
             // Search Models
             results.fachmodelle = globalModelsData
                 .filter(item =>
-                    item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))
                 )
                 .slice(0, 3);
@@ -5737,8 +5737,8 @@
             // Search EPDs
             results.oekobilanzdaten = globalEpdsData
                 .filter(item =>
-                    item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                    (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))
                 )
                 .slice(0, 3);
@@ -5944,8 +5944,8 @@
 
             // Search Use Cases
             globalUsecasesData.forEach(item => {
-                if (item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))) {
                     results.push({
                         type: 'Artikel',
@@ -5960,8 +5960,8 @@
 
             // Search Elements
             globalElementsData.forEach(item => {
-                if (item.title.toLowerCase().includes(searchTerm) ||
-                    item.classification.toLowerCase().includes(searchTerm) ||
+                if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.classification && item.classification.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))) {
                     results.push({
                         type: 'Element',
@@ -5976,8 +5976,8 @@
 
             // Search Models
             globalModelsData.forEach(item => {
-                if (item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))) {
                     results.push({
                         type: 'Artikel',
@@ -5992,8 +5992,8 @@
 
             // Search Documents
             globalDocumentsData.forEach(item => {
-                if (item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))) {
                     results.push({
                         type: 'Artikel',
@@ -6008,8 +6008,8 @@
 
             // Search EPDs
             globalEpdsData.forEach(item => {
-                if (item.title.toLowerCase().includes(searchTerm) ||
-                    item.category.toLowerCase().includes(searchTerm) ||
+                if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                    (item.category && item.category.toLowerCase().includes(searchTerm)) ||
                     (item.description && item.description.toLowerCase().includes(searchTerm))) {
                     results.push({
                         type: 'Artikel',
