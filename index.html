@@ -5445,7 +5445,6 @@
                 return `
                 <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags, activeCategory)}'">
                     <div class="list-col-name">
-                        ${el.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${el.category}')">${el.category}</span>` : ''}
                         ${el.title}
                     </div>
                     <div class="list-col-desc">${el.description || el.classification}</div>
@@ -5499,7 +5498,6 @@
                 return `
                 <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags, activeCategory)}'">
                     <div class="list-col-name">
-                        ${doc.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${doc.category}')">${doc.category}</span>` : ''}
                         ${doc.title}
                     </div>
                     <div class="list-col-desc">${doc.description || doc.category}</div>
@@ -5553,7 +5551,6 @@
                 return `
                 <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags, activeCategory)}'">
                     <div class="list-col-name">
-                        ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
                         ${item.title}
                     </div>
                     <div class="list-col-desc">${item.description || item.category}</div>
@@ -5607,7 +5604,6 @@
                 return `
                 <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags, activeCategory)}'">
                     <div class="list-col-name">
-                        ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
                         ${item.title}
                     </div>
                     <div class="list-col-desc">${item.description || item.category}</div>
@@ -5661,7 +5657,6 @@
                 return `
                 <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags, activeCategory)}'">
                     <div class="list-col-name">
-                        ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
                         ${item.title}
                     </div>
                     <div class="list-col-desc">${item.description || item.category}</div>
