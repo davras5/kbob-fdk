@@ -75,16 +75,19 @@ const catalogTypeConfig = {
 function renderTagsHtml(tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData)) return '';
     return tagsData.map(tag => {
+        const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
+        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
     }).join('');
 }
 
 /**
  * Toggle card tags expanded state
+ * @param {Event} event - Click event
+ * @param {string} cardId - Card identifier
  */
-window.toggleCardTags = function(cardId) {
+window.toggleCardTags = function(event, cardId) {
     event.stopPropagation();
     if (expandedCardTags.has(cardId)) {
         expandedCardTags.delete(cardId);
@@ -110,22 +113,23 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     const hiddenCount = tagsData.length - maxVisible;
 
     const renderTag = (tag) => {
+        const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
+        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
     };
 
     if (tagsData.length <= maxVisible || isExpanded) {
         const tagsHtml = tagsData.map(renderTag).join('');
         if (isExpanded && tagsData.length > maxVisible) {
-            return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="Weniger anzeigen">−</span>`;
+            return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Weniger anzeigen">−</span>`;
         }
         return tagsHtml;
     }
 
     const visibleTags = tagsData.slice(0, maxVisible);
     const tagsHtml = visibleTags.map(renderTag).join('');
-    return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="${hiddenCount} weitere Tags anzeigen">+${hiddenCount}</span>`;
+    return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="${hiddenCount} weitere Tags anzeigen">+${hiddenCount}</span>`;
 }
 
 // ============================================
@@ -192,19 +196,21 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
 
     return items.map(item => {
         const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
-        const cardId = `${config.cardIdPrefix}-${item.id}`;
+        const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
         const isCategoryActive = activeCategory === item.category;
-        const subtitle = item.description || item[config.subtitleField] || '';
+        const safeTitle = escapeHtml(item.title || '');
+        const safeCategory = escapeHtml(item.category || '');
+        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
 
         return `
         <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
             <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
-                ${item.image ? `<img src="${item.image}" alt="${item.title}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
+                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${safeCategory}')">${safeCategory}</span>` : ''}
+                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
-                <h3 class="card__title">${item.title}</h3>
-                <p class="card__subtitle">${subtitle}</p>
+                <h3 class="card__title">${safeTitle}</h3>
+                <p class="card__subtitle">${safeSubtitle}</p>
                 ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
             </div>
             <footer class="card__footer card__footer--end">
@@ -241,11 +247,12 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
     `;
 
     const itemsHtml = items.map(item => {
-        const subtitle = item.description || item[config.subtitleField] || '';
+        const safeTitle = escapeHtml(item.title || '');
+        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
         return `
         <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${item.title}</div>
-            <div class="list-col-desc">${subtitle}</div>
+            <div class="list-col-name">${safeTitle}</div>
+            <div class="list-col-desc">${safeSubtitle}</div>
             <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
         </div>
     `}).join('');

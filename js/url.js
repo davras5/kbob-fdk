@@ -140,7 +140,7 @@ window.toggleTagInURL = function(tag) {
     // Build base hash - redirect to list view if on detail page
     let baseHash = route;
     if (id) {
-        baseHash = detailToListRouteMap[route] || route;
+        baseHash = parentRoutes[route] || route;
     }
 
     window.location.hash = buildHashWithTags(baseHash, tags, category, phases, view);
@@ -157,7 +157,7 @@ window.toggleCategoryInURL = function(cat) {
 
     let baseHash = route;
     if (id) {
-        baseHash = detailToListRouteMap[route] || route;
+        baseHash = parentRoutes[route] || route;
     }
 
     window.location.hash = buildHashWithTags(baseHash, tags, newCategory, phases, view);
@@ -180,7 +180,7 @@ window.togglePhaseInURL = function(phase) {
 
     let baseHash = route;
     if (id) {
-        baseHash = detailToListRouteMap[route] || route;
+        baseHash = parentRoutes[route] || route;
     }
 
     window.location.hash = buildHashWithTags(baseHash, tags, category, phases, view);
