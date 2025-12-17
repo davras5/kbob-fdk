@@ -151,14 +151,19 @@ function renderSearchResultsPage(query) {
         resultsHtml = `<div class="search-results__list">`;
         results.forEach(item => {
             const dateStr = formatSearchDate(item.date);
+            const safeTitle = escapeHtml(item.title || '');
+            const safeDesc = escapeHtml(item.description || '');
+            const safeType = escapeHtml(item.type || '');
+            const safeId = escapeHtml(item.id || '');
+            const safeCat = escapeHtml(item.category || '');
             resultsHtml += `
                 <div class="search-result-item">
                     <div class="search-result-item__meta">
-                        <span class="search-result-item__type">${item.type}</span>
+                        <span class="search-result-item__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-item__date">${dateStr}</span>` : ''}
                     </div>
-                    <h3 class="search-result-item__title"><a href="#${item.category}/${item.id}">${item.title}</a></h3>
-                    <p class="search-result-item__desc">${item.description}</p>
+                    <h3 class="search-result-item__title"><a href="#${safeCat}/${safeId}">${safeTitle}</a></h3>
+                    <p class="search-result-item__desc">${safeDesc}</p>
                 </div>
             `;
         });
@@ -167,16 +172,21 @@ function renderSearchResultsPage(query) {
         resultsHtml = `<div class="search-results__grid">`;
         results.forEach(item => {
             const dateStr = formatSearchDate(item.date);
+            const safeTitle = escapeHtml(item.title || '');
+            const safeDesc = escapeHtml(item.description || '');
+            const safeType = escapeHtml(item.type || '');
+            const safeId = escapeHtml(item.id || '');
+            const safeCat = escapeHtml(item.category || '');
             resultsHtml += `
                 <div class="search-result-card">
                     <div class="search-result-card__meta">
-                        <span class="search-result-card__type">${item.type}</span>
+                        <span class="search-result-card__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-card__date">${dateStr}</span>` : ''}
                     </div>
-                    <h3 class="search-result-card__title"><a href="#${item.category}/${item.id}">${item.title}</a></h3>
-                    <p class="search-result-card__desc">${item.description}</p>
+                    <h3 class="search-result-card__title"><a href="#${safeCat}/${safeId}">${safeTitle}</a></h3>
+                    <p class="search-result-card__desc">${safeDesc}</p>
                     <div class="search-result-card__footer">
-                        <a href="#${item.category}/${item.id}" class="search-result-card__link" aria-label="${item.title} öffnen">
+                        <a href="#${safeCat}/${safeId}" class="search-result-card__link" aria-label="${safeTitle} öffnen">
                             <i data-lucide="arrow-right" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -186,13 +196,14 @@ function renderSearchResultsPage(query) {
         resultsHtml += `</div>`;
     }
 
+    const safeSearchQuery = escapeHtml(currentSearchQuery);
     contentArea.innerHTML = `
         <div class="search-hero">
             <div class="container">
                 <h1 class="search-hero__title">Suche</h1>
                 <form class="search-hero__form" id="searchPageForm" role="search">
                     <div class="search-hero__input-wrapper">
-                        <input type="search" id="searchPageInput" class="search-hero__input" value="${currentSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
+                        <input type="search" id="searchPageInput" class="search-hero__input" value="${safeSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
                         <button type="button" class="search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="Suche löschen">
                             <i data-lucide="x" aria-hidden="true"></i>
                         </button>

@@ -111,22 +111,25 @@ function performGlobalSearch(query) {
 function renderSearchDropdown(results, query) {
     let hasAnyResults = false;
     let html = '';
+    const safeQuery = escapeHtml(query);
 
     searchDataTypes.forEach(dataType => {
         const items = results[dataType.resultKey];
         if (items && items.length > 0) {
             hasAnyResults = true;
             html += `<div class="search-dropdown-group">`;
-            html += `<div class="search-dropdown-header">${dataType.label}</div>`;
+            html += `<div class="search-dropdown-header">${escapeHtml(dataType.label)}</div>`;
             items.forEach(item => {
-                html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${item.id}">${item.title}</a>`;
+                const safeTitle = escapeHtml(item.title || '');
+                const safeId = escapeHtml(item.id || '');
+                html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${safeId}">${safeTitle}</a>`;
             });
             html += `</div>`;
         }
     });
 
     if (!hasAnyResults) {
-        html = `<div class="search-dropdown-empty">Keine Ergebnisse für "${query}"</div>`;
+        html = `<div class="search-dropdown-empty">Keine Ergebnisse für "${safeQuery}"</div>`;
     }
 
     const encodedQuery = encodeURIComponent(query);

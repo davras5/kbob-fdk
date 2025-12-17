@@ -3,6 +3,25 @@
  * Global state variables and constants
  */
 
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+/**
+ * Escape HTML entities to prevent XSS
+ * @param {string} str - String to escape
+ * @returns {string} Escaped string
+ */
+function escapeHtml(str) {
+    if (typeof str !== 'string') return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
 // DOM reference
 const contentArea = document.getElementById('content-area');
 
@@ -46,17 +65,8 @@ const routeNames = {
     'search': 'Suchergebnisse'
 };
 
-// Parent route mappings for detail pages
+// Parent route mappings for detail pages (also used for detail-to-list redirects)
 const parentRoutes = {
-    'element': 'elements',
-    'document': 'documents',
-    'usecase': 'usecases',
-    'model': 'models',
-    'epd': 'epds'
-};
-
-// Route map for redirecting from detail to list view
-const detailToListRouteMap = {
     'element': 'elements',
     'document': 'documents',
     'usecase': 'usecases',

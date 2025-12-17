@@ -14,6 +14,11 @@ function renderElementDetailPage(id, activeTags = []) {
         return;
     }
 
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || 'Ein Standard-Element des KBOB Datenkatalogs.');
+    const safeImage = escapeHtml(data.image || '');
+
     const sidebarLinks = [
         { id: 'klassifizierung', text: 'Klassifizierung' },
         { id: 'ifc', text: 'IFC-Klasse' },
@@ -22,47 +27,47 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'dokumentation', text: 'Dokumentation' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    const classRows = data.classifications
-        ? data.classifications.map(c => `<tr><td class="col-val">${c.system}</td><td class="col-val">${c.code} - ${c.desc}</td></tr>`).join('')
+    const classRows = data.classifications && Array.isArray(data.classifications)
+        ? data.classifications.map(c => `<tr><td class="col-val">${escapeHtml(c.system || '')}</td><td class="col-val">${escapeHtml(c.code || '')} - ${escapeHtml(c.desc || '')}</td></tr>`).join('')
         : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
 
-    const ifcRows = data.ifcMapping
+    const ifcRows = data.ifcMapping && Array.isArray(data.ifcMapping)
         ? data.ifcMapping.map(m => `
             <tr>
-                <td class="col-val">${m.element}</td>
-                <td class="col-val">${m.ifc}</td>
-                <td class="col-val">${m.revit}</td>
+                <td class="col-val">${escapeHtml(m.element || '')}</td>
+                <td class="col-val">${escapeHtml(m.ifc || '')}</td>
+                <td class="col-val">${escapeHtml(m.revit || '')}</td>
             </tr>`).join('')
         : '<tr><td colspan="3">-</td></tr>';
 
-    const geomRows = data.geometry && data.geometry.length > 0 ? data.geometry : [];
+    const geomRows = data.geometry && Array.isArray(data.geometry) ? data.geometry : [];
     const geomRowsHtml = geomRows.length > 0
         ? geomRows.map(row => `
             <tr>
-                <td class="col-val">${row.name}</td>
-                <td class="col-val">${row.desc}</td>
+                <td class="col-val">${escapeHtml(row.name || '')}</td>
+                <td class="col-val">${escapeHtml(row.desc || '')}</td>
                 <td class="col-center">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-center empty-text">Keine Daten.</td></tr>';
 
-    const infoRows = data.information && data.information.length > 0 ? data.information : [];
+    const infoRows = data.information && Array.isArray(data.information) ? data.information : [];
     const infoRowsHtml = infoRows.length > 0
         ? infoRows.map(row => `
             <tr>
-                <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
-                <td class="col-val">${row.format || '-'}</td>
+                <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(row.desc || '')}">${escapeHtml(row.name || '')}</span></td>
+                <td class="col-val">${escapeHtml(row.format || '-')}</td>
                 <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
-                <td class="col-val">${row.ifc || '-'}</td>
+                <td class="col-val">${escapeHtml(row.ifc || '-')}</td>
                 <td class="col-center">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="5" class="col-center empty-text">Keine Attribute (LOI).</td></tr>';
 
-    const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
+    const docRows = data.documentation && Array.isArray(data.documentation) ? data.documentation : [];
     const docRowsHtml = docRows.length > 0
         ? docRows.map(row => `
             <tr>
-                <td class="col-val">${row.name}</td>
-                <td class="col-val">${row.desc}</td>
+                <td class="col-val">${escapeHtml(row.name || '')}</td>
+                <td class="col-val">${escapeHtml(row.desc || '')}</td>
                 <td class="col-center">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-center empty-text">Keine Dokumente.</td></tr>';
@@ -74,12 +79,12 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="container detail-hero__inner">
                 <div class="hero-content">
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                    <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
                     <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -197,9 +202,14 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
 
     const data = config.getData().find(item => item.id === id);
     if (!data) {
-        contentArea.innerHTML = `<div class="container error-state">${config.notFoundText}</div>`;
+        contentArea.innerHTML = `<div class="container error-state">${escapeHtml(config.notFoundText)}</div>`;
         return;
     }
+
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || config.defaultDescription);
+    const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags(config.backRoute, activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -208,12 +218,12 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
             <div class="container detail-hero__inner">
                 <div class="hero-content">
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                    <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || config.defaultDescription}</p>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
                     <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
                 </div>
             </div>
         </section>
@@ -221,7 +231,7 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
             <div class="info-box info-box--centered">
                 <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
                 <h2 class="info-box__title">In Entwicklung</h2>
-                <p class="info-box__text">${config.infoBoxText}</p>
+                <p class="info-box__text">${escapeHtml(config.infoBoxText)}</p>
             </div>
         </div>`;
 }
@@ -245,6 +255,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return;
     }
 
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
+    const safeImage = escapeHtml(data.image || '');
+    // Validate process_url - only allow http/https URLs
+    const safeProcessUrl = data.process_url && /^https?:\/\//i.test(data.process_url) ? escapeHtml(data.process_url) : '';
+
     const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
     const sidebarLinksData = [
@@ -253,7 +270,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         { id: 'rollen', text: 'Rollen' },
         { id: 'eingaben', text: 'Eingaben' },
         { id: 'ausgaben', text: 'Ausgaben' },
-        ...(data.process_url ? [{ id: 'prozess', text: 'Prozess' }] : []),
+        ...(safeProcessUrl ? [{ id: 'prozess', text: 'Prozess' }] : []),
         { id: 'verknuepfungen', text: 'Verknüpfungen' }
     ];
     const sidebarLinks = sidebarLinksData.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
@@ -264,25 +281,25 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${p}</span>`;
     }).join('');
 
-    const goalsRowsHtml = data.goals && data.goals.length > 0
-        ? data.goals.map(goal => `<tr><td class="col-val">${goal}</td></tr>`).join('')
+    const goalsRowsHtml = data.goals && Array.isArray(data.goals) && data.goals.length > 0
+        ? data.goals.map(goal => `<tr><td class="col-val">${escapeHtml(goal)}</td></tr>`).join('')
         : '<tr><td class="col-center empty-text">Keine Ziele definiert.</td></tr>';
 
-    const inputsRowsHtml = data.inputs && data.inputs.length > 0
-        ? data.inputs.map(input => `<tr><td class="col-val">${input}</td></tr>`).join('')
+    const inputsRowsHtml = data.inputs && Array.isArray(data.inputs) && data.inputs.length > 0
+        ? data.inputs.map(input => `<tr><td class="col-val">${escapeHtml(input)}</td></tr>`).join('')
         : '<tr><td class="col-center empty-text">Keine Eingaben definiert.</td></tr>';
 
-    const outputsRowsHtml = data.outputs && data.outputs.length > 0
-        ? data.outputs.map(output => `<tr><td class="col-val">${output}</td></tr>`).join('')
+    const outputsRowsHtml = data.outputs && Array.isArray(data.outputs) && data.outputs.length > 0
+        ? data.outputs.map(output => `<tr><td class="col-val">${escapeHtml(output)}</td></tr>`).join('')
         : '<tr><td class="col-center empty-text">Keine Ausgaben definiert.</td></tr>';
 
-    const rolesRowsHtml = data.roles && data.roles.length > 0
+    const rolesRowsHtml = data.roles && Array.isArray(data.roles) && data.roles.length > 0
         ? data.roles.map(role => `
             <tr>
-                <td class="col-val col-actor">${role.actor}</td>
-                <td class="col-val">${role.responsible && role.responsible.length > 0 ? role.responsible.join(', ') : '-'}</td>
-                <td class="col-val">${role.contributing && role.contributing.length > 0 ? role.contributing.join(', ') : '-'}</td>
-                <td class="col-val">${role.informed && role.informed.length > 0 ? role.informed.join(', ') : '-'}</td>
+                <td class="col-val col-actor">${escapeHtml(role.actor || '')}</td>
+                <td class="col-val">${role.responsible && Array.isArray(role.responsible) && role.responsible.length > 0 ? escapeHtml(role.responsible.join(', ')) : '-'}</td>
+                <td class="col-val">${role.contributing && Array.isArray(role.contributing) && role.contributing.length > 0 ? escapeHtml(role.contributing.join(', ')) : '-'}</td>
+                <td class="col-val">${role.informed && Array.isArray(role.informed) && role.informed.length > 0 ? escapeHtml(role.informed.join(', ')) : '-'}</td>
             </tr>`).join('')
         : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
 
@@ -291,12 +308,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="container detail-hero__inner">
                 <div class="hero-content">
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                    <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.'}</p>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
                     <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -352,14 +369,15 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         </table>
                     </div>
 
-                    ${data.process_url ? `
+                    ${safeProcessUrl ? `
                     <div class="detail-section" id="prozess">
                         <h2>Prozess</h2>
                         <p>BPMN-Prozessdiagramm für diesen Anwendungsfall.</p>
                         <div class="bpmn-viewer-container">
                             <iframe
-                                src="${data.process_url}"
+                                src="${safeProcessUrl}"
                                 title="BPMN Prozessdiagramm"
+                                sandbox="allow-scripts allow-same-origin"
                                 allowfullscreen>
                             </iframe>
                         </div>
