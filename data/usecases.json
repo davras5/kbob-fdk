@@ -63,6 +63,63 @@
           "Projektänderungen"
         ]
       }
+    ],
+    "definition": "Der Minimalstandard definiert die verbindlichen Basisanforderungen für jedes Bauprojekt unabhängig von dessen Grösse oder gewählter Methodik. Er umfasst die grundlegenden Informationsanforderungen, die projektspezifische Abwicklungsplanung sowie die Koordination aller Projektbeteiligten. Diese Grundlagen schaffen die Voraussetzungen für eine strukturierte Projektabwicklung und bilden das Fundament für weiterführende BIM-Anwendungsfälle.",
+    "prerequisites": {
+      "client": [
+        "Grundsatzentscheid zur digitalen Projektabwicklung",
+        "Bereitstellung von Ressourcen für die BIM-Koordination",
+        "Festlegung der projektspezifischen Anforderungen",
+        "Benennung der verantwortlichen Ansprechpersonen"
+      ],
+      "contractor": [
+        "Grundkenntnisse in digitaler Zusammenarbeit",
+        "Bereitschaft zur strukturierten Informationslieferung",
+        "Einhaltung der vereinbarten Prozesse und Formate",
+        "Aktive Teilnahme an Koordinationssitzungen"
+      ]
+    },
+    "implementation": [
+      "Erstellung der Auftraggeber-Informationsanforderungen (AIA)",
+      "Entwicklung des BIM-Abwicklungsplans (BAP) gemeinsam mit den Projektbeteiligten",
+      "Definition der Projektorganisation und Verantwortlichkeiten",
+      "Einrichtung der gemeinsamen Datenumgebung (CDE)",
+      "Durchführung regelmässiger Koordinationssitzungen",
+      "Überwachung der Einhaltung der vereinbarten Standards"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Projektinitialisierung",
+        "substeps": [
+          "Festlegung der Projektziele und BIM-Anforderungen",
+          "Erstellung der AIA mit Informationsanforderungen",
+          "Auswahl der geeigneten Werkzeuge und Plattformen"
+        ]
+      },
+      {
+        "step": "BAP-Erstellung",
+        "substeps": [
+          "Workshop mit allen Projektbeteiligten",
+          "Definition der Rollen und Verantwortlichkeiten",
+          "Festlegung der Prozesse und Meilensteine"
+        ]
+      },
+      {
+        "step": "Umsetzung und Überwachung",
+        "substeps": [
+          "Einrichtung der Projektumgebung",
+          "Schulung der Projektbeteiligten",
+          "Regelmässige Überprüfung der Einhaltung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige und freigegebene AIA vorhanden",
+      "BAP von allen Beteiligten unterzeichnet",
+      "Funktionierende gemeinsame Datenumgebung",
+      "Klare Verantwortlichkeiten definiert und kommuniziert",
+      "Regelmässige Koordinationssitzungen durchgeführt"
     ]
   },
   {
@@ -126,6 +183,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Bestandserfassung umfasst die systematische Aufnahme und Dokumentation bestehender Bauwerke mittels geeigneter Verfahren wie Laserscan, Photogrammetrie oder Handaufmass. Die erfassten Daten bilden die Grundlage für Umbau-, Sanierungs- oder Erweiterungsplanungen sowie für die Überführung in digitale Bestandsmodelle. Die Wahl des Aufnahmeverfahrens richtet sich nach den Anforderungen an Genauigkeit, Detaillierungsgrad und Wirtschaftlichkeit.",
+    "prerequisites": {
+      "client": [
+        "Definition der Anforderungen an Genauigkeit und Detaillierungsgrad",
+        "Bereitstellung vorhandener Bestandsunterlagen",
+        "Sicherstellung des Zugangs zum Objekt",
+        "Festlegung der gewünschten Lieferformate"
+      ],
+      "contractor": [
+        "Verfügbarkeit geeigneter Aufnahmetechnik",
+        "Qualifiziertes Personal für die Bestandsaufnahme",
+        "Kenntnisse in der Datenaufbereitung und -konvertierung",
+        "Erfahrung mit den relevanten Softwarewerkzeugen"
+      ]
+    },
+    "implementation": [
+      "Analyse der vorhandenen Bestandsunterlagen",
+      "Planung der Aufnahmekampagne und Festlegung der Methodik",
+      "Durchführung der Bestandsaufnahme vor Ort",
+      "Aufbereitung und Registrierung der Rohdaten",
+      "Erstellung der Bestandsdokumentation oder des Bestandsmodells",
+      "Qualitätsprüfung und Übergabe an den Auftraggeber"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung",
+        "substeps": [
+          "Sichtung vorhandener Pläne und Unterlagen",
+          "Festlegung der Aufnahmemethodik",
+          "Planung der Messkampagne"
+        ]
+      },
+      {
+        "step": "Datenerfassung",
+        "substeps": [
+          "Durchführung der Vermessung/Scan-Aufnahme",
+          "Fotodokumentation des Bestands",
+          "Erfassung von Details und Besonderheiten"
+        ]
+      },
+      {
+        "step": "Datenaufbereitung",
+        "substeps": [
+          "Registrierung und Bereinigung der Punktwolken",
+          "Export in die geforderten Formate",
+          "Erstellung des Bestandsmodells (falls gefordert)"
+        ]
+      },
+      {
+        "step": "Qualitätssicherung",
+        "substeps": [
+          "Prüfung auf Vollständigkeit",
+          "Kontrolle der Genauigkeit",
+          "Dokumentation und Übergabe"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung des definierten Aufnahmebereichs",
+      "Einhaltung der geforderten Genauigkeit",
+      "Lückenlose Dokumentation des Ist-Zustands",
+      "Lieferung in den vereinbarten Formaten",
+      "Nachvollziehbare Qualitätsdokumentation"
     ]
   },
   {
@@ -186,6 +308,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Bedarfsplanung ist der systematische Prozess zur Ermittlung und Dokumentation aller Anforderungen an ein Bauvorhaben. Sie umfasst die Analyse der Nutzeranforderungen, die Entwicklung des Raumprogramms, die Definition funktionaler Zusammenhänge sowie die Festlegung qualitativer und quantitativer Anforderungen. Die Bedarfsplanung bildet die Grundlage für alle weiteren Planungsphasen und ist entscheidend für den Projekterfolg.",
+    "prerequisites": {
+      "client": [
+        "Klare strategische Vorgaben und Projektziele",
+        "Benennung der relevanten Nutzergruppen",
+        "Bereitstellung von Budget- und Terminrahmen",
+        "Verfügbarkeit für Abstimmungen und Workshops"
+      ],
+      "contractor": [
+        "Erfahrung in der Bedarfsanalyse und Nutzereinbindung",
+        "Kenntnisse relevanter Normen (SIA 416, DIN 18205)",
+        "Methodenkompetenz für Workshops und Interviews",
+        "Werkzeuge für Raumprogramm-Erstellung"
+      ]
+    },
+    "implementation": [
+      "Analyse der strategischen Vorgaben und Rahmenbedingungen",
+      "Durchführung von Nutzerworkshops und Interviews",
+      "Ermittlung des quantitativen Flächenbedarfs",
+      "Definition qualitativer Anforderungen je Raumtyp",
+      "Erstellung des Raumprogramms mit Funktionsdiagramm",
+      "Abstimmung und Freigabe durch den Auftraggeber"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Anforderungsanalyse",
+        "substeps": [
+          "Erfassung der strategischen Projektziele",
+          "Identifikation aller Nutzergruppen",
+          "Analyse bestehender Prozesse und Abläufe"
+        ]
+      },
+      {
+        "step": "Bedarfsermittlung",
+        "substeps": [
+          "Durchführung von Nutzerworkshops",
+          "Ermittlung des Flächenbedarfs je Nutzungseinheit",
+          "Definition der funktionalen Zusammenhänge"
+        ]
+      },
+      {
+        "step": "Raumprogramm-Erstellung",
+        "substeps": [
+          "Zusammenstellung des Raumprogramms",
+          "Erstellung des Funktionsdiagramms",
+          "Dokumentation der Qualitätsanforderungen"
+        ]
+      },
+      {
+        "step": "Abstimmung und Freigabe",
+        "substeps": [
+          "Präsentation bei den Stakeholdern",
+          "Einarbeitung von Rückmeldungen",
+          "Formale Freigabe des Raumprogramms"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Nutzeranforderungen",
+      "Nachvollziehbare Herleitung des Flächenbedarfs",
+      "Konsistenz zwischen Raumprogramm und Budget",
+      "Freigabe durch alle relevanten Stakeholder",
+      "Dokumentation als Grundlage für die Planung"
     ]
   },
   {
@@ -248,6 +435,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Erstellung und Bewertung von Planungsvarianten ermöglicht fundierte Entscheidungen durch systematischen Vergleich alternativer Lösungsansätze. Basierend auf projektspezifischen Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft werden verschiedene Varianten entwickelt, analysiert und bewertet. Der Prozess schafft Transparenz und Nachvollziehbarkeit bei der Auswahl der Vorzugsvariante.",
+    "prerequisites": {
+      "client": [
+        "Definition der Bewertungskriterien und deren Gewichtung",
+        "Festlegung des Entscheidungsgremiums",
+        "Bereitstellung der Rahmenbedingungen (Budget, Termine)",
+        "Bereitschaft zur aktiven Mitwirkung im Auswahlprozess"
+      ],
+      "contractor": [
+        "Fähigkeit zur Entwicklung unterschiedlicher Lösungsansätze",
+        "Kenntnisse in Variantenbewertung und Nutzwertanalyse",
+        "Erfahrung mit Nachhaltigkeitskriterien (SNBS, etc.)",
+        "Kompetenz in der Visualisierung von Varianten"
+      ]
+    },
+    "implementation": [
+      "Analyse der Rahmenbedingungen und Restriktionen",
+      "Entwicklung von mindestens zwei bis drei Planungsvarianten",
+      "Erstellung vergleichbarer Unterlagen je Variante",
+      "Durchführung der Bewertung nach definierten Kriterien",
+      "Präsentation und Diskussion mit dem Entscheidungsgremium",
+      "Dokumentation des Variantenentscheids"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Variantenentwicklung",
+        "substeps": [
+          "Analyse der Randbedingungen und Potenziale",
+          "Entwicklung unterschiedlicher Konzeptansätze",
+          "Ausarbeitung der Varianten auf vergleichbarem Niveau"
+        ]
+      },
+      {
+        "step": "Bewertungsvorbereitung",
+        "substeps": [
+          "Festlegung der Bewertungskriterien",
+          "Definition der Gewichtung",
+          "Erstellung der Bewertungsmatrix"
+        ]
+      },
+      {
+        "step": "Variantenbewertung",
+        "substeps": [
+          "Systematische Bewertung jeder Variante",
+          "Berechnung der Gesamtnutzwerte",
+          "Sensitivitätsanalyse der Ergebnisse"
+        ]
+      },
+      {
+        "step": "Entscheidungsfindung",
+        "substeps": [
+          "Präsentation der Bewertungsergebnisse",
+          "Diskussion im Entscheidungsgremium",
+          "Dokumentation und Kommunikation des Entscheids"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Mindestens zwei vergleichbare Varianten entwickelt",
+      "Nachvollziehbare Bewertungskriterien und Gewichtung",
+      "Transparente Dokumentation des Entscheidungsprozesses",
+      "Berücksichtigung von Nachhaltigkeitsaspekten",
+      "Formale Freigabe der Vorzugsvariante"
     ]
   },
   {
@@ -309,6 +561,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Visualisierung dient der bedarfsgerechten Darstellung des Bauvorhabens für unterschiedliche Zielgruppen und Zwecke. Sie umfasst statische Darstellungen (Renderings, Perspektiven), dynamische Medien (Animationen, Filme) sowie interaktive Formate (virtuelle Rundgänge, VR/AR-Anwendungen). Die Visualisierung unterstützt die Kommunikation, Entscheidungsfindung und Öffentlichkeitsarbeit während des gesamten Projektverlaufs.",
+    "prerequisites": {
+      "client": [
+        "Definition des Verwendungszwecks und der Zielgruppe",
+        "Festlegung des gewünschten Qualitätsniveaus",
+        "Bereitstellung von Kontextinformationen (Umgebung, Materialien)",
+        "Freigabe der darzustellenden Planungsstände"
+      ],
+      "contractor": [
+        "Verfügbarkeit geeigneter Visualisierungssoftware",
+        "Erfahrung in der fotorealistischen Darstellung",
+        "Kenntnisse in Animation und interaktiven Medien",
+        "Fähigkeit zur zielgruppengerechten Aufbereitung"
+      ]
+    },
+    "implementation": [
+      "Abstimmung der Anforderungen und des Verwendungszwecks",
+      "Aufbereitung des 3D-Modells für die Visualisierung",
+      "Definition von Kamerapositionen und Perspektiven",
+      "Erstellung der Materialien und Beleuchtung",
+      "Rendering und Nachbearbeitung",
+      "Abstimmung und finale Freigabe"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Konzeption",
+        "substeps": [
+          "Abstimmung des Visualisierungskonzepts",
+          "Festlegung der darzustellenden Ansichten",
+          "Definition des Detaillierungsgrads"
+        ]
+      },
+      {
+        "step": "Modellaufbereitung",
+        "substeps": [
+          "Import und Optimierung des Planungsmodells",
+          "Ergänzung von Umgebung und Kontext",
+          "Zuweisung von Materialien und Texturen"
+        ]
+      },
+      {
+        "step": "Visualisierungserstellung",
+        "substeps": [
+          "Einrichtung der Beleuchtung",
+          "Rendering der Darstellungen",
+          "Postproduktion und Nachbearbeitung"
+        ]
+      },
+      {
+        "step": "Abstimmung und Lieferung",
+        "substeps": [
+          "Präsentation der Entwürfe",
+          "Einarbeitung von Korrekturen",
+          "Lieferung in den finalen Formaten"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Zielgruppengerechte Darstellungsqualität",
+      "Konsistenz mit dem aktuellen Planungsstand",
+      "Realistische Darstellung von Materialien und Beleuchtung",
+      "Lieferung in den vereinbarten Formaten und Auflösungen",
+      "Freigabe durch den Auftraggeber"
     ]
   },
   {
@@ -522,6 +839,71 @@
           "Prüfberichte"
         ]
       }
+    ],
+    "definition": "Die Qualitätsprüfung umfasst die systematische Überwachung des Planungsfortschritts sowie die Prüfung der Planungsqualität auf Vollständigkeit, Konsistenz und Normkonformität. Sie stellt sicher, dass die Planungsergebnisse den vereinbarten Anforderungen entsprechen und bildet die Grundlage für definierte Freigabeprozesse. Regelbasierte und manuelle Prüfungen werden kombiniert, um eine umfassende Qualitätssicherung zu gewährleisten.",
+    "prerequisites": {
+      "client": [
+        "Definition der Qualitätsanforderungen im AIA",
+        "Festlegung der Prüfkriterien und Prüfintervalle",
+        "Benennung der verantwortlichen Freigabeinstanzen",
+        "Bereitstellung der Referenzdokumente und Normen"
+      ],
+      "contractor": [
+        "Erstellung prüffähiger Planungsunterlagen",
+        "Einhaltung der vereinbarten Modellierungsrichtlinien",
+        "Bereitschaft zur zeitnahen Mängelbehebung",
+        "Dokumentation des Planungsfortschritts"
+      ]
+    },
+    "implementation": [
+      "Definition der Prüfregeln und Qualitätskriterien",
+      "Einrichtung der Prüfumgebung und Werkzeuge",
+      "Durchführung automatisierter regelbasierter Prüfungen",
+      "Ergänzende manuelle Prüfung durch Fachexperten",
+      "Dokumentation der Prüfergebnisse und Mängel",
+      "Überwachung der Mängelbehebung und Freigabe"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Prüfvorbereitung",
+        "substeps": [
+          "Zusammenstellung der Prüfkriterien",
+          "Konfiguration der Prüfsoftware",
+          "Festlegung der Prüfabläufe"
+        ]
+      },
+      {
+        "step": "Automatisierte Prüfung",
+        "substeps": [
+          "Ausführung der regelbasierten Modellprüfung",
+          "Auswertung und Klassifizierung der Ergebnisse",
+          "Erstellung des Prüfberichts"
+        ]
+      },
+      {
+        "step": "Manuelle Prüfung",
+        "substeps": [
+          "Fachliche Plausibilitätsprüfung",
+          "Prüfung auf Normkonformität",
+          "Bewertung der Planungsqualität"
+        ]
+      },
+      {
+        "step": "Freigabeprozess",
+        "substeps": [
+          "Dokumentation aller Prüfergebnisse",
+          "Abstimmung mit den Planungsbeteiligten",
+          "Formale Freigabe oder Rückweisung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Durchführung aller definierten Prüfungen",
+      "Nachvollziehbare Dokumentation der Prüfergebnisse",
+      "Zeitnahe Behebung identifizierter Mängel",
+      "Einhaltung der vereinbarten Freigabeprozesse",
+      "Kontinuierliche Verbesserung der Planungsqualität"
     ]
   },
   {
@@ -584,6 +966,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Bemessung und Nachweisführung umfasst alle Berechnungen und Simulationen zur Dimensionierung von Bauteilen und Anlagen sowie zur Erbringung behördlicher und normativer Nachweise. Dies schliesst statische Berechnungen, energetische Nachweise, Tageslicht- und Akustiksimulationen sowie Brandschutznachweise ein. Die modellbasierte Arbeitsweise ermöglicht eine effiziente Datenübernahme und konsistente Ergebnisse.",
+    "prerequisites": {
+      "client": [
+        "Definition der erforderlichen Nachweise im AIA",
+        "Festlegung der anzuwendenden Normen und Richtlinien",
+        "Bereitstellung behördlicher Anforderungen und Auflagen",
+        "Klärung der Schnittstellen zwischen Fachplanungen"
+      ],
+      "contractor": [
+        "Fachkompetenz für die jeweiligen Berechnungen",
+        "Verfügbarkeit validierter Berechnungssoftware",
+        "Kenntnisse der relevanten Normen und Nachweisverfahren",
+        "Fähigkeit zur modellbasierten Datenübernahme"
+      ]
+    },
+    "implementation": [
+      "Analyse der erforderlichen Nachweise und Berechnungen",
+      "Übernahme der geometrischen Daten aus dem Planungsmodell",
+      "Ergänzung der berechnungsrelevanten Parameter",
+      "Durchführung der Berechnungen und Simulationen",
+      "Dokumentation der Ergebnisse und Nachweise",
+      "Einreichung bei Behörden und Prüfstellen"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Datenübernahme",
+        "substeps": [
+          "Export relevanter Modelldaten",
+          "Import in die Berechnungssoftware",
+          "Plausibilisierung der übernommenen Geometrien"
+        ]
+      },
+      {
+        "step": "Modellergänzung",
+        "substeps": [
+          "Zuweisung von Materialeigenschaften",
+          "Definition der Randbedingungen",
+          "Festlegung der Lastannahmen"
+        ]
+      },
+      {
+        "step": "Berechnung",
+        "substeps": [
+          "Durchführung der Berechnungen",
+          "Auswertung der Ergebnisse",
+          "Optimierung bei Bedarf"
+        ]
+      },
+      {
+        "step": "Dokumentation",
+        "substeps": [
+          "Erstellung der Nachweisdokumente",
+          "Zusammenstellung für Behörden",
+          "Archivierung der Berechnungsunterlagen"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständigkeit aller erforderlichen Nachweise",
+      "Einhaltung der relevanten Normen und Richtlinien",
+      "Nachvollziehbare Dokumentation der Berechnungen",
+      "Erfolgreiche behördliche Genehmigung",
+      "Konsistenz zwischen Modell und Berechnungen"
     ]
   },
   {
@@ -645,6 +1092,71 @@
         "contributing": [],
         "informed": []
       }
+    ],
+    "definition": "Die Ableitung von Planunterlagen umfasst die Erstellung aller erforderlichen 2D-Dokumente (Grundrisse, Schnitte, Ansichten, Details) aus dem 3D-Modell gemäss den geltenden Darstellungsstandards. Der modellbasierte Ansatz gewährleistet Konsistenz zwischen allen Planunterlagen und reduziert den manuellen Nachbearbeitungsaufwand. Die automatisierte Ableitung ermöglicht zudem eine effiziente Aktualisierung bei Planungsänderungen.",
+    "prerequisites": {
+      "client": [
+        "Definition der erforderlichen Plantypen und Massstäbe",
+        "Festlegung der Darstellungsstandards und Planköpfe",
+        "Bereitstellung der Plotvorlagen und Layouts",
+        "Klärung der Lieferformate (PDF, DWG, etc.)"
+      ],
+      "contractor": [
+        "Modellierung gemäss den Ableitungsanforderungen",
+        "Einrichtung der Ansichts- und Schnittdefinitionen",
+        "Kenntnisse der geltenden Darstellungsnormen",
+        "Kompetenz in der Nachbearbeitung von Plänen"
+      ]
+    },
+    "implementation": [
+      "Abstimmung der Plantypen und Darstellungsanforderungen",
+      "Einrichtung der Schnitte und Ansichten im Modell",
+      "Konfiguration der Darstellungseinstellungen",
+      "Ableitung der Pläne aus dem Modell",
+      "Manuelle Nachbearbeitung und Beschriftung",
+      "Prüfung und Freigabe der Planunterlagen"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Einrichtung",
+        "substeps": [
+          "Definition der Schnitt- und Ansichtsebenen",
+          "Konfiguration der Darstellungsregeln",
+          "Einrichtung der Plotvorlagen"
+        ]
+      },
+      {
+        "step": "Planableitung",
+        "substeps": [
+          "Generierung der Grundrisse je Geschoss",
+          "Erstellung der Schnitte und Ansichten",
+          "Ableitung der Detailpläne"
+        ]
+      },
+      {
+        "step": "Nachbearbeitung",
+        "substeps": [
+          "Ergänzung von Beschriftungen und Massen",
+          "Platzierung von Legenden und Planköpfen",
+          "Anpassung der Darstellungsqualität"
+        ]
+      },
+      {
+        "step": "Freigabe",
+        "substeps": [
+          "Interne Qualitätsprüfung",
+          "Export in die Lieferformate",
+          "Verteilung und Archivierung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständigkeit aller geforderten Plantypen",
+      "Einhaltung der Darstellungsstandards (SIA 400)",
+      "Konsistenz zwischen allen Planunterlagen",
+      "Lesbarkeit und Vermassung gemäss Anforderungen",
+      "Erfolgreiche Freigabe durch die Projektleitung"
     ]
   },
   {
@@ -705,6 +1217,71 @@
           "Bewilligungsentscheid"
         ]
       }
+    ],
+    "definition": "Der Genehmigungsprozess umfasst die Zusammenstellung und Einreichung aller erforderlichen Unterlagen für das Baubewilligungsverfahren sowie die Begleitung der behördlichen Prüfung. Er stellt sicher, dass alle formalen und inhaltlichen Anforderungen erfüllt werden, um eine zeitgerechte Baubewilligung zu erlangen. Die digitale Projektabwicklung ermöglicht eine effiziente Zusammenstellung der Gesuchsunterlagen.",
+    "prerequisites": {
+      "client": [
+        "Klärung der grundbuchrechtlichen Voraussetzungen",
+        "Bereitstellung der erforderlichen Unterschriften",
+        "Verfügbarkeit für behördliche Rückfragen",
+        "Finanzierung der Gebühren und Abgaben"
+      ],
+      "contractor": [
+        "Kenntnis der kantonalen Bauvorschriften",
+        "Erfahrung mit dem Bewilligungsverfahren",
+        "Vollständige Planungsunterlagen auf Bewilligungsniveau",
+        "Fähigkeit zur Zusammenstellung aller Nachweise"
+      ]
+    },
+    "implementation": [
+      "Analyse der Bewilligungsanforderungen und Auflagen",
+      "Zusammenstellung aller erforderlichen Planunterlagen",
+      "Erstellung der Nachweise und Berechnungen",
+      "Ausfüllen der Gesuchsformulare",
+      "Einreichung bei der zuständigen Behörde",
+      "Begleitung des Bewilligungsverfahrens"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung",
+        "substeps": [
+          "Analyse der Bewilligungsvoraussetzungen",
+          "Klärung mit den zuständigen Behörden",
+          "Zusammenstellung der Checkliste"
+        ]
+      },
+      {
+        "step": "Unterlagenerstellung",
+        "substeps": [
+          "Erstellung der Baueingabepläne",
+          "Zusammenstellung aller Nachweise",
+          "Verfassen der Baubeschreibung"
+        ]
+      },
+      {
+        "step": "Einreichung",
+        "substeps": [
+          "Formale Prüfung auf Vollständigkeit",
+          "Einreichung der Gesuchsunterlagen",
+          "Bezahlung der Gebühren"
+        ]
+      },
+      {
+        "step": "Verfahrensbegleitung",
+        "substeps": [
+          "Beantwortung behördlicher Rückfragen",
+          "Ergänzung fehlender Unterlagen",
+          "Entgegennahme der Baubewilligung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständigkeit aller Gesuchsunterlagen",
+      "Einhaltung der formalen Anforderungen",
+      "Zeitgerechte Einreichung gemäss Terminplan",
+      "Erfolgreiche Erteilung der Baubewilligung",
+      "Dokumentation aller Auflagen und Bedingungen"
     ]
   },
   {
@@ -923,6 +1500,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Erstellung von Leistungsverzeichnissen und die Durchführung der Ausschreibung umfassen die detaillierte Beschreibung aller Bauleistungen, die Ermittlung der Mengen sowie die Vergabe an geeignete Unternehmer. Der modellbasierte Ansatz ermöglicht eine effiziente Mengenermittlung und gewährleistet Konsistenz zwischen Planung und Ausschreibung. Die strukturierte Vorgehensweise sichert vergleichbare Angebote und eine rechtskonforme Vergabe.",
+    "prerequisites": {
+      "client": [
+        "Festlegung des Vergabeverfahrens (öffentlich/privat)",
+        "Definition der Eignungs- und Zuschlagskriterien",
+        "Bereitstellung des Budgetrahmens",
+        "Benennung der Entscheidungsträger für die Vergabe"
+      ],
+      "contractor": [
+        "Ausführungsreife Planungsunterlagen",
+        "Kenntnisse der NPK-Systematik und Ausschreibungsnormen",
+        "Erfahrung mit modellbasierter Mengenermittlung",
+        "Kompetenz in der Angebotsprüfung"
+      ]
+    },
+    "implementation": [
+      "Gliederung der Arbeiten nach Vergabeeinheiten",
+      "Erstellung der Leistungsbeschreibungen nach NPK",
+      "Modellbasierte Ermittlung der Mengen",
+      "Zusammenstellung der Ausschreibungsunterlagen",
+      "Durchführung der Ausschreibung und Submission",
+      "Prüfung der Angebote und Vergabeempfehlung"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Leistungsverzeichnis",
+        "substeps": [
+          "Gliederung nach NPK-Kapiteln",
+          "Beschreibung der Positionen",
+          "Ermittlung der Mengen aus dem Modell"
+        ]
+      },
+      {
+        "step": "Ausschreibungsvorbereitung",
+        "substeps": [
+          "Zusammenstellung der Vergabeunterlagen",
+          "Definition der Vertragsbedingungen",
+          "Festlegung der Fristen"
+        ]
+      },
+      {
+        "step": "Durchführung",
+        "substeps": [
+          "Versand der Ausschreibungsunterlagen",
+          "Beantwortung von Bieterfragen",
+          "Submission und Angebotsöffnung"
+        ]
+      },
+      {
+        "step": "Vergabe",
+        "substeps": [
+          "Formale und materielle Angebotsprüfung",
+          "Erstellung der Vergabeempfehlung",
+          "Vergabeentscheid und Vertragsabschluss"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige und eindeutige Leistungsbeschreibung",
+      "Korrekte Mengenermittlung aus dem Modell",
+      "Vergleichbarkeit der eingegangenen Angebote",
+      "Rechtskonforme Durchführung des Vergabeverfahrens",
+      "Nachvollziehbare Vergabeempfehlung"
     ]
   },
   {
@@ -983,6 +1625,71 @@
           "Terminänderungen"
         ]
       }
+    ],
+    "definition": "Die Terminplanung der Ausführung umfasst die Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen. Die modellbasierte 4D-Planung ermöglicht die Simulation und Überprüfung des geplanten Bauablaufs, die frühzeitige Erkennung von Terminrisiken sowie eine anschauliche Kommunikation des Bauprogramms an alle Beteiligten.",
+    "prerequisites": {
+      "client": [
+        "Festlegung der verbindlichen Meilensteine",
+        "Definition von Nutzungsbeginn und Teilinbetriebnahmen",
+        "Klärung von Abhängigkeiten zu Dritten",
+        "Bereitstellung von Ressourcenvorgaben"
+      ],
+      "contractor": [
+        "Detaillierte Kenntnis der Bauabläufe",
+        "Erfahrung mit Terminplanungssoftware",
+        "Kompetenz in der 4D-Modellierung",
+        "Abstimmungsfähigkeit mit ausführenden Firmen"
+      ]
+    },
+    "implementation": [
+      "Analyse der Randbedingungen und Meilensteine",
+      "Gliederung des Projekts in Vorgänge und Arbeitspakete",
+      "Definition der logischen Abhängigkeiten",
+      "Verknüpfung der Vorgänge mit Modellelementen",
+      "Simulation und Optimierung des Bauablaufs",
+      "Abstimmung und Freigabe des Bauprogramms"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Strukturierung",
+        "substeps": [
+          "Gliederung in Bauabschnitte",
+          "Definition der Arbeitspakete",
+          "Festlegung der Meilensteine"
+        ]
+      },
+      {
+        "step": "Terminplanung",
+        "substeps": [
+          "Ermittlung der Vorgangsdauern",
+          "Definition der Abhängigkeiten",
+          "Berechnung des kritischen Pfads"
+        ]
+      },
+      {
+        "step": "4D-Verknüpfung",
+        "substeps": [
+          "Zuordnung der Modellelemente zu Vorgängen",
+          "Erstellung der 4D-Simulation",
+          "Visualisierung des Baufortschritts"
+        ]
+      },
+      {
+        "step": "Optimierung",
+        "substeps": [
+          "Analyse von Terminrisiken",
+          "Optimierung des Bauablaufs",
+          "Abstimmung mit den Unternehmern"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Realistische Vorgangsdauern und Ressourcenansätze",
+      "Berücksichtigung aller Abhängigkeiten",
+      "Einhaltung der vorgegebenen Meilensteine",
+      "Nachvollziehbare 4D-Simulation",
+      "Akzeptanz durch alle Projektbeteiligten"
     ]
   },
   {
@@ -1044,6 +1751,71 @@
           "Änderungen"
         ]
       }
+    ],
+    "definition": "Die Logistikplanung umfasst die systematische Planung und Dokumentation der Baustelleneinrichtung, der Baustelleninfrastruktur, der Materialflüsse sowie der erforderlichen Verkehrsphasen. Sie stellt einen sicheren und effizienten Baustellenbetrieb sicher und minimiert Störungen für die Umgebung. Die modellbasierte Planung ermöglicht eine räumliche Visualisierung und Optimierung der Logistikkonzepte.",
+    "prerequisites": {
+      "client": [
+        "Bereitstellung der Grundstücksinformationen",
+        "Klärung der Zufahrts- und Anlieferungsmöglichkeiten",
+        "Abstimmung mit Nachbarn und Behörden",
+        "Definition der Anforderungen an den Baustellenbetrieb"
+      ],
+      "contractor": [
+        "Kenntnis der SUVA-Vorschriften und BauAV",
+        "Erfahrung in der Baustellenlogistik",
+        "Fähigkeit zur räumlichen Logistikplanung",
+        "Abstimmungskompetenz mit Unternehmern"
+      ]
+    },
+    "implementation": [
+      "Analyse des Baustellenumfelds und der Randbedingungen",
+      "Planung der Baustelleneinrichtung und -erschliessung",
+      "Definition der Materialflüsse und Lagerflächen",
+      "Erstellung des Verkehrsphasenplans",
+      "Koordination mit Behörden und Nachbarn",
+      "Fortschreibung der Logistikplanung während der Bauphase"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Analyse",
+        "substeps": [
+          "Aufnahme der örtlichen Gegebenheiten",
+          "Identifikation von Restriktionen",
+          "Ermittlung des Platzbedarfs"
+        ]
+      },
+      {
+        "step": "Einrichtungsplanung",
+        "substeps": [
+          "Anordnung der Baustelleneinrichtung",
+          "Planung der Erschliessung",
+          "Definition der Verkehrswege"
+        ]
+      },
+      {
+        "step": "Logistikkonzept",
+        "substeps": [
+          "Planung der Materialanlieferung",
+          "Organisation der Lagerflächen",
+          "Entsorgungskonzept"
+        ]
+      },
+      {
+        "step": "Verkehrsführung",
+        "substeps": [
+          "Erstellung des Signalisationsplans",
+          "Abstimmung mit Behörden",
+          "Kommunikation an Betroffene"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Einhaltung aller Sicherheitsvorschriften",
+      "Effizienter Materialfluss ohne Engpässe",
+      "Minimale Beeinträchtigung der Umgebung",
+      "Behördliche Genehmigung der Verkehrsführung",
+      "Aktuelle Dokumentation während der Bauphase"
     ]
   },
   {
@@ -1102,6 +1874,71 @@
           "Fortschrittsbericht"
         ]
       }
+    ],
+    "definition": "Die Baufortschrittskontrolle umfasst die systematische Erfassung und Dokumentation des tatsächlichen Baufortschritts als Grundlage für Soll-Ist-Vergleiche und das Projekt-Controlling. Sie ermöglicht die frühzeitige Erkennung von Abweichungen und bildet die Basis für Steuerungsmassnahmen. Die modellbasierte Fortschrittserfassung erlaubt eine visuelle Darstellung des aktuellen Bauzustands.",
+    "prerequisites": {
+      "client": [
+        "Definition der Reporting-Anforderungen",
+        "Festlegung der Kontrollintervalle",
+        "Benennung der verantwortlichen Empfänger",
+        "Bereitstellung des Soll-Bauprogramms"
+      ],
+      "contractor": [
+        "Regelmässige Präsenz auf der Baustelle",
+        "Systematische Dokumentationsmethodik",
+        "Kenntnisse in der Soll-Ist-Analyse",
+        "Fähigkeit zur Massnahmenableitung"
+      ]
+    },
+    "implementation": [
+      "Definition der Erfassungsmethodik und -intervalle",
+      "Regelmässige Baustellenbegehungen und Rapporte",
+      "Erfassung des Fertigstellungsgrads je Vorgang",
+      "Aktualisierung des 4D-Modells mit Ist-Daten",
+      "Erstellung der Soll-Ist-Vergleiche",
+      "Ableitung und Nachverfolgung von Massnahmen"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Erfassung",
+        "substeps": [
+          "Durchführung der Baustellenbegehung",
+          "Fotodokumentation des Bauzustands",
+          "Erfassung des Fertigstellungsgrads"
+        ]
+      },
+      {
+        "step": "Dokumentation",
+        "substeps": [
+          "Aktualisierung der Terminplanung",
+          "Nachführung des 4D-Modells",
+          "Erstellung des Fortschrittsberichts"
+        ]
+      },
+      {
+        "step": "Analyse",
+        "substeps": [
+          "Soll-Ist-Vergleich der Termine",
+          "Identifikation von Abweichungen",
+          "Analyse der Ursachen"
+        ]
+      },
+      {
+        "step": "Steuerung",
+        "substeps": [
+          "Ableitung von Massnahmen",
+          "Abstimmung mit den Unternehmern",
+          "Nachverfolgung der Umsetzung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Regelmässige und vollständige Fortschrittserfassung",
+      "Aktuelle Soll-Ist-Vergleiche",
+      "Frühzeitige Erkennung von Abweichungen",
+      "Nachvollziehbare Massnahmenableitung",
+      "Wirksame Steuerung bei Terminrisiken"
     ]
   },
   {
@@ -1160,6 +1997,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Das Änderungs- und Nachtragsmanagement umfasst die systematische Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie die Erfassung und Bewertung von Nachträgen. Es stellt sicher, dass alle Änderungen nachvollziehbar dokumentiert werden und deren Auswirkungen auf Kosten und Termine transparent bewertet werden.",
+    "prerequisites": {
+      "client": [
+        "Definition des Änderungsfreigabeprozesses",
+        "Festlegung der Entscheidungskompetenzen",
+        "Bereitstellung der Vertragsgrundlagen",
+        "Verfügbarkeit für zeitnahe Entscheidungen"
+      ],
+      "contractor": [
+        "Systematische Änderungserfassung",
+        "Kenntnis der Vertragsgrundlagen (SIA 118)",
+        "Kompetenz in der Nachtragsbewertung",
+        "Transparente Dokumentation"
+      ]
+    },
+    "implementation": [
+      "Erfassung aller Änderungsanträge und -ursachen",
+      "Bewertung der Auswirkungen auf Kosten und Termine",
+      "Abstimmung mit den betroffenen Parteien",
+      "Freigabe oder Ablehnung der Änderungen",
+      "Nachführung der Planungsunterlagen und des Modells",
+      "Verwaltung und Abrechnung der Nachträge"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Erfassung",
+        "substeps": [
+          "Dokumentation des Änderungsantrags",
+          "Klassifizierung nach Ursache",
+          "Zuweisung an verantwortliche Stelle"
+        ]
+      },
+      {
+        "step": "Bewertung",
+        "substeps": [
+          "Ermittlung der Kostenauswirkungen",
+          "Analyse der Terminauswirkungen",
+          "Bewertung der technischen Machbarkeit"
+        ]
+      },
+      {
+        "step": "Entscheidung",
+        "substeps": [
+          "Vorlage an Entscheidungsträger",
+          "Freigabe oder Ablehnung",
+          "Dokumentation der Entscheidung"
+        ]
+      },
+      {
+        "step": "Umsetzung",
+        "substeps": [
+          "Nachführung der Unterlagen",
+          "Information aller Beteiligten",
+          "Abrechnung der Nachträge"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Änderungen",
+      "Nachvollziehbare Kostenauswirkungen",
+      "Zeitnahe Entscheidungsfindung",
+      "Aktuelle Dokumentation des Änderungsstands",
+      "Transparente Nachtragsabwicklung"
     ]
   },
   {
@@ -1218,6 +2120,71 @@
           "Kostenstand"
         ]
       }
+    ],
+    "definition": "Die Abrechnung von Bauleistungen umfasst die Dokumentation der ausgeführten Leistungen sowie die Prüfung und Plausibilisierung von Abschlags- und Schlussrechnungen. Der modellbasierte Ansatz ermöglicht eine effiziente Mengenermittlung und einen transparenten Abgleich zwischen beauftragten und ausgeführten Leistungen. Die systematische Abrechnung sichert eine korrekte Kostenkontrolle.",
+    "prerequisites": {
+      "client": [
+        "Definition der Abrechnungsmodalitäten im Vertrag",
+        "Festlegung der Zahlungsfristen",
+        "Benennung der prüfberechtigten Personen",
+        "Bereitstellung des Budgetcontrollings"
+      ],
+      "contractor": [
+        "Kenntnisse der Abrechnungsvorschriften (SIA 118)",
+        "Kompetenz in der Aufmassprüfung",
+        "Systematische Rechnungsprüfung",
+        "Transparente Dokumentation"
+      ]
+    },
+    "implementation": [
+      "Definition der Abrechnungsprozesse und -intervalle",
+      "Erfassung und Prüfung der Aufmasse vor Ort",
+      "Abgleich der ausgeführten mit den beauftragten Mengen",
+      "Prüfung der eingereichten Rechnungen",
+      "Freigabe zur Zahlung mit dokumentierten Abzügen",
+      "Nachführung der Kostenkontrolle"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Aufmass",
+        "substeps": [
+          "Gemeinsame Aufnahme vor Ort",
+          "Dokumentation der ausgeführten Mengen",
+          "Protokollierung von Abweichungen"
+        ]
+      },
+      {
+        "step": "Rechnungsprüfung",
+        "substeps": [
+          "Formale Prüfung der Rechnung",
+          "Mengenabgleich mit Aufmass",
+          "Preisliche Prüfung"
+        ]
+      },
+      {
+        "step": "Freigabe",
+        "substeps": [
+          "Dokumentation der Prüfergebnisse",
+          "Berechnung von Abzügen",
+          "Freigabe zur Zahlung"
+        ]
+      },
+      {
+        "step": "Controlling",
+        "substeps": [
+          "Nachführung der Kostenkontrolle",
+          "Prognose der Endkosten",
+          "Reporting an Auftraggeber"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Korrekte Erfassung der ausgeführten Leistungen",
+      "Nachvollziehbare Rechnungsprüfung",
+      "Einhaltung der Zahlungsfristen",
+      "Aktuelle Kostenkontrolle",
+      "Transparentes Kostenreporting"
     ]
   },
   {
@@ -1278,6 +2245,71 @@
           "Mängelliste"
         ]
       }
+    ],
+    "definition": "Das Abnahme- und Mängelmanagement umfasst die systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie die Dokumentation ihrer Behebung. Es stellt eine vollständige Abnahme der Bauleistungen sicher und bildet die Grundlage für den Beginn der Gewährleistungsfrist. Die modellbasierte Verortung ermöglicht eine präzise Lokalisierung und effiziente Bearbeitung der Mängel.",
+    "prerequisites": {
+      "client": [
+        "Definition der Abnahmekriterien",
+        "Festlegung des Abnahmeverfahrens",
+        "Benennung der abnahmeberechtigten Personen",
+        "Bereitstellung der Qualitätsanforderungen"
+      ],
+      "contractor": [
+        "Vollständige Fertigstellung der Arbeiten",
+        "Selbstkontrolle vor Abnahmetermin",
+        "Bereitschaft zur zeitnahen Mängelbehebung",
+        "Dokumentation der ausgeführten Arbeiten"
+      ]
+    },
+    "implementation": [
+      "Durchführung der Abnahmebegehungen je Gewerk",
+      "Systematische Erfassung aller Mängel mit Verortung",
+      "Zuweisung der Mängel an verantwortliche Unternehmer",
+      "Festlegung von Fristen für die Mängelbehebung",
+      "Nachkontrolle der behobenen Mängel",
+      "Erstellung der Abnahmeprotokolle"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Abnahmevorbereitung",
+        "substeps": [
+          "Terminierung der Abnahmebegehung",
+          "Zusammenstellung der Prüfunterlagen",
+          "Einladung aller Beteiligten"
+        ]
+      },
+      {
+        "step": "Abnahmebegehung",
+        "substeps": [
+          "Systematische Begehung aller Bereiche",
+          "Erfassung der Mängel mit Foto und Verortung",
+          "Bewertung des Fertigstellungsgrads"
+        ]
+      },
+      {
+        "step": "Mängelverfolgung",
+        "substeps": [
+          "Übermittlung der Mängelliste",
+          "Festlegung der Behebungsfristen",
+          "Nachverfolgung der Bearbeitung"
+        ]
+      },
+      {
+        "step": "Abschluss",
+        "substeps": [
+          "Nachkontrolle der Mängelbehebung",
+          "Erstellung des Abnahmeprotokolls",
+          "Dokumentation für die Gewährleistung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Mängel",
+      "Präzise Verortung und Dokumentation",
+      "Fristgerechte Mängelbehebung",
+      "Formgerechte Abnahmeprotokolle",
+      "Lückenlose Dokumentation für Gewährleistung"
     ]
   },
   {
@@ -1340,6 +2372,71 @@
           "IBN-Protokolle"
         ]
       }
+    ],
+    "definition": "Das Inbetriebnahmemanagement umfasst die Koordination und Dokumentation aller Aktivitäten von der Planung der Inbetriebnahme bis zur Übergabe an den Betrieb. Es beinhaltet die systematische Funktionsprüfung aller technischen Anlagen, die Einweisung des Betriebspersonals sowie die Zusammenstellung der betriebsrelevanten Dokumentation. Eine strukturierte Inbetriebnahme sichert einen reibungslosen Betriebsstart.",
+    "prerequisites": {
+      "client": [
+        "Benennung des Betriebspersonals für Einweisungen",
+        "Definition der Anforderungen an den Betriebsstart",
+        "Festlegung des Übergabetermins",
+        "Bereitstellung der erforderlichen Ressourcen"
+      ],
+      "contractor": [
+        "Abschluss der Montage- und Installationsarbeiten",
+        "Verfügbarkeit der Anlagendokumentation",
+        "Kompetenz für Funktionsprüfungen",
+        "Fähigkeit zur Einweisung des Personals"
+      ]
+    },
+    "implementation": [
+      "Erstellung des Inbetriebnahmekonzepts und -terminplans",
+      "Koordination der Inbetriebnahmeaktivitäten",
+      "Durchführung der Funktionsprüfungen je Anlage",
+      "Einweisung des Betriebspersonals",
+      "Zusammenstellung der Betriebsdokumentation",
+      "Übergabe an den Betreiber mit Protokoll"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Planung",
+        "substeps": [
+          "Erstellung des IBN-Konzepts",
+          "Terminplanung der Prüfungen",
+          "Koordination mit Unternehmern"
+        ]
+      },
+      {
+        "step": "Funktionsprüfung",
+        "substeps": [
+          "Prüfung der Einzelkomponenten",
+          "Test der Gesamtsysteme",
+          "Dokumentation der Prüfergebnisse"
+        ]
+      },
+      {
+        "step": "Einweisung",
+        "substeps": [
+          "Schulung des Betriebspersonals",
+          "Übergabe der Anleitungen",
+          "Dokumentation der Einweisungen"
+        ]
+      },
+      {
+        "step": "Übergabe",
+        "substeps": [
+          "Zusammenstellung der Dokumentation",
+          "Formale Übergabe an Betreiber",
+          "Erstellung des Übergabeprotokolls"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Funktionsprüfung aller Anlagen",
+      "Dokumentierte Einweisung des Personals",
+      "Komplette Betriebsdokumentation übergeben",
+      "Formale Übergabe protokolliert",
+      "Alle offenen Punkte dokumentiert"
     ]
   },
   {
@@ -1550,6 +2647,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Nutzung für Betrieb und Erhaltung umfasst die Übergabe und fortlaufende Nutzung der Bauwerksdokumentation für den Gebäudebetrieb, die Instandhaltung und spätere Erneuerungen. Der Anwendungsfall stellt sicher, dass alle relevanten Informationen strukturiert verfügbar sind und effizient in CAFM-Systeme integriert werden können. Die Aktualität der Dokumentation über den Lebenszyklus ist dabei entscheidend.",
+    "prerequisites": {
+      "client": [
+        "Definition der Anforderungen an die Betriebsdokumentation",
+        "Festlegung des eingesetzten CAFM-Systems",
+        "Benennung der verantwortlichen FM-Organisation",
+        "Bereitstellung der erforderlichen Lizenzen und Zugänge"
+      ],
+      "contractor": [
+        "Lieferung der vollständigen Objektdokumentation",
+        "Aufbereitung der Daten für den CAFM-Import",
+        "Unterstützung bei der Datenübernahme",
+        "Schulung für die Datennutzung"
+      ]
+    },
+    "implementation": [
+      "Analyse der CAFM-Anforderungen und Datenstrukturen",
+      "Aufbereitung der Dokumentation für den Datentransfer",
+      "Import der Stammdaten in das CAFM-System",
+      "Verknüpfung mit räumlichen Informationen aus dem Modell",
+      "Schulung der FM-Mitarbeiter",
+      "Etablierung von Prozessen zur Datenpflege"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Datenanalyse",
+        "substeps": [
+          "Erfassung der CAFM-Anforderungen",
+          "Mapping der vorhandenen Daten",
+          "Identifikation von Lücken"
+        ]
+      },
+      {
+        "step": "Datenaufbereitung",
+        "substeps": [
+          "Konvertierung in Zielformate",
+          "Qualitätsprüfung der Daten",
+          "Ergänzung fehlender Informationen"
+        ]
+      },
+      {
+        "step": "Datenimport",
+        "substeps": [
+          "Import der Stammdaten",
+          "Verknüpfung mit Rauminformationen",
+          "Validierung der importierten Daten"
+        ]
+      },
+      {
+        "step": "Nutzung",
+        "substeps": [
+          "Schulung der Anwender",
+          "Etablierung der Pflegeprozesse",
+          "Kontinuierliche Aktualisierung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständiger Import aller relevanten Daten",
+      "Korrekte Verknüpfung mit Rauminformationen",
+      "Geschultes FM-Personal",
+      "Etablierte Pflegeprozesse",
+      "Aktuelle Dokumentation im laufenden Betrieb"
     ]
   },
   {
@@ -1607,6 +2769,71 @@
           "Gewährleistungsstatus"
         ]
       }
+    ],
+    "definition": "Das Gewährleistungsmanagement umfasst die systematische Verfolgung und Dokumentation von Gewährleistungsansprüchen, die Überwachung von Fristen sowie die Abwicklung von Mängelrügen während der Garantiezeit. Es stellt sicher, dass alle berechtigten Ansprüche fristgerecht geltend gemacht werden und die Dokumentation eine rechtssichere Nachverfolgung ermöglicht.",
+    "prerequisites": {
+      "client": [
+        "Vollständige Abnahmedokumentation",
+        "Übersicht über alle Gewährleistungsfristen",
+        "Etablierter Meldeprozess für Mängel",
+        "Benennung der verantwortlichen Stelle"
+      ],
+      "contractor": [
+        "Bereitschaft zur Mängelbehebung in der Garantiezeit",
+        "Erreichbarkeit für Mängelrügen",
+        "Dokumentation der Behebungsmassnahmen",
+        "Einhaltung der vereinbarten Fristen"
+      ]
+    },
+    "implementation": [
+      "Erfassung aller Gewährleistungsfristen und -termine",
+      "Etablierung eines Meldeprozesses für Mängel",
+      "Systematische Erfassung und Dokumentation von Mängeln",
+      "Fristgerechte Übermittlung von Mängelrügen",
+      "Nachverfolgung der Mängelbehebung",
+      "Vorbereitung der Schlussbegehung vor Fristablauf"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Fristen-Setup",
+        "substeps": [
+          "Erfassung aller Gewährleistungsfristen",
+          "Einrichtung von Erinnerungen",
+          "Definition der Verantwortlichkeiten"
+        ]
+      },
+      {
+        "step": "Mängelerfassung",
+        "substeps": [
+          "Entgegennahme von Mängelmeldungen",
+          "Dokumentation mit Verortung",
+          "Klassifizierung der Mängel"
+        ]
+      },
+      {
+        "step": "Mängelrüge",
+        "substeps": [
+          "Erstellung der formalen Mängelrüge",
+          "Fristgerechte Übermittlung",
+          "Dokumentation des Versands"
+        ]
+      },
+      {
+        "step": "Abschluss",
+        "substeps": [
+          "Schlussbegehung vor Fristablauf",
+          "Dokumentation des Abschlusses",
+          "Archivierung der Unterlagen"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Fristen",
+      "Fristgerechte Geltendmachung von Ansprüchen",
+      "Lückenlose Dokumentation aller Vorgänge",
+      "Erfolgreiche Mängelbehebung",
+      "Rechtssichere Archivierung"
     ]
   },
   {
@@ -1664,6 +2891,71 @@
         "contributing": [],
         "informed": []
       }
+    ],
+    "definition": "Das Wartungs- und Inspektionsmanagement umfasst die Planung, Durchführung und Dokumentation regelmässiger Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen. Es stellt die Werterhaltung sicher, vermeidet Ausfälle durch präventive Massnahmen und gewährleistet die Erfüllung der Betreiberverantwortung. Die systematische Dokumentation unterstützt die langfristige Instandhaltungsplanung.",
+    "prerequisites": {
+      "client": [
+        "Übernahme der Anlagendokumentation",
+        "Definition der Wartungsstrategie",
+        "Bereitstellung des Wartungsbudgets",
+        "Benennung des verantwortlichen Personals"
+      ],
+      "contractor": [
+        "Qualifiziertes Wartungspersonal",
+        "Kenntnisse der Herstellervorgaben",
+        "Verfügbarkeit von Ersatzteilen",
+        "Dokumentationskompetenz"
+      ]
+    },
+    "implementation": [
+      "Erfassung aller wartungspflichtigen Anlagen und Bauteile",
+      "Erstellung der Wartungspläne nach Herstellervorgaben",
+      "Planung und Disposition der Wartungstermine",
+      "Durchführung der Wartungs- und Inspektionsarbeiten",
+      "Dokumentation der durchgeführten Arbeiten",
+      "Auswertung und Optimierung der Wartungsstrategie"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Planung",
+        "substeps": [
+          "Erfassung der Anlagen im CAFM",
+          "Definition der Wartungsintervalle",
+          "Erstellung des Wartungskalenders"
+        ]
+      },
+      {
+        "step": "Disposition",
+        "substeps": [
+          "Planung der Wartungstermine",
+          "Beauftragung der Servicefirmen",
+          "Koordination mit Nutzern"
+        ]
+      },
+      {
+        "step": "Durchführung",
+        "substeps": [
+          "Durchführung der Wartungsarbeiten",
+          "Protokollierung der Tätigkeiten",
+          "Erfassung von Auffälligkeiten"
+        ]
+      },
+      {
+        "step": "Auswertung",
+        "substeps": [
+          "Analyse der Wartungsdaten",
+          "Ableitung von Optimierungen",
+          "Aktualisierung der Pläne"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Anlagen",
+      "Einhaltung der Wartungsintervalle",
+      "Lückenlose Dokumentation",
+      "Erfüllung der Herstellervorgaben",
+      "Minimierung ungeplanter Ausfälle"
     ]
   },
   {
@@ -1720,6 +3012,71 @@
           "Auftrag"
         ]
       }
+    ],
+    "definition": "Das Instandhaltungs- und Instandsetzungsmanagement umfasst die Erfassung, Priorisierung und Durchführung von Massnahmen zur Werterhaltung des Gebäudes. Es unterscheidet zwischen präventiven Instandhaltungsmassnahmen und reaktiven Instandsetzungen nach Schadenseintritt. Die systematische Planung und Dokumentation ermöglicht eine kostenoptimierte Bewirtschaftung und langfristige Budgetplanung.",
+    "prerequisites": {
+      "client": [
+        "Definition der Instandhaltungsstrategie",
+        "Bereitstellung des Instandhaltungsbudgets",
+        "Festlegung der Entscheidungskompetenz",
+        "Etablierte Schadensmeldeprozesse"
+      ],
+      "contractor": [
+        "Fachkompetenz für die jeweiligen Gewerke",
+        "Verfügbarkeit für zeitnahe Interventionen",
+        "Kosteneffiziente Massnahmenplanung",
+        "Dokumentation der durchgeführten Arbeiten"
+      ]
+    },
+    "implementation": [
+      "Systematische Zustandserfassung und -bewertung",
+      "Erfassung und Priorisierung von Schadensmeldungen",
+      "Ableitung und Planung von Instandhaltungsmassnahmen",
+      "Beauftragung und Überwachung der Ausführung",
+      "Abnahme und Dokumentation der Arbeiten",
+      "Aktualisierung der Zustandsdaten"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Zustandserfassung",
+        "substeps": [
+          "Regelmässige Begehungen",
+          "Dokumentation von Schäden",
+          "Bewertung des Zustands"
+        ]
+      },
+      {
+        "step": "Massnahmenplanung",
+        "substeps": [
+          "Priorisierung der Massnahmen",
+          "Kostenermittlung",
+          "Budgetplanung"
+        ]
+      },
+      {
+        "step": "Ausführung",
+        "substeps": [
+          "Beauftragung der Arbeiten",
+          "Überwachung der Durchführung",
+          "Abnahme der Leistungen"
+        ]
+      },
+      {
+        "step": "Dokumentation",
+        "substeps": [
+          "Erfassung im CAFM-System",
+          "Aktualisierung der Zustandsdaten",
+          "Archivierung der Unterlagen"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Aktuelle Zustandsdokumentation",
+      "Nachvollziehbare Priorisierung",
+      "Kostenoptimierte Massnahmenplanung",
+      "Vollständige Dokumentation aller Arbeiten",
+      "Einhaltung des Instandhaltungsbudgets"
     ]
   },
   {
@@ -1777,6 +3134,71 @@
           "Zuweisung"
         ]
       }
+    ],
+    "definition": "Das Flächen- und Raumbelegungsmanagement umfasst die Verwaltung und Optimierung der Flächennutzung, die Steuerung der Raumbelegung sowie die bedarfsgerechte Arbeitsplatzvergabe. Es unterstützt eine effiziente Nutzung der verfügbaren Flächen und ermöglicht datenbasierte Entscheidungen bei Flächenanpassungen. Die Integration mit dem BIM-Modell erlaubt eine visuelle Darstellung der Belegungssituation.",
+    "prerequisites": {
+      "client": [
+        "Definition der Flächenstandards und Kennzahlen",
+        "Festlegung der Belegungsrichtlinien",
+        "Bereitstellung der Organisationsdaten",
+        "Benennung des verantwortlichen Flächenmanagements"
+      ],
+      "contractor": [
+        "Aktuelle Flächendaten aus dem BIM-Modell",
+        "Kenntnisse der Flächennormen (SIA 416, DIN 277)",
+        "Kompetenz in der Flächenauswertung",
+        "Erfahrung mit CAFM-Systemen"
+      ]
+    },
+    "implementation": [
+      "Erfassung und Klassifizierung aller Flächen",
+      "Definition der Belegungsregeln und Kennzahlen",
+      "Zuordnung von Flächen zu Organisationseinheiten",
+      "Verwaltung der Arbeitsplatzbelegung",
+      "Regelmässige Auswertung der Flächennutzung",
+      "Optimierung basierend auf Nutzungsdaten"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Datengrundlage",
+        "substeps": [
+          "Übernahme der Flächendaten",
+          "Klassifizierung nach SIA 416",
+          "Erfassung im CAFM-System"
+        ]
+      },
+      {
+        "step": "Belegungsplanung",
+        "substeps": [
+          "Zuordnung zu Organisationseinheiten",
+          "Arbeitsplatzvergabe",
+          "Dokumentation der Belegung"
+        ]
+      },
+      {
+        "step": "Auswertung",
+        "substeps": [
+          "Berechnung der Kennzahlen",
+          "Analyse der Flächeneffizienz",
+          "Erstellung von Reports"
+        ]
+      },
+      {
+        "step": "Optimierung",
+        "substeps": [
+          "Identifikation von Potenzialen",
+          "Umsetzung von Anpassungen",
+          "Monitoring der Wirkung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Aktuelle Flächendaten im System",
+      "Transparente Belegungssituation",
+      "Regelmässige Kennzahlenauswertung",
+      "Optimale Flächenauslastung",
+      "Bedarfsgerechte Arbeitsplatzvergabe"
     ]
   },
   {
@@ -1835,6 +3257,71 @@
           "Energiebericht"
         ]
       }
+    ],
+    "definition": "Das Energiemanagement umfasst das Monitoring und die Steuerung der Gebäudeperformance, die Erfassung von Verbräuchen sowie die Optimierung der Energieeffizienz. Es unterstützt das Erreichen von Klimazielen durch systematische Verbrauchsanalysen und die Ableitung von Optimierungsmassnahmen. Die Integration mit Gebäudedaten ermöglicht detaillierte Auswertungen und Benchmarkings.",
+    "prerequisites": {
+      "client": [
+        "Definition der Energieziele und Zielwerte",
+        "Bereitstellung der Messinfrastruktur",
+        "Benennung des Energiemanagements",
+        "Commitment zur kontinuierlichen Verbesserung"
+      ],
+      "contractor": [
+        "Kompetenz im Energiemanagement (ISO 50001)",
+        "Erfahrung mit Monitoring-Systemen",
+        "Kenntnisse in der Verbrauchsanalyse",
+        "Fähigkeit zur Massnahmenableitung"
+      ]
+    },
+    "implementation": [
+      "Einrichtung des Energie-Monitorings",
+      "Definition der Kennzahlen und Benchmarks",
+      "Regelmässige Erfassung und Analyse der Verbräuche",
+      "Identifikation von Einsparpotenzialen",
+      "Planung und Umsetzung von Optimierungsmassnahmen",
+      "Reporting und kontinuierliche Verbesserung"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Setup",
+        "substeps": [
+          "Einrichtung der Messpunkte",
+          "Definition der Zielwerte",
+          "Konfiguration des Monitorings"
+        ]
+      },
+      {
+        "step": "Monitoring",
+        "substeps": [
+          "Automatische Verbrauchserfassung",
+          "Visualisierung der Daten",
+          "Alarmierung bei Abweichungen"
+        ]
+      },
+      {
+        "step": "Analyse",
+        "substeps": [
+          "Auswertung der Verbräuche",
+          "Benchmarking mit Referenzwerten",
+          "Identifikation von Anomalien"
+        ]
+      },
+      {
+        "step": "Optimierung",
+        "substeps": [
+          "Ableitung von Massnahmen",
+          "Umsetzung der Optimierungen",
+          "Erfolgskontrolle"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Verbrauchserfassung",
+      "Transparentes Energie-Reporting",
+      "Erreichung der definierten Zielwerte",
+      "Kontinuierliche Effizienzsteigerung",
+      "Nachvollziehbare Massnahmendokumentation"
     ]
   },
   {
@@ -1892,6 +3379,71 @@
         "contributing": [],
         "informed": []
       }
+    ],
+    "definition": "Die Betreiberverantwortung umfasst die Erfüllung und Dokumentation aller gesetzlichen Pflichten des Gebäudebetreibers, einschliesslich Sicherheitsprüfungen, behördlicher Nachweise und Unterhaltsarbeiten. Sie stellt die Rechtssicherheit des Betriebs sicher und schützt Eigentümer und Nutzer. Die systematische Dokumentation ermöglicht den jederzeitigen Nachweis der Pflichterfüllung.",
+    "prerequisites": {
+      "client": [
+        "Kenntnis der gesetzlichen Anforderungen",
+        "Bereitstellung des Prüfbudgets",
+        "Benennung des Sicherheitsbeauftragten",
+        "Etablierte Dokumentationsprozesse"
+      ],
+      "contractor": [
+        "Akkreditierung als Prüfstelle",
+        "Fachkompetenz für die jeweiligen Prüfungen",
+        "Erstellung normgerechter Prüfberichte",
+        "Beratung zu Mängelbehebung"
+      ]
+    },
+    "implementation": [
+      "Erfassung aller prüfpflichtigen Anlagen und Einrichtungen",
+      "Erstellung des Prüfkalenders nach Vorschriften",
+      "Beauftragung akkreditierter Prüfstellen",
+      "Durchführung und Dokumentation der Prüfungen",
+      "Behebung festgestellter Mängel",
+      "Archivierung der Nachweisdokumente"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Anforderungsanalyse",
+        "substeps": [
+          "Identifikation der Prüfpflichten",
+          "Erfassung im CAFM-System",
+          "Erstellung des Prüfkalenders"
+        ]
+      },
+      {
+        "step": "Prüfplanung",
+        "substeps": [
+          "Terminierung der Prüfungen",
+          "Beauftragung der Prüfstellen",
+          "Koordination der Zugänge"
+        ]
+      },
+      {
+        "step": "Prüfdurchführung",
+        "substeps": [
+          "Begleitung der Prüfungen",
+          "Entgegennahme der Berichte",
+          "Dokumentation der Ergebnisse"
+        ]
+      },
+      {
+        "step": "Nachbearbeitung",
+        "substeps": [
+          "Behebung festgestellter Mängel",
+          "Nachprüfung bei Bedarf",
+          "Archivierung der Dokumente"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Erfassung aller Prüfpflichten",
+      "Fristgerechte Durchführung der Prüfungen",
+      "Zeitnahe Mängelbehebung",
+      "Lückenlose Dokumentation",
+      "Jederzeitige Nachweisfähigkeit"
     ]
   },
   {
@@ -1959,6 +3511,71 @@
           "Bewertungsergebnisse"
         ]
       }
+    ],
+    "definition": "Die Nachhaltigkeitsnachweise umfassen die Erstellung aller erforderlichen Dokumentationen für Nachhaltigkeitszertifizierungen wie SNBS, Minergie oder DGNB. Dies beinhaltet Ökobilanzen, Lebenszykluskosten-Berechnungen sowie Komfort- und Gesundheitsnachweise. Der modellbasierte Ansatz ermöglicht eine effiziente Datenextraktion und konsistente Berechnungsgrundlagen.",
+    "prerequisites": {
+      "client": [
+        "Festlegung des angestrebten Zertifizierungsstandards",
+        "Frühzeitige Integration der Anforderungen in die Planung",
+        "Bereitstellung des Zertifizierungsbudgets",
+        "Commitment zur nachhaltigen Bauweise"
+      ],
+      "contractor": [
+        "Akkreditierung als Zertifizierungsstelle",
+        "Kenntnisse der Bewertungssysteme",
+        "Erfahrung mit Ökobilanzierung (SIA 2032)",
+        "Kompetenz in LCC-Berechnungen"
+      ]
+    },
+    "implementation": [
+      "Analyse der Zertifizierungsanforderungen",
+      "Integration der Kriterien in die Planung",
+      "Erfassung der relevanten Daten aus dem Modell",
+      "Durchführung der Berechnungen und Simulationen",
+      "Zusammenstellung der Nachweisdokumentation",
+      "Begleitung des Zertifizierungsverfahrens"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung",
+        "substeps": [
+          "Analyse der Anforderungen",
+          "Festlegung der Ziele",
+          "Vorzertifizierung (falls möglich)"
+        ]
+      },
+      {
+        "step": "Datenerfassung",
+        "substeps": [
+          "Extraktion aus BIM-Modell",
+          "Erfassung von Materialdaten",
+          "Sammlung der Nachweise"
+        ]
+      },
+      {
+        "step": "Berechnungen",
+        "substeps": [
+          "Erstellung der Ökobilanz",
+          "LCC-Berechnung",
+          "Komfortnachweis"
+        ]
+      },
+      {
+        "step": "Zertifizierung",
+        "substeps": [
+          "Zusammenstellung der Dokumentation",
+          "Einreichung beim Zertifizierer",
+          "Begleitung der Prüfung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Erfüllung aller Zertifizierungskriterien",
+      "Nachvollziehbare Berechnungsgrundlagen",
+      "Vollständige Nachweisdokumentation",
+      "Erfolgreiche Zertifizierung",
+      "Optimierte Umweltwirkung"
     ]
   },
   {
@@ -2015,6 +3632,71 @@
         ],
         "informed": []
       }
+    ],
+    "definition": "Die Rückbauplanung umfasst die systematische Vorbereitung des Gebäuderückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und umweltgerechter Entsorgung. Sie stellt einen sicheren Rückbau sicher und maximiert das Potenzial für Materialrecycling und -wiederverwendung. Die modellbasierte Planung ermöglicht eine präzise Mengenermittlung und effiziente Prozessgestaltung.",
+    "prerequisites": {
+      "client": [
+        "Bereitstellung der Bestandsdokumentation",
+        "Beauftragung der Schadstoffuntersuchung",
+        "Klärung der behördlichen Anforderungen",
+        "Definition der Rückbauziele"
+      ],
+      "contractor": [
+        "Erfahrung in der Rückbauplanung",
+        "Kenntnisse der VVEA und SIA 430",
+        "Kompetenz in der Schadstoffbeurteilung",
+        "Netzwerk für Materialverwertung"
+      ]
+    },
+    "implementation": [
+      "Analyse der Bestandsdokumentation und des Schadstoffkatasters",
+      "Erstellung des Rückbaukonzepts mit Phasenplanung",
+      "Identifikation wiederverwendbarer Materialien und Bauteile",
+      "Planung der Schadstoffsanierung",
+      "Erstellung des Entsorgungskonzepts",
+      "Ausschreibung und Vergabe der Rückbauarbeiten"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Bestandsanalyse",
+        "substeps": [
+          "Sichtung der Dokumentation",
+          "Schadstoffuntersuchung",
+          "Materialinventar erstellen"
+        ]
+      },
+      {
+        "step": "Konzeptentwicklung",
+        "substeps": [
+          "Rückbauphasen definieren",
+          "Sicherheitskonzept erstellen",
+          "Wiederverwendung planen"
+        ]
+      },
+      {
+        "step": "Entsorgungsplanung",
+        "substeps": [
+          "Stoffflüsse definieren",
+          "Entsorgungswege festlegen",
+          "Genehmigungen einholen"
+        ]
+      },
+      {
+        "step": "Ausschreibung",
+        "substeps": [
+          "Erstellung der Ausschreibungsunterlagen",
+          "Vergabe der Arbeiten",
+          "Überwachung der Ausführung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständige Schadstofferfassung",
+      "Sicheres Rückbaukonzept",
+      "Maximale Materialrückgewinnung",
+      "Umweltgerechte Entsorgung",
+      "Einhaltung aller Vorschriften"
     ]
   },
   {
@@ -2071,6 +3753,71 @@
           "Potenzialanalyse"
         ]
       }
+    ],
+    "definition": "Die Bauteilbörse und Wiederverwendung umfasst die Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten. Sie fördert die Kreislaufwirtschaft im Bauwesen und trägt zur Ressourcenschonung bei. Die systematische Erfassung und Dokumentation ermöglicht eine effiziente Vermittlung zwischen Angebot und Nachfrage.",
+    "prerequisites": {
+      "client": [
+        "Bereitschaft zur Wiederverwendung statt Neukauf",
+        "Frühzeitige Information über Abbruchvorhaben",
+        "Flexibilität bei Terminen und Qualitäten",
+        "Akzeptanz gebrauchter Materialien"
+      ],
+      "contractor": [
+        "Kenntnisse der Bauteilbewertung",
+        "Netzwerk zu Bauteilbörsen",
+        "Logistikkompetenz für Bauteile",
+        "Erfahrung mit Qualitätsprüfung"
+      ]
+    },
+    "implementation": [
+      "Systematische Erfassung potenziell wiederverwendbarer Bauteile",
+      "Bewertung von Zustand und Wiederverwendungspotenzial",
+      "Erstellung des Bauteilkatalogs mit Dokumentation",
+      "Vermittlung über Bauteilbörsen und Plattformen",
+      "Organisation der Demontage und Lagerung",
+      "Dokumentation der erfolgreichen Wiederverwendung"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Erfassung",
+        "substeps": [
+          "Identifikation geeigneter Bauteile",
+          "Fotodokumentation",
+          "Erfassung technischer Daten"
+        ]
+      },
+      {
+        "step": "Bewertung",
+        "substeps": [
+          "Zustandsbewertung",
+          "Prüfung der Wiederverwendbarkeit",
+          "Wertermittlung"
+        ]
+      },
+      {
+        "step": "Katalogisierung",
+        "substeps": [
+          "Erstellung des Bauteilpasses",
+          "Eintrag in Bauteilbörse",
+          "Marketing der Bauteile"
+        ]
+      },
+      {
+        "step": "Vermittlung",
+        "substeps": [
+          "Abgleich mit Nachfrage",
+          "Organisation der Übergabe",
+          "Dokumentation der Wiederverwendung"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Systematische Erfassung aller Potenziale",
+      "Aussagekräftige Dokumentation",
+      "Erfolgreiche Vermittlung von Bauteilen",
+      "Nachweisbare Ressourceneinsparung",
+      "Qualitätsgesicherte Wiederverwendung"
     ]
   }
 ]
