@@ -14231,7 +14231,7 @@
     "version": "1.0",
     "lastChange": "2024-12-18",
     "title": "Solarpanel",
-    "image": "",
+    "image": "assets/img/element/solar.jpg",
     "category": "Elektro",
     "description": "Kollektor zur Umwandlung von Sonnenenergie in Strom (PV) oder Wärme (thermisch).",
     "tags": [],
