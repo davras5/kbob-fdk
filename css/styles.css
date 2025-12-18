@@ -3486,8 +3486,10 @@ footer a:hover {
 }
 
 .phases-container--large .phase-badge {
-    width: 32px;
-    height: 32px;
+    width: auto;
+    height: auto;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius-md);
     font-size: var(--text-sm);
 }
 
