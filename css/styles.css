@@ -1712,92 +1712,6 @@ footer a:hover {
     right: var(--space-lg);
 }
 
-/* About Box */
-.about-box {
-    background: var(--color-surface);
-    border-radius: var(--border-radius-lg);
-    padding: var(--space-2xl);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2xl);
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .about-box {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-.about-box__content h2 {
-    font-size: var(--text-h2);
-    color: var(--color-text-primary);
-    margin: 0 0 var(--space-md) 0;
-}
-
-.about-box__content p {
-    color: var(--color-text-secondary);
-    margin: 0 0 var(--space-lg) 0;
-    line-height: 1.7;
-}
-
-.about-box__features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-}
-
-@media (max-width: 768px) {
-    .about-box__features {
-        justify-content: center;
-    }
-}
-
-.about-box__feature {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--text-body-sm);
-    color: var(--color-text-secondary);
-}
-
-.about-box__feature i {
-    width: 18px;
-    height: 18px;
-    color: var(--color-interactive);
-}
-
-.about-box__visual {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-lg);
-}
-
-.stat-card {
-    background: var(--color-white);
-    border-radius: var(--border-radius);
-    padding: var(--space-lg);
-    text-align: center;
-    min-width: 120px;
-    box-shadow: var(--shadow-sm);
-}
-
-.stat-card__number {
-    font-size: var(--text-h1);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-interactive);
-    margin: 0;
-}
-
-.stat-card__label {
-    font-size: var(--text-caption);
-    color: var(--color-text-muted);
-    margin: var(--space-xs) 0 0 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
 /* ============================================
    INTRO SECTION - Modern Swiss Design
    ============================================ */
@@ -2187,28 +2101,6 @@ footer a:hover {
     font-size: var(--text-body);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
-}
-
-/* Small Toggle Variant */
-.toggle-switch--sm .toggle-switch__track {
-    width: 36px;
-    height: 20px;
-    border-radius: 10px;
-}
-
-.toggle-switch--sm .toggle-switch__thumb {
-    width: 14px;
-    height: 14px;
-    top: 3px;
-    left: 3px;
-}
-
-.toggle-switch--sm .toggle-switch__input:checked + .toggle-switch__track .toggle-switch__thumb {
-    transform: translateX(16px);
-}
-
-.toggle-switch--sm .toggle-switch__label {
-    font-size: var(--text-body-sm);
 }
 
 /* ============================================
@@ -3323,29 +3215,6 @@ footer a:hover {
     background-color: var(--color-surface);
 }
 
-/* Table Modifiers (BEM) */
-.table--striped tbody tr:nth-child(even) td {
-    background-color: var(--color-surface);
-}
-
-.table--striped tbody tr:nth-child(even):hover td {
-    background-color: var(--color-surface-alt);
-}
-
-.table--compact th,
-.table--compact td {
-    padding: var(--space-xs) var(--space-sm);
-    font-size: var(--text-body-sm);
-}
-
-.table--bordered td {
-    border: 1px solid var(--color-border-light);
-}
-
-.table--bordered th {
-    border: 1px solid var(--color-border);
-}
-
 /* Table Column Widths */
 .th-w-20 { width: 20%; }
 .th-w-format { width: 100px; }
@@ -3810,10 +3679,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
     margin: 0;
 }
 
-.accordion--spaced {
-    padding: var(--space-xl) 0;
-}
-
 .accordion__item {
     border-top: 1px solid var(--color-border-light);
     list-style: none;
@@ -3902,14 +3767,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
     justify-content: center;
     gap: var(--space-sm);
     padding: var(--space-lg) 0;
-}
-
-.pagination--right {
-    justify-content: flex-end;
-}
-
-.pagination--left {
-    justify-content: flex-start;
 }
 
 .pagination__list {
@@ -4038,12 +3895,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
     box-shadow: var(--shadow-lg);
     overflow: hidden;
 }
-
-.modal--sm .modal__content { max-width: 400px; }
-.modal--md .modal__content { max-width: 600px; }
-.modal--lg .modal__content { max-width: 800px; }
-.modal--xl .modal__content { max-width: 1000px; }
-.modal--full .modal__content { max-width: calc(100% - var(--space-xl)); }
 
 .modal__header {
     display: flex;
@@ -4195,15 +4046,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
 
 .toast--error {
     background: var(--color-error);
-}
-
-.toast--warning {
-    background: var(--color-warning);
-    color: var(--color-text-primary);
-}
-
-.toast--warning .toast__close {
-    color: var(--color-text-primary);
 }
 
 .toast--info {
