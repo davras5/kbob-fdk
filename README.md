@@ -12,7 +12,7 @@ A web-based interactive catalog for BIM (Building Information Modeling) requirem
 
 ## Features
 
-- **5 Catalogs** - Browse building elements, document types, BIM use cases, professional models, and EPD data
+- **5 Catalogs** - Browse building elements, document types, BIM use cases, domain models, and EPD data
 - **Grid & List Views** - Toggle between card grid and table layouts with state preserved in URL
 - **Advanced Filtering** - Tag-based (AND logic), category (exclusive), and phase (OR logic) filters with A-Z navigation
 - **Real-time Search** - Global search across all data types with dropdown preview and dedicated search results page
