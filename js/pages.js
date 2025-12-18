@@ -309,9 +309,15 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                     </div>
                     ${renderFilterButton(pageConfig.filterType, typeConfig.getFilterVisible(), activeFiltersCount)}
                 </div>
-                <div class="view-switcher toolbar-control">
-                    <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                    <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                <div class="search-results__controls">
+                    <button class="search-results__sort">
+                        <span>Nach Namen sortieren (Absteigend)</span>
+                        <i data-lucide="chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="view-switcher toolbar-control">
+                        <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                        <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                    </div>
                 </div>
             </div>
 
