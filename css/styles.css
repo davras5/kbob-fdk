@@ -3457,17 +3457,16 @@ footer a:hover {
 }
 
 .phase-badge {
-    width: 22px;
-    height: 22px;
-    border-radius: var(--border-radius-full);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--text-caption);
-    font-weight: var(--font-weight-bold);
-    border: 1px solid var(--color-border-light);
-    color: var(--color-text-muted);
-    background: var(--color-surface);
+    background: var(--color-white);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-input);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-medium);
     cursor: help;
     transition: all var(--transition-fast);
 }
@@ -3478,6 +3477,13 @@ footer a:hover {
     border-color: var(--color-surface-dark);
 }
 
+.phase-badge.inactive {
+    background: var(--color-white);
+    color: var(--color-text-muted);
+    border-color: var(--color-border-light);
+    opacity: 0.6;
+}
+
 /* Usecase Detail Page Styles */
 .phases-container {
     display: flex;
@@ -3486,14 +3492,8 @@ footer a:hover {
 }
 
 .phases-container--large .phase-badge {
-    width: auto;
-    height: auto;
-    padding: var(--space-xs) var(--space-sm);
-    font-size: var(--text-sm);
-}
-
-.phase-badge.inactive {
-    opacity: 0.4;
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--text-body-sm);
 }
 
 .col-actor {
@@ -4333,7 +4333,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
 .usecase-list li {
     position: relative;
     padding: var(--space-sm) 0;
-    padding-left: var(--space-lg);
     color: var(--color-text-secondary);
     line-height: 1.6;
     border-bottom: 1px solid var(--color-border-light);
@@ -4341,17 +4340,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
 
 .usecase-list li:last-child {
     border-bottom: none;
-}
-
-.usecase-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: calc(var(--space-sm) + 0.5em);
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
 }
 
 /* Numbered Usecase List */
@@ -4372,11 +4360,11 @@ th[aria-sort='ascending'] .table__sorter span::after {
     top: var(--space-sm);
     width: 24px;
     height: 24px;
-    background-color: var(--color-primary);
+    background-color: var(--color-surface-dark);
     color: var(--color-white);
-    border-radius: 50%;
+    border-radius: var(--border-radius-full);
     font-size: var(--text-body-sm);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-medium);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4469,11 +4457,11 @@ th[aria-sort='ascending'] .table__sorter span::after {
     top: var(--space-md);
     width: 28px;
     height: 28px;
-    background-color: var(--color-primary);
+    background-color: var(--color-surface-dark);
     color: var(--color-white);
-    border-radius: 50%;
+    border-radius: var(--border-radius-full);
     font-size: var(--text-body-sm);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4533,6 +4521,12 @@ th[aria-sort='ascending'] .table__sorter span::after {
     .detailed-steps-list > li::before {
         width: 24px;
         height: 24px;
+        font-size: var(--text-body-xs);
+    }
+
+    .usecase-list--numbered li::before {
+        width: 20px;
+        height: 20px;
         font-size: var(--text-body-xs);
     }
 }
