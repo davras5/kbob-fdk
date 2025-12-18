@@ -94,8 +94,8 @@ function renderHandbookPage() {
                                             <a href="#" class="download-item__link">Revit Vorlagen</a>
                                             <div class="download-item__meta">
                                                 <span>ZIP</span>
-                                                <span>–</span>
-                                                <span>–</span>
+                                                <span>3.8 MB</span>
+                                                <span>12. November 2024</span>
                                             </div>
                                         </div>
                                     </li>
@@ -105,8 +105,8 @@ function renderHandbookPage() {
                                             <a href="#" class="download-item__link">ArchiCAD Vorlagen</a>
                                             <div class="download-item__meta">
                                                 <span>ZIP</span>
-                                                <span>–</span>
-                                                <span>–</span>
+                                                <span>4.2 MB</span>
+                                                <span>12. November 2024</span>
                                             </div>
                                         </div>
                                     </li>
