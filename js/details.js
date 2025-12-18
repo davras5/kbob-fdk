@@ -536,7 +536,100 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 }
 
 function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
-    renderPlaceholderDetailPage('models', id, activeTags, activeCategory);
+    const data = globalModelsData.find(item => item.id === id);
+    if (!data) {
+        contentArea.innerHTML = '<div class="container error-state">Fachmodell nicht gefunden.</div>';
+        return;
+    }
+
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || 'Ein Fachmodell des KBOB Datenkatalogs.');
+    const safeImage = escapeHtml(data.image || '');
+
+    const backLink = buildHashWithTags('models', activeTags, activeCategory, [], getActiveViewFromURL());
+
+    // Determine which sections have data
+    const hasPhases = hasData(data.phases);
+    const hasElements = hasData(data.elements);
+
+    // Build sidebar links
+    const sidebarLinks = [];
+    if (hasPhases) sidebarLinks.push({ id: 'phasen', text: 'Phasen' });
+    sidebarLinks.push({ id: 'elemente', text: 'Elemente' });
+
+    const sidebarHtml = sidebarLinks.map(link =>
+        `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
+    ).join('');
+
+    // Build phases HTML
+    const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
+    const phasesHtml = allPhases.map(p => {
+        const isActive = data.phases && data.phases.includes(p);
+        return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
+    }).join('');
+
+    // Build elements table HTML
+    const elementsRowsHtml = hasElements
+        ? data.elements.map(el => `
+            <tr>
+                <td class="col-val">${escapeHtml(el.name || '')}</td>
+                <td class="col-val">${escapeHtml(el.description || '')}</td>
+                <td class="col-val">${renderPhaseBadges(el.phases)}</td>
+            </tr>`).join('')
+        : '';
+
+    contentArea.innerHTML = `
+        <section class="detail-hero">
+            <div class="container detail-hero__inner">
+                <div class="hero-content">
+                    <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
+                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                </div>
+                <div class="hero-image-container">
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="detail-layout">
+                <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
+                <div class="detail-content-area">
+
+                    ${hasPhases ? `
+                    <div class="detail-section" id="phasen">
+                        <h2>Projekt-/Lebenszyklusphasen</h2>
+                        <div class="phases-container phases-container--large">${phasesHtml}</div>
+                    </div>` : ''}
+
+                    <div class="detail-section" id="elemente">
+                        <h2>Elemente</h2>
+                        ${hasElements ? `
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-w-20">Name</th>
+                                    <th>Beschreibung</th>
+                                    <th class="th-w-phases">Phasen (1-5)</th>
+                                </tr>
+                            </thead>
+                            <tbody>${elementsRowsHtml}</tbody>
+                        </table>` : `
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="info" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Für dieses Fachmodell sind noch keine Elemente definiert.</p>
+                            </div>
+                        </div>`}
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+    setupDetailInteractions();
 }
 
 function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
