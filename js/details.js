@@ -618,6 +618,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
     const sidebarLinks = [];
     if (hasPhases) sidebarLinks.push({ id: 'phasen', text: 'Phasen' });
     sidebarLinks.push({ id: 'elemente', text: 'Elemente' });
+    sidebarLinks.push({ id: 'anwendungsfaelle', text: 'Anwendungsfälle' });
 
     const sidebarHtml = sidebarLinks.map(link =>
         `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
@@ -685,6 +686,16 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
                                 <p class="info-box__text">Für dieses Fachmodell sind noch keine Elemente definiert.</p>
                             </div>
                         </div>`}
+                    </div>
+
+                    <div class="detail-section" id="anwendungsfaelle">
+                        <h2>Anwendungsfälle</h2>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
