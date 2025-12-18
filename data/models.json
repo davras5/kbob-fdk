@@ -9,23 +9,33 @@
       "Architektur",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-AR01",
-        "desc": "Architekturmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.1",
-        "desc": "Architectural model"
-      }
-    ],
     "phases": [
       1,
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Wand",
+        "description": "Tragende und nichttragende Wände inkl. Innenwände",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Decke",
+        "description": "Geschossdecken und Flachdächer",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Fenster",
+        "description": "Fensterelemente mit Rahmen und Verglasung",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Tür",
+        "description": "Innen- und Aussentüren",
+        "phases": [2, 3, 4]
+      }
     ]
   },
   {
@@ -38,22 +48,27 @@
       "Tragwerk",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-TW01",
-        "desc": "Tragwerksmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.2",
-        "desc": "Structural model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Fundament",
+        "description": "Einzel- und Streifenfundamente",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Stütze",
+        "description": "Tragende Stützen aus Beton oder Stahl",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Träger",
+        "description": "Decken- und Dachträger",
+        "phases": [2, 3, 4]
+      }
     ]
   },
   {
@@ -66,22 +81,27 @@
       "Haustechnik",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-HK01",
-        "desc": "HLKS-Modell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.3",
-        "desc": "MEP model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Lüftungskanal",
+        "description": "Rechteck- und Rundkanäle für Lüftungsanlagen",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Heizungsrohr",
+        "description": "Rohrleitungen für Heizungsverteilung",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Sanitärleitung",
+        "description": "Trink- und Abwasserleitungen",
+        "phases": [2, 3, 4]
+      }
     ]
   },
   {
@@ -94,22 +114,27 @@
       "Haustechnik",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-EL01",
-        "desc": "Elektromodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.4",
-        "desc": "Electrical model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Kabeltrasse",
+        "description": "Kabelrinnen und Kabelkanäle",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Schalter",
+        "description": "Lichtschalter und Taster",
+        "phases": [3, 4]
+      },
+      {
+        "name": "Steckdose",
+        "description": "Steckdosen und Anschlussdosen",
+        "phases": [3, 4]
+      }
     ]
   },
   {
@@ -122,23 +147,12 @@
       "BIM-Koordination",
       "Koordination"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-KO01",
-        "desc": "Koordinationsmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.2.1",
-        "desc": "Federated model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
-    ]
+    ],
+    "elements": []
   },
   {
     "id": "m6",
@@ -150,22 +164,22 @@
       "Landschaftsarchitektur",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-LA01",
-        "desc": "Aussenraummodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.5",
-        "desc": "Landscape model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Gelände",
+        "description": "Geländemodellierung und Topografie",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Bepflanzung",
+        "description": "Bäume, Sträucher und Grünflächen",
+        "phases": [3, 4]
+      }
     ]
   },
   {
@@ -178,22 +192,22 @@
       "Brandschutz",
       "Spezialmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-BS01",
-        "desc": "Brandschutzmodell"
-      },
-      {
-        "system": "GEFMA",
-        "code": "190-10",
-        "desc": "Brandschutz"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Brandwand",
+        "description": "Brandabschnittstrennende Wände",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Fluchtweg",
+        "description": "Fluchtwege und Notausgänge",
+        "phases": [2, 3, 4]
+      }
     ]
   },
   {
@@ -206,22 +220,22 @@
       "Tragwerk",
       "Spezialmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-BG01",
-        "desc": "Baugrubenmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.3.1",
-        "desc": "Temporary works model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Spundwand",
+        "description": "Stahlspundwände zur Baugrubensicherung",
+        "phases": [2, 3]
+      },
+      {
+        "name": "Anker",
+        "description": "Verpressanker und Rückverankerung",
+        "phases": [2, 3]
+      }
     ]
   },
   {
@@ -234,22 +248,11 @@
       "Facility Management",
       "Bestand"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-AB01",
-        "desc": "Bestandsmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.4.1",
-        "desc": "As-built model"
-      }
-    ],
     "phases": [
       3,
       4
-    ]
+    ],
+    "elements": []
   },
   {
     "id": "m10",
@@ -261,22 +264,22 @@
       "Architektur",
       "Fachmodelle"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-FM",
-        "code": "FM-FA01",
-        "desc": "Fassadenmodell"
-      },
-      {
-        "system": "ISO 19650",
-        "code": "5.1.6",
-        "desc": "Facade model"
-      }
-    ],
     "phases": [
       2,
       3,
       4
+    ],
+    "elements": [
+      {
+        "name": "Fassadenpaneel",
+        "description": "Fassadenverkleidung und Paneele",
+        "phases": [2, 3, 4]
+      },
+      {
+        "name": "Fensterrahmen",
+        "description": "Fensterrahmen und Fassadenanschlüsse",
+        "phases": [2, 3, 4]
+      }
     ]
   }
 ]
