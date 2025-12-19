@@ -138,7 +138,7 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data)}
+                    ${renderMetadataTable(data, 'Element', data.title)}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
@@ -364,7 +364,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data)}
+                    ${renderMetadataTable(data, 'Dokument', data.title)}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
@@ -446,9 +446,13 @@ function formatDateToGerman(isoDate) {
 /**
  * Render metadata table section
  * @param {Object} data - Item data with id, version, lastChange, category
+ * @param {string} entityType - Type of entity (e.g., 'Anwendungsfall', 'Element', etc.)
+ * @param {string} title - Name/title of the entity
  * @returns {string} HTML for metadata table
  */
-function renderMetadataTable(data) {
+function renderMetadataTable(data, entityType, title) {
+    const safeEntityType = escapeHtml(entityType || '—');
+    const safeTitle = escapeHtml(title || '—');
     const safeCategory = escapeHtml(data.category || '—');
     const safeId = escapeHtml(data.id || '—');
     const safeVersion = escapeHtml(data.version || '—');
@@ -459,6 +463,8 @@ function renderMetadataTable(data) {
             <h2>Metadaten</h2>
             <table class="data-table">
                 <tbody>
+                    <tr><td class="col-val metadata-label">Entität</td><td class="col-val">${safeEntityType}</td></tr>
+                    <tr><td class="col-val metadata-label">Name</td><td class="col-val">${safeTitle}</td></tr>
                     <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${safeCategory}</td></tr>
                     <tr><td class="col-val metadata-label">ID</td><td class="col-val">${safeId}</td></tr>
                     <tr><td class="col-val metadata-label">Version</td><td class="col-val">${safeVersion}</td></tr>
@@ -649,7 +655,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data)}
+                    ${renderMetadataTable(data, 'Anwendungsfall', data.title)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
@@ -822,7 +828,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data)}
+                    ${renderMetadataTable(data, 'Fachmodell', data.title)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
@@ -887,11 +893,14 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
     // Build sidebar links
     const sidebarLinks = [];
     sidebarLinks.push({ id: 'metadaten', text: 'Metadaten' });
+    sidebarLinks.push({ id: 'allgemein', text: 'Allgemein' });
     sidebarLinks.push({ id: 'umweltindikatoren', text: 'Umweltindikatoren' });
     sidebarLinks.push({ id: 'energie', text: 'Energie' });
     if (hasMaterialProperties) {
         sidebarLinks.push({ id: 'materialeigenschaften', text: 'Materialeigenschaften' });
     }
+    sidebarLinks.push({ id: 'elemente', text: 'Elemente' });
+    sidebarLinks.push({ id: 'anwendungsfaelle', text: 'Anwendungsfälle' });
 
     const sidebarHtml = sidebarLinks.map(link =>
         `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
@@ -962,10 +971,20 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                         <h2>Metadaten</h2>
                         <table class="data-table">
                             <tbody>
+                                <tr><td class="col-val metadata-label">Entität</td><td class="col-val">Ökobilanzdaten</td></tr>
+                                <tr><td class="col-val metadata-label">Name</td><td class="col-val">${escapeHtml(data.title || '—')}</td></tr>
                                 <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${categoryDisplay}</td></tr>
                                 <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.id || '—')}</td></tr>
                                 <tr><td class="col-val metadata-label">Version</td><td class="col-val">${escapeHtml(data.version || '—')}</td></tr>
                                 <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.lastChange)}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="allgemein" class="detail-section">
+                        <h2>Allgemein</h2>
+                        <table class="data-table">
+                            <tbody>
                                 <tr><td class="col-val metadata-label">UUID</td><td class="col-val"><code>${escapeHtml(data.uuid || '—')}</code></td></tr>
                                 <tr><td class="col-val metadata-label">Bezugsgrösse</td><td class="col-val">${escapeHtml(data.unit || '—')}</td></tr>
                             </tbody>
@@ -1023,6 +1042,16 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                     </div>
 
                     ${materialPropertiesHtml}
+
+                    <div id="elemente" class="detail-section">
+                        <h2>Elemente</h2>
+                        <p class="empty-text">Diese Funktion wird derzeit entwickelt.</p>
+                    </div>
+
+                    <div id="anwendungsfaelle" class="detail-section">
+                        <h2>Anwendungsfälle</h2>
+                        <p class="empty-text">Diese Funktion wird derzeit entwickelt.</p>
+                    </div>
                 </div>
             </div>
         </div>`;
