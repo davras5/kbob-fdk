@@ -269,7 +269,7 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
     const typeConfig = catalogTypeConfig[type];
 
     if (!pageConfig || !typeConfig) {
-        contentArea.innerHTML = '<div class="container error-state">Seite nicht gefunden.</div>';
+        showUserError('pageError', `Unknown catalog type: ${type}`);
         return;
     }
 

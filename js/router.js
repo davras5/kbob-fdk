@@ -12,7 +12,8 @@ function router() {
     // Scroll to top when navigating to a new page
     window.scrollTo(0, 0);
 
-    const { route, id, tags, searchQuery, category } = parseHashWithParams();
+    // Get URL state (uses caching for performance)
+    const { route, id, tags, searchQuery, category } = getCurrentURLState();
 
     // Update nav active states
     document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
@@ -118,11 +119,11 @@ function router() {
 
 /**
  * Switch view mode (grid/list)
- * @param {string} view - View mode ('grid' or 'list')
+ * @param {'grid'|'list'} view - View mode
  */
 window.switchView = function(view) {
-    const { route, tags, category, phases } = parseHashWithParams();
-    window.location.hash = buildHashWithTags(route, tags, category, phases, view);
+    const state = getCurrentURLState();
+    window.location.hash = buildHashWithTags(state.route, state.tags, state.category, state.phases, view);
 }
 
 /**
@@ -134,6 +135,7 @@ window.toggleFilter = function(type = 'elements') {
     const config = catalogTypeConfig[type];
     if (config) {
         config.setFilterVisible(!config.getFilterVisible());
-        renderGenericCatalogPage(type, getActiveTagsFromURL(), getActiveCategoryFromURL());
+        const state = getCurrentURLState();
+        renderGenericCatalogPage(type, state.tags, state.category);
     }
 }
