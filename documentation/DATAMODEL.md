@@ -522,73 +522,12 @@ Element categories are organized by discipline/domain to align with typical BIM 
 
 Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
-| Code | Category | German | Description |
-|------|----------|--------|-------------|
-| O | Organisation | Organisation | Project and operations organization documents |
-| K | Verträge und Kosten | Contracts and Costs | Commercial and contractual documents |
-| B | Konzepte und Beschriebe | Concepts and Descriptions | Planning concepts and technical descriptions |
-| V | Visualisierungen | Visualizations | Plans, drawings, and visual representations |
-
-##### DocumentCategory Subcategories
-
-**O – Organisation:**
-| Code | Description |
-|------|-------------|
-| O01 | Stammorganisation |
-| O02 | Projektmanagement |
-| O03 | Betriebsorganisation |
-| O04 | Qualitätsmanagement |
-| O05 | Informationsmanagement |
-| O06 | Termine |
-| O07 | Einsatzpläne |
-| O08–O16 | Verzeichnisse/Protokolle/Journale |
-
-**K – Verträge und Kosten:**
-| Code | Description |
-|------|-------------|
-| K01 | Kostenplanung |
-| K02 | Ausschreibungsunterlagen |
-| K03 | Vertragsunterlagen |
-| K04 | Kostenüberwachung |
-| K05 | Rechnungsunterlagen |
-| K06 | Kostenabrechnung |
-| K07 | Garantieunterlagen |
-| K08 | Bewertungen |
-| K09 | Versicherungspolicen |
-
-**B – Konzepte und Beschriebe:**
-| Code | Description |
-|------|-------------|
-| B01 | Rahmenbedingungen |
-| B02 | Grundstücksinformationen |
-| B03 | Pflichtenhefter |
-| B04 | Strategien |
-| B05 | Analysen/Studien |
-| B06 | Gutachten |
-| B07 | Nachweise |
-| B10–B15 | Nutzungs-/Betriebs-/Fachkonzepte |
-| B17–B20 | Berichte/Anleitungen/Verzeichnisse |
-
-**V – Visualisierungen:**
-| Code | Description |
-|------|-------------|
-| V01 | Kommunale Pläne |
-| V02 | Übergeordnete Pläne |
-| V03–V06 | Projekt-/Ausschreibungspläne |
-| V07 | Architektur/Konstruktion |
-| V08 | Technik |
-| V09 | Sicherheit |
-| V10–V11 | Weitere/Bewirtschaftungspläne |
-
-##### DocumentationType
-
-| Value | German | Description |
-|-------|--------|-------------|
-| PD | Projektdokumentation | Documents created during project phases |
-| OD | Objektdokumentation | Documents maintained for the building lifecycle |
-| Prozessdokumentation | Prozessdokumentation | Documents describing workflows and procedures |
-| Fachdokumentation | Fachdokumentation | Discipline-specific technical documents |
-| Anlagedokumentation | Anlagedokumentation | Documents for building systems and equipment |
+| Code | Category | Description |
+|------|----------|-------------|
+| O | Organisation | Project and operations organization documents |
+| K | Verträge und Kosten | Commercial and contractual documents |
+| B | Konzepte und Beschriebe | Planning concepts and technical descriptions |
+| V | Visualisierungen | Plans, drawings, and visual representations |
 
 ##### FileFormat
 
