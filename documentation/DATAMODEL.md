@@ -6,32 +6,32 @@ This document describes the conceptual and logical data model for the KBOB BIM D
 
 ## Table of Contents
 
-- [1. Introduction](#1-introduction)
-  - [1.1 Purpose and Goals](#11-purpose-and-goals)
-  - [1.2 Strategic Alignment](#12-strategic-alignment)
-  - [1.3 Design Principles](#13-design-principles)
-  - [1.4 Localization](#14-localization)
-- [2. Conceptual Model](#2-conceptual-model)
-  - [2.1 Entity Overview](#21-entity-overview)
-  - [2.2 Entity Relationships](#22-entity-relationships)
-  - [2.3 Design Rationale](#23-design-rationale)
-- [3. Shared Concepts](#3-shared-concepts)
-  - [3.1 Common Attributes](#31-common-attributes)
-  - [3.2 Lifecycle Phases](#32-lifecycle-phases)
-  - [3.3 Classification Systems](#33-classification-systems)
-  - [3.4 Tagging System](#34-tagging-system)
-- [4. Entity Specifications](#4-entity-specifications)
-  - [4.1 Element](#41-element)
-  - [4.2 Document](#42-document)
-  - [4.3 UseCase](#43-usecase)
-  - [4.4 Model](#44-model)
-  - [4.5 EPD](#45-epd)
-- [5. Constraints and Rules](#5-constraints-and-rules)
-  - [5.1 Identification Rules](#51-identification-rules)
-  - [5.2 Integrity Rules](#52-integrity-rules)
-  - [5.3 Referential Guidelines](#53-referential-guidelines)
-- [Appendix A: Glossary](#appendix-a-glossary)
-- [Appendix B: Changelog](#appendix-b-changelog)
+[1. Introduction](#1-introduction)
+  [1.1 Purpose and Goals](#11-purpose-and-goals)
+  [1.2 Strategic Alignment](#12-strategic-alignment)
+  [1.3 Design Principles](#13-design-principles)
+  [1.4 Localization](#14-localization)
+[2. Conceptual Model](#2-conceptual-model)
+  [2.1 Entity Overview](#21-entity-overview)
+  [2.2 Entity Relationships](#22-entity-relationships)
+  [2.3 Design Rationale](#23-design-rationale)
+[3. Shared Concepts](#3-shared-concepts)
+  [3.1 Common Attributes](#31-common-attributes)
+  [3.2 Lifecycle Phases](#32-lifecycle-phases)
+  [3.3 Classification Systems](#33-classification-systems)
+  [3.4 Tagging System](#34-tagging-system)
+[4. Entity Specifications](#4-entity-specifications)
+  [4.1 Element](#41-element)
+  [4.2 Document](#42-document)
+  [4.3 UseCase](#43-usecase)
+  [4.4 Model](#44-model)
+  [4.5 EPD](#45-epd)
+[5. Constraints and Rules](#5-constraints-and-rules)
+  [5.1 Identification Rules](#51-identification-rules)
+  [5.2 Integrity Rules](#52-integrity-rules)
+  [5.3 Referential Guidelines](#53-referential-guidelines)
+[Appendix A: Glossary](#appendix-a-glossary)
+[Appendix B: Changelog](#appendix-b-changelog)
 
 ---
 
@@ -81,7 +81,7 @@ The data model follows these guiding principles:
 
 **Current State:** The data model is currently implemented in German (DE) only.
 
-**Future State:** Multi-language support for German (DE), English (EN), French (FR), and Italian (IT) is planned. Localized attributes will include `title`, `description`, enumeration display values, and controlled vocabulary labels.
+**Future State:** Multi-language support for German (DE), English (EN), French (FR), and Italian (IT) is planned. Localized attributes will include `title`, `description`, controlled vocabulary values, and labels.
 
 The underlying data structure and controlled vocabulary codes will remain language-neutral to ensure consistency across locales.
 
@@ -292,20 +292,20 @@ The catalog supports multiple classification systems to enable cross-referencing
 
 This is only an overview of the main standard.
 
-| Code | German | English |
-|------|--------|---------|
-| A | Grundstück | Land/site acquisition |
-| B | Umgebung | Site/surroundings |
-| C | Rohbau | Shell construction |
-| D | Technik | Building services |
-| E | Äussere Wandbekleidungen | External wall claddings |
-| F | Bedachung | Roofing |
-| G | Ausbau | Interior finishes |
-| I | Ausstattungen | Furnishings/equipment |
-| V | Nebenkosten | Ancillary costs |
-| W | Baunebenkosten | Construction ancillary costs |
+| Code | Value (EN) | Value (DE) |
+|------|------------|------------|
+| A | Land/site acquisition | Grundstück |
+| B | Site/surroundings | Umgebung |
+| C | Shell construction | Rohbau |
+| D | Building services | Technik |
+| E | External wall claddings | Äussere Wandbekleidungen |
+| F | Roofing | Bedachung |
+| G | Interior finishes | Ausbau |
+| I | Furnishings/equipment | Ausstattungen |
+| V | Ancillary costs | Nebenkosten |
+| W | Construction ancillary costs | Baunebenkosten |
 | Y | Reserve | Reserve |
-| Z | Mehrwertsteuer | VAT |
+| Z | VAT | Mehrwertsteuer |
 
 #### DIN 276 Codes
 
@@ -340,30 +340,30 @@ This standard defines the metadata structure for identifying BIM use cases on pl
 
 The following tag values are derived from VDI 2552 Blatt 12.2 Anhang B1:
 
-| Tag | Description |
-|-----|-------------|
-| Abnahme | Acceptance and handover processes – Use cases that utilize data for the acceptance of the overall project and/or parts of an overall project (e.g., defect and acceptance management) |
-| Änderungsmanagement | Change management – Use cases that utilize data for quantifying and qualifying changes, tracking them, and billing them if necessary (e.g., change tracking) |
-| Ausschreibung und Vergabe | Tendering and procurement – Use cases that utilize data for preparing and creating tender and award-relevant information (e.g., specifications for construction work tendering) |
-| Bedarfsplanung | Requirements planning – Use cases that utilize data for establishing project requirements and supporting site and procurement variant studies (e.g., plausibility check of quantities and masses in planning) |
-| Bestandserfassung | Asset capture – Use cases that capture data from assets and other relevant inventory and make it usable for data-based process steps (e.g., property capture) |
-| Betrieb | Operations – Use cases that utilize data to support and/or optimize operations (e.g., energy management) |
-| Dokumentation | Documentation – Use cases implemented for documentation purposes (e.g., building documentation) |
-| Genehmigung | Approval – Use cases that particularly concern the approval process (e.g., public-law review and approval) |
-| Inbetriebnahme | Commissioning – Use cases implemented to support commissioning processes (e.g., commissioning management) |
-| Koordination | Coordination – Use cases that support coordination of services, models, project communication, etc. (e.g., coordination and integration of planning) |
-| Kosten | Costs – Use cases that utilize data for determining, verifying, and optimizing costs throughout the lifecycle (e.g., cost estimation according to DIN 276) |
-| Logistik | Logistics – Use cases that utilize data to support logistics processes (e.g., logistics concept) |
-| Machbarkeit | Feasibility – Use cases that utilize data to create a project study (e.g., feasibility study for new construction) |
-| Nachhaltigkeit | Sustainability – Use cases that utilize data to assess and/or optimize sustainability aspects (e.g., sustainability certification) |
-| Nachweise | Verification/Analysis/Expert reports – Use cases concerning the performance of verifications, expert reports, or calculations, including occupational safety verifications (e.g., dimensioning and verification) |
-| Qualitätssicherung | Quality assurance – Use cases that utilize data to ensure quality in a project, including legal quality assurance (e.g., progress recording and control of construction work) |
-| Risikomanagement | Risk management – Use cases that utilize data for identifying, assessing, controlling, and tracking risks (e.g., maintenance and inspection management) |
-| Termine | Scheduling – Use cases that utilize data for calculating, planning, verifying schedule information and relationships (e.g., execution scheduling) |
-| Variantenvergleich | Variant comparison – Use cases that utilize data to compare different variants of a scenario (e.g., planning variant comparison) |
-| Versicherung | Insurance – Use cases that support the implementation of insurance processes (e.g., building documentation) |
-| Visualisierung | Visualization – Use cases that utilize data for graphical representation and/or analysis (e.g., visualization of object and specialist planning) |
-| Sonstiges | Other – Use cases that cannot be assigned to any other application field |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Acceptance | Abnahme | Acceptance and handover processes – Use cases that utilize data for the acceptance of the overall project and/or parts of an overall project (e.g., defect and acceptance management) |
+| Change Management | Änderungsmanagement | Change management – Use cases that utilize data for quantifying and qualifying changes, tracking them, and billing them if necessary (e.g., change tracking) |
+| Tendering and Procurement | Ausschreibung und Vergabe | Tendering and procurement – Use cases that utilize data for preparing and creating tender and award-relevant information (e.g., specifications for construction work tendering) |
+| Requirements Planning | Bedarfsplanung | Requirements planning – Use cases that utilize data for establishing project requirements and supporting site and procurement variant studies (e.g., plausibility check of quantities and masses in planning) |
+| Asset Capture | Bestandserfassung | Asset capture – Use cases that capture data from assets and other relevant inventory and make it usable for data-based process steps (e.g., property capture) |
+| Operations | Betrieb | Operations – Use cases that utilize data to support and/or optimize operations (e.g., energy management) |
+| Documentation | Dokumentation | Documentation – Use cases implemented for documentation purposes (e.g., building documentation) |
+| Approval | Genehmigung | Approval – Use cases that particularly concern the approval process (e.g., public-law review and approval) |
+| Commissioning | Inbetriebnahme | Commissioning – Use cases implemented to support commissioning processes (e.g., commissioning management) |
+| Coordination | Koordination | Coordination – Use cases that support coordination of services, models, project communication, etc. (e.g., coordination and integration of planning) |
+| Costs | Kosten | Costs – Use cases that utilize data for determining, verifying, and optimizing costs throughout the lifecycle (e.g., cost estimation according to DIN 276) |
+| Logistics | Logistik | Logistics – Use cases that utilize data to support logistics processes (e.g., logistics concept) |
+| Feasibility | Machbarkeit | Feasibility – Use cases that utilize data to create a project study (e.g., feasibility study for new construction) |
+| Sustainability | Nachhaltigkeit | Sustainability – Use cases that utilize data to assess and/or optimize sustainability aspects (e.g., sustainability certification) |
+| Verification | Nachweise | Verification/Analysis/Expert reports – Use cases concerning the performance of verifications, expert reports, or calculations, including occupational safety verifications (e.g., dimensioning and verification) |
+| Quality Assurance | Qualitätssicherung | Quality assurance – Use cases that utilize data to ensure quality in a project, including legal quality assurance (e.g., progress recording and control of construction work) |
+| Risk Management | Risikomanagement | Risk management – Use cases that utilize data for identifying, assessing, controlling, and tracking risks (e.g., maintenance and inspection management) |
+| Scheduling | Termine | Scheduling – Use cases that utilize data for calculating, planning, verifying schedule information and relationships (e.g., execution scheduling) |
+| Variant Comparison | Variantenvergleich | Variant comparison – Use cases that utilize data to compare different variants of a scenario (e.g., planning variant comparison) |
+| Insurance | Versicherung | Insurance – Use cases that support the implementation of insurance processes (e.g., building documentation) |
+| Visualization | Visualisierung | Visualization – Use cases that utilize data for graphical representation and/or analysis (e.g., visualization of object and specialist planning) |
+| Other | Sonstiges | Other – Use cases that cannot be assigned to any other application field |
 
 #### Application Rules
 
@@ -614,8 +614,8 @@ Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
 | Attribute | Format | Constraint | Required | Description |
 |-----------|--------|------------|----------|-------------|
-| `client` | Collection[String] | – | ✓ | Auftraggeber prerequisites |
-| `contractor` | Collection[String] | – | ✓ | Auftragnehmer prerequisites |
+| `client` | Collection[String] | – | ✓ | Client prerequisites |
+| `contractor` | Collection[String] | – | ✓ | Contractor prerequisites |
 
 #### Controlled Vocabularies
 
@@ -723,42 +723,42 @@ Model categories organize BIM models by their purpose and scope:
 
 Beyond the category, models can be further classified by their construction domain. This reference information describes typical model types used in different construction sectors:
 
-##### Allgemein (General)
+##### General (Allgemein)
 
-| Model Type | Description |
-|------------|-------------|
-| Allgemeines Koordinationsmodell | General coordination model with project origin and georeferencing (WGS84) |
-| Geländemodell | Topography model including cadastral data |
-| Scanmodell | Point cloud data |
-| Umgebungsmodell | Surrounding context (e.g., from 4D city model) |
-| Baubereichs-/Bauperimetermodell | Construction area envelope per phasing |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| General Coordination Model | Allgemeines Koordinationsmodell | General coordination model with project origin and georeferencing (WGS84) |
+| Terrain Model | Geländemodell | Topography model including cadastral data |
+| Scan Model | Scanmodell | Point cloud data |
+| Context Model | Umgebungsmodell | Surrounding context (e.g., from 4D city model) |
+| Construction Area Model | Baubereichs-/Bauperimetermodell | Construction area envelope per phasing |
 
-##### Hochbau (Building Construction)
+##### Building Construction (Hochbau)
 
-| Model Type | Description |
-|------------|-------------|
-| Hochbau Koordinationsmodell | Building coordination model |
-| Architekturmodell | Architectural design model |
-| Tragwerksmodell | Structural model |
-| Aussparungsmodell | Openings and penetrations |
-| Raummodell | Room/space model |
-| Brandschutzmodell | Fire protection model |
-| Lüftungsmodell | Ventilation systems |
-| Heizungsmodell | Heating systems |
-| Sanitärmodell | Sanitary systems |
-| Elektromodell | Electrical systems |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Building Coordination Model | Hochbau Koordinationsmodell | Building coordination model |
+| Architectural Model | Architekturmodell | Architectural design model |
+| Structural Model | Tragwerksmodell | Structural model |
+| Openings Model | Aussparungsmodell | Openings and penetrations |
+| Room Model | Raummodell | Room/space model |
+| Fire Protection Model | Brandschutzmodell | Fire protection model |
+| Ventilation Model | Lüftungsmodell | Ventilation systems |
+| Heating Model | Heizungsmodell | Heating systems |
+| Sanitary Model | Sanitärmodell | Sanitary systems |
+| Electrical Model | Elektromodell | Electrical systems |
 
-##### Werkleitungen (Utilities)
+##### Utilities (Werkleitungen)
 
-| Model Type | Description |
-|------------|-------------|
-| Werkleitung Koordinationsmodell | Utility coordination model |
-| Wasserversorgungsmodell | Water supply |
-| Abwasserleitungsmodell | Sewage/drainage |
-| Elektroversorungsmodell | Power distribution |
-| Gasversorgungsmodell | Gas supply |
-| Fernwärmeversorgungsmodell | District heating |
-| Beleuchtungsmodell | Street lighting |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Utility Coordination Model | Werkleitung Koordinationsmodell | Utility coordination model |
+| Water Supply Model | Wasserversorgungsmodell | Water supply |
+| Sewage Model | Abwasserleitungsmodell | Sewage/drainage |
+| Power Distribution Model | Elektroversorungsmodell | Power distribution |
+| Gas Supply Model | Gasversorgungsmodell | Gas supply |
+| District Heating Model | Fernwärmeversorgungsmodell | District heating |
+| Street Lighting Model | Beleuchtungsmodell | Street lighting |
 
 ---
 
@@ -868,32 +868,32 @@ Beyond the category, models can be further classified by their construction doma
 
 4. **Standard References** – Referenced standards should use official designations (e.g., "SIA 2051", "ISO 19650-1", "VDI 2552 Blatt 12.2")
 
-5. **Model Category Consistency** – Model category values must be one of the defined categories (Fachmodelle, Koordination, Spezialmodelle, Bestand)
+5. **Model Category Consistency** – Model category values must be one of the defined categories (Discipline Models, Coordination, Special Models, As-Built)
 
 ---
 
 ## Appendix A: Glossary
 
-| Term | German | Definition |
-|------|--------|------------|
-| AIA | Auftraggeber-Informationsanforderungen | Client information requirements document |
-| Anwendungsfeld | Application field | VDI 2552 Blatt 12.2 metadata for categorizing BIM use cases |
-| BAP | BIM-Abwicklungsplan | BIM execution plan |
-| eCH | eCH E-Government Standards | Swiss e-government standardization body |
-| EPD | Umweltproduktdeklaration | Environmental Product Declaration |
-| GWP | Treibhauspotenzial | Global Warming Potential |
-| HOAI | Honorarordnung für Architekten und Ingenieure | German fee structure for architects and engineers, defines service phases (Leistungsphasen) |
-| IFC | Industry Foundation Classes | Open standard for BIM data exchange |
-| Informationsbereitstellende | Information provider | Role providing use case/project-relevant information (ISO 19650-1) |
-| Informationsbestellende | Information requester | Role commissioning and receiving use case/project-relevant information (ISO 19650-1) |
-| KBOB | Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren | Coordination Conference of Swiss Public Sector Construction and Property Services |
-| LOG | Level of Geometry | Geometric detail requirements |
-| LOI | Level of Information | Attribute/property requirements |
-| RACI | Responsible, Accountable, Consulted, Informed | Responsibility assignment matrix |
-| SIA | Schweizerischer Ingenieur- und Architektenverein | Swiss Society of Engineers and Architects, defines Swiss lifecycle phases (SIA 112) |
-| UBP | Umweltbelastungspunkte | Swiss environmental impact points |
-| VDI 2552 | VDI-Richtlinie 2552 | German BIM standard series by Verein Deutscher Ingenieure |
-| WUP | Bergische Universität Wuppertal | Source of region-neutral lifecycle phases used in this model |
+| Acronym | Term (EN) | Term (DE) | Description |
+|---------|-----------|-----------|-------------|
+| AIA | Client Information Requirements | Auftraggeber-Informationsanforderungen | Client information requirements document |
+| – | Application Field | Anwendungsfeld | VDI 2552 Blatt 12.2 metadata for categorizing BIM use cases |
+| BAP | BIM Execution Plan | BIM-Abwicklungsplan | BIM execution plan |
+| eCH | eCH E-Government Standards | eCH E-Government Standards | Swiss e-government standardization body |
+| EPD | Environmental Product Declaration | Umweltproduktdeklaration | Environmental Product Declaration |
+| GWP | Global Warming Potential | Treibhauspotenzial | Climate change impact indicator |
+| HOAI | Fee Structure for Architects and Engineers | Honorarordnung für Architekten und Ingenieure | German fee structure for architects and engineers, defines service phases (Leistungsphasen) |
+| IFC | Industry Foundation Classes | Industry Foundation Classes | Open standard for BIM data exchange |
+| – | Information Provider | Informationsbereitstellende | Role providing use case/project-relevant information (ISO 19650-1) |
+| – | Information Requester | Informationsbestellende | Role commissioning and receiving use case/project-relevant information (ISO 19650-1) |
+| KBOB | Coordination Conference of Swiss Public Sector Construction and Property Services | Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren | Swiss federal building and property coordination body |
+| LOG | Level of Geometry | Level of Geometry | Geometric detail requirements |
+| LOI | Level of Information | Level of Information | Attribute/property requirements |
+| RACI | Responsible, Accountable, Consulted, Informed | Responsible, Accountable, Consulted, Informed | Responsibility assignment matrix |
+| SIA | Swiss Society of Engineers and Architects | Schweizerischer Ingenieur- und Architektenverein | Swiss standards body, defines Swiss lifecycle phases (SIA 112) |
+| UBP | Environmental Impact Points | Umweltbelastungspunkte | Swiss ecological scarcity method indicator |
+| VDI 2552 | VDI Guideline 2552 | VDI-Richtlinie 2552 | German BIM standard series by Verein Deutscher Ingenieure |
+| WUP | University of Wuppertal | Bergische Universität Wuppertal | Source of region-neutral lifecycle phases used in this model |
 
 ---
 
@@ -901,7 +901,7 @@ Beyond the category, models can be further classified by their construction doma
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.1 | – | Renamed "Enumeration" column to "Constraint" across all attribute tables; added specific constraint patterns for ID fields (e{n}, uc{nnn}, m{n}, etc.); added ISO 8601 constraint for date fields; added range constraints (1–5) for phase fields; added minimum cardinality constraints (min. 1) where applicable; added schema constraints (IFC 4.3, UUID v4) for reference fields; added value range constraints (≥ 0) for numeric environmental indicators; standardized all controlled vocabulary tables to consistent column order: Value (EN) \| Value (DE) \| Description |
+| 2.1 | – | Renamed "Enumeration" column to "Constraint" across all attribute tables; added specific constraint patterns for ID fields (e{n}, uc{nnn}, m{n}, etc.); added ISO 8601 constraint for date fields; added range constraints (1–5) for phase fields; added minimum cardinality constraints (min. 1) where applicable; added schema constraints (IFC 4.3, UUID v4) for reference fields; added value range constraints (≥ 0) for numeric environmental indicators; standardized all controlled vocabulary tables to consistent column order: Value (EN) \| Value (DE) \| Description; fixed eBKP-H Codes table column order; added EN/DE columns to Tag Values (Anwendungsfeld) table; added EN/DE columns to Model Types reference tables (Allgemein, Hochbau, Werkleitungen); fixed mixed-language descriptions in Prerequisites structure |
 | 2.0 | – | Complete document restructure: reorganized into Introduction, Conceptual Model, Shared Concepts, Entity Specifications, Constraints and Rules, and Appendices; standardized all entity attribute tables with consistent Format/Constraint columns; unified entity specification template (Overview, Attributes, Nested Structures, Controlled Vocabularies); moved Glossary and Changelog to appendices |
 | 1.4 | – | Changed Model entity attribute from `domain` to `category` for consistency with shared attributes across all entities; Updated Model Categories to match actual data values (Fachmodelle, Koordination, Spezialmodelle, Bestand); Retained construction domain reference information as supplementary classification |
 | 1.3 | – | Updated Document categories to KBOB/IPB Dokumenttypenkatalog structure (O, K, B, V); Updated UseCase categories to VDI 2552 Blatt 12.2 Anwendungsfeld values (22 categories); Added VDI 2552 information exchange roles (Informationsbereitstellende/Informationsbestellende); Updated Model entity to use domain-based categorization with 14 construction domains; Enhanced lifecycle phases section with VDI 2552 Blatt 12.2 descriptions; Expanded tagging system descriptions per VDI 2552 Blatt 12.2 Anhang B1; Added documentation types and quality requirements for Documents |
