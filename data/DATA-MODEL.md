@@ -530,7 +530,6 @@ Defines required documents per phase:
 | `category` | Enumeration | ✓ | Document category per KBOB (see below) |
 | `formats` | Format Collection | ✓ | Acceptable file formats |
 | `retention` | Enumeration | ✓ | Retention policy |
-| `documentationType` | Enumeration Collection | ✓ | Documentation scope (PD, OD, process, specialist, system) |
 | `classifications` | Classification Map | ○ | Optional classification codes |
 
 #### Document Categories (KBOB Dokumenttypenkatalog)
@@ -614,12 +613,8 @@ Documents may be subject to quality guidelines:
 | `prerequisites` | Prerequisites Structure | ✓ | Requirements for client and contractor |
 | `implementation` | String Collection | ✓ | Implementation steps |
 | `qualityCriteria` | String Collection | ✓ | Acceptance and quality criteria |
-| `informationProvider` | Enumeration Collection | ○ | Informationsbereitstellende per VDI 2552 |
-| `informationRequester` | Enumeration Collection | ○ | Informationsbestellende per VDI 2552 |
 | `standards` | String Collection | ○ | Referenced standards (SIA, ISO) |
 | `process_url` | String | ○ | Link to BPMN process diagram |
-| `examples` | String Collection | ○ | Example applications |
-| `practiceExample` | Text | ○ | Detailed practical example |
 
 #### UseCase Categories (VDI 2552 Blatt 12.2 Anwendungsfeld)
 
