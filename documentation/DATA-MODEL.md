@@ -134,6 +134,7 @@ All entities share lifecycle phases **except EPD**, which contains phase-neutral
 
 #### Entity Relationship Diagram
 
+```mermaid
 erDiagram
 	direction LR
 	
@@ -215,6 +216,7 @@ erDiagram
 	MODEL }|--|{ ELEMENT : "contains"
 	ELEMENT }o--o{ CLASSIFICATION : "classified by"
 	DOCUMENT }o--o{ CLASSIFICATION : "classified by"
+```
 
 ### 2.3 Design Rationale
 
