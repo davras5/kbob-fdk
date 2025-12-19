@@ -96,7 +96,7 @@ kbob-fdk/
 │   ├── img/                # Element, document, usecase images
 │   └── readme/             # Preview screenshots
 ├── documentation/
-│   └── DATA-MODEL.md       # Comprehensive data model documentation
+│   └── DATAMODEL.md       # Comprehensive data model documentation
 ├── tools/
 │   └── optimize_images.py  # Image optimization utility
 ├── LICENSE                 # MIT License
