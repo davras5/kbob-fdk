@@ -134,165 +134,87 @@ All entities share lifecycle phases **except EPD**, which contains phase-neutral
 
 #### Entity Relationship Diagram
 
-```mermaid
 erDiagram
-    %% UseCase as central organizing entity (ISO 19650)
-    USECASE ||--o{ USECASE_ELEMENT : "requires"
-    USECASE ||--o{ USECASE_DOCUMENT : "specifies"
-    USECASE ||--o{ USECASE_MODEL : "involves"
-    USECASE ||--o{ USECASE_EPD : "references"
-    USECASE ||--o| BPMN_DIAGRAM : "described by"
-    USECASE ||--o{ ROLE_ASSIGNMENT : "assigns (RACI)"
-    
-    %% Element relationships
-    ELEMENT ||--o{ GEOMETRY_REQUIREMENT : "has LOG"
-    ELEMENT ||--o{ INFORMATION_REQUIREMENT : "has LOI"
-    ELEMENT ||--o{ DOCUMENTATION_REQUIREMENT : "requires docs"
-    ELEMENT }o--o{ CLASSIFICATION : "classified by"
-    ELEMENT ||--o{ ELEMENT_DOCUMENT : "documented by"
-    ELEMENT ||--o{ ELEMENT_EPD : "linked to"
-    
-    %% Element software mappings
-    ELEMENT ||--o{ IFC_MAPPING : "maps to (exchange)"
-    ELEMENT ||--o{ REVIT_MAPPING : "maps to (authoring)"
-    ELEMENT ||--o{ ARCHICAD_MAPPING : "maps to (authoring)"
-    
-    %% Model relationships
-    MODEL ||--o{ MODEL_ELEMENT : "contains"
-    
-    %% Document and EPD classifications
-    DOCUMENT }o--o{ CLASSIFICATION : "classified by"
-    EPD }o--|| EPD_CATEGORY : "belongs to"
+	direction LR
+	
+	GOAL {
+	}
 
-    %% Junction tables
-    USECASE_ELEMENT {
-        usecase_id identifier FK
-        element_id identifier FK
-    }
-    USECASE_DOCUMENT {
-        usecase_id identifier FK
-        document_id identifier FK
-    }
-    USECASE_MODEL {
-        usecase_id identifier FK
-        model_id identifier FK
-    }
-    USECASE_EPD {
-        usecase_id identifier FK
-        epd_id identifier FK
-    }
-    ELEMENT_DOCUMENT {
-        element_id identifier FK
-        document_id identifier FK
-    }
-    ELEMENT_EPD {
-        element_id identifier FK
-        epd_id identifier FK
-    }
-    MODEL_ELEMENT {
-        model_id identifier FK
-        element_id identifier FK
-    }
+	USECASE {
+		id identifier PK
+		version string
+		lastChange date
+		title string
+		description text
+		category enumeration
+		tags tag_array
+		phases phase_array
+		bpmnLink url
+		roles raci_array
+	}
 
-    %% Main entities
-    USECASE {
-        id identifier PK
-        version string
-        lastChange date
-        title string
-        description text
-        category enumeration
-        tags tag_array
-        phases phase_array
-        bpmnLink url
-        roles raci_array
-    }
+	ELEMENT {
+		id identifier PK
+		version string
+		lastChange date
+		title string
+		description text
+		category enumeration
+		tags tag_array
+		phases phase_array
+		classifications object
+	}
 
-    ELEMENT {
-        id identifier PK
-        version string
-        lastChange date
-        title string
-        description text
-        category enumeration
-        tags tag_array
-        phases phase_array
-        classifications object
-    }
-    
-    DOCUMENT {
-        id identifier PK
-        version string
-        lastChange date
-        title string
-        description text
-        category enumeration
-        tags tag_array
-        phases phase_array
-        formats format_array
-        retention enumeration
-    }
-    
-    MODEL {
-        id identifier PK
-        version string
-        lastChange date
-        title string
-        description text
-        category enumeration
-        tags tag_array
-        phases phase_array
-        abbreviation string
-    }
-    
-    EPD {
-        id identifier PK
-        uuid identifier UK
-        title string
-        description text
-        category enumeration
-        tags tag_array
-        unit enumeration
-        gwp numeric
-        ubp numeric
-        penrt numeric
-        pert numeric
-    }
+	MODEL {
+		id identifier PK
+		version string
+		lastChange date
+		title string
+		description text
+		category enumeration
+		tags tag_array
+		phases phase_array
+		abbreviation string
+	}
 
-    %% Mapping entities
-    IFC_MAPPING {
-        element_id identifier FK
-        ifcClass string
-        predefinedType string
-        ifcVersion string
-    }
-    
-    REVIT_MAPPING {
-        element_id identifier FK
-        category string
-        family string
-        type string
-    }
-    
-    ARCHICAD_MAPPING {
-        element_id identifier FK
-        tool string
-        classification string
-    }
+	DOCUMENT {
+		id identifier PK
+		version string
+		lastChange date
+		title string
+		description text
+		category enumeration
+		tags tag_array
+		phases phase_array
+		formats format_array
+		retention enumeration
+	}
 
-    %% Process definition
-    BPMN_DIAGRAM {
-        usecase_id identifier FK
-        link url
-        version string
-    }
+	EPD {
+		id identifier PK
+		uuid identifier UK
+		title string
+		description text
+		category enumeration
+		tags tag_array
+		unit enumeration
+		gwp numeric
+		ubp numeric
+		penrt numeric
+		pert numeric
+	}
 
-    ROLE_ASSIGNMENT {
-        usecase_id identifier FK
-        role enumeration
-        responsibility enumeration
-    }
-```
+	CLASSIFICATION {
+	}
+
+	GOAL }|--|{ USECASE : "aggregates"
+	USECASE }|--|{ ELEMENT : "requires"
+	USECASE }|--|{ DOCUMENT : "specifies"
+	USECASE }|--|{ MODEL : "involves"
+	USECASE }|--|{ EPD : "references"
+	MODEL }|--|{ ELEMENT : "contains"
+	ELEMENT }o--o{ CLASSIFICATION : "classified by"
+	DOCUMENT }o--o{ CLASSIFICATION : "classified by"
 
 ### 2.3 Design Rationale
 
