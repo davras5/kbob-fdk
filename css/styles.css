@@ -1429,7 +1429,7 @@ footer a:hover {
 }
 
 .search-result-item:hover {
-    background-color: var(--color-background);
+    background-color: var(--color-bg-alt);
     text-decoration: none;
 }
 
