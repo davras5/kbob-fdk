@@ -232,10 +232,10 @@ erDiagram
         lastChange date
         title string
         description text
-        category enumeration
+        domain enumeration
         tags tag_array
         phases phase_array
-        discipline enumeration
+        abbreviation string
     }
     
     EPD {
@@ -321,7 +321,7 @@ All entities share a base set of attributes for identification, versioning, and 
 
 ## Lifecycle Phases
 
-All phase-dependent attributes reference the lifecycle phases of a building or asset. The phase model is based on research by Bergische Universität Wuppertal (WUP), which provides a region-neutral framework that aligns with national standards.
+All phase-dependent attributes reference the lifecycle phases of a building or asset. The phase model is based on VDI 2552 Blatt 12.2, which aligns with research by Bergische Universität Wuppertal (WUP) and provides a region-neutral framework compatible with national standards.
 
 | Phase | German | French | Italian | English |
 |-------|--------|--------|---------|---------|
@@ -331,11 +331,22 @@ All phase-dependent attributes reference the lifecycle phases of a building or a
 | 4 | Betrieb | Exploitation | Gestione | Operations |
 | 5 | Abbruch | Déconstruction | Decostruzione | Demolition |
 
+**Phase Descriptions (per VDI 2552 Blatt 12.2 Anhang B3):**
+
+| Phase | Description |
+|-------|-------------|
+| Entwicklung | Comprises the main processes of "project development" in the narrower sense and "awarding of planning services" (e.g., feasibility studies for existing buildings) |
+| Planung | Consists of basic evaluation, preliminary planning, design planning, approval planning, and execution planning (e.g., object and specialist planning) |
+| Realisierung | Includes awarding of construction work, work preparation, construction execution, and construction acceptance (e.g., fabrication and assembly planning) |
+| Betrieb | Encompasses the awarding of building services, operations, and use (e.g., operator responsibility) |
+| Abbruch | Includes demolition planning and demolition execution (e.g., decommissioning management) |
+
 **References:**
 
 | Standard | Region | Mapping |
 |----------|--------|---------|
-| WUP BIM-Handlungsempfehlung | DE (region-neutral) | Primary reference for this model |
+| VDI 2552 Blatt 12.2 | DE | Primary reference for lifecycle phases |
+| WUP BIM-Handlungsempfehlung | DE (region-neutral) | Research foundation |
 | SIA 112 | CH | Phases 31, 32, 41–53, 61, 62 |
 | HOAI | DE | Leistungsphasen 1–9 map across phases 1–3 |
 | ISO 19650 | International | Information delivery stages |
@@ -373,28 +384,28 @@ The following tag values are derived from VDI 2552 Blatt 12.2 Anhang B1:
 
 | Tag | Description |
 |-----|-------------|
-| Abnahme | Acceptance and handover processes |
-| Änderungsmanagement | Change tracking, quantification, and billing |
-| Ausschreibung und Vergabe | Tendering and procurement preparation |
-| Bedarfsplanung | Requirements planning and feasibility variants |
-| Bestandserfassung | Asset and existing conditions capture |
-| Betrieb | Operations support and optimization |
-| Dokumentation | Documentation and archiving purposes |
-| Genehmigung | Permit and approval processes |
-| Inbetriebnahme | Commissioning support |
-| Koordination | Coordination of deliverables, models, and communication |
-| Kosten | Cost estimation, verification, and optimization |
-| Logistik | Logistics planning and support |
-| Machbarkeit | Feasibility studies |
-| Nachhaltigkeit | Sustainability assessment and optimization |
-| Nachweise | Verification, analysis, and expert reports |
-| Qualitätssicherung | Quality assurance and progress control |
-| Risikomanagement | Risk identification, assessment, and tracking |
-| Termine | Schedule planning and verification |
-| Variantenvergleich | Design variant comparison |
-| Versicherung | Insurance process support |
-| Visualisierung | Graphical representation and analysis |
-| Sonstiges | Use cases not fitting other categories |
+| Abnahme | Acceptance and handover processes – Use cases that utilize data for the acceptance of the overall project and/or parts of an overall project (e.g., defect and acceptance management) |
+| Änderungsmanagement | Change management – Use cases that utilize data for quantifying and qualifying changes, tracking them, and billing them if necessary (e.g., change tracking) |
+| Ausschreibung und Vergabe | Tendering and procurement – Use cases that utilize data for preparing and creating tender and award-relevant information (e.g., specifications for construction work tendering) |
+| Bedarfsplanung | Requirements planning – Use cases that utilize data for establishing project requirements and supporting site and procurement variant studies (e.g., plausibility check of quantities and masses in planning) |
+| Bestandserfassung | Asset capture – Use cases that capture data from assets and other relevant inventory and make it usable for data-based process steps (e.g., property capture) |
+| Betrieb | Operations – Use cases that utilize data to support and/or optimize operations (e.g., energy management) |
+| Dokumentation | Documentation – Use cases implemented for documentation purposes (e.g., building documentation) |
+| Genehmigung | Approval – Use cases that particularly concern the approval process (e.g., public-law review and approval) |
+| Inbetriebnahme | Commissioning – Use cases implemented to support commissioning processes (e.g., commissioning management) |
+| Koordination | Coordination – Use cases that support coordination of services, models, project communication, etc. (e.g., coordination and integration of planning) |
+| Kosten | Costs – Use cases that utilize data for determining, verifying, and optimizing costs throughout the lifecycle (e.g., cost estimation according to DIN 276) |
+| Logistik | Logistics – Use cases that utilize data to support logistics processes (e.g., logistics concept) |
+| Machbarkeit | Feasibility – Use cases that utilize data to create a project study (e.g., feasibility study for new construction) |
+| Nachhaltigkeit | Sustainability – Use cases that utilize data to assess and/or optimize sustainability aspects (e.g., sustainability certification) |
+| Nachweise | Verification/Analysis/Expert reports – Use cases concerning the performance of verifications, expert reports, or calculations, including occupational safety verifications (e.g., dimensioning and verification) |
+| Qualitätssicherung | Quality assurance – Use cases that utilize data to ensure quality in a project, including legal quality assurance (e.g., progress recording and control of construction work) |
+| Risikomanagement | Risk management – Use cases that utilize data for identifying, assessing, controlling, and tracking risks (e.g., maintenance and inspection management) |
+| Termine | Scheduling – Use cases that utilize data for calculating, planning, verifying schedule information and relationships (e.g., execution scheduling) |
+| Variantenvergleich | Variant comparison – Use cases that utilize data to compare different variants of a scenario (e.g., planning variant comparison) |
+| Versicherung | Insurance – Use cases that support the implementation of insurance processes (e.g., building documentation) |
+| Visualisierung | Visualization – Use cases that utilize data for graphical representation and/or analysis (e.g., visualization of object and specialist planning) |
+| Sonstiges | Other – Use cases that cannot be assigned to any other application field |
 
 ### Application Rules
 
@@ -415,7 +426,7 @@ The tagging system implements the `Anwendungsfeld` metadata from VDI 2552 Blatt 
 | Version | `version` | Version indicator |
 | Datum der Veröffentlichung | `lastChange` | Last modification date |
 | Anwendungsfeld | `tags` | Controlled vocabulary (this section) |
-| Lebenszyklusphase | `phases` | Maps to WUP phases |
+| Lebenszyklusphase | `phases` | Maps to WUP/VDI phases |
 | DOI | – | Not implemented (future consideration) |
 | Autoren | – | Not implemented |
 | Verantwortliche Institution | – | Not implemented |
@@ -444,13 +455,18 @@ The tagging system implements the `Anwendungsfeld` metadata from VDI 2552 Blatt 
 
 #### Element Categories
 
+Element categories are organized by discipline/domain to align with typical BIM model structures:
+
 | Category | Description |
 |----------|-------------|
-| Architektur | Architectural elements (windows, doors, walls, roofs) |
-| Tragwerk | Structural elements (columns, beams, slabs, foundations) |
-| Gebäudetechnik | MEP elements (HVAC, plumbing, electrical, fire protection) |
-| Ausbau | Interior finishing (floors, ceilings, partitions) |
-| Umgebung | Site elements (landscaping, paving, infrastructure) |
+| Architektur | Architectural elements (windows, doors, walls, roofs, facades) |
+| Tragwerk | Structural elements (columns, beams, slabs, foundations, reinforcement) |
+| Gebäudetechnik HLKS | HVAC and plumbing elements (heating, ventilation, cooling, sanitary) |
+| Gebäudetechnik Elektro | Electrical elements (power distribution, lighting, building automation) |
+| Ausbau | Interior finishing (floors, ceilings, partitions, furnishings) |
+| Umgebung | Site elements (landscaping, paving, external infrastructure) |
+| Brandschutz | Fire protection elements (fire compartments, fire stops, sprinklers) |
+| Transportanlagen | Vertical transport (elevators, escalators, lifts) |
 
 #### IFC Mapping Structure
 
@@ -500,30 +516,43 @@ Defines required documents per phase:
 
 ### Document
 
-**Purpose:** Represents project documentation types with their format requirements and retention policies.
+**Purpose:** Represents project documentation types with their format requirements and retention policies according to the KBOB/IPB Bauwerksdokumentation im Hochbau standard.
 
 **Intent:** Standardize document management across BIM projects by defining what formats are acceptable, how long documents must be retained, and when in the project lifecycle they are relevant.
+
+**Normative Reference:** KBOB/IPB Empfehlung "Bauwerksdokumentation im Hochbau" – Dokumentationsmodell BWD – Dokumenttypenkatalog (Anhang C), Version 2016-01
 
 #### Core Attributes
 
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `id` | Identifier | ✓ | Pattern: category letter + 5-digit number |
-| `category` | Enumeration | ✓ | Document category (see below) |
+| `id` | Identifier | ✓ | Pattern: category letter + 5-digit number (e.g., O01001, K02003) |
+| `category` | Enumeration | ✓ | Document category per KBOB (see below) |
 | `formats` | Format Collection | ✓ | Acceptable file formats |
 | `retention` | Enumeration | ✓ | Retention policy |
+| `documentationType` | Enumeration Collection | ✓ | Documentation scope (PD, OD, process, specialist, system) |
 | `classifications` | Classification Map | ○ | Optional classification codes |
 
-#### Document Categories
+#### Document Categories (KBOB Dokumenttypenkatalog)
 
-| Code | Category | Description |
-|------|----------|-------------|
-| O | Organisation | Project organization, teams, communication protocols |
-| Q | Qualitätsmanagement | Quality plans, checklists, audit records |
-| R | Risikomanagement | Risk registers, compliance documentation |
-| D | Dokumentation | Archives, as-built records, handover documentation |
-| G | Genehmigungen | Permits, approvals, regulatory submissions |
-| B | Betriebsanleitungen | Operating manuals, maintenance handbooks |
+Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
+
+| Code | Category | German | Description | Subcategories |
+|------|----------|--------|-------------|---------------|
+| O | Organisation | Organisation | Project and operations organization documents | O01 Stammorganisation, O02 Projektmanagement, O03 Betriebsorganisation, O04 Qualitätsmanagement, O05 Informationsmanagement, O06 Termine, O07 Einsatzpläne, O08–O16 Verzeichnisse/Protokolle/Journale |
+| K | Verträge und Kosten | Contracts and Costs | Commercial and contractual documents | K01 Kostenplanung, K02 Ausschreibungsunterlagen, K03 Vertragsunterlagen, K04 Kostenüberwachung, K05 Rechnungsunterlagen, K06 Kostenabrechnung, K07 Garantieunterlagen, K08 Bewertungen, K09 Versicherungspolicen |
+| B | Konzepte und Beschriebe | Concepts and Descriptions | Planning concepts and technical descriptions | B01 Rahmenbedingungen, B02 Grundstücksinformationen, B03 Pflichtenhefter, B04 Strategien, B05 Analysen/Studien, B06 Gutachten, B07 Nachweise, B10–B15 Nutzungs-/Betriebs-/Fachkonzepte, B17–B20 Berichte/Anleitungen/Verzeichnisse |
+| V | Visualisierungen | Visualizations | Plans, drawings, and visual representations | V01 Kommunale Pläne, V02 Übergeordnete Pläne, V03–V06 Projekt-/Ausschreibungspläne, V07 Architektur/Konstruktion, V08 Technik, V09 Sicherheit, V10–V11 Weitere/Bewirtschaftungspläne |
+
+#### Documentation Types
+
+| Type | German | Description |
+|------|--------|-------------|
+| PD | Projektdokumentation | Project documentation – documents created during project phases |
+| OD | Objektdokumentation | Object documentation – documents maintained for the building lifecycle |
+| Prozessdokumentation | Prozessdokumentation | Process documentation – documents describing workflows and procedures |
+| Fachdokumentation | Fachdokumentation | Specialist documentation – discipline-specific technical documents |
+| Anlagedokumentation | Anlagedokumentation | System documentation – documents for building systems and equipment |
 
 #### Allowed Formats
 
@@ -531,37 +560,52 @@ Defines required documents per phase:
 |--------|-------------|
 | PDF-A | Archival PDF for long-term preservation |
 | PDF | Standard PDF for general documents |
-| Office-Format | Editable office documents |
-| DWG | CAD drawings |
+| Office-Format | Editable office documents (Word, Excel, PowerPoint) |
+| DWG | CAD drawings (AutoCAD format) |
 | IFC | Industry Foundation Classes model files |
 | BCF | BIM Collaboration Format for issues |
 | Native | Original authoring application format |
+| andere | Other formats as specified |
 
 #### Retention Policies
 
-| Policy | Description |
-|--------|-------------|
-| bis Ersatz | Until superseded by newer version |
-| Projektende | Until project completion |
-| 5 Jahre | 5 years from creation |
-| 10 Jahre | 10 years from creation |
-| 30 Jahre | 30 years from creation |
-| Gebäudelebensdauer | Entire building lifecycle |
+| Policy | German | Description |
+|--------|--------|-------------|
+| keine Aufbewahrung | No retention | No retention required |
+| 5 Jahre | 5 years | 5 years from creation |
+| 12 Jahre | 12 years | 12 years from creation (legal requirement) |
+| bis Ersatz | Until replacement | Until superseded by newer version |
+| bis Bearbeitungszweck entfällt | Until purpose fulfilled | Until processing purpose no longer applies |
+| Gebäudelebensdauer | Building lifecycle | Entire building lifecycle |
+
+#### Quality Requirements
+
+Documents may be subject to quality guidelines:
+
+| Guideline | Description |
+|-----------|-------------|
+| CAD-Richtlinie | CAD standard compliance required |
+| CAFM-Richtlinie | CAFM system compatibility required |
+| BIM-Richtlinie | BIM standard compliance required |
 
 ---
 
 ### UseCase
 
-**Purpose:** Defines standardized BIM processes with roles, responsibilities, inputs, outputs, and quality criteria.
+**Purpose:** Defines standardized BIM processes with roles, responsibilities, inputs, outputs, and quality criteria according to VDI 2552 Blatt 12.1 and 12.2.
 
 **Intent:** Provide actionable process definitions that can be adopted in BAP documents, ensuring consistent implementation of BIM workflows across projects with clear accountability through RACI matrices.
+
+**Normative References:**
+- VDI/DIN-EE 2552 Blatt 12.1:2022-10 – Building Information Modeling; Struktur zu Beschreibung von BIM-Anwendungsfällen
+- VDI/DIN-EE 2552 Blatt 12.2:2024-03 – Building Information Modeling; Metadaten zur Identifikation von BIM-Anwendungsfällen
 
 #### Core Attributes
 
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `id` | Identifier | ✓ | Pattern: 'uc' + 3-digit number |
-| `category` | Enumeration | ✓ | Use case category (see below) |
+| `category` | Enumeration | ✓ | Use case category per VDI 2552 Blatt 12.2 Anwendungsfeld (see below) |
 | `definition` | Text | ✓ | Formal definition of the use case |
 | `goals` | String Collection | ✓ | Objectives (minimum 1) |
 | `inputs` | String Collection | ✓ | Required inputs and preconditions |
@@ -570,21 +614,62 @@ Defines required documents per phase:
 | `prerequisites` | Prerequisites Structure | ✓ | Requirements for client and contractor |
 | `implementation` | String Collection | ✓ | Implementation steps |
 | `qualityCriteria` | String Collection | ✓ | Acceptance and quality criteria |
+| `informationProvider` | Enumeration Collection | ○ | Informationsbereitstellende per VDI 2552 |
+| `informationRequester` | Enumeration Collection | ○ | Informationsbestellende per VDI 2552 |
 | `standards` | String Collection | ○ | Referenced standards (SIA, ISO) |
 | `process_url` | String | ○ | Link to BPMN process diagram |
 | `examples` | String Collection | ○ | Example applications |
 | `practiceExample` | Text | ○ | Detailed practical example |
 
-#### UseCase Categories
+#### UseCase Categories (VDI 2552 Blatt 12.2 Anwendungsfeld)
 
-| Category | Description |
-|----------|-------------|
-| Grundlagen | Foundation use cases (BIM execution plan, standards setup) |
-| Koordination | Coordination (clash detection, model federation) |
-| Planung | Planning and design (authoring, analysis, simulation) |
-| Projektmanagement | Project management (scheduling, cost, progress tracking) |
-| Qualitätssicherung | Quality assurance (model checking, validation, audits) |
-| Nachhaltigkeit | Sustainability (LCA, energy analysis, certification) |
+Use case categories align with the Anwendungsfeld metadata from VDI 2552 Blatt 12.2:
+
+| Category | German | Description |
+|----------|--------|-------------|
+| Abnahme | Acceptance | Use cases for project/partial acceptance processes |
+| Änderungsmanagement | Change Management | Use cases for change tracking, quantification, and billing |
+| Ausschreibung und Vergabe | Tendering and Procurement | Use cases for tender preparation and award processes |
+| Bedarfsplanung | Requirements Planning | Use cases for project requirements and variant studies |
+| Bestandserfassung | Asset Capture | Use cases for capturing existing conditions and assets |
+| Betrieb | Operations | Use cases supporting building operations and optimization |
+| Dokumentation | Documentation | Use cases for documentation and archiving purposes |
+| Genehmigung | Approval | Use cases concerning approval and permit processes |
+| Inbetriebnahme | Commissioning | Use cases supporting commissioning processes |
+| Koordination | Coordination | Use cases for coordinating deliverables, models, communication |
+| Kosten | Costs | Use cases for cost estimation, verification, optimization |
+| Logistik | Logistics | Use cases supporting logistics processes |
+| Machbarkeit | Feasibility | Use cases for feasibility studies and project studies |
+| Nachhaltigkeit | Sustainability | Use cases for sustainability assessment and optimization |
+| Nachweise | Verification | Use cases for analysis, calculations, expert reports |
+| Qualitätssicherung | Quality Assurance | Use cases for quality assurance and progress control |
+| Risikomanagement | Risk Management | Use cases for risk identification, assessment, tracking |
+| Termine | Scheduling | Use cases for schedule planning and verification |
+| Variantenvergleich | Variant Comparison | Use cases for comparing design alternatives |
+| Versicherung | Insurance | Use cases supporting insurance processes |
+| Visualisierung | Visualization | Use cases for graphical representation and analysis |
+| Sonstiges | Other | Use cases not fitting other categories |
+
+#### Information Exchange Roles (VDI 2552 Blatt 12.2)
+
+The `informationProvider` and `informationRequester` attributes use the following role values per VDI 2552 Blatt 12.2 Anhang B2:
+
+| Role | German | Description |
+|------|--------|-------------|
+| Asset Management | Asset Management | Commercial property management |
+| Bauausführung | Construction Execution | Contractors responsible for site setup and operations |
+| Bauherren-/Eigentümerschaft | Client/Owner | Party commissioning the project economically and technically |
+| Controlling | Controlling | Measure planning, actual data capture, variance analysis |
+| Fachplanung | Specialist Planning | Planning offices for structure, MEP, building physics, fire protection, etc. |
+| Facility Management | Facility Management | Building, system, and facility management and organization |
+| Projektmanagement | Project Management | Non-delegable client-side leadership functions |
+| Projektsteuerung | Project Control | Delegable client functions per AHO (consulting, coordination, control) |
+| Property Management | Property Management | Technical property management |
+| Nutzerschaft | Building Users | Parties using the building for their core activities |
+| Objektplanung | Object Planning | Architectural services per HOAI Annex 10 |
+| Vermessung | Surveying | Measurement capture of areas, plots, or infrastructure |
+| Prüfende Instanz | Review Authority | Building authorities, expert reviewers, fire department, etc. |
+| Zertifizierung | Certification | Conformity verification with certification systems |
 
 #### Role Definition (RACI)
 
@@ -606,27 +691,78 @@ Defines required documents per phase:
 
 ### Model
 
-**Purpose:** Represents BIM model types including discipline models, coordination models, and special-purpose models.
+**Purpose:** Represents BIM model types including discipline models, coordination models, and special-purpose models organized by construction domain.
 
-**Intent:** Define the scope and content of different model types to clarify responsibilities and expected deliverables in multi-discipline BIM projects.
+**Intent:** Define the scope and content of different model types to clarify responsibilities and expected deliverables in multi-discipline BIM projects across various construction domains (building construction, civil engineering, infrastructure).
 
 #### Core Attributes
 
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `id` | Identifier | ✓ | Pattern: letter 'm' followed by number |
-| `category` | Enumeration | ✓ | Model category (see below) |
+| `domain` | Enumeration | ✓ | Construction domain (see below) |
+| `abbreviation` | String | ✓ | Standard abbreviation (e.g., HOH - ARCH) |
 | `elements` | Model Element Collection | ✓ | Element types contained in model |
 | `classifications` | Classification Map | ○ | Optional classification codes |
 
-#### Model Categories
+#### Model Domains
 
-| Category | Code | Description |
-|----------|------|-------------|
-| Fachmodelle | FM | Discipline models (Architecture, Structure, MEP) |
-| Koordination | KM | Coordination/federated models |
-| Spezialmodelle | SM | Special purpose (fire safety, facade, acoustic) |
-| Bestand | BM | As-built and existing conditions models |
+Model domains are organized by construction type to support the full range of Swiss public infrastructure projects:
+
+| Domain | German | Abbreviation | Description |
+|--------|--------|--------------|-------------|
+| Allgemein | General | ALG | Cross-domain coordination and reference models (coordination, terrain, survey, cadastral) |
+| Hochbau | Building Construction | HOH | Building construction models (architecture, structure, MEP, interior) |
+| Mobiler öffentlicher Verkehr | Public Transit | MOV | Public transportation models (tram, bus, track, overhead lines) |
+| Tunnel | Tunnel | TUN | Tunnel construction models (civil works, systems, safety) |
+| Strasse | Roads | STR | Road construction models (pavement, drainage, signage, lighting) |
+| Anlagenbau | Plant Engineering | ANL | Industrial plant models (process engineering, mechanical, electrical) |
+| Kunstbauten | Engineering Structures | KUB | Civil engineering structures (noise barriers, culverts, special objects) |
+| Stützmauer | Retaining Walls | STM | Retaining wall models |
+| Unterführung | Underpasses | UNT | Underpass models |
+| Stege und Fussgängerüberführung | Pedestrian Bridges | FUB | Pedestrian bridge and walkway models |
+| Brücke | Bridges | BRU | Bridge construction models (superstructure, substructure, prestressing) |
+| Wasserbauwerke | Hydraulic Structures | WAS | Water engineering models (shore structures, culverts) |
+| Werkleitungen | Utilities | WKL | Utility infrastructure models (water, sewage, power, gas, telecom) |
+| Bauzustände | Construction Phases | BZT | Temporary works and phasing models |
+
+#### Model Types by Domain
+
+Each domain contains specific model types. Examples include:
+
+**Allgemein (ALG):**
+| Model Type | Abbreviation | Description |
+|------------|--------------|-------------|
+| Allgemeines Koordinationsmodell | ALG - KOOM | General coordination model with project origin and georeferencing (LV95) |
+| Geländemodell | ALG - GELM | Topography model including cadastral data |
+| Scanmodell | ALG - SCAN | Point cloud data |
+| Umgebungsmodell | ALG - UMGB | Surrounding context (e.g., from 4D city model) |
+| Baubereichs-/Bauperimetermodell | ALG - PERI | Construction area envelope per phasing |
+
+**Hochbau (HOH):**
+| Model Type | Abbreviation | Description |
+|------------|--------------|-------------|
+| Hochbau Koordinationsmodell | HOH - KOOM | Building coordination model |
+| Architekturmodell | HOH - ARCH | Architectural design model |
+| Tragwerksmodell | HOH - TRWK | Structural model |
+| Aussparungsmodell | HOH - AUSS | Openings and penetrations |
+| Raummodell | HOH - RAUM | Room/space model |
+| Brandschutzmodell | HOH - BRAN | Fire protection model |
+| Lüftungsmodell | HOH - LUFT | Ventilation systems |
+| Heizungsmodell | HOH - HEIZ | Heating systems |
+| Sanitärmodell | HOH - SANI | Sanitary systems |
+| Elektromodell | HOH - ELEK | Electrical systems |
+
+**Werkleitungen (WKL):**
+| Model Type | Abbreviation | Description |
+|------------|--------------|-------------|
+| Werkleitung Koordinationsmodell | WKL - KOOM | Utility coordination model |
+| Wasserversorgungsmodell | WKL - WASS | Water supply |
+| Abwasserleitungsmodell | WKL - ABWA | Sewage/drainage |
+| Elektroversorungsmodell | WKL - ELEK | Power distribution |
+| Gasversorgungsmodell | WKL - GASV | Gas supply |
+| Fernwärmeversorgungsmodell | WKL - FEWA | District heating |
+| Beleuchtungsmodell | WKL - OBEL | Street lighting |
 
 #### Model Element Structure
 
@@ -739,7 +875,7 @@ C 2.1
 | Entity | Pattern | Example | Rule |
 |--------|---------|---------|------|
 | Element | `e` + number | e1, e15 | Unique within Elements |
-| Document | Letter + 5 digits | O01001, Q02003 | First letter indicates category |
+| Document | Letter + 5 digits | O01001, K02003 | First letter indicates KBOB category |
 | UseCase | `uc` + 3 digits | uc001, uc030 | Sequential numbering |
 | Model | `m` + number | m1, m10 | Unique within Models |
 | EPD | `kbob-` + group + sequence | kbob-01-042 | Aligned with KBOB database |
@@ -758,6 +894,10 @@ C 2.1
 
 6. **IFC Mapping Validity** – IFC class references should conform to IFC 4.3 schema
 
+7. **Document Category Alignment** – Document IDs must use the correct category letter prefix (O, K, B, V) matching the assigned category
+
+8. **UseCase Category Alignment** – UseCase categories must be valid Anwendungsfeld values per VDI 2552 Blatt 12.2
+
 ### Referential Guidelines
 
 1. **Model-Element Relationship** – Model element names should correspond to defined Element titles where applicable
@@ -766,7 +906,9 @@ C 2.1
 
 3. **Role Consistency** – UseCase role names should be consistent across use cases to enable cross-referencing
 
-4. **Standard References** – Referenced standards should use official designations (e.g., "SIA 2051", "ISO 19650-1")
+4. **Standard References** – Referenced standards should use official designations (e.g., "SIA 2051", "ISO 19650-1", "VDI 2552 Blatt 12.2")
+
+5. **Model Domain-Abbreviation Consistency** – Model abbreviations must follow the pattern: Domain Abbreviation + " - " + Model Type Code
 
 ---
 
@@ -781,6 +923,7 @@ C 2.1
 | GWP | Treibhauspotenzial | Global Warming Potential |
 | HOAI | Honorarordnung für Architekten und Ingenieure | German fee structure for architects and engineers, defines service phases (Leistungsphasen) |
 | IFC | Industry Foundation Classes | Open standard for BIM data exchange |
+| KBOB | Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren | Coordination Conference of Swiss Public Sector Construction and Property Services |
 | LOG | Level of Geometry | Geometric detail requirements |
 | LOI | Level of Information | Attribute/property requirements |
 | RACI | Responsible, Accountable, Consulted, Informed | Responsibility assignment matrix |
@@ -788,6 +931,9 @@ C 2.1
 | UBP | Umweltbelastungspunkte | Swiss environmental impact points |
 | VDI 2552 | VDI-Richtlinie 2552 | German BIM standard series by Verein Deutscher Ingenieure |
 | WUP | Bergische Universität Wuppertal | Source of region-neutral lifecycle phases used in this model |
+| Anwendungsfeld | Application field | VDI 2552 Blatt 12.2 metadata for categorizing BIM use cases |
+| Informationsbereitstellende | Information provider | Role providing use case/project-relevant information (ISO 19650-1) |
+| Informationsbestellende | Information requester | Role commissioning and receiving use case/project-relevant information (ISO 19650-1) |
 
 ---
 
@@ -795,6 +941,7 @@ C 2.1
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.3 | – | Updated Document categories to KBOB/IPB Dokumenttypenkatalog structure (O, K, B, V); Updated UseCase categories to VDI 2552 Blatt 12.2 Anwendungsfeld values (22 categories); Added VDI 2552 information exchange roles (Informationsbereitstellende/Informationsbestellende); Updated Model entity to use domain-based categorization with 14 construction domains; Enhanced lifecycle phases section with VDI 2552 Blatt 12.2 descriptions; Expanded tagging system descriptions per VDI 2552 Blatt 12.2 Anhang B1; Added documentation types and quality requirements for Documents |
 | 1.2 | – | Added Tagging System section based on VDI 2552 Blatt 12.2; renamed Project Phases to Lifecycle Phases with WUP/SIA/HOAI references and multi-language support; added Localization section; added Strategic Alignment with Swiss digital transformation initiatives; expanded eBKP-H codes to complete list; comprehensive Entity Relationship Diagram update with ISO 19650-aligned UseCase-centric model, software mappings (IFC, Revit, Archicad), and relationship documentation |
 | 1.1 | – | Restructured as conceptual model; added goals, principles, business rules |
 | 1.0 | – | Initial documentation |
