@@ -10,6 +10,10 @@ This document describes the conceptual and logical data model for the KBOB BIM D
 - [Localization](#localization)
 - [Entity Overview](#entity-overview)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
+  - [Design Rationale](#design-rationale)
+  - [Relationship Summary](#relationship-summary)
+  - [Diagram](#diagram)
+  - [Phase Applicability](#phase-applicability)
 - [Common Attributes](#common-attributes)
 - [Lifecycle Phases](#lifecycle-phases)
 - [Tagging System](#tagging-system)
@@ -95,32 +99,118 @@ The catalog manages five main entity types:
 
 ## Entity Relationship Diagram
 
+The data model follows ISO 19650 principles where **UseCase** serves as the central organizing entity. Use cases define both the process (descriptive, via BPMN) and the information requirements (prescriptive), linking to all other entities.
+
+### Design Rationale
+
+| Principle | Implementation |
+|-----------|----------------|
+| **UseCase-centric** | UseCase aggregates requirements for Elements, Documents, Models, and EPDs (ISO 19650 EIR/AIA pattern) |
+| **Dual-purpose UseCase** | Prescriptive (what to deliver) + Descriptive (how to execute, via BPMN) per VDI 2552 Blatt 12.1 |
+| **Phase filtering** | All entities except EPD share lifecycle phases, enabling phase-specific views |
+| **Multi-system mapping** | Elements map to exchange format (IFC) and authoring tools (Revit, Archicad) |
+
+### Relationship Summary
+
+| Relationship | Cardinality | Description |
+|--------------|-------------|-------------|
+| UseCase → Element | M:N | Use case defines which elements are required with specific LOG/LOI |
+| UseCase → Document | M:N | Use case specifies required deliverables |
+| UseCase → Model | M:N | Use case involves contributions from discipline models |
+| UseCase → EPD | M:N | Sustainability use cases reference environmental data |
+| Element → Document | M:N | Elements have documentation requirements |
+| Element → EPD | M:N | Elements linked to environmental product declarations |
+| Model → Element | M:N | Models contain/reference element types |
+| Element → IFCMapping | 1:N | Element maps to IFC classes (exchange) |
+| Element → RevitMapping | 1:N | Element maps to Revit categories (authoring) |
+| Element → ArchicadMapping | 1:N | Element maps to Archicad tools (authoring) |
+
+### Diagram
+
 ```mermaid
 erDiagram
+    %% UseCase as central organizing entity (ISO 19650)
+    USECASE ||--o{ USECASE_ELEMENT : "requires"
+    USECASE ||--o{ USECASE_DOCUMENT : "specifies"
+    USECASE ||--o{ USECASE_MODEL : "involves"
+    USECASE ||--o{ USECASE_EPD : "references"
+    USECASE ||--o| BPMN_DIAGRAM : "described by"
+    USECASE ||--o{ ROLE_ASSIGNMENT : "assigns (RACI)"
+    
+    %% Element relationships
     ELEMENT ||--o{ GEOMETRY_REQUIREMENT : "has LOG"
     ELEMENT ||--o{ INFORMATION_REQUIREMENT : "has LOI"
-    ELEMENT ||--o{ DOCUMENTATION_REQUIREMENT : "requires"
-    ELEMENT ||--o{ IFC_MAPPING : "mapped to"
+    ELEMENT ||--o{ DOCUMENTATION_REQUIREMENT : "requires docs"
     ELEMENT }o--o{ CLASSIFICATION : "classified by"
+    ELEMENT ||--o{ ELEMENT_DOCUMENT : "documented by"
+    ELEMENT ||--o{ ELEMENT_EPD : "linked to"
     
+    %% Element software mappings
+    ELEMENT ||--o{ IFC_MAPPING : "maps to (exchange)"
+    ELEMENT ||--o{ REVIT_MAPPING : "maps to (authoring)"
+    ELEMENT ||--o{ ARCHICAD_MAPPING : "maps to (authoring)"
+    
+    %% Model relationships
     MODEL ||--o{ MODEL_ELEMENT : "contains"
-    MODEL }o--o{ ELEMENT : "references"
     
+    %% Document and EPD classifications
     DOCUMENT }o--o{ CLASSIFICATION : "classified by"
-    
-    USECASE ||--o{ ROLE_DEFINITION : "assigns"
-    USECASE ||--o{ PREREQUISITE : "requires"
-    USECASE }o--o{ STANDARD : "references"
-    
-    EPD }o--|| CATEGORY : "belongs to"
+    EPD }o--|| EPD_CATEGORY : "belongs to"
+
+    %% Junction tables
+    USECASE_ELEMENT {
+        usecase_id identifier FK
+        element_id identifier FK
+    }
+    USECASE_DOCUMENT {
+        usecase_id identifier FK
+        document_id identifier FK
+    }
+    USECASE_MODEL {
+        usecase_id identifier FK
+        model_id identifier FK
+    }
+    USECASE_EPD {
+        usecase_id identifier FK
+        epd_id identifier FK
+    }
+    ELEMENT_DOCUMENT {
+        element_id identifier FK
+        document_id identifier FK
+    }
+    ELEMENT_EPD {
+        element_id identifier FK
+        epd_id identifier FK
+    }
+    MODEL_ELEMENT {
+        model_id identifier FK
+        element_id identifier FK
+    }
+
+    %% Main entities
+    USECASE {
+        id identifier PK
+        version string
+        lastChange date
+        title string
+        description text
+        category enumeration
+        tags tag_array
+        phases phase_array
+        bpmnLink url
+        roles raci_array
+    }
 
     ELEMENT {
         id identifier PK
         version string
         lastChange date
         title string
+        description text
         category enumeration
+        tags tag_array
         phases phase_array
+        classifications object
     }
     
     DOCUMENT {
@@ -128,20 +218,12 @@ erDiagram
         version string
         lastChange date
         title string
+        description text
         category enumeration
+        tags tag_array
+        phases phase_array
         formats format_array
         retention enumeration
-        phases phase_array
-    }
-    
-    USECASE {
-        id identifier PK
-        version string
-        lastChange date
-        title string
-        category enumeration
-        definition text
-        phases phase_array
     }
     
     MODEL {
@@ -149,20 +231,73 @@ erDiagram
         version string
         lastChange date
         title string
+        description text
         category enumeration
+        tags tag_array
         phases phase_array
+        discipline enumeration
     }
     
     EPD {
         id identifier PK
         uuid identifier UK
+        title string
+        description text
+        category enumeration
+        tags tag_array
         unit enumeration
         gwp numeric
         ubp numeric
         penrt numeric
         pert numeric
     }
+
+    %% Mapping entities
+    IFC_MAPPING {
+        element_id identifier FK
+        ifcClass string
+        predefinedType string
+        ifcVersion string
+    }
+    
+    REVIT_MAPPING {
+        element_id identifier FK
+        category string
+        family string
+        type string
+    }
+    
+    ARCHICAD_MAPPING {
+        element_id identifier FK
+        tool string
+        classification string
+    }
+
+    %% Process definition
+    BPMN_DIAGRAM {
+        usecase_id identifier FK
+        link url
+        version string
+    }
+
+    ROLE_ASSIGNMENT {
+        usecase_id identifier FK
+        role enumeration
+        responsibility enumeration
+    }
 ```
+
+### Phase Applicability
+
+All entities share lifecycle phases **except EPD**, which contains phase-neutral reference data:
+
+| Entity | Has Phases | Rationale |
+|--------|------------|-----------|
+| UseCase | ✓ | Use cases apply to specific lifecycle phases |
+| Element | ✓ | LOG/LOI requirements vary by phase |
+| Document | ✓ | Delivery timing tied to phases |
+| Model | ✓ | Model maturity evolves through phases |
+| EPD | ✗ | Environmental data is phase-neutral reference data |
 
 ---
 
@@ -578,13 +713,22 @@ C 2.1
 └────── Building part (Bauwerksgruppe)
 ```
 
-**Building Part Codes:**
-- B: Umgebung (Site)
-- C: Rohbau (Shell)
-- D: Technik (Services)
-- E: Äussere Wandbekleidungen (External finishes)
-- F: Bedachung (Roofing)
-- G: Ausbau (Interior)
+**Building Part Codes (Bauwerksgruppen):**
+
+| Code | German | English |
+|------|--------|---------|
+| A | Grundstück | Land/site acquisition |
+| B | Umgebung | Site/surroundings |
+| C | Rohbau | Shell construction |
+| D | Technik | Building services |
+| E | Äussere Wandbekleidungen | External wall claddings |
+| F | Bedachung | Roofing |
+| G | Ausbau | Interior finishes |
+| I | Ausstattungen | Furnishings/equipment |
+| V | Nebenkosten | Ancillary costs |
+| W | Baunebenkosten | Construction ancillary costs |
+| Y | Reserve | Reserve |
+| Z | Mehrwertsteuer | VAT |
 
 ---
 
@@ -651,6 +795,6 @@ C 2.1
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.2 | – | Added Tagging System section based on VDI 2552 Blatt 12.2; renamed Project Phases to Lifecycle Phases with WUP/SIA/HOAI references and multi-language support; added Localization section; added Strategic Alignment with Swiss digital transformation initiatives |
+| 1.2 | – | Added Tagging System section based on VDI 2552 Blatt 12.2; renamed Project Phases to Lifecycle Phases with WUP/SIA/HOAI references and multi-language support; added Localization section; added Strategic Alignment with Swiss digital transformation initiatives; expanded eBKP-H codes to complete list; comprehensive Entity Relationship Diagram update with ISO 19650-aligned UseCase-centric model, software mappings (IFC, Revit, Archicad), and relationship documentation |
 | 1.1 | – | Restructured as conceptual model; added goals, principles, business rules |
 | 1.0 | – | Initial documentation |
