@@ -336,10 +336,6 @@ This is only an overview of the Level 1 major group elements. ASTM E1557 defines
 | F | Special Construction & Demolition | Sonderbauteile und Abbruch |
 | G | Building Sitework | Aussenanlagen |
 
----
-
-These replace the existing "TBD" sections. I've added context about the hierarchy depth (three-level for DIN 276, four-level for Uniformat II) and approximate element counts to give readers a sense of the full scope.
-
 ## 3.4 Tagging System
 
 ### Purpose
