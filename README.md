@@ -1,6 +1,8 @@
 # KBOB BIM Data Catalog (Fachdatenkatalog)
 
-A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications (LOI) for building elements and documents in Switzerland. Designed as the foundation for Auftraggeber-Informationsanforderungen (AIA) and BIM-Abwicklungspläne (BAP) for Swiss public agencies.
+A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications for building elements, documents, use cases, models, and environmental product data in Switzerland. Designed as the foundation for **Auftraggeber-Informationsanforderungen (AIA)** and **BIM-Abwicklungspläne (BAP)** for Swiss public agencies.
+
+The platform standardizes BIM data across the building lifecycle and implements Swiss federal digitalization strategies (eCH-0279, Strategie Digitale Schweiz), eliminating data silos by providing standardized, machine-readable specifications.
 
 **Live Demo:** [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
@@ -16,7 +18,8 @@ A web-based interactive catalog for BIM (Building Information Modeling) requirem
 - **Grid & List Views** - Toggle between card grid and table layouts with state preserved in URL
 - **Advanced Filtering** - Tag-based (AND logic), category (exclusive), and phase (OR logic) filters with A-Z navigation
 - **Real-time Search** - Global search across all data types with dropdown preview and dedicated search results page
-- **Detail Pages** - Comprehensive info including classifications (eBKP-H, DIN 276, Uniformat II, KBOB), IFC 4.3 mappings (Revit, ArchiCAD), geometry and LOI requirements per project phase (1-5)
+- **Detail Pages** - Comprehensive info including classifications (eBKP-H, DIN 276, Uniformat II, KBOB), IFC 4.3 mappings (Revit, ArchiCAD), geometry (LOG) and information (LOI) requirements per project phase (1-5)
+- **Standards Compliance** - VDI 2552 lifecycle phases, ISO 19650 compliant use cases, KBOB document categories
 - **Handbook & Downloads** - Documentation section with downloadable templates and resources
 - **Multi-language Support** - Available in German, French, Italian, and English
 - **Shareable URLs** - Filter states preserved in URL hash for easy sharing
@@ -29,12 +32,14 @@ A web-based interactive catalog for BIM (Building Information Modeling) requirem
 | Technology | Purpose |
 |------------|---------|
 | HTML5 | Single-page application structure |
-| CSS3 | Swiss Federal Design System, Flexbox/Grid layouts |
-| Vanilla JavaScript | Zero NPM dependencies, ~3,700 lines across 15 modules |
+| CSS3 | Swiss Federal Design System with design tokens, Flexbox/Grid layouts |
+| Vanilla JavaScript | Zero NPM dependencies, ~3,900 lines across 15 modules |
 | Lucide Icons | SVG icon library |
 | Noto Sans | Typography (Google Fonts) |
 | JSON | Primary static data storage |
-| Supabase | Optional PostgreSQL backend with automatic fallback |
+| Supabase | Optional PostgreSQL backend with automatic fallback and 5-minute response caching |
+
+**No build tools required** - Loads directly in browsers.
 
 ## Getting Started
 
@@ -63,13 +68,14 @@ Visit [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 kbob-fdk/
 ├── index.html              # Main SPA entry point
 ├── css/
-│   ├── tokens.css          # Design tokens (colors, typography)
+│   ├── tokens.css          # Design tokens (colors, typography, spacing)
 │   └── styles.css          # Component and layout styles
 ├── js/
 │   ├── app.js              # Initialization & data loading
 │   ├── state.js            # Global state & XSS utilities
 │   ├── url.js              # URL parsing & hash-based routing
 │   ├── router.js           # Main routing logic
+│   ├── config.js           # Application configuration
 │   ├── data.js             # Filter helpers
 │   ├── search.js           # Search engines
 │   ├── filters.js          # Filter bar components
@@ -79,36 +85,62 @@ kbob-fdk/
 │   ├── handbook.js         # Handbook & downloads page
 │   ├── breadcrumb.js       # Breadcrumb navigation
 │   ├── ui.js               # Language dropdown
-│   ├── config.js           # Application configuration
 │   └── supabase-client.js  # Database client & caching
 ├── data/
-│   ├── elements.json       # 15 building elements with LOI specs
-│   ├── documents.json      # 20 document types
-│   ├── usecases.json       # 30 BIM use cases
-│   ├── models.json         # 10 professional BIM models
-│   └── epds.json           # 10 environmental product declarations
+│   ├── elements.json       # 15+ building elements with LOG/LOI specs
+│   ├── documents.json      # 20+ document types (KBOB categories)
+│   ├── usecases.json       # 30+ BIM use cases (VDI 2552 Blatt 12.2)
+│   ├── models.json         # 10+ BIM model types
+│   └── epds.json           # 10+ environmental product declarations
 ├── assets/
-│   ├── img/                # Element images
-│   ├── document/           # Document images
-│   ├── usecase/            # Use case images
+│   ├── img/                # Element, document, usecase images
 │   └── readme/             # Preview screenshots
-├── supabase/               # Optional database setup
-│   ├── README.md           # Migration guide
-│   ├── generate-seed.js    # SQL seed generator
-│   └── migrations/         # Database schema & seed files
+├── documentation/
+│   └── DATA-MODEL.md       # Comprehensive data model documentation
 ├── tools/
 │   └── optimize_images.py  # Image optimization utility
+├── LICENSE                 # MIT License
 └── README.md
 ```
 
 ## Data Architecture
+
+### Data Sources
 
 The application supports two data sources with automatic fallback:
 
 1. **JSON Files (Default)** - Static files in `/data/` for zero-config deployment
 2. **Supabase PostgreSQL (Optional)** - For dynamic data management with 5-minute response caching
 
-See [supabase/README.md](supabase/README.md) for database setup instructions.
+Configure in `js/config.js`.
+
+### Five Core Entity Types
+
+| Entity | Description | Standards |
+|--------|-------------|-----------|
+| **Elements** | Building components with geometry (LOG) and information (LOI) requirements | IFC 4.3, eBKP-H, DIN 276, Uniformat II |
+| **Documents** | Project documentation types | KBOB categories (O, K, B, V) |
+| **Use Cases** | BIM processes and workflows | VDI 2552 Blatt 12.2, ISO 19650 |
+| **Models** | BIM model type definitions | Domain-specific (Fachmodelle, Koordination) |
+| **EPDs** | Environmental product declarations | GWP, UBP, PENRT, PERT indicators |
+
+### Classification Systems
+
+- **eBKP-H** - Swiss cost planning standard
+- **DIN 276** - German cost classification
+- **Uniformat II** - International classification
+- **KBOB** - Federal construction standard
+- **IFC 4.3** - Open BIM exchange format
+
+### Lifecycle Phases (VDI 2552)
+
+1. Entwicklung (Development)
+2. Planung (Planning)
+3. Realisierung (Construction)
+4. Betrieb (Operations)
+5. Abbruch (Demolition)
+
+For detailed data model documentation including entity relationships, attribute definitions, and business rules, see [documentation/DATA-MODEL.md](documentation/DATA-MODEL.md).
 
 ## URL Routing
 
@@ -121,6 +153,20 @@ Hash-based routing preserves application state:
 #search?q=fenster                               # Search results
 #handbook                                       # Handbook & downloads
 ```
+
+## Tools
+
+### Image Optimization
+
+The `tools/optimize_images.py` utility provides batch image optimization:
+
+```bash
+# Requires Python 3.9+ and Pillow
+pip install Pillow
+python tools/optimize_images.py assets/img/element --max-width 800
+```
+
+Features: auto-backup, smart resizing, progressive JPEG, PNG compression.
 
 ## License
 
