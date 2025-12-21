@@ -4460,11 +4460,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
     display: none;
 }
 
-/* Hide confusing lock icons on individual endpoints */
-#swagger-ui .swagger-ui .opblock-summary .authorization__btn {
-    display: none;
-}
-
 /* Swagger UI Overrides to match design system */
 #swagger-ui .swagger-ui {
     font-family: var(--font-family-primary);
