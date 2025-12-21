@@ -58,6 +58,11 @@ function router() {
 
     contentArea.classList.remove('white-bg');
 
+    // Clean up Swagger UI listener when navigating away from api-docs
+    if (route !== 'api-docs' && typeof cleanupSwaggerUI === 'function') {
+        cleanupSwaggerUI();
+    }
+
     switch (route) {
         case 'home': renderHomePage(); break;
         case 'search': renderSearchResultsPage(searchQuery); break;
