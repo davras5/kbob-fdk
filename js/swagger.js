@@ -280,10 +280,13 @@ function copyToClipboard(text, btn) {
             icon.setAttribute('data-lucide', 'check');
             lucide.createIcons();
             setTimeout(() => {
-                icon.setAttribute('data-lucide', 'copy');
                 btn.classList.remove('copy-success');
-                lucide.createIcons();
-            }, 1500);
+                // Wait for fade transition, then change icon
+                setTimeout(() => {
+                    icon.setAttribute('data-lucide', 'copy');
+                    lucide.createIcons();
+                }, 500);
+            }, 2000);
         }
     }).catch(err => {
         console.error('Failed to copy:', err);

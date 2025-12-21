@@ -4408,7 +4408,7 @@ th[aria-sort='ascending'] .table__sorter span::after {
     border-radius: var(--border-radius);
     cursor: pointer;
     color: var(--color-text-muted);
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .copy-btn:hover {
@@ -4457,6 +4457,11 @@ th[aria-sort='ascending'] .table__sorter span::after {
 }
 
 #swagger-ui .swagger-ui .scheme-container .schemes-title {
+    display: none;
+}
+
+/* Hide confusing lock icons on individual endpoints */
+#swagger-ui .swagger-ui .opblock-summary .authorization__btn {
     display: none;
 }
 
