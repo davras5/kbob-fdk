@@ -4384,6 +4384,61 @@ th[aria-sort='ascending'] .table__sorter span::after {
     color: var(--color-text-primary);
 }
 
+/* Copyable value with copy button */
+.copyable-value {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.copyable-value code {
+    flex: 1;
+}
+
+.copy-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+.copy-btn:hover {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.copy-btn i {
+    width: 14px;
+    height: 14px;
+}
+
+.copy-btn.copy-success {
+    animation: copy-flash 1s ease-out forwards;
+}
+
+@keyframes copy-flash {
+    0%, 60% {
+        background-color: var(--color-success, #28a745);
+        border-color: var(--color-success, #28a745);
+        color: white;
+    }
+    100% {
+        background-color: transparent;
+        border-color: var(--color-border);
+        color: var(--color-text-muted);
+    }
+}
+
 /* Swagger UI Container */
 #swagger-container {
     margin-top: var(--space-xl);
@@ -4393,16 +4448,32 @@ th[aria-sort='ascending'] .table__sorter span::after {
     margin-top: var(--space-lg);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
-    overflow: hidden;
+}
+
+/* Minimal Swagger UI - hide unnecessary elements */
+#swagger-ui .swagger-ui .topbar {
+    display: none;
+}
+
+#swagger-ui .swagger-ui .info {
+    display: none;
+}
+
+/* Style the scheme-container with Authorize button */
+#swagger-ui .swagger-ui .scheme-container {
+    background: var(--color-surface);
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+#swagger-ui .swagger-ui .scheme-container .schemes-title {
+    display: none;
 }
 
 /* Swagger UI Overrides to match design system */
 #swagger-ui .swagger-ui {
     font-family: var(--font-family-primary);
-}
-
-#swagger-ui .swagger-ui .info {
-    margin: var(--space-lg);
 }
 
 #swagger-ui .swagger-ui .info .title {
@@ -4480,15 +4551,7 @@ th[aria-sort='ascending'] .table__sorter span::after {
     font-family: var(--font-family-primary);
 }
 
-/* Hide the top bar info since we have our own hero */
-#swagger-ui .swagger-ui .info {
-    display: none;
-}
-
-/* Hide schemes selector */
-#swagger-ui .swagger-ui .scheme-container {
-    display: none;
-}
+/* No hiding - let Swagger UI display naturally */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

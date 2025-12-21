@@ -53,41 +53,32 @@ function renderApiDocsPage() {
                                 <i data-lucide="server" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
                                     <h3>Base URL</h3>
-                                    <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
+                                    <div class="copyable-value">
+                                        <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
+                                        <button class="copy-btn" onclick="copyToClipboard('https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1', this)" title="Kopieren">
+                                            <i data-lucide="copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="api-info-card">
-                                <i data-lucide="shield-check" class="api-info-card__icon"></i>
+                                <i data-lucide="key" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
-                                    <h3>Authentifizierung</h3>
-                                    <span>Klicken Sie auf <strong>"Authorize"</strong> im API Explorer und geben Sie Ihren Supabase API-Key ein</span>
+                                    <h3>API Key</h3>
+                                    <div class="copyable-value">
+                                        <code>sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS</code>
+                                        <button class="copy-btn" onclick="copyToClipboard('sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS', this)" title="Kopieren">
+                                            <i data-lucide="copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="api-info-card">
-                                <i data-lucide="file-json" class="api-info-card__icon"></i>
-                                <div class="api-info-card__content">
-                                    <h3>Format</h3>
-                                    <span>JSON, CSV</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="api-auth-info" style="margin-top: 1.5rem; padding: 1rem; background: var(--color-surface-secondary, #f5f5f5); border-radius: 8px; border-left: 4px solid var(--color-primary, #d32f2f);">
-                            <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                                <i data-lucide="key" style="width: 1.2rem; height: 1.2rem;"></i>
-                                API-Authentifizierung erforderlich
-                            </h4>
-                            <p style="margin: 0 0 0.5rem 0;">Um die API zu testen, benötigen Sie einen Supabase API-Key. Fügen Sie diesen in beide Felder im "Authorize"-Dialog ein:</p>
-                            <ul style="margin: 0; padding-left: 1.5rem;">
-                                <li><strong>ApiKeyAuth:</strong> Ihr API-Key</li>
-                                <li><strong>BearerAuth:</strong> Bearer [Ihr API-Key]</li>
-                            </ul>
                         </div>
                     </div>
 
                     <div id="swagger-container" class="detail-section">
                         <h2>API Explorer</h2>
-                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Der API-Key wird automatisch mitgesendet.</p>
+                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Klicken Sie auf «Authorize» und geben Sie den API-Key ein.</p>
                         <div id="swagger-ui"></div>
                     </div>
                 </div>
@@ -126,26 +117,20 @@ function enhanceOpenAPISpec(spec) {
     // Fix basePath - Supabase REST API is at /rest/v1
     spec.basePath = '/rest/v1';
 
-    // Add security definitions for Supabase authentication
+    // Add security definition for Supabase authentication
+    // Only apikey header is needed for read operations
     spec.securityDefinitions = {
         ApiKeyAuth: {
-            type: 'apiKey',
-            in: 'header',
-            name: 'apikey',
-            description: 'Supabase API Key (anon key for public read access)'
-        },
-        BearerAuth: {
-            type: 'apiKey',
-            in: 'header',
-            name: 'Authorization',
-            description: "Bearer token (use 'Bearer <your-api-key>')"
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'apikey',
+            'description': 'Supabase API Key (anon key for public read access)'
         }
     };
 
     // Apply security globally to all endpoints
     spec.security = [
-        { ApiKeyAuth: [] },
-        { BearerAuth: [] }
+        { ApiKeyAuth: [] }
     ];
 
     return spec;
@@ -211,24 +196,21 @@ function initSwaggerUI() {
             // Enhance the spec for Supabase compatibility
             const enhancedSpec = enhanceOpenAPISpec(spec);
 
+            // Use StandaloneLayout if preset is available, otherwise fall back to BaseLayout
+            const useStandalone = typeof SwaggerUIStandalonePreset !== 'undefined';
+
             SwaggerUIBundle({
                 spec: enhancedSpec,
                 dom_id: '#swagger-ui',
                 deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIStandalonePreset
-                ],
-                plugins: [
-                    SwaggerUIBundle.plugins.DownloadUrl
-                ],
-                layout: 'StandaloneLayout',
+                presets: useStandalone
+                    ? [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset]
+                    : [SwaggerUIBundle.presets.apis],
+                layout: useStandalone ? 'StandaloneLayout' : 'BaseLayout',
                 defaultModelsExpandDepth: 1,
                 defaultModelExpandDepth: 1,
                 docExpansion: 'list',
                 filter: true,
-                showExtensions: true,
-                showCommonExtensions: true,
                 tryItOutEnabled: true,
                 // Inject the API key header into all requests (if available from CONFIG)
                 requestInterceptor: (request) => {
@@ -275,4 +257,31 @@ function initSwaggerUI() {
  */
 function cleanupSwaggerUI() {
     isOnApiDocsPage = false;
+}
+
+/**
+ * Copy text to clipboard and show feedback
+ * @param {string} text - The text to copy
+ * @param {HTMLElement} btn - The button element for feedback
+ */
+function copyToClipboard(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Show check icon and trigger CSS animation
+        const icon = btn.querySelector('i');
+        btn.classList.remove('copy-success'); // Reset if clicked again
+        void btn.offsetWidth; // Force reflow to restart animation
+        btn.classList.add('copy-success');
+        if (icon) {
+            icon.setAttribute('data-lucide', 'check');
+            lucide.createIcons();
+            // Change icon back after animation completes (1s)
+            setTimeout(() => {
+                icon.setAttribute('data-lucide', 'copy');
+                lucide.createIcons();
+                btn.classList.remove('copy-success');
+            }, 1000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
 }
