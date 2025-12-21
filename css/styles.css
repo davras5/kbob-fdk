@@ -4393,7 +4393,11 @@ th[aria-sort='ascending'] .table__sorter span::after {
     margin-top: var(--space-lg);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius-lg);
-    overflow: hidden;
+}
+
+/* Ensure topbar is visible and not clipped */
+#swagger-ui .swagger-ui .topbar {
+    overflow: visible !important;
 }
 
 /* Swagger UI Overrides to match design system */
