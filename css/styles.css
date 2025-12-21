@@ -4422,6 +4422,12 @@ th[aria-sort='ascending'] .table__sorter span::after {
     height: 14px;
 }
 
+.copy-btn.copy-success {
+    background: var(--color-success, #28a745);
+    border-color: var(--color-success, #28a745);
+    color: white;
+}
+
 /* Swagger UI Container */
 #swagger-container {
     margin-top: var(--space-xl);

@@ -124,26 +124,20 @@ function enhanceOpenAPISpec(spec) {
     // Fix basePath - Supabase REST API is at /rest/v1
     spec.basePath = '/rest/v1';
 
-    // Add security definitions for Supabase authentication
+    // Add security definition for Supabase authentication
+    // Only apikey header is needed for read operations
     spec.securityDefinitions = {
         ApiKeyAuth: {
             'type': 'apiKey',
             'in': 'header',
             'name': 'apikey',
             'description': 'Supabase API Key (anon key for public read access)'
-        },
-        BearerAuth: {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization',
-            'description': "Bearer token (use 'Bearer <your-api-key>')"
         }
     };
 
     // Apply security globally to all endpoints
     spec.security = [
-        { ApiKeyAuth: [] },
-        { BearerAuth: [] }
+        { ApiKeyAuth: [] }
     ];
 
     return spec;
@@ -279,13 +273,15 @@ function cleanupSwaggerUI() {
  */
 function copyToClipboard(text, btn) {
     navigator.clipboard.writeText(text).then(() => {
-        // Show check icon briefly
+        // Show check icon and green flash
         const icon = btn.querySelector('i');
+        btn.classList.add('copy-success');
         if (icon) {
             icon.setAttribute('data-lucide', 'check');
             lucide.createIcons();
             setTimeout(() => {
                 icon.setAttribute('data-lucide', 'copy');
+                btn.classList.remove('copy-success');
                 lucide.createIcons();
             }, 1500);
         }
