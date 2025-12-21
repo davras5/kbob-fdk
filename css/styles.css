@@ -4499,9 +4499,16 @@ th[aria-sort='ascending'] .table__sorter span::after {
     padding: var(--space-sm) var(--space-md) !important;
 }
 
-/* Hide schemes selector */
-#swagger-ui .swagger-ui .scheme-container {
+/* Hide only the schemes selector dropdown, not the whole container */
+#swagger-ui .swagger-ui .scheme-container .schemes {
     display: none;
+}
+
+/* Keep scheme-container visible for the auth button */
+#swagger-ui .swagger-ui .scheme-container {
+    background: transparent;
+    box-shadow: none;
+    padding: var(--space-sm) var(--space-md);
 }
 
 /* Ensure Authorize button is visible */
