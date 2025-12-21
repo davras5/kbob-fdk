@@ -78,7 +78,7 @@ function renderApiDocsPage() {
 
                     <div id="swagger-container" class="detail-section">
                         <h2>API Explorer</h2>
-                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Der API-Key wird automatisch mitgesendet.</p>
+                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Klicken Sie auf «Authorize» und geben Sie den API-Key ein.</p>
                         <div id="swagger-ui"></div>
                     </div>
                 </div>
@@ -274,12 +274,12 @@ function copyToClipboard(text, btn) {
         if (icon) {
             icon.setAttribute('data-lucide', 'check');
             lucide.createIcons();
-            // Change icon back after animation completes (2.5s)
+            // Change icon back after animation completes (1s)
             setTimeout(() => {
                 icon.setAttribute('data-lucide', 'copy');
                 lucide.createIcons();
                 btn.classList.remove('copy-success');
-            }, 2500);
+            }, 1000);
         }
     }).catch(err => {
         console.error('Failed to copy:', err);

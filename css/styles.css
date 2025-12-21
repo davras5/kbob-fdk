@@ -4423,11 +4423,11 @@ th[aria-sort='ascending'] .table__sorter span::after {
 }
 
 .copy-btn.copy-success {
-    animation: copy-flash 2.5s ease-out forwards;
+    animation: copy-flash 1s ease-out forwards;
 }
 
 @keyframes copy-flash {
-    0%, 70% {
+    0%, 60% {
         background-color: var(--color-success, #28a745);
         border-color: var(--color-success, #28a745);
         color: white;
