@@ -73,13 +73,6 @@ function renderApiDocsPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div class="api-info-card">
-                                <i data-lucide="file-json" class="api-info-card__icon"></i>
-                                <div class="api-info-card__content">
-                                    <h3>Format</h3>
-                                    <span>JSON, CSV</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -273,20 +266,20 @@ function cleanupSwaggerUI() {
  */
 function copyToClipboard(text, btn) {
     navigator.clipboard.writeText(text).then(() => {
-        // Show check icon and green flash
+        // Show check icon and trigger CSS animation
         const icon = btn.querySelector('i');
+        btn.classList.remove('copy-success'); // Reset if clicked again
+        void btn.offsetWidth; // Force reflow to restart animation
         btn.classList.add('copy-success');
         if (icon) {
             icon.setAttribute('data-lucide', 'check');
             lucide.createIcons();
+            // Change icon back after animation completes (2.5s)
             setTimeout(() => {
+                icon.setAttribute('data-lucide', 'copy');
+                lucide.createIcons();
                 btn.classList.remove('copy-success');
-                // Wait for fade transition, then change icon
-                setTimeout(() => {
-                    icon.setAttribute('data-lucide', 'copy');
-                    lucide.createIcons();
-                }, 500);
-            }, 2000);
+            }, 2500);
         }
     }).catch(err => {
         console.error('Failed to copy:', err);

@@ -4423,9 +4423,20 @@ th[aria-sort='ascending'] .table__sorter span::after {
 }
 
 .copy-btn.copy-success {
-    background-color: var(--color-success, #28a745);
-    border-color: var(--color-success, #28a745);
-    color: white;
+    animation: copy-flash 2.5s ease-out forwards;
+}
+
+@keyframes copy-flash {
+    0%, 70% {
+        background-color: var(--color-success, #28a745);
+        border-color: var(--color-success, #28a745);
+        color: white;
+    }
+    100% {
+        background-color: transparent;
+        border-color: var(--color-border);
+        color: var(--color-text-muted);
+    }
 }
 
 /* Swagger UI Container */
