@@ -4,7 +4,8 @@
  */
 
 // Swagger UI deep link patterns (tag/operationId format)
-const SWAGGER_DEEP_LINK_PATTERN = /^(elements|documents|usecases|models|epds)\/(get|post|patch|delete)_/;
+// Matches both: elements/get_elements AND api-docs/elements/get_elements
+const SWAGGER_DEEP_LINK_PATTERN = /^(api-docs\/)?(elements|documents|usecases|models|epds)\/(get|post|patch|delete)_/;
 
 /**
  * Parse the current hash and extract route, id, and parameters
@@ -16,14 +17,20 @@ function parseHashWithParams() {
     if (fullHash.startsWith('/')) {
         fullHash = fullHash.slice(1);
     }
+
+    // Handle empty hash (Swagger UI sometimes sets #/)
+    if (!fullHash || fullHash === '') {
+        fullHash = 'home';
+    }
+
     const [hashPart, queryPart] = fullHash.split('?');
 
     // Parse route and id
     let route = hashPart;
     let id = null;
 
-    // Check for Swagger UI deep links (e.g., elements/get_elements)
-    if (SWAGGER_DEEP_LINK_PATTERN.test(hashPart)) {
+    // Check for api-docs with Swagger deep link (e.g., api-docs/elements/get_elements)
+    if (hashPart.startsWith('api-docs/') || SWAGGER_DEEP_LINK_PATTERN.test(hashPart)) {
         route = 'api-docs';
     } else if (hashPart.startsWith('element/')) {
         route = 'element';
