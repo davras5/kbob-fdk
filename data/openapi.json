@@ -5,7 +5,7 @@
     "title": "KBOB Fachdatenkatalog API",
     "version": "1.0.0"
   },
-  "host": "sdomjwahhqrlyqyfyyeo.supabase.co:443",
+  "host": "sdomjwahhqrlyqyfyyeo.supabase.co",
   "basePath": "/rest/v1",
   "schemes": ["https"],
   "consumes": ["application/json", "text/csv"],
