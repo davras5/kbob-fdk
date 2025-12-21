@@ -24,11 +24,6 @@ function renderApiDocsPage() {
                     </div>
                     <h1 class="hero-title">REST API Dokumentation</h1>
                     <p class="hero-subtitle">Interaktive API-Dokumentation für den programmatischen Zugriff auf den KBOB Fachdatenkatalog. Die API basiert auf PostgREST und ermöglicht lesenden Zugriff auf alle Katalogdaten.</p>
-                    <div class="hero-tags">
-                        <span class="tag">OpenAPI</span>
-                        <span class="tag">REST</span>
-                        <span class="tag">JSON</span>
-                    </div>
                 </div>
                 <div class="hero-image-container">
                     <img src="assets/img/api/rest.jpg" alt="REST API Dokumentation">
