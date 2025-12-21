@@ -219,7 +219,7 @@ function initSwaggerUI() {
                     SwaggerUIBundle.presets.apis,
                     SwaggerUIBundle.SwaggerUIStandalonePreset
                 ],
-                layout: 'BaseLayout',
+                layout: 'StandaloneLayout',
                 defaultModelsExpandDepth: 1,
                 defaultModelExpandDepth: 1,
                 docExpansion: 'list',
