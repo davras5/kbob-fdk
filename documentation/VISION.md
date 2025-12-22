@@ -109,6 +109,7 @@ Sowie alle Planenden und Lieferanten, die für diese Auftraggeber tätig sind.
 **Mittelfristig**
 - stärkere Integration in Authorensoftware und Prüfsoftware
 - Anbindung an CDEs mit Project Information Model (PIM) und Asset Information Model (AIM)
+- Aufbau und Pflege einer Community of Practice
 - Versionierung und Governance der Datenstandards
 
 **Langfristig**
@@ -132,6 +133,8 @@ Sowie alle Planenden und Lieferanten, die für diese Auftraggeber tätig sind.
 ## Mitwirken
 
 Der KBOB Fachdatenkatalog ist ein Gemeinschaftswerk.
+
+Er lebt von Menschen, nicht nur von Dokumenten und Werkzeugen.
 
 Mitwirken können:
 - öffentliche Auftraggeber mit praktischer Erfahrung
