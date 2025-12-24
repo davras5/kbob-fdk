@@ -64,15 +64,14 @@ The overarching objective is to define data once and reuse it consistently acros
 
 ## Features
 
-| Capability | Description |
-|------------|-------------|
-| **Multiple Catalogs** | Building elements, document types, BIM use cases, professional models, EPD data |
-| **Grid & List Views** | Toggle between card grid and table layouts |
-| **Search & Filter** | Real-time search with tag-based filtering (discipline, classification, phase) |
-| **Detail Pages** | Classifications, IFC mappings, geometry and LOI requirements per phase (1–6) |
-| **Shareable URLs** | Filter states preserved in URL hash |
+| Feature | Description |
+|---------|-------------|
+| **Five Integrated Catalogs** | Elements, documents, BIM use cases, discipline models, and EPD sustainability data |
+| **Phase-Based Requirements** | Geometry and information requirements mapped to SIA phases (1–6) |
+| **IFC Mappings** | Direct mapping of elements to IFC 4.3 classes and predefined types |
+| **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
+| **Multilingual** | Full support for DE, FR, IT, EN |
 | **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
-| **Responsive** | Optimized for desktop, tablet, and mobile |
 
 ---
 
