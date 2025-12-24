@@ -27,7 +27,6 @@ This catalog is published as a **demonstration and reference implementation** of
 </p>
 
 ---
-
 ## Features
 
 | Feature | Description |
