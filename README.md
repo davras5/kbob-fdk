@@ -33,8 +33,7 @@ This catalog is published as a **demonstration and reference implementation** of
 | Principle | Description |
 |-----------|-------------|
 | **Open by default** | Code, data, and methodology are public; no framework lock-in |
-| **Once-only** | Data requirements are defined once and reused across organizations, phases, and systems |
-| **Linked data** | Connected to national reference data and dictionaries, enabling integration with the Swiss Data Ecosystem |
+| **Linked data & Once-only** | Data requirements are defined once, connected to national reference data and dictionaries, enabling reuse and integration with the Swiss Data Ecosystem |
 | **Interoperable by design** | Based on open standards to ensure seamless data exchange and stability |
 | **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
 
