@@ -64,15 +64,14 @@ The overarching objective is to define data once and reuse it consistently acros
 
 ## Features
 
-| Capability | Description |
-|------------|-------------|
-| **Multiple Catalogs** | Building elements, document types, BIM use cases, professional models, EPD data |
-| **Grid & List Views** | Toggle between card grid and table layouts |
-| **Search & Filter** | Real-time search with tag-based filtering (discipline, classification, phase) |
-| **Detail Pages** | Classifications, IFC mappings, geometry and LOI requirements per phase (1–6) |
-| **Shareable URLs** | Filter states preserved in URL hash |
+| Feature | Description |
+|---------|-------------|
+| **Five Integrated Catalogs** | Elements, documents, BIM use cases, discipline models, and EPD sustainability data |
+| **Phase-Based Requirements** | Geometry and information requirements mapped to SIA phases (1–6) |
+| **IFC Mappings** | Direct mapping of elements to IFC 4.3 classes and predefined types |
+| **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
+| **Multilingual** | Full support for DE, FR, IT, EN |
 | **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
-| **Responsive** | Optimized for desktop, tablet, and mobile |
 
 ---
 
@@ -94,60 +93,86 @@ Multiple systems are supported to reflect the realities of different professiona
 
 ## Data Model
 
-The data model is intentionally simple, explicit, and technology-agnostic to support reuse across organizations and software systems.
+The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
 ```mermaid
 erDiagram
-    ELEMENTS ||--o{ DOCUMENTS : "require"
-    ELEMENTS ||--o{ USECASES : "support"
-    ELEMENTS }o--o{ MODELS : "belong to"
-    ELEMENTS ||--o{ EPDS : "reference"
-
     ELEMENTS {
-        string id
-        string name
-        string ebkp_h
-        string din_276
-        string uniformat
-        string ifc_class
-        json geometry_per_phase
-        json loi_per_phase
+        string id PK
+        string title
+        string category
+        string description
+        array tags
+        object classifications
+        array ifcMapping
+        array geometry
+        array information
+        array documentation
     }
 
     DOCUMENTS {
-        string id
-        string name
-        string type
-        string phase
+        string id PK
+        string title
+        string category
+        string description
+        array tags
+        array formats
+        string retention
+        array phases
+        object classifications
     }
 
     USECASES {
-        string id
-        string name
+        string id PK
+        string title
+        string category
         string description
-        string phase
+        array tags
+        array phases
+        string process_url
+        array standards
+        array goals
+        array inputs
+        array outputs
+        array roles
+        object prerequisites
+        array implementation
+        array qualityCriteria
     }
 
     MODELS {
-        string id
-        string name
-        string discipline
+        string id PK
+        string title
+        string category
+        string description
+        array tags
+        array phases
+        array elements
     }
 
     EPDS {
-        string id
-        string name
-        string product_category
+        string id PK
+        string title
+        string category
+        string subcategory
+        string description
+        array tags
+        string uuid
+        string unit
+        float gwp
+        float ubp
+        float penrt
+        float pert
     }
 ```
 
 | Entity | Description |
 |--------|-------------|
-| **Elements** | Building components with classifications and LOI requirements per phase |
-| **Documents** | Required deliverables such as plans, reports, and certificates |
-| **Use Cases** | BIM applications like coordination, quantity takeoff, or simulation |
-| **Models** | Discipline-specific BIM models (architecture, structure, MEP, site) |
-| **EPDs** | Environmental Product Declarations for sustainability assessments |
+| **Elements** | Building components with classifications (eBKP-H, DIN 276, Uniformat II), IFC mappings, and phase-specific geometry/information requirements |
+| **Documents** | Deliverables such as plans, reports, and certificates with format specifications, retention periods, and applicable phases |
+| **Use Cases** | BIM applications (e.g., coordination, quantity takeoff) with goals, inputs/outputs, roles, and quality criteria |
+| **Models** | Discipline-specific BIM models (architecture, structure, MEP) with nested element definitions per phase |
+| **EPDs** | Environmental Product Declarations with sustainability indicators (GWP, UBP, PENRT, PERT) from KBOB lifecycle data |
 
 ---
 
