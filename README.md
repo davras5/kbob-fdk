@@ -134,31 +134,6 @@ flowchart TB
 | Enumerations | Fixed value lists | Conceptual |
 | Reference Data | External datasets | Conceptual |
 
-**Relations**
-
-| From | Relation | To | Description |
-|------|----------|-----|-------------|
-| Project | has | Roles | Project assigns participating roles |
-| Project | has | Project Phases | Project structured into phases |
-| Project | has | Goals | Project defines its objectives |
-| Goals | timing | Phases | Goals are phase-dependent |
-| Phases | timing | Use Cases | Use cases relevant at specific phases |
-| Phases | timing | Information Requirements | Information requirements vary by phase |
-| Phases | timing | Documents | Documents delivered at specific phases |
-| Roles | execute | Use Cases | Roles perform use cases |
-| Roles | responsible for | Discipline Models | Roles author and maintain models |
-| Roles | produce/consume | Documents | Roles create or use documents |
-| Use Cases | achieve | Goals | Use cases fulfill project goals |
-| Use Cases | define | Information Requirements | Use cases determine what info is needed |
-| Use Cases | input/output | Documents | Documents support use case execution |
-| Discipline Models | contain | Building Elements | Models composed of elements |
-| Building Elements | have | Information Requirements | Elements have information requirements |
-| Building Elements | classified by | Classifications | Elements mapped to eBKP-H, DIN 276, IFC |
-| Building Elements | linked to | EPD Data | Elements reference sustainability data |
-| Information Requirements | specify | Attributes | LOIN defines required attributes |
-| Attributes | constrained by | Enumerations | Attribute values from fixed lists |
-| Attributes | reference | Reference Data | Attribute values from external datasets |
-
 ---
 
 ## Quick Start
