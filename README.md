@@ -49,6 +49,7 @@ This catalog is published as a **demonstration and reference implementation** of
 | **Interoperable by design** | Built on open standards (IFC 4.3, eBKP-H, ISO 19650) to ensure seamless data exchange |
 | **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
 | **Open by default** | Code, data, and methodology are public; no framework lock-in |
+| **Linked data** | Connected to national reference data (e.g. EPDs, classifications) enabling integration with the Swiss Data Ecosystem |
 
 ---
 
