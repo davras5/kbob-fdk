@@ -28,6 +28,22 @@ This catalog is published as a **demonstration and reference implementation** of
 
 ---
 
+## Why It Matters
+
+Public organizations across Switzerland are increasingly required to use BIM for planning, construction, and asset management. Federal policy under the **Digital Switzerland Strategy** promotes improved digital processes and data interoperability across the construction lifecycle.
+
+In practice, many public authorities have developed BIM data requirements independently. This has led to inconsistent definitions, duplicated effort, and friction at handovers between project phases and organizations.
+
+The KBOB BIM Data Catalog addresses these challenges by providing:
+
+- **Reduced ambiguity** — one shared definition understood by all
+- **Improved interoperability** — consistent data flows across organizations and lifecycle phases
+- **Lower barriers to adoption** — small municipalities benefit from the same clarity as larger agencies
+
+This catalog demonstrates how coordination can be implemented in practice across public builders.
+
+---
+
 ## Principles
 
 | Principle | Description |
@@ -52,21 +68,6 @@ This catalog is published as a **demonstration and reference implementation** of
 
 ---
 
-## Why It Matters
-
-Public organizations across Switzerland are increasingly required to use BIM for planning, construction, and asset management. Federal policy under the **Digital Switzerland Strategy** promotes improved digital processes and data interoperability across the construction lifecycle.
-
-In practice, many public authorities have developed BIM data requirements independently. This has led to inconsistent definitions, duplicated effort, and friction at handovers between project phases and organizations.
-
-The KBOB BIM Data Catalog addresses these challenges by providing:
-
-- **Reduced ambiguity** — one shared definition understood by all
-- **Improved interoperability** — consistent data flows across organizations and lifecycle phases
-- **Lower barriers to adoption** — small municipalities benefit from the same clarity as larger agencies
-
-This catalog demonstrates how coordination can be implemented in practice across public builders.
-
----
 
 ## Strategic Context
 
