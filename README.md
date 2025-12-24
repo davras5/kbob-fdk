@@ -126,7 +126,7 @@ flowchart TB
 
 ### Option 1: View Online
 
-https://davras5.github.io/kbob-fdk/
+**Live demo:** https://davras5.github.io/kbob-fdk/
 
 ### Option 2: VS Code Live Server
 
