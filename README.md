@@ -75,22 +75,6 @@ The overarching objective is to define data once and reuse it consistently acros
 
 ---
 
-## Classifications & Standards
-
-The catalog maps building elements across multiple classification systems:
-
-| System | Origin | Purpose |
-|-------|--------|---------|
-| **eBKP-H** | Switzerland | Element-based cost planning (SN 506 511) |
-| **DIN 276** | Germany | Cost grouping for German-speaking markets |
-| **Uniformat II** | North America | Functional classification of building elements |
-| **KBOB Codes** | Switzerland | Standard element codes for public builders |
-| **IFC 4.3** | buildingSMART | Open standard for BIM data exchange |
-
-Multiple systems are supported to reflect the realities of different professional disciplines, tools, and lifecycle stages. The catalog acts as a bridge between them.
-
----
-
 ## Data Model
 
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
