@@ -1,4 +1,3 @@
-```markdown
 # KBOB BIM Data Catalog
 
 **BIM data requirements defined once. Used everywhere.**
@@ -26,6 +25,19 @@ This catalog is published as a **demonstration and reference implementation** of
   &nbsp;&nbsp;
   <img src="assets/readme/preview2.JPG" width="45%" />
 </p>
+
+---
+
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| **Five Integrated Catalogs** | Elements, documents, BIM use cases, discipline models, and EPD sustainability data |
+| **Phase-Based Requirements** | Geometry and information requirements mapped to project phases across the building lifecycle |
+| **IFC Mappings** | Direct mapping of elements to IFC 4.3 classes and predefined types |
+| **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
+| **Multilingual** | Full support for DE, FR, IT, EN |
+| **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
 
 ---
 
@@ -71,19 +83,6 @@ The overarching objective is to define data once and reuse it consistently acros
 | **Interoperable by design** | Built on open standards (IFC 4.3, eBKP-H, ISO 19650) to ensure seamless data exchange |
 | **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
 | **Open by default** | Code, data, and methodology are public; no framework lock-in |
-
----
-
-## Features
-
-| Feature | Description |
-|---------|-------------|
-| **Five Integrated Catalogs** | Elements, documents, BIM use cases, discipline models, and EPD sustainability data |
-| **Phase-Based Requirements** | Geometry and information requirements mapped to project phases across the building lifecycle |
-| **IFC Mappings** | Direct mapping of elements to IFC 4.3 classes and predefined types |
-| **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
-| **Multilingual** | Full support for DE, FR, IT, EN |
-| **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
 
 ---
 
@@ -235,4 +234,3 @@ https://www.kbob.admin.ch/
 ---
 
 *A shared foundation for digital construction — this is what we are building toward.*
-```
