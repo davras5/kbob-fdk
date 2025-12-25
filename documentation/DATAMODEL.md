@@ -16,7 +16,7 @@
 | `elements` | Core | `id` (uuid) | ✓ | ✗ | Physical building components with LOG requirements |
 | `documents` | Core | `id` (uuid) | ✓ | ✓ | Project documentation types per KBOB/IPB standard |
 | `usecases` | Core | `id` (uuid) | ✓ | ✓ | Standardized BIM processes per VDI 2552 |
-| `models` | Core | `id` (uuid) | ✓ | ✗ | BIM discipline and coordination model definitions |
+| `models` | Core | `id` (uuid) | ✓ | ✓ | BIM discipline and coordination model definitions |
 | `epds` | Reference | `id` (uuid) | ✗ | ✓ | Environmental impact data (KBOB Ökobilanzdaten) |
 | `attributes` | Reference | `id` (uuid) | ✗ | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
 | `classifications` | Reference | `id` (uuid) | ✗ | ✓ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
@@ -140,6 +140,7 @@ erDiagram
         jsonb description "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
+        text code UK
         jsonb related_elements FK
         timestamptz created_at
         timestamptz updated_at
@@ -200,18 +201,18 @@ All core entities share a common set of attributes for identification, versionin
 
 ### Common Attributes (Core Entities)
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `id` | `uuid` | `PRIMARY KEY DEFAULT gen_random_uuid()` | Unique identifier (UUID v4) |
-| `version` | `text` | `NOT NULL` | Version indicator (format: `MAJOR.MINOR`, e.g., "2.1") |
-| `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
-| `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
-| `image` | `text` | | Visual representation reference (URL or path) |
-| `domain` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
-| `description` | `jsonb` | | Detailed explanation of purpose and scope (i18n: de, fr, it, en) |
-| `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) — see note below |
-| `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
-| `updated_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `id` | `uuid` | PK | ✓ | `PRIMARY KEY DEFAULT gen_random_uuid()` | Unique identifier (UUID v4) |
+| `version` | `text` | | ✓ | `NOT NULL` | Version indicator (format: `MAJOR.MINOR`, e.g., "2.1") |
+| `last_change` | `date` | | ✓ | `NOT NULL` | Date of last modification (ISO 8601) |
+| `name` | `jsonb` | | ✓ | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
+| `image` | `text` | | | | Visual representation reference (URL or path) |
+| `domain` | `jsonb` | | ✓ | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
+| `description` | `jsonb` | | | | Detailed explanation of purpose and scope (i18n: de, fr, it, en) |
+| `tags` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) — see note below |
+| `created_at` | `timestamptz` | | ✓ | `NOT NULL DEFAULT now()` | Record creation timestamp |
+| `updated_at` | `timestamptz` | | ✓ | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
 
 > **Tags Structure Design:** Tags are stored as an array of i18n objects (`[{"de": "...", "fr": "...", ...}]`) rather than a language-keyed structure (`{"de": [...], "fr": [...]}`). This ensures explicit 1:1 correspondence between translations of the same tag concept. The trade-off is that filtering requires `EXISTS` subqueries (`WHERE EXISTS (SELECT 1 FROM jsonb_array_elements(tags) t WHERE t->>'de' = 'Koordination')`), which is acceptable for this catalog's access patterns. A flattened structure would enable more efficient GIN queries (`WHERE tags->'de' ? 'Koordination'`) if filtering performance becomes critical.
 
@@ -219,9 +220,9 @@ All core entities share a common set of attributes for identification, versionin
 
 All entities **except EPD, attributes, and classifications** include lifecycle phases:
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `phases` | `integer[]` | | | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
 
 > **Note:** EPD, attributes, and classifications contain phase-neutral reference data. Phase applicability is defined in the relationship (e.g., `related_attributes` includes phases).
 
@@ -234,7 +235,7 @@ All entities use UUID v4 as the primary key (`id`). Entities that require human-
 | elements | UUID | – | – |
 | documents | UUID | `code` | O01001, K02003 |
 | usecases | UUID | `code` | uc000, uc280 |
-| models | UUID | – | – |
+| models | UUID | `code` | arch-01, coord-01 |
 | epds | UUID | `code` | kbob-01-042 |
 | attributes | UUID | – | – |
 | classifications | UUID | `code` | C02, KG466 |
@@ -247,15 +248,15 @@ All entities use UUID v4 as the primary key (`id`). Entities that require human-
 
 Physical building components with geometry (LOG) requirements.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase (i18n: de, fr, it, en) |
-| `tool_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
-| `related_documents` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to documents `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_epds` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to EPDs `[{"id": "<uuid>"}]` |
-| `related_attributes` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to attributes `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_classifications` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
-| `related_usecases` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to usecases `[{"id": "<uuid>"}]` |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `geometry` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | LOG specifications per phase (i18n: de, fr, it, en) |
+| `tool_elements` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
+| `related_documents` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to documents `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_epds` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to EPDs `[{"id": "<uuid>"}]` |
+| `related_attributes` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to attributes `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_classifications` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
+| `related_usecases` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to usecases `[{"id": "<uuid>"}]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -265,13 +266,13 @@ Physical building components with geometry (LOG) requirements.
 
 Project documentation types with format requirements and retention policies per KBOB/IPB Bauwerksdokumentation.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable code (e.g., O01001, K02003) |
-| `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
-| `retention` | `integer` | | Retention period in years (0 = indefinitely) |
-| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to elements `[{"id": "<uuid>"}]` |
-| `related_classifications` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `code` | `text` | UK | ✓ | `NOT NULL, UNIQUE` | Human-readable code (e.g., O01001, K02003) |
+| `formats` | `text[]` | | ✓ | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
+| `retention` | `integer` | | | | Retention period in years (0 = indefinitely) |
+| `related_elements` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to elements `[{"id": "<uuid>"}]` |
+| `related_classifications` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
 
 **Domain values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
@@ -281,19 +282,19 @@ Project documentation types with format requirements and retention policies per 
 
 Standardized BIM processes with roles, responsibilities, and quality criteria per VDI 2552 Blatt 12.1/12.2.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable code (e.g., uc000, uc280) |
-| `goals` | `jsonb` | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
-| `inputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
-| `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
-| `roles` | `jsonb` | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix (i18n) |
-| `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor (i18n) |
-| `implementation` | `jsonb` | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
-| `quality_criteria` | `jsonb` | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
-| `process_url` | `text` | | Link to BPMN process diagram |
-| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required elements `[{"id": "<uuid>", "phases": [2,3]}]` |
-| `related_documents` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required documents `[{"id": "<uuid>", "required": true}]` |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `code` | `text` | UK | ✓ | `NOT NULL, UNIQUE` | Human-readable code (e.g., uc000, uc280) |
+| `goals` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
+| `inputs` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
+| `outputs` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
+| `roles` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix (i18n) |
+| `prerequisites` | `jsonb` | | ✓ | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor (i18n) |
+| `implementation` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
+| `quality_criteria` | `jsonb` | | ✓ | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
+| `process_url` | `text` | | | | Link to BPMN process diagram |
+| `related_elements` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Required elements `[{"id": "<uuid>", "phases": [2,3]}]` |
+| `related_documents` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Required documents `[{"id": "<uuid>", "required": true}]` |
 
 **Domain values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
 
@@ -303,9 +304,10 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 
 BIM model types including discipline models, coordination models, and special-purpose models.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model `[{"id": "<uuid>", "phases": [2,3,4]}]` |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `code` | `text` | UK | ✓ | `NOT NULL, UNIQUE` | Human-readable code (e.g., arch-01, coord-01) |
+| `related_elements` | `jsonb` | FK | ✓ | `NOT NULL DEFAULT '[]'` | Element types contained in model `[{"id": "<uuid>", "phases": [2,3,4]}]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -317,16 +319,16 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 > **Note:** No `phases` column – EPD data is phase-neutral reference data.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable KBOB code (e.g., kbob-01-042) |
-| `unit` | `text` | `NOT NULL` | Functional/reference unit (e.g., `kg`, `m²`, `m³`) |
-| `gwp` | `numeric(12,4)` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
-| `ubp` | `numeric(12,2)` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
-| `penrt` | `numeric(12,4)` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
-| `pert` | `numeric(12,4)` | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
-| `density` | `text` | | Material density |
-| `biogenic_carbon` | `numeric(12,6)` | | Biogenic carbon content (kg C) |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `code` | `text` | UK | ✓ | `NOT NULL, UNIQUE` | Human-readable KBOB code (e.g., kbob-01-042) |
+| `unit` | `text` | | ✓ | `NOT NULL` | Functional/reference unit (e.g., `kg`, `m²`, `m³`) |
+| `gwp` | `numeric(12,4)` | | ✓ | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
+| `ubp` | `numeric(12,2)` | | ✓ | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
+| `penrt` | `numeric(12,4)` | | ✓ | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
+| `pert` | `numeric(12,4)` | | ✓ | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
+| `density` | `text` | | | | Material density |
+| `biogenic_carbon` | `numeric(12,6)` | | | | Biogenic carbon content (kg C) |
 
 **Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
 
@@ -336,13 +338,13 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 Reusable property definitions for LOI (Level of Information) requirements. Phase-neutral reference data.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `data_type` | `text` | `NOT NULL` | Property data type (string, number, boolean, enum) |
-| `unit` | `text` | | Unit of measurement (m, kg, °C, etc.) |
-| `ifc_pset` | `text` | | IFC property set name |
-| `ifc_property` | `text` | | IFC property name within the pset |
-| `enumeration_values` | `jsonb` | `DEFAULT '[]'` | Allowed values for enum types (i18n array) |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `data_type` | `text` | | ✓ | `NOT NULL` | Property data type (string, number, boolean, enum) |
+| `unit` | `text` | | | | Unit of measurement (m, kg, °C, etc.) |
+| `ifc_pset` | `text` | | | | IFC property set name |
+| `ifc_property` | `text` | | | | IFC property name within the pset |
+| `enumeration_values` | `jsonb` | | | `DEFAULT '[]'` | Allowed values for enum types (i18n array) |
 
 ---
 
@@ -350,10 +352,10 @@ Reusable property definitions for LOI (Level of Information) requirements. Phase
 
 Classification codes from multiple systems. Phase-neutral reference data.
 
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `system` | `text` | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
-| `code` | `text` | `NOT NULL`, `UNIQUE(system, code)` | Classification code within the system |
+| Column | Type | Key | Required | Constraints | Description |
+|--------|------|-----|----------|-------------|-------------|
+| `system` | `text` | UK | ✓ | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
+| `code` | `text` | UK | ✓ | `NOT NULL`, `UNIQUE(system, code)` | Classification code within the system |
 
 > **Note:** The `code` uniqueness is scoped to `system` because different classification systems may use the same code values (e.g., eBKP-H "C02" is distinct from a potential DIN276 "C02").
 
@@ -411,7 +413,7 @@ Mappings to authoring tools and exchange formats. Extensible for additional tool
 
 > **IFC Field Design:** The `ifc` field stores the combined class and predefined type (e.g., "IfcWall.PARTITIONING") rather than separate `ifc_class` and `ifc_predefined_type` fields. This matches the IFC schema's entity-type notation and simplifies data entry. If queries like "find all elements mapping to IfcWall.*" become common, splitting into separate fields would improve queryability.
 
-### Classifications Table
+### Classification: entry structure
 
 Classification codes from multiple systems, with i18n support. Referenced by elements and documents via `related_classifications`.
 
@@ -499,7 +501,7 @@ These are stored as JSONB arrays with i18n support:
 }
 ```
 
-### Model: elements
+### Model: related_elements
 
 ```json
 [
@@ -668,7 +670,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.12
+-- Version: 2.1.13
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -797,6 +799,7 @@ CREATE TABLE public.models (
     phases integer[],
 
     -- Entity-specific attributes
+    code text NOT NULL UNIQUE,
     related_elements jsonb NOT NULL DEFAULT '[]',
 
     -- System
@@ -947,6 +950,7 @@ CREATE INDEX classifications_system_idx ON classifications(system);
 -- Code lookup indexes (human-readable identifiers)
 CREATE INDEX documents_code_idx ON documents(code);
 CREATE INDEX usecases_code_idx ON usecases(code);
+CREATE INDEX models_code_idx ON models(code);
 CREATE INDEX epds_code_idx ON epds(code);
 
 -- Tag filters (GIN for JSONB containment)
@@ -1119,6 +1123,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.13 | 2025-12 | Added `code` attribute to models entity; added Required and Key columns to all attribute tables for business user clarity; fixed header naming consistency in JSONB Structures section |
 | 2.1.12 | 2025-12 | Schema review fixes: changed `classifications.code` to composite unique constraint (system, code); added numeric precision to EPD values; documented version format (MAJOR.MINOR); standardized all `related_*` fields to NOT NULL DEFAULT '[]'; added design notes for JSONB performance trade-offs, tags structure, IFC field normalization, composite indexes, and soft delete considerations |
 | 2.1.11 | 2025-12 | Restructured Reference Values: moved Lifecycle Phases as first subsection; added `epd_unit` and `classification_system` reference tables |
 | 2.1.10 | 2025-12 | Added `Has Code` column to Core Tables; fixed `classifications.code` UK marker in mermaid and UNIQUE constraint in docs; updated Classifications Table JSON example to UUID |
