@@ -158,7 +158,7 @@ All five core entities share a common set of attributes for identification, vers
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
 | `domain` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
-| `description` | `text` | | Detailed explanation of purpose and scope |
+| `description` | `jsonb` | | Detailed explanation of purpose and scope (i18n: de, fr, it, en) |
 | `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
 | `updated_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
@@ -169,7 +169,7 @@ All entities **except EPD** include lifecycle phases:
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])`, unique sorted | Applicable lifecycle phases (1-5); stored as sorted unique values |
+| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
 
 > **Note:** EPD contains phase-neutral reference data (environmental indicators don't vary by project phase).
 
@@ -564,7 +564,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.2
+-- Version: 2.1.3
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -583,7 +583,7 @@ CREATE TABLE public.elements (
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
-    description text,
+    description jsonb,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
@@ -602,12 +602,7 @@ CREATE TABLE public.elements (
 
     -- Constraints
     CONSTRAINT elements_id_format CHECK (id ~ '^e[0-9]+$'),
-    CONSTRAINT elements_phases_valid CHECK (
-        phases IS NULL OR (
-            phases <@ ARRAY[1,2,3,4,5] AND
-            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
-        )
-    )
+    CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
 -- =============================================================================
@@ -623,7 +618,7 @@ CREATE TABLE public.documents (
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
-    description text,
+    description jsonb,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
@@ -639,12 +634,7 @@ CREATE TABLE public.documents (
 
     -- Constraints
     CONSTRAINT documents_id_format CHECK (id ~ '^[OKBV][0-9]{5}$'),
-    CONSTRAINT documents_phases_valid CHECK (
-        phases IS NULL OR (
-            phases <@ ARRAY[1,2,3,4,5] AND
-            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
-        )
-    ),
+    CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
     CONSTRAINT documents_retention_valid CHECK (retention IS NULL OR retention >= 0)
 );
 
@@ -661,7 +651,7 @@ CREATE TABLE public.usecases (
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
-    description text,
+    description jsonb,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
@@ -685,12 +675,7 @@ CREATE TABLE public.usecases (
 
     -- Constraints
     CONSTRAINT usecases_id_format CHECK (id ~ '^uc[0-9]{3}$'),
-    CONSTRAINT usecases_phases_valid CHECK (
-        phases IS NULL OR (
-            phases <@ ARRAY[1,2,3,4,5] AND
-            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
-        )
-    )
+    CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
 -- =============================================================================
@@ -706,7 +691,7 @@ CREATE TABLE public.models (
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
-    description text,
+    description jsonb,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
@@ -719,12 +704,7 @@ CREATE TABLE public.models (
 
     -- Constraints
     CONSTRAINT models_id_format CHECK (id ~ '^m[0-9]+$'),
-    CONSTRAINT models_phases_valid CHECK (
-        phases IS NULL OR (
-            phases <@ ARRAY[1,2,3,4,5] AND
-            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
-        )
-    )
+    CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
 -- =============================================================================
@@ -741,7 +721,7 @@ CREATE TABLE public.epds (
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
-    description text,
+    description jsonb,
     tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
@@ -859,6 +839,7 @@ CREATE INDEX epds_domain_idx ON epds((domain->>'de'));
 
 -- Classification system filter
 CREATE INDEX classifications_system_idx ON classifications(system);
+CREATE INDEX classifications_code_idx ON classifications(code);
 
 -- Tag filters (GIN for JSONB containment)
 CREATE INDEX elements_tags_idx ON elements USING gin(tags);
@@ -1022,6 +1003,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.3 | 2025-12 | Changed `description` from text to JSONB with i18n on all tables; removed phases sorting/uniqueness constraint (containment only); added index on `classifications.code` |
 | 2.1.2 | 2025-12 | Added `related_usecases` to elements; changed usecases `implementation` and `quality_criteria` from text[] to JSONB with i18n; removed `examples` and `practice_example` from usecases |
 | 2.1.1 | 2025-12 | Schema review fixes: added ID format constraint to `classifications`; removed GWP >= 0 constraint (allows negative for carbon-sequestering materials per EN 15804); added multi-language full-text indexes (de/fr/it/en); added GIN indexes on `related_*` fields; added phases uniqueness constraint; added `epds.unit` CHECK constraint; added table/column comments; documented RLS write policy and JSONB referential integrity |
 | 2.1.0 | 2025-12 | Added i18n support (JSONB `name` field with de/fr/it/en); added `attributes` table for reusable property definitions; added `classifications` table for multi-system classification codes; renamed `title` → `name`, `ifc_mapping` → `tool_elements`; added `related_*` prefix to all relationship fields for consistency |
