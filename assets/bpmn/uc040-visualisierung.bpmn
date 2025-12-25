@@ -18,43 +18,61 @@
     <bpmn:documentation>Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).
 
 Definition:
-Die Visualisierung dient der bedarfsgerechten Darstellung des Bauvorhabens für unterschiedliche Zielgruppen und Zwecke. Sie umfasst statische Darstellungen (Renderings, Perspektiven), dynamische Medien (Animationen, Filme) sowie interaktive Formate (virtuelle Rundgänge, VR/AR-Anwendungen). Die Visualisierung unterstützt die Kommunikation, Entscheidungsfindung und Öffentlichkeitsarbeit während des gesamten Projektverlaufs.
+Die Visualisierung dient der bedarfsgerechten Darstellung des Bauvorhabens für unterschiedliche Zielgruppen und Zwecke. Der Prozess beginnt mit der Definition des Visualisierungsbedarfs und der Zielgruppe und führt über die Modellaufbereitung, Materialerstellung und Rendering bis zur finalen Freigabe. Je nach Anforderung werden statische Darstellungen (Renderings, Perspektiven), dynamische Medien (Animationen, Filme) oder interaktive Formate (virtuelle Rundgänge, VR/AR-Anwendungen) erstellt. Die Visualisierung unterstützt Entscheidungsprozesse, Bürgerbeteiligung und Öffentlichkeitsarbeit während des gesamten Projektverlaufs.
 
-Standards: 
+Standards: ISO 12006-2 (Klassifikation), BCF (BIM Collaboration Format)
 
 Ziele:
-- Verständliche Darstellung für Entscheidungsträger
-- Unterstützung der Öffentlichkeitsarbeit
-- Frühzeitige Erkennung von Gestaltungsfragen
+- Zielgruppengerechte und verständliche Darstellung des Bauvorhabens
+- Unterstützung von Entscheidungsprozessen durch realistische Visualisierung
+- Effektive Kommunikation mit Öffentlichkeit und Stakeholdern
+- Frühzeitige Erkennung und Diskussion von Gestaltungsfragen
+- Konsistente visuelle Darstellung über alle Projektphasen
 
 Inputs:
-- Planungsunterlagen / 3D-Modell
-- Anforderungen an Darstellung
-- Kontextdaten (Umgebung, Gelände)
+- BIM-Modell oder 3D-Planungsunterlagen
+- Anforderungsprofil (Zielgruppe, Verwendungszweck, Detailgrad)
+- Umgebungskontext (Geländemodell, Nachbargebäude, Vegetation)
+- Materialvorgaben und Farbkonzept
+- Corporate Design Vorgaben (bei öffentlichen Projekten)
 
 Outputs:
-- Visualisierungen / Renderings
-- Animationen
-- Virtuelle Rundgänge
+- Statische Visualisierungen / Renderings in verschiedenen Auflösungen
+- Animationen und Filmsequenzen
+- 360°-Panoramen und virtuelle Rundgänge
+- VR/AR-Anwendungen für immersive Erlebnisse
+- Druckvorlagen für Publikationen und Ausstellungen
 
 Qualitätskriterien:
-- Zielgruppengerechte Darstellungsqualität
+- Zielgruppengerechte Darstellungsqualität und Detaillierung
 - Konsistenz mit dem aktuellen Planungsstand
-- Realistische Darstellung von Materialien und Beleuchtung
-- Lieferung in den vereinbarten Formaten und Auflösungen
-- Freigabe durch den Auftraggeber</bpmn:documentation>
+- Realistische Darstellung von Materialien, Beleuchtung und Umgebung
+- Einhaltung der vereinbarten Formate, Auflösungen und Farbräume
+- Korrekte Integration des Umgebungskontexts
+- Freigabe durch Architekt und Auftraggeber dokumentiert</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_Visualisierer" name="Visualisierer">
+      <bpmn:lane id="Lane_Bauherr" name="Bauherr">
         <bpmn:flowNodeRef>StartEvent_uc040</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_13</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc040</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_Architekt" name="Architekt">
         <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_uc040</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Entwurf</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Visualisierer" name="Visualisierer">
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Qualitaet</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
@@ -62,47 +80,104 @@ Qualitätskriterien:
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Abstimmung der Anforderungen und des Verwendungszwecks">
-      <bpmn:documentation>Abstimmung der Anforderungen und des Verwendungszwecks</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Definition Visualisierungsbedarf und Zielgruppe">
+      <bpmn:documentation>Der Bauherr definiert den Visualisierungsbedarf, die Zielgruppe und den Verwendungszweck. Dabei werden Art der Visualisierung (Rendering, Animation, VR), Anzahl der Perspektiven, gewünschte Qualitätsstufe und Liefertermine festgelegt. Bei öffentlichen Projekten werden Anforderungen an Bürgerbeteiligung berücksichtigt.</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Aufbereitung des 3D-Modells für die Visualisierung">
-      <bpmn:documentation>Aufbereitung des 3D-Modells für die Visualisierung</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Festlegung Visualisierungsart und Detailgrad">
+      <bpmn:documentation>Der Architekt legt gemeinsam mit dem Visualisierer die konkrete Visualisierungsart und den erforderlichen Detailgrad fest. Entscheidungen zu Tages-/Nachtszenen, Jahreszeiten, Personenstaffage und Möblierung werden getroffen. Das Farbkonzept und wichtige Materialien werden definiert.</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Definition von Kamerapositionen und Perspektiven">
-      <bpmn:documentation>Definition von Kamerapositionen und Perspektiven</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Bereitstellung und Export der Planungsdaten">
+      <bpmn:documentation>Der Architekt exportiert das aktuelle 3D-Modell in einem für die Visualisierung geeigneten Format (IFC, FBX, 3DS). Die Daten werden auf Vollständigkeit und Aktualität geprüft. Zusätzliche Informationen wie Materiallisten und Referenzbilder werden bereitgestellt.</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Erstellung der Materialien und Beleuchtung">
-      <bpmn:documentation>Erstellung der Materialien und Beleuchtung</bpmn:documentation>
+    <bpmn:task id="Task_04" name="Import und Aufbereitung des 3D-Modells">
+      <bpmn:documentation>Der Visualisierer importiert das Modell in die Visualisierungssoftware und bereitet es auf. Die Geometrie wird optimiert, überflüssige Details entfernt und die Modellstruktur für effizientes Rendering angepasst. Fehlende Elemente werden ergänzt.</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Rendering und Nachbearbeitung">
-      <bpmn:documentation>Rendering und Nachbearbeitung</bpmn:documentation>
+    <bpmn:task id="Task_05" name="Integration Umgebungskontext und Geländemodell">
+      <bpmn:documentation>Der Visualisierer integriert den Umgebungskontext: Geländemodell, Nachbargebäude, Vegetation, Himmel und atmosphärische Effekte. Bei städtebaulichen Visualisierungen wird die Einbettung in den urbanen Kontext sorgfältig ausgearbeitet.</bpmn:documentation>
       <bpmn:incoming>Flow_04</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Abstimmung und finale Freigabe">
-      <bpmn:documentation>Abstimmung und finale Freigabe</bpmn:documentation>
+    <bpmn:task id="Task_06" name="Abstimmung Kamerapositionen und Perspektiven">
+      <bpmn:documentation>Der Architekt definiert gemeinsam mit dem Visualisierer die Kamerapositionen und Blickwinkel. Die Perspektiven werden so gewählt, dass sie das Projekt optimal präsentieren und die gewünschten Aspekte hervorheben. Vorabansichten werden zur Abstimmung erstellt.</bpmn:documentation>
       <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_07" name="Erstellung Materialien, Texturen und Shader">
+      <bpmn:documentation>Der Visualisierer erstellt die Materialien und Texturen gemäss den Vorgaben. Physikalisch basierte Materialien (PBR) gewährleisten realistische Darstellung. Oberflächen, Reflexionen und Transparenzen werden sorgfältig konfiguriert.</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_08" name="Einrichtung Beleuchtung und Atmosphäre">
+      <bpmn:documentation>Der Visualisierer richtet die Beleuchtungssituation ein: Sonnenlicht, künstliche Beleuchtung, Umgebungslicht und atmosphärische Effekte. Die Lichtstimmung wird auf den gewünschten Zeitpunkt und die Aussage der Visualisierung abgestimmt.</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_09" name="Erstellung Entwurfsvisualisierungen">
+      <bpmn:documentation>Der Visualisierer erstellt Entwurfsrenderings in reduzierter Qualität zur Abstimmung. Diese dienen der Überprüfung von Perspektiven, Materialien, Beleuchtung und Gesamtwirkung vor dem zeitintensiven Finalrendering.</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Entwurf" name="Entwurf freigegeben?">
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Entwurf</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Entwurf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_10" name="Finales Rendering in Produktionsqualität">
+      <bpmn:documentation>Der Visualisierer erstellt die finalen Renderings in hoher Auflösung und Qualität. Je nach Anforderung werden verschiedene Auflösungen für Print, Web und Präsentation gerendert. Bei Animationen werden alle Frames berechnet.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Entwurf</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_11" name="Nachbearbeitung und Compositing">
+      <bpmn:documentation>Der Visualisierer führt die Nachbearbeitung durch: Farbkorrektur, Kontrastverstärkung, Hinzufügen von Personen und Vegetation, atmosphärische Effekte. Bei Animationen erfolgt der Schnitt und die Vertonung. Die Bilder werden in den gewünschten Formaten exportiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Qualitaet" name="Qualität ausreichend?">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Qualitaet</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Qualitaet</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_12" name="Erstellung zusätzlicher Medienformate">
+      <bpmn:documentation>Bei Bedarf erstellt der Visualisierer zusätzliche Formate: 360°-Panoramen für virtuelle Rundgänge, VR-Anwendungen für immersive Erlebnisse oder interaktive Präsentationen. Die Formate werden für die jeweiligen Plattformen optimiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Qualitaet</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_13" name="Finale Freigabe und Lieferung">
+      <bpmn:documentation>Der Bauherr prüft und gibt die finalen Visualisierungen frei. Die Lieferung erfolgt in den vereinbarten Formaten und Auflösungen. Nutzungsrechte und Verwendungszweck werden dokumentiert. Bei Bedarf werden Druckvorlagen für Publikationen bereitgestellt.</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
     <bpmn:endEvent id="EndEvent_uc040" name="Visualisierung abgeschlossen">
       <bpmn:documentation>Lieferobjekte:
-- Visualisierungen / Renderings
-- Animationen
-- Virtuelle Rundgänge</bpmn:documentation>
+- Statische Visualisierungen / Renderings in verschiedenen Auflösungen
+- Animationen und Filmsequenzen (falls beauftragt)
+- 360°-Panoramen und virtuelle Rundgänge
+- VR/AR-Anwendungen (falls beauftragt)
+- Druckvorlagen für Publikationen
+- Dokumentation der Nutzungsrechte</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
@@ -112,7 +187,18 @@ Qualitätskriterien:
     <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
     <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
     <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc040" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Gateway_Entwurf" />
+    <bpmn:sequenceFlow id="Flow_Nein_Entwurf" name="Nein" sourceRef="Gateway_Entwurf" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_Ja_Entwurf" name="Ja" sourceRef="Gateway_Entwurf" targetRef="Task_10" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_10" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_11" targetRef="Gateway_Qualitaet" />
+    <bpmn:sequenceFlow id="Flow_Nein_Qualitaet" name="Nein" sourceRef="Gateway_Qualitaet" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_Ja_Qualitaet" name="Ja" sourceRef="Gateway_Qualitaet" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_12" targetRef="Task_13" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_13" targetRef="EndEvent_uc040" />
 
   </bpmn:process>
 
@@ -120,88 +206,216 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC040" bpmnElement="Collaboration_UC040">
 
       <bpmndi:BPMNShape id="Participant_UC040_di" bpmnElement="Participant_UC040" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1470" height="300" />
+        <dc:Bounds x="160" y="80" width="1900" height="450" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Lane_Visualisierer_di" bpmnElement="Lane_Visualisierer" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      <bpmndi:BPMNShape id="Lane_Bauherr_di" bpmnElement="Lane_Bauherr" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1870" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Architekt_di" bpmnElement="Lane_Architekt" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1440" height="150" />
+        <dc:Bounds x="190" y="230" width="1870" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Visualisierer_di" bpmnElement="Lane_Visualisierer" isHorizontal="true">
+        <dc:Bounds x="190" y="380" width="1870" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="StartEvent_uc040_di" bpmnElement="StartEvent_uc040">
         <dc:Bounds x="250" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="230" y="180" width="76" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="450" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
+        <dc:Bounds x="570" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
+        <dc:Bounds x="690" y="415" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
+        <dc:Bounds x="810" y="415" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
+        <dc:Bounds x="930" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1050" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1170" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1290" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Entwurf_di" bpmnElement="Gateway_Entwurf" isMarkerVisible="true">
+        <dc:Bounds x="1315" y="280" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1370" y="291" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1410" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1530" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Qualitaet_di" bpmnElement="Gateway_Qualitaet" isMarkerVisible="true">
+        <dc:Bounds x="1655" y="430" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1637" y="487" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1750" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_13_di" bpmnElement="Task_13">
+        <dc:Bounds x="1870" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="EndEvent_uc040_di" bpmnElement="EndEvent_uc040">
-        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <dc:Bounds x="2002" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1220" y="332" width="56" height="27" />
+          <dc:Bounds x="1980" y="180" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
         <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="330" y="155" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="155" />
+        <di:waypoint x="440" y="155" />
+        <di:waypoint x="440" y="305" />
+        <di:waypoint x="450" y="305" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="550" y="305" />
+        <di:waypoint x="570" y="305" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="670" y="305" />
+        <di:waypoint x="680" y="305" />
+        <di:waypoint x="680" y="455" />
+        <di:waypoint x="690" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="790" y="455" />
+        <di:waypoint x="810" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="910" y="455" />
+        <di:waypoint x="920" y="455" />
+        <di:waypoint x="920" y="305" />
+        <di:waypoint x="930" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1030" y="305" />
+        <di:waypoint x="1040" y="305" />
+        <di:waypoint x="1040" y="455" />
+        <di:waypoint x="1050" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1150" y="455" />
+        <di:waypoint x="1170" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1270" y="455" />
+        <di:waypoint x="1290" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1340" y="415" />
+        <di:waypoint x="1340" y="330" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Entwurf_di" bpmnElement="Flow_Nein_Entwurf">
+        <di:waypoint x="1315" y="305" />
+        <di:waypoint x="1100" y="305" />
+        <di:waypoint x="1100" y="415" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1197" y="287" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Entwurf_di" bpmnElement="Flow_Ja_Entwurf">
+        <di:waypoint x="1340" y="330" />
+        <di:waypoint x="1340" y="370" />
+        <di:waypoint x="1460" y="370" />
+        <di:waypoint x="1460" y="415" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1394" y="352" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1510" y="455" />
+        <di:waypoint x="1530" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1630" y="455" />
+        <di:waypoint x="1655" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Qualitaet_di" bpmnElement="Flow_Nein_Qualitaet">
+        <di:waypoint x="1680" y="430" />
+        <di:waypoint x="1680" y="395" />
+        <di:waypoint x="1580" y="395" />
+        <di:waypoint x="1580" y="415" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1620" y="377" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Qualitaet_di" bpmnElement="Flow_Ja_Qualitaet">
+        <di:waypoint x="1705" y="455" />
+        <di:waypoint x="1750" y="455" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1722" y="437" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1850" y="455" />
+        <di:waypoint x="1860" y="455" />
+        <di:waypoint x="1860" y="155" />
+        <di:waypoint x="1870" y="155" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="305" />
+        <di:waypoint x="1970" y="155" />
+        <di:waypoint x="2002" y="155" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>
