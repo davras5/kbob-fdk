@@ -15,7 +15,7 @@
 
 | Entity | Primary Key | Has Phases | Description |
 |--------|-------------|------------|-------------|
-| `elements` | `id` (text) | ✓ | Physical building components with LOG/LOI requirements |
+| `elements` | `id` (text) | ✓ | Physical building components with LOG requirements |
 | `documents` | `id` (text) | ✓ | Project documentation types per KBOB/IPB standard |
 | `usecases` | `id` (text) | ✓ | Standardized BIM processes per VDI 2552 |
 | `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
@@ -33,6 +33,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 |--------|-------|------------|-----------|
 | `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
 | `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
+| `elements` | `related_documents` | documents | `[{"id": "O01001", "phases": [3,4,5]}]` |
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `elements` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
@@ -45,6 +46,7 @@ erDiagram
     usecases ||--o{ elements : "related_elements"
     usecases ||--o{ documents : "related_documents"
     elements ||--o{ epds : "related_epds"
+    elements ||--o{ documents : "related_documents"
     elements ||--o{ attributes : "related_attributes"
     elements ||--o{ classifications : "related_classifications"
     documents ||--o{ elements : "related_elements"
@@ -58,9 +60,8 @@ erDiagram
         text[] tags
         integer[] phases
         jsonb tool_elements
-        jsonb geometry
-        jsonb information
-        jsonb documentation
+        jsonb geometry "de_fr_it_en"
+        jsonb related_documents FK
         jsonb related_epds FK
         jsonb related_attributes FK
         jsonb related_classifications FK
@@ -125,10 +126,6 @@ erDiagram
         text category
         text subcategory
         text[] tags
-        numeric gwp
-        numeric ubp
-        numeric penrt
-        numeric pert
     }
 ```
 
@@ -181,14 +178,13 @@ All entities **except EPD** include lifecycle phases:
 
 ### elements
 
-Physical building components with geometry (LOG), information (LOI), and documentation requirements.
+Physical building components with geometry (LOG) requirements.
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase |
-| `information` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOI specifications per phase |
-| `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
+| `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase (i18n: de, fr, it, en) |
 | `tool_elements` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
+| `related_documents` | `jsonb` | `DEFAULT '[]'` | Links to documents `[{"id": "O01001", "phases": [3,4,5]}]` |
 | `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "kbob-01-042"}]` |
 | `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
@@ -277,13 +273,13 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 ```json
 [
   {
-    "name": "Symbol",
-    "desc": "Schematische Darstellung des Elements zur Visualisierung in Plänen",
+    "name": { "de": "Symbol", "fr": "Symbole", "it": "Simbolo", "en": "Symbol" },
+    "desc": { "de": "Schematische Darstellung des Elements zur Visualisierung in Plänen", "fr": "Représentation schématique", "it": "Rappresentazione schematica", "en": "Schematic representation" },
     "phases": [3]
   },
   {
-    "name": "Länge",
-    "desc": "Ausdehnung des Elements in Längsrichtung in Metern",
+    "name": { "de": "Länge", "fr": "Longueur", "it": "Lunghezza", "en": "Length" },
+    "desc": { "de": "Ausdehnung des Elements in Längsrichtung in Metern", "fr": "Extension de l'élément en direction longitudinale", "it": "Estensione dell'elemento in direzione longitudinale", "en": "Element extension in longitudinal direction in meters" },
     "phases": [4, 5]
   }
 ]
@@ -291,33 +287,9 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `name` | string | ✓ | Geometry property name |
-| `desc` | string | ✓ | Description of the requirement |
+| `name` | jsonb | ✓ | Geometry property name (i18n: de, fr, it, en) |
+| `desc` | jsonb | ✓ | Description of the requirement (i18n: de, fr, it, en) |
 | `phases` | integer[] | ✓ | Phases where this geometry is required (1-5) |
-
-### Element: information (LOI)
-
-```json
-[
-  {
-    "name": "IFC-Klasse (a)",
-    "desc": "IFC-Entitätsklasse des Elements (z.B. IfcWall, IfcDoor)",
-    "format": "String",
-    "list": false,
-    "phases": [3, 4, 5],
-    "ifc": "IfcRoot.is_a()"
-  }
-]
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `name` | string | ✓ | Property name |
-| `desc` | string | ✓ | Description and purpose |
-| `format` | enum | ✓ | Data type: Real, String, Boolean, Integer, Date |
-| `list` | boolean | ✓ | Whether value comes from controlled vocabulary |
-| `phases` | integer[] | ✓ | Phases where this information is required |
-| `ifc` | string | | IFC PropertySet and property reference |
 
 ### Element: tool_elements
 
@@ -671,7 +643,7 @@ CREATE TYPE epd_category AS ENUM (
 
 -- =============================================================================
 -- ELEMENTS
--- Physical building components with LOG/LOI requirements
+-- Physical building components with LOG requirements
 -- =============================================================================
 
 CREATE TABLE public.elements (
@@ -688,9 +660,8 @@ CREATE TABLE public.elements (
 
     -- Entity-specific attributes
     geometry jsonb NOT NULL DEFAULT '[]',
-    information jsonb NOT NULL DEFAULT '[]',
-    documentation jsonb DEFAULT '[]',
     tool_elements jsonb DEFAULT '[]',
+    related_documents jsonb DEFAULT '[]',
     related_epds jsonb DEFAULT '[]',
     related_attributes jsonb DEFAULT '[]',
     related_classifications jsonb DEFAULT '[]',
@@ -1003,9 +974,8 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 | `phases` | `phases` | Array → PostgreSQL array |
 | `classifications` | `classifications` | Object → JSONB |
 | `ifcMapping` | `tool_elements` | camelCase → snake_case, Array → JSONB |
-| `geometry` | `geometry` | Array → JSONB |
-| `information` | `information` | Array → JSONB |
-| `documentation` | `documentation` | Array → JSONB |
+| `geometry` | `geometry` | Array → JSONB (add i18n: name/desc become JSONB objects) |
+| `documentation` | `related_documents` | Rename to `related_documents`, Array → JSONB |
 | `practiceExample` | `practice_example` | camelCase → snake_case |
 | `qualityCriteria` | `quality_criteria` | camelCase → snake_case |
 | `processUrl` | `process_url` | camelCase → snake_case |
@@ -1031,11 +1001,13 @@ async function migrateElements() {
     description: el.description || null,
     tags: el.tags,
     phases: el.phases || null,
-    geometry: el.geometry || [],
-    information: el.information || [],
-    documentation: el.documentation || [],
-    classifications: el.classifications || {},
-    tool_elements: el.ifcMapping || []
+    geometry: (el.geometry || []).map(g => ({
+      name: { de: g.name, fr: null, it: null, en: null },
+      desc: { de: g.desc, fr: null, it: null, en: null },
+      phases: g.phases
+    })),
+    tool_elements: el.ifcMapping || [],
+    related_documents: el.documentation || []
   }));
 
   const { error } = await supabase
@@ -1067,7 +1039,7 @@ async function migrateElements() {
 
 | Endpoint | Description |
 |----------|-------------|
-| `/rest/v1/elements` | Building elements with LOG/LOI |
+| `/rest/v1/elements` | Building elements with LOG |
 | `/rest/v1/documents` | Document types per KBOB/IPB |
 | `/rest/v1/usecases` | BIM use cases per VDI 2552 |
 | `/rest/v1/models` | BIM model definitions |
