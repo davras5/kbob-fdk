@@ -1053,22 +1053,39 @@ footer a:hover {
     margin-top: 2px;
 }
 
+.external-item__content {
+    flex: 1;
+}
+
 .external-item__link {
     font-size: var(--text-body);
-    color: var(--color-primary);
-    text-decoration: underline;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
 }
 
 .external-item__link:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-error, #dc2626);
 }
 
 .external-item__link .external-icon {
     width: 14px;
     height: 14px;
+}
+
+.external-item__meta {
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+}
+
+.external-item__meta span:not(:last-child)::after {
+    content: "|";
+    margin: 0 var(--space-sm);
+    color: var(--color-border);
 }
 
 /* Home Page Hero Section Wrapper */

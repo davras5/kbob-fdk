@@ -67,19 +67,39 @@ function renderHandbookPage() {
                                 <p class="accordion-description">Vorlagen und Prüfdateien für die digitale Bauwerksdokumentation.</p>
                                 <div class="external-item">
                                     <i data-lucide="file-spreadsheet" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">EIR Excel (in Entwicklung)</span>
+                                    <div class="external-item__content">
+                                        <span class="external-item__link">EIR Excel (in Entwicklung)</span>
+                                        <div class="external-item__meta">
+                                            <span>XLSX</span><span>245 kB</span><span>15. Oktober 2024</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="file-check" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">IDS-Prüfregeln (in Entwicklung)</span>
+                                    <div class="external-item__content">
+                                        <span class="external-item__link">IDS-Prüfregeln (in Entwicklung)</span>
+                                        <div class="external-item__meta">
+                                            <span>ZIP</span><span>128 kB</span><span>15. Oktober 2024</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="box" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">Revit Vorlagen (in Entwicklung)</span>
+                                    <div class="external-item__content">
+                                        <span class="external-item__link">Revit Vorlagen (in Entwicklung)</span>
+                                        <div class="external-item__meta">
+                                            <span>ZIP</span><span>3.8 MB</span><span>12. November 2024</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="box" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">ArchiCAD Vorlagen (in Entwicklung)</span>
+                                    <div class="external-item__content">
+                                        <span class="external-item__link">ArchiCAD Vorlagen (in Entwicklung)</span>
+                                        <div class="external-item__meta">
+                                            <span>ZIP</span><span>4.2 MB</span><span>12. November 2024</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +185,7 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="git-branch" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">GraphQL API (in Entwicklung)</span>
+                                    <span class="external-item__link">GraphQL API (in Entwicklung)</span>
                                 </div>
                             </div>
                         </div>
