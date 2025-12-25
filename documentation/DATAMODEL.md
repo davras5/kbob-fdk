@@ -35,7 +35,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
-| `models` | `elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
+| `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 ```mermaid
 erDiagram
@@ -44,7 +44,7 @@ erDiagram
     elements ||--o{ epds : "related_epds"
     elements ||--o{ attributes : "related_attributes"
     documents ||--o{ elements : "related_elements"
-    models ||--o{ elements : "elements"
+    models ||--o{ elements : "related_elements"
 
     elements {
         text id PK
@@ -53,7 +53,7 @@ erDiagram
         text[] tags
         integer[] phases
         jsonb classifications
-        jsonb ifc_mapping
+        jsonb author_mapping
         jsonb geometry
         jsonb information
         jsonb documentation
@@ -104,7 +104,7 @@ erDiagram
         text category
         text[] tags
         integer[] phases
-        jsonb elements FK
+        jsonb related_elements FK
     }
 
     epds {
@@ -133,7 +133,7 @@ All five core entities share a common set of attributes for identification, vers
 | `id` | `text` | `PRIMARY KEY` | Unique identifier (entity-specific pattern) |
 | `version` | `text` | `NOT NULL` | Version indicator for change tracking |
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
-| `title` | `text` | `NOT NULL` | Human-readable display name |
+| `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
 | `category` | `text` | `NOT NULL` | Primary grouping (entity-specific vocabulary) |
 | `description` | `text` | | Detailed explanation of purpose and scope |
@@ -175,7 +175,7 @@ Physical building components with geometry (LOG), information (LOI), and documen
 | `information` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOI specifications per phase |
 | `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
 | `classifications` | `jsonb` | `DEFAULT '{}'` | Multi-system codes (eBKP-H, DIN 276, Uniformat II) |
-| `ifc_mapping` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools |
+| `author_mapping` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
 | `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs for LCA `[{"id": "kbob-01-042"}]` |
 
 **Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
@@ -303,7 +303,9 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `phases` | integer[] | ✓ | Phases where this information is required |
 | `ifc` | string | | IFC PropertySet and property reference |
 
-### Element: ifc_mapping
+### Element: author_mapping
+
+Mappings to authoring tools and exchange formats. Extensible for additional tools.
 
 ```json
 [
@@ -322,6 +324,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `ifc` | string | ✓ | IFC class and predefined type (IFC 4.3 schema) |
 | `revit` | string | | Revit family/category mapping |
 | `archicad` | string | | ArchiCAD object mapping |
+| `...` | string | | Additional authoring tools as needed |
 
 ### Element/Document: classifications
 
@@ -648,7 +651,7 @@ CREATE TABLE public.elements (
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
-    title text NOT NULL,
+    name jsonb NOT NULL,
     image text,
     category text NOT NULL,
     description text,
@@ -660,7 +663,7 @@ CREATE TABLE public.elements (
     information jsonb NOT NULL DEFAULT '[]',
     documentation jsonb DEFAULT '[]',
     classifications jsonb DEFAULT '{}',
-    ifc_mapping jsonb DEFAULT '[]',
+    author_mapping jsonb DEFAULT '[]',
     related_epds jsonb DEFAULT '[]',
 
     -- System
@@ -683,7 +686,7 @@ CREATE TABLE public.documents (
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
-    title text NOT NULL,
+    name jsonb NOT NULL,
     image text,
     category text NOT NULL,
     description text,
@@ -715,7 +718,7 @@ CREATE TABLE public.usecases (
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
-    title text NOT NULL,
+    name jsonb NOT NULL,
     image text,
     category text NOT NULL,
     description text,
@@ -759,7 +762,7 @@ CREATE TABLE public.models (
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
-    title text NOT NULL,
+    name jsonb NOT NULL,
     image text,
     category text NOT NULL,
     description text,
@@ -790,7 +793,7 @@ CREATE TABLE public.epds (
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
-    title text NOT NULL,
+    name jsonb NOT NULL,
     image text,
     category text NOT NULL,
     description text,
@@ -906,14 +909,14 @@ CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
 | `id` | `id` | Direct |
 | `version` | `version` | Direct |
 | `lastChange` | `last_change` | camelCase → snake_case |
-| `title` | `title` | Direct |
+| `title` | `name` | String → JSONB i18n object |
 | `image` | `image` | Direct |
 | `category` | `category` | Direct |
 | `description` | `description` | Direct |
 | `tags` | `tags` | Array → PostgreSQL array |
 | `phases` | `phases` | Array → PostgreSQL array |
 | `classifications` | `classifications` | Object → JSONB |
-| `ifcMapping` | `ifc_mapping` | camelCase → snake_case, Array → JSONB |
+| `ifcMapping` | `author_mapping` | camelCase → snake_case, Array → JSONB |
 | `geometry` | `geometry` | Array → JSONB |
 | `information` | `information` | Array → JSONB |
 | `documentation` | `documentation` | Array → JSONB |
@@ -936,7 +939,7 @@ async function migrateElements() {
     id: el.id,
     version: el.version,
     last_change: el.lastChange,
-    title: el.title,
+    name: { de: el.title, fr: null, it: null, en: null }, // i18n: translate later
     image: el.image || null,
     category: el.category,
     description: el.description || null,
@@ -946,7 +949,7 @@ async function migrateElements() {
     information: el.information || [],
     documentation: el.documentation || [],
     classifications: el.classifications || {},
-    ifc_mapping: el.ifcMapping || []
+    author_mapping: el.ifcMapping || []
   }));
 
   const { error } = await supabase
@@ -968,7 +971,7 @@ async function migrateElements() {
 | VDI 2552 Blatt 12.1 | VDI | Use case structure (usecases) |
 | VDI 2552 Blatt 12.2 | VDI | Anwendungsfeld metadata, lifecycle phases (all entities) |
 | ISO 19650-1:2018 | ISO | Information management concepts |
-| IFC 4.3 | buildingSMART | IFC mapping (elements.ifc_mapping) |
+| IFC 4.3 | buildingSMART | IFC mapping (elements.author_mapping) |
 | KBOB/IPB Bauwerksdokumentation | KBOB | Document categories (documents) |
 | KBOB Ökobilanzdaten | KBOB | Environmental indicators (epds) |
 | SN 506 511:2020 (eBKP-H) | CRB | Swiss cost classification |
