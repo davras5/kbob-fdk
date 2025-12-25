@@ -48,7 +48,7 @@ erDiagram
 
     elements {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -57,13 +57,13 @@ erDiagram
         jsonb geometry
         jsonb information
         jsonb documentation
-        jsonb related_epds
-        jsonb related_attributes
+        jsonb related_epds FK
+        jsonb related_attributes FK
     }
 
     attributes {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         jsonb description "de_fr_it_en"
         text data_type
         text unit
@@ -73,19 +73,19 @@ erDiagram
 
     documents {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
         text[] formats
         text retention
         jsonb classifications
-        jsonb related_elements
+        jsonb related_elements FK
     }
 
     usecases {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -94,22 +94,22 @@ erDiagram
         text[] goals
         text[] inputs
         text[] outputs
-        jsonb related_elements
-        jsonb related_documents
+        jsonb related_elements FK
+        jsonb related_documents FK
     }
 
     models {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
-        jsonb elements
+        jsonb elements FK
     }
 
     epds {
         text id PK
-        jsonb title "de_fr_it_en"
+        jsonb name "de_fr_it_en"
         text category
         text subcategory
         text[] tags
