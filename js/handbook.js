@@ -69,25 +69,25 @@ function renderHandbookPage() {
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <span class="download-item__text">EIR Excel (in Entwicklung)</span>
+                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">EIR Excel (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <span class="download-item__text">IDS-Prüfregeln (in Entwicklung)</span>
+                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">IDS-Prüfregeln (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <span class="download-item__text">Revit Vorlagen (in Entwicklung)</span>
+                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">Revit Vorlagen (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <span class="download-item__text">ArchiCAD Vorlagen (in Entwicklung)</span>
+                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">ArchiCAD Vorlagen (in Entwicklung)</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -117,7 +117,7 @@ function renderHandbookPage() {
                                     <li class="download-item">
                                         <i data-lucide="external-link" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="download-item__link">API-Dokumentation</a>
+                                            <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="download-item__link">Quellcode</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -180,7 +180,7 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="git-branch" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__text">GraphQL API (in Entwicklung)</span>
+                                    <span class="external-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">GraphQL API (in Entwicklung)</span>
                                 </div>
                             </div>
                         </div>
