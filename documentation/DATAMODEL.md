@@ -39,15 +39,15 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 
 | Entity | Field | References | Structure |
 |--------|-------|------------|-----------|
-| `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
-| `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
-| `elements` | `related_documents` | documents | `[{"id": "O01001", "phases": [3,4,5]}]` |
-| `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
-| `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
-| `elements` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
-| `elements` | `related_usecases` | usecases | `[{"id": "uc001"}]` |
-| `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
-| `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
+| `usecases` | `related_elements` | elements | `[{"id": "550e8400-...", "phases": [2,3]}]` |
+| `usecases` | `related_documents` | documents | `[{"id": "550e8400-...", "required": true}]` |
+| `elements` | `related_documents` | documents | `[{"id": "550e8400-...", "phases": [3,4,5]}]` |
+| `elements` | `related_epds` | epds | `[{"id": "550e8400-..."}]` |
+| `elements` | `related_attributes` | attributes | `[{"id": "550e8400-...", "phases": [3,4,5]}]` |
+| `elements` | `related_classifications` | classifications | `[{"id": "550e8400-..."}]` |
+| `elements` | `related_usecases` | usecases | `[{"id": "550e8400-..."}]` |
+| `documents` | `related_elements` | elements | `[{"id": "550e8400-..."}]` |
+| `documents` | `related_classifications` | classifications | `[{"id": "550e8400-..."}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 > **Note:** `attributes` and `classifications` are simplified reference tables with fewer common attributes.
@@ -66,7 +66,7 @@ erDiagram
     elements ||--o{ usecases : "related_usecases"
 
     elements {
-        text id PK
+        uuid id PK
         text version
         date last_change
         jsonb name "de_fr_it_en"
@@ -87,7 +87,7 @@ erDiagram
     }
 
     documents {
-        text id PK
+        uuid id PK
         text version
         date last_change
         jsonb name "de_fr_it_en"
@@ -96,6 +96,7 @@ erDiagram
         jsonb description "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
+        text code UK
         text[] formats
         integer retention
         jsonb related_elements FK
@@ -105,7 +106,7 @@ erDiagram
     }
 
     usecases {
-        text id PK
+        uuid id PK
         text version
         date last_change
         jsonb name "de_fr_it_en"
@@ -114,6 +115,7 @@ erDiagram
         jsonb description "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
+        text code UK
         jsonb goals "de_fr_it_en"
         jsonb inputs "de_fr_it_en"
         jsonb outputs "de_fr_it_en"
@@ -129,7 +131,7 @@ erDiagram
     }
 
     models {
-        text id PK
+        uuid id PK
         text version
         date last_change
         jsonb name "de_fr_it_en"
@@ -144,7 +146,7 @@ erDiagram
     }
 
     epds {
-        text id PK
+        uuid id PK
         text version
         date last_change
         jsonb name "de_fr_it_en"
@@ -152,6 +154,7 @@ erDiagram
         jsonb domain "de_fr_it_en"
         jsonb description "de_fr_it_en"
         jsonb tags "de_fr_it_en"
+        text code UK
         text unit
         numeric gwp
         numeric ubp
@@ -164,7 +167,7 @@ erDiagram
     }
 
     attributes {
-        text id PK
+        uuid id PK
         jsonb name "de_fr_it_en"
         jsonb description "de_fr_it_en"
         text data_type
@@ -177,7 +180,7 @@ erDiagram
     }
 
     classifications {
-        text id PK
+        uuid id PK
         jsonb name "de_fr_it_en"
         jsonb description "de_fr_it_en"
         text system
@@ -199,7 +202,7 @@ All core entities share a common set of attributes for identification, versionin
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `id` | `text` | `PRIMARY KEY` | Unique identifier (entity-specific pattern) |
+| `id` | `uuid` | `PRIMARY KEY DEFAULT gen_random_uuid()` | Unique identifier (UUID v4) |
 | `version` | `text` | `NOT NULL` | Version indicator for change tracking |
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
@@ -222,15 +225,17 @@ All entities **except EPD, attributes, and classifications** include lifecycle p
 
 ### ID Patterns
 
-| Entity | Pattern | Example | Regex |
-|--------|---------|---------|-------|
-| elements | `e{n}` | e1, e81 | `^e[0-9]+$` |
-| documents | `{O\|K\|B\|V}{nnnnn}` | O01001, K02003 | `^[OKBV][0-9]{5}$` |
-| usecases | `uc{nnn}` | uc000, uc280 | `^uc[0-9]{3}$` |
-| models | `m{n}` | m1, m10 | `^m[0-9]+$` |
-| epds | `kbob-{nn}-{nnn}` | kbob-01-042 | `^kbob-[0-9]{2}-[0-9]{3}$` |
-| attributes | `attr-{name}` | attr-fire-rating | `^attr-[a-z0-9-]+$` |
-| classifications | `{system}-{code}` | ebkp-c02, din276-kg466 | `^(ebkp\|din276\|uniformat\|kbob)-[a-z0-9-]+$` |
+All entities use UUID v4 as the primary key (`id`). Entities that require human-readable codes have an additional `code` field.
+
+| Entity | ID Type | Code Field | Code Example |
+|--------|---------|------------|--------------|
+| elements | UUID | – | – |
+| documents | UUID | `code` | O01001, K02003 |
+| usecases | UUID | `code` | uc000, uc280 |
+| models | UUID | – | – |
+| epds | UUID | `code` | kbob-01-042 |
+| attributes | UUID | – | – |
+| classifications | UUID | `code` | C02, KG466 |
 
 ---
 
@@ -244,11 +249,11 @@ Physical building components with geometry (LOG) requirements.
 |--------|------|-------------|-------------|
 | `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase (i18n: de, fr, it, en) |
 | `tool_elements` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
-| `related_documents` | `jsonb` | `DEFAULT '[]'` | Links to documents `[{"id": "O01001", "phases": [3,4,5]}]` |
-| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "kbob-01-042"}]` |
-| `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
-| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
-| `related_usecases` | `jsonb` | `DEFAULT '[]'` | Links to usecases `[{"id": "uc001"}]` |
+| `related_documents` | `jsonb` | `DEFAULT '[]'` | Links to documents `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "<uuid>"}]` |
+| `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
+| `related_usecases` | `jsonb` | `DEFAULT '[]'` | Links to usecases `[{"id": "<uuid>"}]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -260,10 +265,11 @@ Project documentation types with format requirements and retention policies per 
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
+| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable code (e.g., O01001, K02003) |
 | `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
 | `retention` | `integer` | | Retention period in years (0 = indefinitely) |
-| `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "e1"}]` |
-| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
+| `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "<uuid>"}]` |
+| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
 
 **Domain values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
@@ -275,6 +281,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
+| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable code (e.g., uc000, uc280) |
 | `goals` | `jsonb` | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
 | `inputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
 | `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
@@ -283,8 +290,8 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `implementation` | `jsonb` | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
 | `quality_criteria` | `jsonb` | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
 | `process_url` | `text` | | Link to BPMN process diagram |
-| `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
-| `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
+| `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "<uuid>", "phases": [2,3]}]` |
+| `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "<uuid>", "required": true}]` |
 
 **Domain values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
 
@@ -310,6 +317,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
+| `code` | `text` | `NOT NULL, UNIQUE` | Human-readable KBOB code (e.g., kbob-01-042) |
 | `unit` | `text` | `NOT NULL`, constrained | Functional/reference unit: `kg`, `m²`, `m³`, `kWh`, `MJ`, `Stk`, `km`, `m`, `tkm` |
 | `gwp` | `numeric` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
 | `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
@@ -632,7 +640,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.8
+-- Version: 2.1.9
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -645,7 +653,7 @@ Standard tag values:
 
 CREATE TABLE public.elements (
     -- Common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     version text NOT NULL,
     last_change date NOT NULL,
     name jsonb NOT NULL,
@@ -669,7 +677,6 @@ CREATE TABLE public.elements (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT elements_id_format CHECK (id ~ '^e[0-9]+$'),
     CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -680,7 +687,7 @@ CREATE TABLE public.elements (
 
 CREATE TABLE public.documents (
     -- Common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     version text NOT NULL,
     last_change date NOT NULL,
     name jsonb NOT NULL,
@@ -691,6 +698,7 @@ CREATE TABLE public.documents (
     phases integer[],
 
     -- Entity-specific attributes
+    code text NOT NULL UNIQUE,
     formats text[] NOT NULL,
     retention integer,
     related_elements jsonb DEFAULT '[]',
@@ -701,7 +709,6 @@ CREATE TABLE public.documents (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT documents_id_format CHECK (id ~ '^[OKBV][0-9]{5}$'),
     CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
     CONSTRAINT documents_retention_valid CHECK (retention IS NULL OR retention >= 0)
 );
@@ -713,7 +720,7 @@ CREATE TABLE public.documents (
 
 CREATE TABLE public.usecases (
     -- Common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     version text NOT NULL,
     last_change date NOT NULL,
     name jsonb NOT NULL,
@@ -724,6 +731,7 @@ CREATE TABLE public.usecases (
     phases integer[],
 
     -- Entity-specific attributes
+    code text NOT NULL UNIQUE,
     goals jsonb NOT NULL DEFAULT '[]',
     inputs jsonb NOT NULL DEFAULT '[]',
     outputs jsonb NOT NULL DEFAULT '[]',
@@ -740,7 +748,6 @@ CREATE TABLE public.usecases (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT usecases_id_format CHECK (id ~ '^uc[0-9]{3}$'),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -751,7 +758,7 @@ CREATE TABLE public.usecases (
 
 CREATE TABLE public.models (
     -- Common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     version text NOT NULL,
     last_change date NOT NULL,
     name jsonb NOT NULL,
@@ -769,7 +776,6 @@ CREATE TABLE public.models (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT models_id_format CHECK (id ~ '^m[0-9]+$'),
     CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -781,7 +787,7 @@ CREATE TABLE public.models (
 
 CREATE TABLE public.epds (
     -- Common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     version text NOT NULL,
     last_change date NOT NULL,
     name jsonb NOT NULL,
@@ -791,6 +797,7 @@ CREATE TABLE public.epds (
     tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
+    code text NOT NULL UNIQUE,
     unit text NOT NULL,
     gwp numeric NOT NULL,
     ubp numeric NOT NULL,
@@ -804,7 +811,6 @@ CREATE TABLE public.epds (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT epds_id_format CHECK (id ~ '^kbob-[0-9]{2}-[0-9]{3}$'),
     CONSTRAINT epds_unit_valid CHECK (unit IN ('kg', 'm²', 'm³', 'kWh', 'MJ', 'Stk', 'km', 'm', 'tkm')),
     -- Note: GWP can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
@@ -819,7 +825,7 @@ CREATE TABLE public.epds (
 
 CREATE TABLE public.attributes (
     -- Simplified common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name jsonb NOT NULL,
     description jsonb,
 
@@ -832,10 +838,7 @@ CREATE TABLE public.attributes (
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
-    updated_at timestamptz NOT NULL DEFAULT now(),
-
-    -- Constraints
-    CONSTRAINT attributes_id_format CHECK (id ~ '^attr-[a-z0-9-]+$')
+    updated_at timestamptz NOT NULL DEFAULT now()
 );
 
 -- =============================================================================
@@ -845,21 +848,20 @@ CREATE TABLE public.attributes (
 
 CREATE TABLE public.classifications (
     -- Simplified common attributes
-    id text PRIMARY KEY,
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name jsonb NOT NULL,
     description jsonb,
 
     -- Entity-specific attributes
     system text NOT NULL,
-    code text NOT NULL,
+    code text NOT NULL UNIQUE,
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
-    CONSTRAINT classifications_id_format CHECK (id ~ '^(ebkp|din276|uniformat|kbob)-[a-z0-9-]+$')
+    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB'))
 );
 
 -- =============================================================================
@@ -913,6 +915,11 @@ CREATE INDEX epds_domain_idx ON epds((domain->>'de'));
 -- Classification system filter
 CREATE INDEX classifications_system_idx ON classifications(system);
 CREATE INDEX classifications_code_idx ON classifications(code);
+
+-- Code lookup indexes (human-readable identifiers)
+CREATE INDEX documents_code_idx ON documents(code);
+CREATE INDEX usecases_code_idx ON usecases(code);
+CREATE INDEX epds_code_idx ON epds(code);
 
 -- Tag filters (GIN for JSONB containment)
 CREATE INDEX elements_tags_idx ON elements USING gin(tags);
@@ -1075,6 +1082,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.9 | 2025-12 | Changed all IDs to UUID v4; added `code` field to documents, usecases, and epds for human-readable identifiers; added code indexes |
 | 2.1.8 | 2025-12 | Removed `standards` from usecases; changed "All seven entities" to "All core entities" |
 | 2.1.7 | 2025-12 | Reverted `attributes` and `classifications` to simplified reference tables (id, name, description only); expanded mermaid chart with all entity attributes for verification |
 | 2.1.6 | 2025-12 | Consistency QS: fixed entity count ("All seven entities"); added attributes/classifications to Phase-Dependent section |
