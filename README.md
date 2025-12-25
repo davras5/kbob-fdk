@@ -226,7 +226,7 @@ kbob-fdk/
 
 ---
 
-## Used Technology and Content
+## Used Technology, Content & Licensing
 
 | Technology | Purpose | License |
 |------------|---------|---------|
