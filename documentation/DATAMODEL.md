@@ -20,8 +20,9 @@
 | `usecases` | `id` (text) | ✓ | Standardized BIM processes per VDI 2552 |
 | `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
 | `epds` | `id` (text) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
+| `attributes` | `id` (text) | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
 
-> **Note on phases:** EPD is the only entity without `phases` as environmental data is phase-neutral reference data.
+> **Note on phases:** EPD and attributes are phase-neutral reference data. Phase applicability is defined in the relationship (e.g., `elements.related_attributes`).
 
 ### Relationships (JSONB)
 
@@ -32,6 +33,8 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
 | `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
+| `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
+| `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
 | `models` | `elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 ```mermaid
@@ -39,6 +42,8 @@ erDiagram
     usecases ||--o{ elements : "related_elements"
     usecases ||--o{ documents : "related_documents"
     elements ||--o{ epds : "related_epds"
+    elements ||--o{ attributes : "related_attributes"
+    documents ||--o{ elements : "related_elements"
     models ||--o{ elements : "elements"
 
     elements {
@@ -53,6 +58,17 @@ erDiagram
         jsonb information
         jsonb documentation
         jsonb related_epds
+        jsonb related_attributes
+    }
+
+    attributes {
+        text id PK
+        jsonb title "de_fr_it_en"
+        jsonb description "de_fr_it_en"
+        text data_type
+        text unit
+        text ifc_reference
+        jsonb enumeration_values
     }
 
     documents {
@@ -64,6 +80,7 @@ erDiagram
         text[] formats
         text retention
         jsonb classifications
+        jsonb related_elements
     }
 
     usecases {
