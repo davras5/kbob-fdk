@@ -11,8 +11,6 @@
 
 ## Entity Relationship Overview
 
-### Core Tables
-
 | Entity | Type | Primary Key | Has Phases | Has Code | Description |
 |--------|------|-------------|------------|----------|-------------|
 | `elements` | Core | `id` (uuid) | ✓ | ✗ | Physical building components with LOG requirements |
