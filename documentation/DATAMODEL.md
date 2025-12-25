@@ -50,6 +50,8 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
+> **Note:** This diagram shows a simplified view of the schema. See SQL Schema section for complete field definitions including common attributes (version, last_change, image, created_at, updated_at).
+
 ```mermaid
 erDiagram
     usecases ||--o{ elements : "related_elements"
@@ -273,6 +275,33 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `biogenic_carbon` | `numeric` | | Biogenic carbon content |
 
 **Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
+
+---
+
+### attributes
+
+Reusable property definitions for LOI (Level of Information) requirements. Phase-neutral reference data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `data_type` | `text` | `NOT NULL` | Property data type (string, number, boolean, enum) |
+| `unit` | `text` | | Unit of measurement (m, kg, °C, etc.) |
+| `ifc_pset` | `text` | | IFC property set name |
+| `ifc_property` | `text` | | IFC property name within the pset |
+| `enumeration_values` | `jsonb` | `DEFAULT '[]'` | Allowed values for enum types (i18n array) |
+
+---
+
+### classifications
+
+Classification codes from multiple systems. Phase-neutral reference data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `system` | `text` | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
+| `code` | `text` | `NOT NULL` | Classification code within the system |
+
+**Supported systems:** eBKP-H (SN 506 511:2020), DIN 276:2018, Uniformat II, KBOB
 
 ---
 
@@ -559,7 +588,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.4
+-- Version: 2.1.5
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -996,6 +1025,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.5 | 2025-12 | Added `attributes` and `classifications` to Entity-Specific Attributes section; added note to mermaid diagram about simplified view |
 | 2.1.4 | 2025-12 | Removed `definition` from usecases (use `description` instead) |
 | 2.1.3 | 2025-12 | Changed `description` from text to JSONB with i18n on all tables; removed phases sorting/uniqueness constraint (containment only); added index on `classifications.code` |
 | 2.1.2 | 2025-12 | Added `related_usecases` to elements; changed usecases `implementation` and `quality_criteria` from text[] to JSONB with i18n; removed `examples` and `practice_example` from usecases |
