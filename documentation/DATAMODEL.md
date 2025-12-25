@@ -50,6 +50,8 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
+> **Note:** This diagram shows a simplified view of the schema. See SQL Schema section for complete field definitions including common attributes (version, last_change, image, created_at, updated_at).
+
 ```mermaid
 erDiagram
     usecases ||--o{ elements : "related_elements"
@@ -226,13 +228,8 @@ Project documentation types with format requirements and retention policies per 
 
 Standardized BIM processes with roles, responsibilities, and quality criteria per VDI 2552 Blatt 12.1/12.2.
 
-> **Note:** Usecases have both `description` (common attribute) and `definition` (entity-specific):
-> - `description`: Optional free-text summary for display and search
-> - `definition`: Required formal statement per VDI 2552 defining the use case scope
-
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `definition` | `text` | `NOT NULL` | Formal definition of the use case per VDI 2552 (distinct from `description`) |
 | `goals` | `jsonb` | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
 | `inputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
 | `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
@@ -278,6 +275,33 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `biogenic_carbon` | `numeric` | | Biogenic carbon content |
 
 **Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
+
+---
+
+### attributes
+
+Reusable property definitions for LOI (Level of Information) requirements. Phase-neutral reference data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `data_type` | `text` | `NOT NULL` | Property data type (string, number, boolean, enum) |
+| `unit` | `text` | | Unit of measurement (m, kg, °C, etc.) |
+| `ifc_pset` | `text` | | IFC property set name |
+| `ifc_property` | `text` | | IFC property name within the pset |
+| `enumeration_values` | `jsonb` | `DEFAULT '[]'` | Allowed values for enum types (i18n array) |
+
+---
+
+### classifications
+
+Classification codes from multiple systems. Phase-neutral reference data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `system` | `text` | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
+| `code` | `text` | `NOT NULL` | Classification code within the system |
+
+**Supported systems:** eBKP-H (SN 506 511:2020), DIN 276:2018, Uniformat II, KBOB
 
 ---
 
@@ -564,7 +588,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.3
+-- Version: 2.1.5
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -656,7 +680,6 @@ CREATE TABLE public.usecases (
     phases integer[],
 
     -- Entity-specific attributes
-    definition text NOT NULL,
     goals jsonb NOT NULL DEFAULT '[]',
     inputs jsonb NOT NULL DEFAULT '[]',
     outputs jsonb NOT NULL DEFAULT '[]',
@@ -947,7 +970,6 @@ COMMENT ON COLUMN elements.geometry IS 'LOG specifications per lifecycle phase (
 COMMENT ON COLUMN elements.tool_elements IS 'Mappings to IFC classes and authoring tools (Revit, ArchiCAD)';
 COMMENT ON COLUMN epds.gwp IS 'Global Warming Potential in kg CO₂-eq; can be negative for bio-based materials';
 COMMENT ON COLUMN epds.ubp IS 'Umweltbelastungspunkte - Swiss ecological scarcity method';
-COMMENT ON COLUMN usecases.definition IS 'Formal VDI 2552 definition (distinct from description)';
 COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n support';
 ```
 
@@ -1003,6 +1025,8 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.5 | 2025-12 | Added `attributes` and `classifications` to Entity-Specific Attributes section; added note to mermaid diagram about simplified view |
+| 2.1.4 | 2025-12 | Removed `definition` from usecases (use `description` instead) |
 | 2.1.3 | 2025-12 | Changed `description` from text to JSONB with i18n on all tables; removed phases sorting/uniqueness constraint (containment only); added index on `classifications.code` |
 | 2.1.2 | 2025-12 | Added `related_usecases` to elements; changed usecases `implementation` and `quality_criteria` from text[] to JSONB with i18n; removed `examples` and `practice_example` from usecases |
 | 2.1.1 | 2025-12 | Schema review fixes: added ID format constraint to `classifications`; removed GWP >= 0 constraint (allows negative for carbon-sequestering materials per EN 15804); added multi-language full-text indexes (de/fr/it/en); added GIN indexes on `related_*` fields; added phases uniqueness constraint; added `epds.unit` CHECK constraint; added table/column comments; documented RLS write policy and JSONB referential integrity |
