@@ -480,9 +480,15 @@ window.switchSearchView = function(view) {
 };
 
 /**
- * Toggle search sort order
+ * Toggle search sort order (cycles: relevance → date-desc → date-asc)
  */
 window.toggleSearchSort = function() {
-    currentSearchSort = currentSearchSort === 'date-desc' ? 'date-asc' : 'date-desc';
+    if (currentSearchSort === 'relevance') {
+        currentSearchSort = 'date-desc';
+    } else if (currentSearchSort === 'date-desc') {
+        currentSearchSort = 'date-asc';
+    } else {
+        currentSearchSort = 'relevance';
+    }
     renderSearchResultsPage(currentSearchQuery);
 };
