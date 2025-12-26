@@ -86,9 +86,6 @@ async function renderBpmnDiagram(containerId, processUrl, usecaseId) {
             <button class="bpmn-control-btn" data-action="zoom-out" title="Verkleinern">
                 <i data-lucide="zoom-out"></i>
             </button>
-            <button class="bpmn-control-btn" data-action="zoom-reset" title="Zurücksetzen">
-                <i data-lucide="scan"></i>
-            </button>
             <button class="bpmn-control-btn" data-action="fullscreen" title="Vollbild">
                 <i data-lucide="maximize"></i>
             </button>
@@ -125,9 +122,6 @@ async function renderBpmnDiagram(containerId, processUrl, usecaseId) {
                     break;
                 case 'zoom-out':
                     canvasModule.zoom(currentZoom / 1.2);
-                    break;
-                case 'zoom-reset':
-                    canvasModule.zoom('fit-viewport');
                     break;
                 case 'fullscreen':
                     openBpmnFullscreen(bpmnXml, usecaseId);
@@ -183,9 +177,6 @@ async function openBpmnFullscreen(bpmnXml, usecaseId) {
                     <button class="bpmn-control-btn" data-action="zoom-out" title="Verkleinern">
                         <i data-lucide="zoom-out"></i>
                     </button>
-                    <button class="bpmn-control-btn" data-action="zoom-reset" title="Zurücksetzen">
-                        <i data-lucide="scan"></i>
-                    </button>
                 </div>
             </div>
         </div>
@@ -237,9 +228,6 @@ async function openBpmnFullscreen(bpmnXml, usecaseId) {
                     break;
                 case 'zoom-out':
                     canvasModule.zoom(currentZoom / 1.2);
-                    break;
-                case 'zoom-reset':
-                    canvasModule.zoom('fit-viewport');
                     break;
             }
         });
