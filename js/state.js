@@ -87,7 +87,7 @@ let epdsFilterVisible = false;
 
 // --- SEARCH STATE ---
 let currentSearchQuery = '';
-let currentSearchSort = 'date-desc';
+let currentSearchSort = 'relevance';
 
 // --- UI STATE ---
 // Track which cards have expanded tags (show all tags)

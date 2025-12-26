@@ -213,7 +213,7 @@ function renderSearchResultsPage(query) {
                     <span class="search-results__count">${resultCount} Suchergebnisse</span>
                     <div class="search-results__controls">
                         <button class="search-results__sort" data-action="toggle-search-sort">
-                            <span>${currentSearchSort === 'date-desc' ? 'Nach Datum sortieren (Absteigend)' : 'Nach Datum sortieren (Aufsteigend)'}</span>
+                            <span>${currentSearchSort === 'relevance' ? 'Nach Relevanz sortieren' : currentSearchSort === 'date-desc' ? 'Nach Datum (Neueste zuerst)' : 'Nach Datum (Älteste zuerst)'}</span>
                             <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="view-switcher toolbar-control">
