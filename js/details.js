@@ -594,10 +594,23 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return;
     }
 
-    // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
+    // Escape main content - support both legacy and new i18n fields
+    const safeTitle = escapeHtml(data.name ? t(data.name) : data.title || '');
+    const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Anwendungsfall des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
+
+    // Helper to get text from potentially i18n value
+    const getText = (val) => {
+        if (!val) return '';
+        if (typeof val === 'object' && !Array.isArray(val)) return t(val);
+        return val;
+    };
+
+    // Helper to get text from potentially i18n array item
+    const getArrayItemText = (arr, index) => {
+        if (!arr || !arr[index]) return '';
+        return getText(arr[index]);
+    };
 
     // Check if process_url exists in the data (data-driven BPMN path)
     const processUrl = data.process_url || '';
@@ -657,14 +670,14 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build goals table HTML
+    // Build goals table HTML - support both legacy strings and i18n objects
     const goalsHtml = hasGoals
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.goals.map((goal, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(goal)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.goals.map((goal, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(getText(goal))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build prerequisites table HTML
+    // Build prerequisites table HTML - support both legacy strings and i18n objects
     let prerequisitesHtml = '';
     if (hasPrerequisites) {
         const clientItems = data.prerequisites.client || [];
@@ -673,9 +686,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
         let tableRows = '';
         for (let i = 0; i < maxRows; i++) {
-            const clientItem = clientItems[i] ? escapeHtml(clientItems[i]) : '';
-            const contractorItem = contractorItems[i] ? escapeHtml(contractorItems[i]) : '';
-            tableRows += `<tr><td class="col-val">${clientItem}</td><td class="col-val">${contractorItem}</td></tr>`;
+            const clientItem = getArrayItemText(clientItems, i);
+            const contractorItem = getArrayItemText(contractorItems, i);
+            tableRows += `<tr><td class="col-val">${escapeHtml(clientItem)}</td><td class="col-val">${escapeHtml(contractorItem)}</td></tr>`;
         }
 
         prerequisitesHtml = `
@@ -685,14 +698,14 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build implementation table HTML
+    // Build implementation table HTML - support both legacy strings and i18n objects
     const implementationHtml = hasImplementation
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.implementation.map((step, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(step)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.implementation.map((step, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(getText(step))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build input/output table HTML
+    // Build input/output table HTML - support both legacy strings and i18n objects
     let ioHtml = '';
     if (hasInputsOutputs) {
         const inputs = data.inputs || [];
@@ -701,9 +714,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
         let tableRows = '';
         for (let i = 0; i < maxRows; i++) {
-            const inputItem = inputs[i] ? escapeHtml(inputs[i]) : '';
-            const outputItem = outputs[i] ? escapeHtml(outputs[i]) : '';
-            tableRows += `<tr><td class="col-val">${inputItem}</td><td class="col-val">${outputItem}</td></tr>`;
+            const inputItem = getArrayItemText(inputs, i);
+            const outputItem = getArrayItemText(outputs, i);
+            tableRows += `<tr><td class="col-val">${escapeHtml(inputItem)}</td><td class="col-val">${escapeHtml(outputItem)}</td></tr>`;
         }
 
         ioHtml = `
@@ -713,13 +726,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build practice example HTML
+    // Build practice example HTML - support both legacy strings and i18n objects
     let practiceExampleHtml = '';
     if (hasPracticeExample) {
         const example = data.practiceExample;
         const exampleImage = example.image ? escapeHtml(example.image) : '';
-        const exampleTitle = escapeHtml(example.title || '');
-        const exampleDesc = escapeHtml(example.description || '');
+        const exampleTitle = escapeHtml(getText(example.title) || getText(example.name) || '');
+        const exampleDesc = escapeHtml(getText(example.description) || '');
 
         practiceExampleHtml = `
             <div class="practice-example-card">
@@ -732,21 +745,25 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
 
-    // Build quality criteria table HTML
+    // Build quality criteria table HTML - support both legacy strings and i18n objects
     const qualityCriteriaHtml = hasQualityCriteria
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.qualityCriteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(criterion)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.qualityCriteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(getText(criterion))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build roles table HTML
+    // Build roles table HTML - support both legacy strings and i18n objects
+    const formatRoleItems = (items) => {
+        if (!items || !Array.isArray(items) || items.length === 0) return '-';
+        return escapeHtml(items.map(item => getText(item)).join(', '));
+    };
     const rolesRowsHtml = hasRoles
         ? data.roles.map(role => `
             <tr>
-                <td class="col-val col-actor">${escapeHtml(role.actor || '')}</td>
-                <td class="col-val">${role.responsible && Array.isArray(role.responsible) && role.responsible.length > 0 ? escapeHtml(role.responsible.join(', ')) : '-'}</td>
-                <td class="col-val">${role.contributing && Array.isArray(role.contributing) && role.contributing.length > 0 ? escapeHtml(role.contributing.join(', ')) : '-'}</td>
-                <td class="col-val">${role.informed && Array.isArray(role.informed) && role.informed.length > 0 ? escapeHtml(role.informed.join(', ')) : '-'}</td>
+                <td class="col-val col-actor">${escapeHtml(getText(role.actor) || '')}</td>
+                <td class="col-val">${formatRoleItems(role.responsible)}</td>
+                <td class="col-val">${formatRoleItems(role.contributing)}</td>
+                <td class="col-val">${formatRoleItems(role.informed)}</td>
             </tr>`).join('')
         : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
 
@@ -769,7 +786,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Anwendungsfall', data.title)}
+                    ${renderMetadataTable(data, 'Anwendungsfall', data.name ? t(data.name) : data.title)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
@@ -781,7 +798,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     ${hasDefinition ? `
                     <div class="detail-section" id="definition">
                         <h2>Definition</h2>
-                        <p class="definition-text">${escapeHtml(data.definition)}</p>
+                        <p class="definition-text">${escapeHtml(getText(data.definition))}</p>
                     </div>` : ''}
 
                     ${hasGoals ? `
