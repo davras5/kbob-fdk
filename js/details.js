@@ -999,15 +999,16 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
         return;
     }
 
-    // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.');
+    // Escape main content - support both legacy and new i18n fields
+    const safeTitle = escapeHtml(data.name ? t(data.name) : data.title || '');
+    const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags('epds', activeTags, activeCategory, [], getActiveViewFromURL());
 
-    // Determine which sections have data
-    const hasMaterialProperties = hasData(data.density) || hasData(data.biogenicCarbon);
+    // Determine which sections have data - support both biogenicCarbon and biogenic_carbon
+    const biogenicCarbonValue = data.biogenic_carbon !== undefined ? data.biogenic_carbon : data.biogenicCarbon;
+    const hasMaterialProperties = hasData(data.density) || hasData(biogenicCarbonValue);
 
     // Build sidebar links
     const sidebarLinks = [];
@@ -1025,10 +1026,12 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
         `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
     ).join('');
 
-    // Format category with subcategory
-    const categoryDisplay = data.subcategory
-        ? `${escapeHtml(data.category)} › ${escapeHtml(data.subcategory)}`
-        : escapeHtml(data.category || '—');
+    // Format category with subcategory - support both legacy 'category' and new 'domain'
+    const category = data.domain ? t(data.domain) : data.category;
+    const subcategory = data.subcategory ? (typeof data.subcategory === 'object' ? t(data.subcategory) : data.subcategory) : '';
+    const categoryDisplay = subcategory
+        ? `${escapeHtml(category)} › ${escapeHtml(subcategory)}`
+        : escapeHtml(category || '—');
 
     // Format numbers for display
     const formatNumber = (num) => {
@@ -1057,9 +1060,9 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                             <td class="col-val col-right">${formatNumber(data.density)}</td>
                             <td class="col-val">${densityUnit}</td>
                         </tr>` : ''}
-                        ${hasData(data.biogenicCarbon) ? `<tr>
+                        ${hasData(biogenicCarbonValue) ? `<tr>
                             <td class="col-val">Biogener Kohlenstoff</td>
-                            <td class="col-val col-right">${formatNumber(data.biogenicCarbon)}</td>
+                            <td class="col-val col-right">${formatNumber(biogenicCarbonValue)}</td>
                             <td class="col-val">kg C</td>
                         </tr>` : ''}
                     </tbody>
@@ -1091,11 +1094,11 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                         <table class="data-table">
                             <tbody>
                                 <tr><td class="col-val metadata-label">Entität</td><td class="col-val">Ökobilanzdaten</td></tr>
-                                <tr><td class="col-val metadata-label">Name</td><td class="col-val">${escapeHtml(data.title || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">Name</td><td class="col-val">${safeTitle || '—'}</td></tr>
                                 <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${categoryDisplay}</td></tr>
-                                <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.id || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.code || data.id || '—')}</td></tr>
                                 <tr><td class="col-val metadata-label">Version</td><td class="col-val">${escapeHtml(data.version || '—')}</td></tr>
-                                <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.lastChange)}</td></tr>
+                                <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.last_change || data.lastChange)}</td></tr>
                             </tbody>
                         </table>
                     </div>
