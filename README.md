@@ -16,7 +16,7 @@
 
 ## Overview
 
-The **KBOB BIM Data Catalog** is a web-based reference for Building Information Modeling (BIM) data requirements used in public construction projects across Switzerland. It provides standardized building element classifications, Level of Information (LOI) requirements per project phase, and IFC mappings — all in one accessible place.
+The **KBOB BIM Data Catalog** is a web-based reference for Building Information Modeling (BIM) data requirements used in public construction projects across Switzerland. It provides standardized building element classifications, Level of Information (LOI) requirements per project phase, and IFC mappings, all in one accessible place.
 
 This catalog is published as a **demonstration and reference implementation** of how a coordinated, cross-organizational BIM data reference can support interoperability and consistent data management across federal, cantonal, and municipal builders.
 
@@ -40,9 +40,9 @@ In practice, many public authorities have developed BIM data requirements indepe
 
 The KBOB BIM Data Catalog addresses these challenges by providing:
 
-- **Reduced ambiguity** — one shared definition understood by all
-- **Improved interoperability** — consistent data flows across organizations and lifecycle phases
-- **Lower barriers to adoption** — small municipalities benefit from the same clarity as larger agencies
+- **Reduced ambiguity:** one shared definition understood by all
+- **Improved interoperability:** consistent data flows across organizations and lifecycle phases
+- **Lower barriers to adoption:** small municipalities benefit from the same clarity as larger agencies
 
 This catalog demonstrates how coordination can be implemented in practice across public builders.
 
@@ -164,22 +164,22 @@ flowchart TB
 | Entity | Description | Status | Reference |
 |--------|-------------|--------|-----------|
 | **Asset / Project** | Root entity representing a construction or renovation project with defined scope, timeline, and deliverables. | Conceptual | TOGAF, ISO 19650 |
-| **Stakeholder** | Individuals or organizations with interests in the project outcome – owners, operators, authorities, users. | Conceptual | TOGAF/ArchiMate, ISO 19650 |
-| **Goals** | Strategic objectives the project aims to achieve – quality, cost, sustainability, compliance targets. | Conceptual | TOGAF/ArchiMate |
-| **Roles** | Functions assigned to stakeholders – architect, engineer, contractor, BIM coordinator. | Conceptual | TOGAF/ArchiMate, ISO 19650, SIA 2051 |
-| **Asset Phases** | Temporal stages of project delivery that govern applicable processes – SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. | Conceptual | TOGAF (Plateau), SIA 112, ISO 19650 |
-| **Capabilities** | Organizational abilities required to achieve goals – design, coordination, quality assurance. | Conceptual | TOGAF/ArchiMate, eCH-0122 |
-| **Processes** | Defined workflows implementing capabilities, governed by asset phases – information delivery, model coordination, quality assurance, change management. Implemented as BPMN diagrams. | Implemented | TOGAF/ArchiMate, eCH-0073/0074, BPMN 2.0 |
-| **Use Cases** | Specific BIM applications – e.g. As-Built Survey, Requirements Planning, Discipline Coordination, Quantity & Cost Estimation, Quality Assurance, Sustainability Certification, Defect Management. | Implemented | ISO 19650, buildingSMART IDM |
+| **Stakeholder** | Individuals or organizations with interests in the project outcome: owners, operators, authorities, users. | Conceptual | TOGAF/ArchiMate, ISO 19650 |
+| **Goals** | Strategic objectives the project aims to achieve: quality, cost, sustainability, compliance targets. | Conceptual | TOGAF/ArchiMate |
+| **Roles** | Functions assigned to stakeholders: architect, engineer, contractor, BIM coordinator. | Conceptual | TOGAF/ArchiMate, ISO 19650, SIA 2051 |
+| **Asset Phases** | Temporal stages of project delivery that govern applicable processes: SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. | Conceptual | TOGAF (Plateau), SIA 112, ISO 19650 |
+| **Capabilities** | Organizational abilities required to achieve goals: design, coordination, quality assurance. | Conceptual | TOGAF/ArchiMate, eCH-0122 |
+| **Processes** | Defined workflows implementing capabilities, governed by asset phases: information delivery, model coordination, quality assurance, change management. Implemented as BPMN diagrams. | Implemented | TOGAF/ArchiMate, eCH-0073/0074, BPMN 2.0 |
+| **Use Cases** | Specific BIM applications, e.g. As-Built Survey, Requirements Planning, Discipline Coordination, Quantity & Cost Estimation, Quality Assurance, Sustainability Certification, Defect Management. | Implemented | ISO 19650, buildingSMART IDM |
 | **Information Requirements** | LOIN specifications defining what information is needed, when, and at what detail level. | Implemented | ISO 19650-1, EN 17412 |
-| **Attributes** | Properties attached to building elements – material, dimensions, fire rating, U-value. | Implemented | IFC, bSDD |
-| **Enumerations** | Controlled vocabularies constraining attribute values – material types, status codes, classifications. | Implemented | IFC, bSDD |
-| **Reference Data** | External data sources linked to attributes – standards, regulations, product databases. | Conceptual | DCAT-AP CH, Swiss Data Ecosystem |
-| **Discipline Models** | Domain-specific BIM models – architectural, structural, MEP, landscape. | Implemented | ISO 19650, SIA 2051 |
-| **Building Elements** | Physical components within models – walls, slabs, doors, HVAC equipment. | Implemented | IFC, eBKP-H, SIA 416 |
-| **Classifications** | Coding systems for elements – eBKP-H, DIN 276, Uniformat II, IFC entity types. | Implemented | eBKP-H, IFC, bSDD |
-| **EPD Data** | Environmental Product Declarations – embodied carbon, lifecycle impact data per KBOB/Ecobau. | Implemented | EN 15804, KBOB/Ecobau |
-| **Documents** | Non-geometric deliverables – reports, specifications, certificates, operation manuals. | Implemented | ISO 19650, KBOB BWD |
+| **Attributes** | Properties attached to building elements: material, dimensions, fire rating, U-value. | Implemented | IFC, bSDD |
+| **Enumerations** | Controlled vocabularies constraining attribute values: material types, status codes, classifications. | Implemented | IFC, bSDD |
+| **Reference Data** | External data sources linked to attributes: standards, regulations, product databases. | Conceptual | DCAT-AP CH, Swiss Data Ecosystem |
+| **Discipline Models** | Domain-specific BIM models: architectural, structural, MEP, landscape. | Implemented | ISO 19650, SIA 2051 |
+| **Building Elements** | Physical components within models: walls, slabs, doors, HVAC equipment. | Implemented | IFC, eBKP-H, SIA 416 |
+| **Classifications** | Coding systems for elements: eBKP-H, DIN 276, Uniformat II, IFC entity types. | Implemented | eBKP-H, IFC, bSDD |
+| **EPD Data** | Environmental Product Declarations: embodied carbon, lifecycle impact data per KBOB/Ecobau. | Implemented | EN 15804, KBOB/Ecobau |
+| **Documents** | Non-geometric deliverables: reports, specifications, certificates, operation manuals. | Implemented | ISO 19650, KBOB BWD |
 
 ---
 
@@ -258,4 +258,4 @@ https://www.kbob.admin.ch/
 
 ---
 
-*A shared foundation for digital construction — this is what we are building toward.*
+*A shared foundation for digital construction – this is what we are building toward.*
