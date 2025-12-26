@@ -18,8 +18,7 @@ const searchDataTypes = [
         type: 'Anwendungsfall',
         routePrefix: 'usecase',
         getData: () => globalUsecasesData,
-        searchFields: ['title', 'category', 'description'],
-        descriptionField: 'description'
+        searchFields: ['name', 'domain', 'description']
     },
     {
         key: 'elements',
@@ -28,8 +27,7 @@ const searchDataTypes = [
         type: 'Element',
         routePrefix: 'element',
         getData: () => globalElementsData,
-        searchFields: ['title', 'classification', 'description'],
-        descriptionField: 'classification' // fallback for description
+        searchFields: ['name', 'domain', 'description']
     },
     {
         key: 'models',
@@ -38,8 +36,7 @@ const searchDataTypes = [
         type: 'Fachmodell',
         routePrefix: 'model',
         getData: () => globalModelsData,
-        searchFields: ['title', 'category', 'description'],
-        descriptionField: 'description'
+        searchFields: ['name', 'domain', 'description']
     },
     {
         key: 'documents',
@@ -48,8 +45,7 @@ const searchDataTypes = [
         type: 'Dokument',
         routePrefix: 'document',
         getData: () => globalDocumentsData,
-        searchFields: ['title', 'category', 'description'],
-        descriptionField: 'description'
+        searchFields: ['name', 'domain', 'description']
     },
     {
         key: 'epds',
@@ -58,8 +54,7 @@ const searchDataTypes = [
         type: 'EPD',
         routePrefix: 'epd',
         getData: () => globalEpdsData,
-        searchFields: ['title', 'category', 'description'],
-        descriptionField: 'description'
+        searchFields: ['name', 'domain', 'description']
     }
 ];
 
@@ -69,30 +64,22 @@ const searchDataTypes = [
 
 /**
  * Get searchable text value from an item field
- * Supports both legacy string fields and new i18n object fields
- * Also handles field name mapping (title→name, category→domain)
+ * Handles i18n object fields using the t() function
  */
 function getSearchableValue(item, field) {
-    // Handle field name mapping for new schema
-    if (field === 'title') {
-        // Try new 'name' field first, fall back to 'title'
-        return item.name ? t(item.name) : (item.title || '');
-    }
-    if (field === 'category') {
-        // Try new 'domain' field first, fall back to 'category'
-        return item.domain ? t(item.domain) : (item.category || '');
-    }
-    // Handle description and other potentially i18n fields
     const value = item[field];
-    if (value && typeof value === 'object' && !Array.isArray(value)) {
+    if (value === null || value === undefined) {
+        return '';
+    }
+    // Handle i18n objects
+    if (typeof value === 'object' && !Array.isArray(value)) {
         return t(value);
     }
-    return value || '';
+    return String(value);
 }
 
 /**
  * Search items by term across specified fields
- * Supports both legacy string fields and new i18n object fields
  */
 function searchItems(data, searchFields, searchTerm) {
     return data.filter(item =>
@@ -132,7 +119,6 @@ function performGlobalSearch(query) {
 
 /**
  * Render search dropdown HTML
- * Supports both legacy and i18n fields
  */
 function renderSearchDropdown(results, query) {
     let hasAnyResults = false;
@@ -146,8 +132,7 @@ function renderSearchDropdown(results, query) {
             html += `<div class="search-dropdown-group">`;
             html += `<div class="search-dropdown-header">${escapeHtml(dataType.label)}</div>`;
             items.forEach(item => {
-                // Support both legacy 'title' and new 'name' field
-                const title = item.name ? t(item.name) : item.title || '';
+                const title = t(item.name);
                 const safeTitle = escapeHtml(title);
                 const safeId = escapeHtml(item.id || '');
                 html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${safeId}">${safeTitle}</a>`;
@@ -175,7 +160,7 @@ function renderSearchDropdown(results, query) {
 
 /**
  * Perform full search across all categories (for search results page)
- * Supports both legacy and i18n fields
+ * Returns results sorted by relevance (exact name matches first)
  */
 function performFullSearch(query) {
     const results = [];
@@ -190,24 +175,41 @@ function performFullSearch(query) {
         );
 
         matchingItems.forEach(item => {
-            // Support both legacy 'title' and new 'name' field
-            const title = item.name ? t(item.name) : item.title || '';
-            // Support both legacy 'description' and new i18n 'description' field
-            const desc = item.description ? t(item.description) : '';
-            const fallbackDesc = item[dataType.descriptionField] ? t(item[dataType.descriptionField]) : '';
+            const title = t(item.name);
+            const titleLower = title.toLowerCase();
+            const desc = t(item.description);
+
+            // Calculate relevance score (lower = better)
+            let relevance = 3; // Default: match in other fields
+            if (titleLower === searchTerm) {
+                relevance = 0; // Exact name match
+            } else if (titleLower.startsWith(searchTerm)) {
+                relevance = 1; // Name starts with search term
+            } else if (titleLower.includes(searchTerm)) {
+                relevance = 2; // Name contains search term
+            }
 
             results.push({
                 type: dataType.type,
                 category: dataType.routePrefix,
                 id: item.id,
                 title: title,
-                description: desc || fallbackDesc || '',
-                date: item.date || item.last_change || item.lastChange || null
+                description: desc,
+                date: item.last_change || null,
+                relevance: relevance
             });
         });
     });
 
-    // Sort results
+    // Sort by relevance first (lower = better), then alphabetically by title
+    results.sort((a, b) => {
+        if (a.relevance !== b.relevance) {
+            return a.relevance - b.relevance;
+        }
+        return a.title.localeCompare(b.title, 'de');
+    });
+
+    // Apply date sorting if requested (overrides relevance)
     if (currentSearchSort === 'date-desc') {
         results.sort((a, b) => {
             if (!a.date && !b.date) return 0;

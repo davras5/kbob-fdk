@@ -351,12 +351,13 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                     searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
                 }
 
-                // Filter by search term using configured search fields
+                // Filter by search term using configured search fields (i18n-aware)
                 if (searchTerm) {
                     searchFilteredData = searchFilteredData.filter(item =>
-                        typeConfig.searchFields.some(field =>
-                            item[field] && item[field].toLowerCase().includes(searchTerm)
-                        )
+                        typeConfig.searchFields.some(field => {
+                            const value = getSearchableValue(item, field);
+                            return value && value.toLowerCase().includes(searchTerm);
+                        })
                     );
                 }
 

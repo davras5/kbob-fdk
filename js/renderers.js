@@ -18,7 +18,8 @@ const catalogTypeConfig = {
         icon: 'image',
         getData: () => globalElementsData,
         getFilterVisible: () => elementsFilterVisible,
-        setFilterVisible: (val) => { elementsFilterVisible = val; }
+        setFilterVisible: (val) => { elementsFilterVisible = val; },
+        searchFields: ['name', 'domain', 'description']
     },
     documents: {
         routePrefix: 'document',
@@ -26,7 +27,8 @@ const catalogTypeConfig = {
         icon: 'file-text',
         getData: () => globalDocumentsData,
         getFilterVisible: () => documentsFilterVisible,
-        setFilterVisible: (val) => { documentsFilterVisible = val; }
+        setFilterVisible: (val) => { documentsFilterVisible = val; },
+        searchFields: ['name', 'domain', 'description']
     },
     usecases: {
         routePrefix: 'usecase',
@@ -35,7 +37,8 @@ const catalogTypeConfig = {
         getData: () => globalUsecasesData,
         getFilterVisible: () => usecasesFilterVisible,
         setFilterVisible: (val) => { usecasesFilterVisible = val; },
-        hasPhases: true
+        hasPhases: true,
+        searchFields: ['name', 'domain', 'description']
     },
     models: {
         routePrefix: 'model',
@@ -43,7 +46,8 @@ const catalogTypeConfig = {
         icon: 'boxes',
         getData: () => globalModelsData,
         getFilterVisible: () => modelsFilterVisible,
-        setFilterVisible: (val) => { modelsFilterVisible = val; }
+        setFilterVisible: (val) => { modelsFilterVisible = val; },
+        searchFields: ['name', 'domain', 'description']
     },
     epds: {
         routePrefix: 'epd',
@@ -51,7 +55,8 @@ const catalogTypeConfig = {
         icon: 'leaf',
         getData: () => globalEpdsData,
         getFilterVisible: () => epdsFilterVisible,
-        setFilterVisible: (val) => { epdsFilterVisible = val; }
+        setFilterVisible: (val) => { epdsFilterVisible = val; },
+        searchFields: ['name', 'domain', 'description']
     }
 };
 
