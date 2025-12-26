@@ -15,9 +15,9 @@ function renderElementDetailPage(id, activeTags = []) {
         return;
     }
 
-    // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Standard-Element des KBOB Datenkatalogs.');
+    // Escape main content - support both legacy and new i18n fields
+    const safeTitle = escapeHtml(data.name ? t(data.name) : data.title || '');
+    const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Standard-Element des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     // Derive phases from geometry, information, and documentation arrays
@@ -55,49 +55,121 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
-        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
-        : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+    // Build classification rows - support both legacy 'classifications' object and new 'related_classifications' array
+    let classRows = '';
+    if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
+        // New schema: look up classifications by ID
+        const classificationsBySystem = new Map();
+        data.related_classifications.forEach(ref => {
+            const clf = getItemById('classifications', ref.id);
+            if (clf) {
+                const system = clf.system;
+                if (!classificationsBySystem.has(system)) {
+                    classificationsBySystem.set(system, []);
+                }
+                const clfName = clf.name ? t(clf.name) : '';
+                classificationsBySystem.get(system).push(`${clf.code} – ${clfName}`);
+            }
+        });
+        if (classificationsBySystem.size > 0) {
+            classRows = Array.from(classificationsBySystem.entries())
+                .map(([system, codes]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${codes.map(c => escapeHtml(c)).join('<br>')}</td></tr>`)
+                .join('');
+        } else {
+            classRows = '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+        }
+    } else if (data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)) {
+        // Legacy schema: direct object with system keys
+        classRows = Object.entries(data.classifications)
+            .map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`)
+            .join('');
+    } else {
+        classRows = '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+    }
 
-    const ifcRows = data.ifcMapping && Array.isArray(data.ifcMapping)
-        ? data.ifcMapping.map(m => `
+    // Support both legacy 'ifcMapping' and new 'tool_elements' field
+    const toolElements = data.tool_elements || data.ifcMapping || [];
+    const ifcRows = toolElements.length > 0
+        ? toolElements.map(m => {
+            // Support both legacy string and new i18n object for element name
+            const elementName = m.element ? (typeof m.element === 'object' ? t(m.element) : m.element) : '-';
+            return `
             <tr>
-                <td class="col-val">${escapeHtml(m.element || '-')}</td>
+                <td class="col-val">${escapeHtml(elementName)}</td>
                 <td class="col-val">${escapeHtml(m.ifc || '-')}</td>
                 <td class="col-val">${escapeHtml(m.revit || '-')}</td>
-            </tr>`).join('')
+            </tr>`;
+        }).join('')
         : '<tr><td colspan="3">-</td></tr>';
 
+    // Support both legacy string and new i18n object for geometry name/desc
     const geomRows = data.geometry && Array.isArray(data.geometry) ? data.geometry : [];
     const geomRowsHtml = geomRows.length > 0
-        ? geomRows.map(row => `
+        ? geomRows.map(row => {
+            const rowName = row.name ? (typeof row.name === 'object' ? t(row.name) : row.name) : '-';
+            const rowDesc = row.desc ? (typeof row.desc === 'object' ? t(row.desc) : row.desc) : '-';
+            return `
             <tr>
-                <td class="col-val">${escapeHtml(row.name || '-')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
+                <td class="col-val">${escapeHtml(rowName)}</td>
+                <td class="col-val">${escapeHtml(rowDesc)}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('')
+            </tr>`;
+        }).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
 
-    const infoRows = data.information && Array.isArray(data.information) ? data.information : [];
-    const infoRowsHtml = infoRows.length > 0
-        ? infoRows.map(row => `
+    // Support both legacy 'information' array and new 'related_attributes' array
+    let infoRowsHtml = '';
+    if (data.related_attributes && Array.isArray(data.related_attributes) && data.related_attributes.length > 0) {
+        // New schema: look up attributes by ID
+        infoRowsHtml = data.related_attributes.map(ref => {
+            const attr = getItemById('attributes', ref.id);
+            if (attr) {
+                const attrName = attr.name ? t(attr.name) : '';
+                const attrDesc = attr.description ? t(attr.description) : '';
+                const ifcMapping = attr.ifc_pset && attr.ifc_property
+                    ? `${attr.ifc_pset}.${attr.ifc_property}`
+                    : (attr.ifc_pset || '-');
+                return `
+                <tr>
+                    <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(attrDesc)}">${escapeHtml(attrName)}</span></td>
+                    <td class="col-val">${escapeHtml(attr.data_type || '-')}</td>
+                    <td class="col-center">-</td>
+                    <td class="col-val">${escapeHtml(ifcMapping)}</td>
+                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
+                </tr>`;
+            }
+            return '';
+        }).filter(Boolean).join('');
+        if (!infoRowsHtml) {
+            infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
+        }
+    } else if (data.information && Array.isArray(data.information) && data.information.length > 0) {
+        // Legacy schema: direct information array
+        infoRowsHtml = data.information.map(row => `
             <tr>
                 <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(row.desc || '')}">${escapeHtml(row.name || '')}</span></td>
                 <td class="col-val">${escapeHtml(row.format || '-')}</td>
                 <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
                 <td class="col-val">${escapeHtml(row.ifc || '-')}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('')
-        : '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
+            </tr>`).join('');
+    } else {
+        infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
+    }
 
+    // Support both legacy string and new i18n object for documentation name/desc
     const docRows = data.documentation && Array.isArray(data.documentation) ? data.documentation : [];
     const docRowsHtml = docRows.length > 0
-        ? docRows.map(row => `
+        ? docRows.map(row => {
+            const rowName = row.name ? (typeof row.name === 'object' ? t(row.name) : row.name) : '-';
+            const rowDesc = row.desc ? (typeof row.desc === 'object' ? t(row.desc) : row.desc) : '-';
+            return `
             <tr>
-                <td class="col-val">${escapeHtml(row.name || '-')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
+                <td class="col-val">${escapeHtml(rowName)}</td>
+                <td class="col-val">${escapeHtml(rowDesc)}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('')
+            </tr>`;
+        }).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
 
     // Build phases HTML (similar to usecase detail)
@@ -128,7 +200,7 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Element', data.title)}
+                    ${renderMetadataTable(data, 'Element', data.name ? t(data.name) : data.title)}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
@@ -437,18 +509,23 @@ function formatDateToGerman(isoDate) {
 
 /**
  * Render metadata table section
- * @param {Object} data - Item data with id, version, lastChange, category
+ * Supports both legacy fields (category, lastChange) and new i18n fields (domain, last_change)
+ * @param {Object} data - Item data with id, version, lastChange/last_change, category/domain
  * @param {string} entityType - Type of entity (e.g., 'Anwendungsfall', 'Element', etc.)
- * @param {string} title - Name/title of the entity
+ * @param {string} title - Name/title of the entity (already localized)
  * @returns {string} HTML for metadata table
  */
 function renderMetadataTable(data, entityType, title) {
     const safeEntityType = escapeHtml(entityType || '—');
     const safeTitle = escapeHtml(title || '—');
-    const safeCategory = escapeHtml(data.category || '—');
+    // Support both legacy 'category' and new 'domain' field
+    const category = data.domain ? t(data.domain) : data.category;
+    const safeCategory = escapeHtml(category || '—');
     const safeId = escapeHtml(data.id || '—');
     const safeVersion = escapeHtml(data.version || '—');
-    const formattedDate = formatDateToGerman(data.lastChange);
+    // Support both legacy 'lastChange' and new 'last_change' field
+    const dateValue = data.last_change || data.lastChange;
+    const formattedDate = formatDateToGerman(dateValue);
 
     return `
         <div id="metadaten" class="detail-section">

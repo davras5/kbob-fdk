@@ -5,6 +5,7 @@
 
 /**
  * Filter data by active tags (AND logic - must match all tags)
+ * Supports both legacy string arrays and i18n object arrays
  * @param {Array} data - Array of data items
  * @param {string[]} activeTags - Array of tag strings
  * @returns {Array} Filtered data
@@ -16,12 +17,14 @@ function filterDataByTags(data, activeTags) {
 
     return data.filter(item => {
         if (!item.tags || !Array.isArray(item.tags)) return false;
-        return activeTags.every(tag => item.tags.includes(tag));
+        const itemTags = tTags(item.tags);
+        return activeTags.every(tag => itemTags.includes(tag));
     });
 }
 
 /**
- * Filter data by active category
+ * Filter data by active category/domain
+ * Supports both legacy 'category' field and new 'domain' i18n field
  * @param {Array} data - Array of data items
  * @param {string} activeCategory - Category string
  * @returns {Array} Filtered data
@@ -30,7 +33,11 @@ function filterDataByCategory(data, activeCategory) {
     if (!activeCategory) {
         return data;
     }
-    return data.filter(item => item.category === activeCategory);
+    return data.filter(item => {
+        // Support both legacy 'category' and new 'domain' field
+        const itemCategory = item.domain ? t(item.domain) : item.category;
+        return itemCategory === activeCategory;
+    });
 }
 
 /**
@@ -60,7 +67,8 @@ function isTagActive(tag) {
 }
 
 /**
- * Extract unique categories from data array
+ * Extract unique categories/domains from data array
+ * Supports both legacy 'category' field and new 'domain' i18n field
  * @param {Array} data - Array of data items
  * @returns {string[]} Sorted array of unique categories
  */
@@ -68,8 +76,10 @@ function getUniqueCategories(data) {
     if (!data || !Array.isArray(data)) return [];
     const categories = new Set();
     data.forEach(item => {
-        if (item.category) {
-            categories.add(item.category);
+        // Support both legacy 'category' and new 'domain' field
+        const category = item.domain ? t(item.domain) : item.category;
+        if (category) {
+            categories.add(category);
         }
     });
     return Array.from(categories).sort();
@@ -77,6 +87,7 @@ function getUniqueCategories(data) {
 
 /**
  * Extract unique tags from data array
+ * Supports both legacy string arrays and i18n object arrays
  * @param {Array} data - Array of data items
  * @returns {string[]} Sorted array of unique tags
  */
@@ -85,22 +96,24 @@ function getUniqueTags(data) {
     const tags = new Set();
     data.forEach(item => {
         if (item.tags && Array.isArray(item.tags)) {
-            item.tags.forEach(tag => tags.add(tag));
+            tTags(item.tags).forEach(tag => tags.add(tag));
         }
     });
     return Array.from(tags).sort();
 }
 
 /**
- * Sort data by title alphabetically (A-Z)
+ * Sort data by title/name alphabetically (A-Z)
+ * Supports both legacy 'title' field and new 'name' i18n field
  * @param {Array} data - Array of data items
  * @returns {Array} Sorted array
  */
 function sortDataByTitle(data) {
     if (!data || !Array.isArray(data)) return [];
     return [...data].sort((a, b) => {
-        const titleA = (a.title || '').toLowerCase();
-        const titleB = (b.title || '').toLowerCase();
+        // Support both legacy 'title' and new 'name' field
+        const titleA = (a.name ? t(a.name) : a.title || '').toLowerCase();
+        const titleB = (b.name ? t(b.name) : b.title || '').toLowerCase();
         return titleA.localeCompare(titleB, 'de');
     });
 }

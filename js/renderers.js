@@ -71,10 +71,12 @@ const catalogTypeConfig = {
 
 /**
  * Render tags HTML for full view
+ * Supports both legacy string arrays and i18n object arrays
  */
 function renderTagsHtml(tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData)) return '';
-    return tagsData.map(tag => {
+    const localizedTags = tTags(tagsData);
+    return localizedTags.map(tag => {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
@@ -109,11 +111,13 @@ window.toggleCardTags = function(event, cardId) {
 /**
  * Render tags for card with +N / - toggle
  * In collapsed mode, renders all tags initially for measurement, then fitCardTagsToSingleRow hides overflow
+ * Supports both legacy string arrays and i18n object arrays
  */
 function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
 
     const isExpanded = expandedCardTags.has(cardId);
+    const localizedTags = tTags(tagsData);
 
     const renderTag = (tag, index) => {
         const safeTag = escapeHtml(tag);
@@ -122,7 +126,7 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
         return `<span class="tag-badge ${activeClass}" data-tag-index="${index}" data-action="toggle-tag" data-tag="${safeTag}" title="Filter: ${safeTag}">${safeTag}</span>`;
     };
 
-    const tagsHtml = tagsData.map((tag, index) => renderTag(tag, index)).join('');
+    const tagsHtml = localizedTags.map((tag, index) => renderTag(tag, index)).join('');
     const safeCardId = escapeHtml(cardId);
 
     if (isExpanded) {
@@ -131,7 +135,7 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     }
 
     // Collapsed: render all tags + count badge placeholder (will be adjusted by fitCardTagsToSingleRow)
-    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Mehr anzeigen">+${tagsData.length}</span>`;
+    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Mehr anzeigen">+${localizedTags.length}</span>`;
 }
 
 /**
@@ -291,6 +295,7 @@ function refreshIcons(container = null) {
 
 /**
  * Generic grid renderer for all catalog types
+ * Supports both legacy fields (title, category) and new i18n fields (name, domain)
  * @param {string} type - Catalog type key (elements, documents, usecases, models, epds)
  * @param {Array} items - Array of data items
  * @param {string[]} activeTags - Currently active tags
@@ -306,22 +311,29 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
     return items.map(item => {
         const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
         const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
-        const isCategoryActive = activeCategory === item.category;
-        const safeTitle = escapeHtml(item.title || '');
-        const safeCategory = escapeHtml(item.category || '');
-        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        // Support both legacy 'category' and new 'domain' field
+        const itemCategory = item.domain ? t(item.domain) : item.category;
+        const isCategoryActive = activeCategory === itemCategory;
+        // Support both legacy 'title' and new 'name' field
+        const safeTitle = escapeHtml(item.name ? t(item.name) : item.title || '');
+        const safeCategory = escapeHtml(itemCategory || '');
+        // Support both legacy 'description' and new i18n 'description' field
+        const descriptionText = item.description ? t(item.description) : '';
+        const safeSubtitle = escapeHtml(descriptionText || item[config.subtitleField] || '');
         const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
+        // Prepare tags data for JSON (use localized strings for display consistency)
+        const tagsForJson = hasTags ? JSON.stringify(tTags(item.tags)) : '[]';
 
         return `
         <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
             <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
+                ${itemCategory ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
                 ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
                 <h3 class="card__title">${safeTitle}</h3>
                 <p class="card__subtitle">${safeSubtitle}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
+                ${hasTags ? `<div class="card__tags" data-tags='${tagsForJson}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
             </div>
             <footer class="card__footer card__footer--end">
                 <span class="arrow-btn card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -336,6 +348,7 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
 
 /**
  * Generic list renderer for all catalog types
+ * Supports both legacy fields (title, category) and new i18n fields (name, domain)
  * @param {string} type - Catalog type key
  * @param {Array} items - Array of data items
  * @param {string[]} activeTags - Currently active tags
@@ -357,8 +370,11 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
     `;
 
     const itemsHtml = items.map(item => {
-        const safeTitle = escapeHtml(item.title || '');
-        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        // Support both legacy 'title' and new 'name' field
+        const safeTitle = escapeHtml(item.name ? t(item.name) : item.title || '');
+        // Support both legacy 'description' and new i18n 'description' field
+        const descriptionText = item.description ? t(item.description) : '';
+        const safeSubtitle = escapeHtml(descriptionText || item[config.subtitleField] || '');
         const itemHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
         return `
         <div class="element-list-item" data-href="${itemHref}">
