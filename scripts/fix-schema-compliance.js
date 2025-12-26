@@ -118,6 +118,43 @@ function fixModels() {
 }
 
 // ============================================
+// FIX ELEMENTS
+// ============================================
+function fixElements() {
+    const filePath = path.join(__dirname, '..', 'data', 'elements.json');
+    const elements = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+    console.log('\nFixing elements.json...');
+    console.log('  Before:', elements.length, 'elements');
+
+    const fixed = elements.map(el => {
+        // Schema-compliant fields only (no documentation field)
+        return {
+            id: el.id,
+            version: el.version,
+            last_change: el.last_change,
+            name: el.name,
+            image: el.image,
+            domain: el.domain,
+            description: el.description,
+            tags: el.tags,
+            phases: el.phases,
+            geometry: el.geometry || [],
+            tool_elements: el.tool_elements || [],
+            related_documents: el.related_documents || [],
+            related_epds: el.related_epds || [],
+            related_attributes: el.related_attributes || [],
+            related_classifications: el.related_classifications || [],
+            related_usecases: el.related_usecases || []
+        };
+    });
+
+    fs.writeFileSync(filePath, JSON.stringify(fixed, null, 2));
+    console.log('  Removed: documentation (not in schema)');
+    console.log('  After:', fixed.length, 'elements');
+}
+
+// ============================================
 // RUN ALL FIXES
 // ============================================
 console.log('=== SCHEMA COMPLIANCE FIXES ===\n');
@@ -125,5 +162,6 @@ console.log('=== SCHEMA COMPLIANCE FIXES ===\n');
 fixUsecases();
 fixEpds();
 fixModels();
+fixElements();
 
 console.log('\n=== ALL FIXES COMPLETE ===');
