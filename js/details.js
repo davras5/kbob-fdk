@@ -485,8 +485,10 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const safeTitle = escapeHtml(data.title || '');
     const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
-    // Check if BPMN file exists for this usecase (will be loaded dynamically)
-    const hasBpmnFile = true; // Assume true, actual check happens during render
+
+    // Check if process_url exists in the data (data-driven BPMN path)
+    const processUrl = data.process_url || '';
+    const hasProcess = !!processUrl;
 
     const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -500,7 +502,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const hasPracticeExample = hasData(data.practiceExample);
     const hasQualityCriteria = hasData(data.qualityCriteria);
     const hasRoles = hasData(data.roles);
-    const hasProcess = hasBpmnFile;
 
     // Build sidebar with group labels
     let sidebarHtml = '';
@@ -756,9 +757,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     setupDetailInteractions();
 
-    // Initialize BPMN viewer if process section exists
+    // Initialize BPMN viewer if process section exists (using data-driven process_url)
     if (hasProcess && typeof renderBpmnDiagram === 'function') {
-        renderBpmnDiagram(`bpmn-viewer-${data.id}`, data.id);
+        renderBpmnDiagram(`bpmn-viewer-${data.id}`, processUrl, data.id);
     }
 }
 
@@ -1072,15 +1073,17 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
 // DETAIL PAGE INTERACTIONS
 // ============================================
 
+// Store reference to sidebar observer for cleanup (prevents memory leaks)
+let sidebarObserver = null;
+
 function setupDetailInteractions() {
-    document.querySelectorAll('.sidebar-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('data-target');
-            const element = document.getElementById(targetId);
-            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
+    // Sidebar link click handlers are now managed via event delegation in app.js
+
+    // Cleanup previous observer if it exists (prevents memory leaks)
+    if (sidebarObserver) {
+        sidebarObserver.disconnect();
+        sidebarObserver = null;
+    }
 
     setTimeout(() => {
         const sectionHash = window.location.hash.split('#')[2];
@@ -1089,7 +1092,8 @@ function setupDetailInteractions() {
         const sections = document.querySelectorAll('.detail-section');
         const navLinks = document.querySelectorAll('.sticky-nav a');
 
-        const observer = new IntersectionObserver((entries) => {
+        // Create new observer and store reference for cleanup
+        sidebarObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
@@ -1100,6 +1104,6 @@ function setupDetailInteractions() {
             });
         }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
 
-        sections.forEach(section => observer.observe(section));
+        sections.forEach(section => sidebarObserver.observe(section));
     }, 100);
 }

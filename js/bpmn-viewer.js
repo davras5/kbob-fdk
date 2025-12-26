@@ -1,71 +1,9 @@
 /**
  * BPMN Viewer Module
  * Handles loading and rendering BPMN diagrams from local files
+ *
+ * BPMN file paths are now data-driven via process_url field in usecases.json
  */
-
-// Cache for BPMN file list (to avoid multiple fetches)
-let bpmnFileListCache = null;
-
-/**
- * Get list of available BPMN files
- * @returns {Promise<string[]>} Array of BPMN filenames
- */
-async function getBpmnFileList() {
-    if (bpmnFileListCache) {
-        return bpmnFileListCache;
-    }
-
-    // Hardcoded list of BPMN files (since we can't list directory contents from browser)
-    bpmnFileListCache = [
-        'uc000-minimalstandard.bpmn',
-        'uc010-bestandserfassung.bpmn',
-        'uc020-bedarfsplanung.bpmn',
-        'uc030-planungsvarianten.bpmn',
-        'uc040-visualisierung.bpmn',
-        'uc050-koordination_der_fachgewerke.bpmn',
-        'uc060-qualit_tspr_fung.bpmn',
-        'uc070-bemessung_und_nachweisf_hrung.bpmn',
-        'uc080-ableitung_von_planunterlagen.bpmn',
-        'uc090-genehmigungsprozess.bpmn',
-        'uc100-mengen__und_kostenermittlung.bpmn',
-        'uc110-leistungsverzeichnis_und_ausschreibung.bpmn',
-        'uc120-terminplanung_der_ausf_hrung.bpmn',
-        'uc130-logistikplanung.bpmn',
-        'uc140-baufortschrittskontrolle.bpmn',
-        'uc150-_nderungs__und_nachtragsmanagement.bpmn',
-        'uc160-abrechnung_von_bauleistungen.bpmn',
-        'uc170-abnahme__und_m_ngelmanagement.bpmn',
-        'uc180-inbetriebnahmemanagement.bpmn',
-        'uc190-projekt__und_bauwerksdokumentation.bpmn',
-        'uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn',
-        'uc210-gew_hrleistungsmanagement.bpmn',
-        'uc220-wartungs__und_inspektionsmanagement.bpmn',
-        'uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn',
-        'uc240-fl_chen__und_raumbelegungsmanagement.bpmn',
-        'uc250-energiemanagement.bpmn',
-        'uc260-betreiberverantwortung.bpmn',
-        'uc270-nachhaltigkeitsnachweise.bpmn',
-        'uc280-r_ckbauplanung.bpmn',
-        'uc290-bauteilb_rse_und_wiederverwendung.bpmn'
-    ];
-
-    return bpmnFileListCache;
-}
-
-/**
- * Find BPMN file path for a given usecase ID
- * @param {string} usecaseId - The usecase ID (e.g., 'uc000')
- * @returns {Promise<string|null>} The file path or null if not found
- */
-async function findBpmnFileForUsecase(usecaseId) {
-    const files = await getBpmnFileList();
-    const matchingFile = files.find(file => file.startsWith(usecaseId + '-'));
-
-    if (matchingFile) {
-        return `assets/bpmn/${matchingFile}`;
-    }
-    return null;
-}
 
 /**
  * Load BPMN XML content from file
@@ -83,10 +21,11 @@ async function loadBpmnFile(filePath) {
 /**
  * Initialize and render BPMN diagram in a container
  * @param {string} containerId - The ID of the container element
- * @param {string} usecaseId - The usecase ID to load BPMN for
+ * @param {string} processUrl - The path to the BPMN file (from usecase.process_url)
+ * @param {string} usecaseId - The usecase ID (for display purposes)
  * @returns {Promise<void>}
  */
-async function renderBpmnDiagram(containerId, usecaseId) {
+async function renderBpmnDiagram(containerId, processUrl, usecaseId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error('BPMN container not found:', containerId);
@@ -105,9 +44,8 @@ async function renderBpmnDiagram(containerId, usecaseId) {
     }
 
     try {
-        // Find the BPMN file for this usecase
-        const filePath = await findBpmnFileForUsecase(usecaseId);
-        if (!filePath) {
+        // Validate that we have a process URL
+        if (!processUrl) {
             container.innerHTML = `
                 <div class="bpmn-error">
                     <i data-lucide="file-x"></i>
@@ -120,8 +58,8 @@ async function renderBpmnDiagram(containerId, usecaseId) {
             return;
         }
 
-        // Load the BPMN XML
-        const bpmnXml = await loadBpmnFile(filePath);
+        // Load the BPMN XML from the data-driven path
+        const bpmnXml = await loadBpmnFile(processUrl);
 
         // Clear container and create canvas
         container.innerHTML = '<div class="bpmn-canvas"></div><div class="bpmn-controls"></div>';
@@ -348,5 +286,4 @@ async function openBpmnFullscreen(bpmnXml, usecaseId) {
 
 // Export for use in other modules
 window.renderBpmnDiagram = renderBpmnDiagram;
-window.findBpmnFileForUsecase = findBpmnFileForUsecase;
 window.openBpmnFullscreen = openBpmnFullscreen;
