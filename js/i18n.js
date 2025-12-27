@@ -8,18 +8,41 @@
 // ============================================
 
 /**
+ * Supported languages
+ */
+const SUPPORTED_LANGUAGES = ['de', 'fr', 'it', 'en'];
+
+/**
  * Current display language
  * Supported: 'de', 'fr', 'it', 'en'
  */
 let currentLang = 'de';
 
 /**
+ * UI translations loaded from data/translations/ui.json
+ */
+let uiTranslations = null;
+
+/**
+ * Flag to track if UI translations are loaded
+ */
+let uiTranslationsLoaded = false;
+
+/**
  * Set the current display language
  * @param {string} lang - Language code ('de', 'fr', 'it', 'en')
+ * @param {boolean} [persist=true] - Whether to save to localStorage
  */
-function setLanguage(lang) {
-    if (['de', 'fr', 'it', 'en'].includes(lang)) {
+function setLanguage(lang, persist = true) {
+    if (SUPPORTED_LANGUAGES.includes(lang)) {
         currentLang = lang;
+        if (persist) {
+            try {
+                localStorage.setItem('kbob-lang', lang);
+            } catch (e) {
+                // localStorage not available (e.g., private browsing)
+            }
+        }
     }
 }
 
@@ -29,6 +52,60 @@ function setLanguage(lang) {
  */
 function getLanguage() {
     return currentLang;
+}
+
+/**
+ * Initialize language from URL, localStorage, or browser preference
+ * Priority: URL > localStorage > browser language > default (de)
+ * @param {string} [urlLang] - Language from URL (if present)
+ * @returns {string} The initialized language code
+ */
+function initLanguage(urlLang) {
+    let lang = 'de'; // Default
+
+    // Priority 1: URL language parameter
+    if (urlLang && SUPPORTED_LANGUAGES.includes(urlLang)) {
+        lang = urlLang;
+    }
+    // Priority 2: localStorage
+    else {
+        try {
+            const storedLang = localStorage.getItem('kbob-lang');
+            if (storedLang && SUPPORTED_LANGUAGES.includes(storedLang)) {
+                lang = storedLang;
+            }
+        } catch (e) {
+            // localStorage not available
+        }
+    }
+
+    setLanguage(lang, true);
+    return lang;
+}
+
+/**
+ * Load UI translations from JSON file
+ * @returns {Promise<Object>} The loaded translations object
+ */
+async function loadUITranslations() {
+    if (uiTranslationsLoaded && uiTranslations) {
+        return uiTranslations;
+    }
+
+    try {
+        const response = await fetch('data/translations/ui.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load translations: ${response.status}`);
+        }
+        uiTranslations = await response.json();
+        uiTranslationsLoaded = true;
+        return uiTranslations;
+    } catch (error) {
+        console.error('Error loading UI translations:', error);
+        uiTranslations = {};
+        uiTranslationsLoaded = true;
+        return uiTranslations;
+    }
 }
 
 // ============================================
@@ -141,4 +218,109 @@ function createI18nArray(germanArray) {
         return [];
     }
     return germanArray.map(value => createI18n(value));
+}
+
+// ============================================
+// UI TRANSLATION HELPERS
+// ============================================
+
+/**
+ * Get a UI translation by dot-notation path
+ *
+ * @param {string} path - Dot-notation path to the translation (e.g., 'nav.elements', 'search.placeholder')
+ * @param {Object} [replacements] - Optional object with placeholder replacements (e.g., {count: 5})
+ * @returns {string} The translated string for the current language, or the path if not found
+ *
+ * @example
+ * tUI('nav.elements') // Returns "Elemente" (if currentLang is 'de')
+ * tUI('search.resultCount', {count: 42}) // Returns "42 Suchergebnisse"
+ * tUI('nonexistent.path') // Returns "nonexistent.path" (fallback)
+ */
+function tUI(path, replacements = null) {
+    if (!uiTranslations || !path) {
+        return path || '';
+    }
+
+    // Navigate to the translation using dot notation
+    const keys = path.split('.');
+    let value = uiTranslations;
+
+    for (const key of keys) {
+        if (value && typeof value === 'object' && key in value) {
+            value = value[key];
+        } else {
+            // Path not found, return the path as fallback
+            return path;
+        }
+    }
+
+    // If we reached an i18n object, get the current language value
+    if (value && typeof value === 'object') {
+        let result = value[currentLang] || value['de'] || path;
+
+        // Apply replacements if provided
+        if (replacements && typeof result === 'string') {
+            for (const [key, val] of Object.entries(replacements)) {
+                result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), val);
+            }
+        }
+
+        return result;
+    }
+
+    return path;
+}
+
+/**
+ * Get phase label by phase number
+ * @param {number|string} phaseNum - Phase number (1-5)
+ * @returns {string} Translated phase label
+ */
+function tPhase(phaseNum) {
+    return tUI(`phases.${phaseNum}`);
+}
+
+/**
+ * Get route name translation
+ * @param {string} routeKey - Route key (e.g., 'home', 'elements', 'usecases')
+ * @returns {string} Translated route name
+ */
+function tRoute(routeKey) {
+    return tUI(`routes.${routeKey}`);
+}
+
+/**
+ * Get navigation label translation
+ * @param {string} navKey - Navigation key (e.g., 'home', 'elements', 'usecases')
+ * @returns {string} Translated navigation label
+ */
+function tNav(navKey) {
+    return tUI(`nav.${navKey}`);
+}
+
+/**
+ * Get entity type translation
+ * @param {string} entityKey - Entity key (e.g., 'element', 'document', 'usecase')
+ * @returns {string} Translated entity type
+ */
+function tEntity(entityKey) {
+    return tUI(`entityTypes.${entityKey}`);
+}
+
+/**
+ * Get page configuration translation
+ * @param {string} pageKey - Page key (e.g., 'elements', 'documents')
+ * @param {string} field - Field name ('title' or 'lead')
+ * @returns {string} Translated page text
+ */
+function tPage(pageKey, field) {
+    return tUI(`pages.${pageKey}.${field}`);
+}
+
+/**
+ * Check if UI translations are loaded
+ * @returns {boolean} True if translations are loaded
+ */
+function isUITranslationsLoaded() {
+    return uiTranslationsLoaded;
 }
