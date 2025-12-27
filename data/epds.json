@@ -6,22 +6,22 @@
     "last_change": "2024-07-15",
     "name": {
       "de": "Betonfertigteil, Normalbeton, ab Werk",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Élément préfabriqué en béton, béton normal, départ usine",
+      "it": "Elemento prefabbricato in calcestruzzo, calcestruzzo normale, franco fabbrica",
+      "en": "Precast concrete element, normal concrete, ex works"
     },
     "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Betonfertigteil, Normalbeton, ab Werk",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour élément préfabriqué en béton, béton normal, départ usine",
+      "it": "Dati ecobilancio KBOB per elemento prefabbricato in calcestruzzo, calcestruzzo normale, franco fabbrica",
+      "en": "KBOB LCA data for precast concrete element, normal concrete, ex works"
     },
     "unit": "kg",
     "gwp": 0.177,
@@ -42,22 +42,22 @@
     "last_change": "2024-03-22",
     "name": {
       "de": "Keramik-/Steinzeugplatte, 9 mm",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Carrelage céramique/grès, 9 mm",
+      "it": "Piastrella ceramica/gres, 9 mm",
+      "en": "Ceramic/stoneware tile, 9 mm"
     },
     "image": "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Keramik-/Steinzeugplatte, 9 mm",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour carrelage céramique/grès, 9 mm",
+      "it": "Dati ecobilancio KBOB per piastrella ceramica/gres, 9 mm",
+      "en": "KBOB LCA data for ceramic/stoneware tile, 9 mm"
     },
     "unit": "m2",
     "gwp": 18.2,
@@ -78,22 +78,22 @@
     "last_change": "2024-09-10",
     "name": {
       "de": "Aerogel-Vlies",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Non-tissé aérogel",
+      "it": "Tessuto non tessuto aerogel",
+      "en": "Aerogel fleece"
     },
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Aerogel-Vlies",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour non-tissé aérogel",
+      "it": "Dati ecobilancio KBOB per tessuto non tessuto aerogel",
+      "en": "KBOB LCA data for aerogel fleece"
     },
     "unit": "kg",
     "gwp": 48.7,
@@ -114,22 +114,22 @@
     "last_change": "2024-05-08",
     "name": {
       "de": "Rahmenverbreiterung, PVC",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Élargissement de cadre, PVC",
+      "it": "Allargamento telaio, PVC",
+      "en": "Frame widening, PVC"
     },
     "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Rahmenverbreiterung, PVC",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour élargissement de cadre, PVC",
+      "it": "Dati ecobilancio KBOB per allargamento telaio, PVC",
+      "en": "KBOB LCA data for frame widening, PVC"
     },
     "unit": "m2",
     "gwp": 69.7,
@@ -150,22 +150,22 @@
     "last_change": "2024-11-02",
     "name": {
       "de": "Brettschichtholz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Bois lamellé-collé",
+      "it": "Legno lamellare incollato",
+      "en": "Glued laminated timber"
     },
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Brettschichtholz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour bois lamellé-collé",
+      "it": "Dati ecobilancio KBOB per legno lamellare incollato",
+      "en": "KBOB LCA data for glued laminated timber"
     },
     "unit": "kg",
     "gwp": 0.335,
@@ -186,22 +186,22 @@
     "last_change": "2024-02-18",
     "name": {
       "de": "Konstruktionsvollholz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Bois massif de construction",
+      "it": "Legno massiccio da costruzione",
+      "en": "Solid structural timber"
     },
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Konstruktionsvollholz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour bois massif de construction",
+      "it": "Dati ecobilancio KBOB per legno massiccio da costruzione",
+      "en": "KBOB LCA data for solid structural timber"
     },
     "unit": "kg",
     "gwp": 0.288,
@@ -222,22 +222,22 @@
     "last_change": "2024-06-30",
     "name": {
       "de": "Chromnickelstahlblech 18/8 blank",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Tôle en acier inoxydable 18/8 brut",
+      "it": "Lamiera in acciaio inossidabile 18/8 grezzo",
+      "en": "Stainless steel sheet 18/8 bright"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Chromnickelstahlblech 18/8 blank",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour tôle en acier inoxydable 18/8 brut",
+      "it": "Dati ecobilancio KBOB per lamiera in acciaio inossidabile 18/8 grezzo",
+      "en": "KBOB LCA data for stainless steel sheet 18/8 bright"
     },
     "unit": "kg",
     "gwp": 4.12,
@@ -258,22 +258,22 @@
     "last_change": "2024-04-12",
     "name": {
       "de": "Stahlprofil, blank",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Profilé en acier, brut",
+      "it": "Profilo in acciaio, grezzo",
+      "en": "Steel profile, bright"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Stahlprofil, blank",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour profilé en acier, brut",
+      "it": "Dati ecobilancio KBOB per profilo in acciaio, grezzo",
+      "en": "KBOB LCA data for steel profile, bright"
     },
     "unit": "kg",
     "gwp": 0.737,
@@ -294,22 +294,22 @@
     "last_change": "2024-08-25",
     "name": {
       "de": "Tiefgründung, Ortbetonbohrpfahl, 1200 mm",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Fondation profonde, pieu foré en béton coulé en place, 1200 mm",
+      "it": "Fondazione profonda, palo trivellato in calcestruzzo gettato in opera, 1200 mm",
+      "en": "Deep foundation, bored cast-in-place concrete pile, 1200 mm"
     },
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Tiefgründung, Ortbetonbohrpfahl, 1200 mm",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour fondation profonde, pieu foré en béton coulé en place, 1200 mm",
+      "it": "Dati ecobilancio KBOB per fondazione profonda, palo trivellato in calcestruzzo gettato in opera, 1200 mm",
+      "en": "KBOB LCA data for deep foundation, bored cast-in-place concrete pile, 1200 mm"
     },
     "unit": "m",
     "gwp": 379,
@@ -330,22 +330,22 @@
     "last_change": "2024-01-15",
     "name": {
       "de": "Hartsandsteinplatte",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Dalle en grès dur",
+      "it": "Lastra in arenaria dura",
+      "en": "Hard sandstone slab"
     },
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Matériaux de construction",
+      "it": "Materiali da costruzione",
+      "en": "Building Materials"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Hartsandsteinplatte",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour dalle en grès dur",
+      "it": "Dati ecobilancio KBOB per lastra in arenaria dura",
+      "en": "KBOB LCA data for hard sandstone slab"
     },
     "unit": "kg",
     "gwp": 0.0406,
@@ -366,22 +366,22 @@
     "last_change": "2024-10-05",
     "name": {
       "de": "Biogas",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Biogaz",
+      "it": "Biogas",
+      "en": "Biogas"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Énergie",
+      "it": "Energia",
+      "en": "Energy"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Biogas",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour biogaz",
+      "it": "Dati ecobilancio KBOB per biogas",
+      "en": "KBOB LCA data for biogas"
     },
     "unit": "kWh",
     "gwp": 0.124,
@@ -402,22 +402,22 @@
     "last_change": "2024-03-01",
     "name": {
       "de": "Heizzentrale Gas",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Centrale de chauffage gaz",
+      "it": "Centrale termica a gas",
+      "en": "Gas heating plant"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Énergie",
+      "it": "Energia",
+      "en": "Energy"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Heizzentrale Gas",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour centrale de chauffage gaz",
+      "it": "Dati ecobilancio KBOB per centrale termica a gas",
+      "en": "KBOB LCA data for gas heating plant"
     },
     "unit": "kWh",
     "gwp": 0.301,
@@ -438,22 +438,22 @@
     "last_change": "2024-07-20",
     "name": {
       "de": "Fernwärme mit Nutzung Kehrichtwärme, Durchschnitt Netze CH",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Chauffage à distance avec valorisation de la chaleur des déchets, moyenne réseaux CH",
+      "it": "Teleriscaldamento con utilizzo calore da rifiuti, media reti CH",
+      "en": "District heating with waste heat utilization, average Swiss networks"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Énergie",
+      "it": "Energia",
+      "en": "Energy"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Fernwärme mit Nutzung Kehrichtwärme, Durchschnitt Netze CH",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour chauffage à distance avec valorisation de la chaleur des déchets, moyenne réseaux CH",
+      "it": "Dati ecobilancio KBOB per teleriscaldamento con utilizzo calore da rifiuti, media reti CH",
+      "en": "KBOB LCA data for district heating with waste heat utilization, average Swiss networks"
     },
     "unit": "kWh",
     "gwp": 0.0658,
@@ -474,22 +474,22 @@
     "last_change": "2024-02-28",
     "name": {
       "de": "Elektrospeicherofen (Strom CH zertifiziert)",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Poêle à accumulation électrique (électricité CH certifiée)",
+      "it": "Stufa ad accumulo elettrica (elettricità CH certificata)",
+      "en": "Electric storage heater (certified Swiss electricity)"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Énergie",
+      "it": "Energia",
+      "en": "Energy"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Elektrospeicherofen (Strom CH zertifiziert)",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour poêle à accumulation électrique (électricité CH certifiée)",
+      "it": "Dati ecobilancio KBOB per stufa ad accumulo elettrica (elettricità CH certificata)",
+      "en": "KBOB LCA data for electric storage heater (certified Swiss electricity)"
     },
     "unit": "kWh",
     "gwp": 0.0175,
@@ -510,22 +510,22 @@
     "last_change": "2024-09-18",
     "name": {
       "de": "Wärmeabgabe über Fussbodenheizung",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Distribution de chaleur par chauffage au sol",
+      "it": "Emissione di calore tramite riscaldamento a pavimento",
+      "en": "Heat distribution via underfloor heating"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Technique du bâtiment",
+      "it": "Impiantistica",
+      "en": "Building Technology"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Wärmeabgabe über Fussbodenheizung",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour distribution de chaleur par chauffage au sol",
+      "it": "Dati ecobilancio KBOB per emissione di calore tramite riscaldamento a pavimento",
+      "en": "KBOB LCA data for heat distribution via underfloor heating"
     },
     "unit": "m2",
     "gwp": 5.05,
@@ -546,22 +546,22 @@
     "last_change": "2024-04-05",
     "name": {
       "de": "Lüftungsanlage Wohnen, PE-Kanäle, inkl. Küchenabluft",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Installation de ventilation résidentielle, conduits PE, y c. évacuation cuisine",
+      "it": "Impianto di ventilazione residenziale, condotti PE, incl. aspirazione cucina",
+      "en": "Residential ventilation system, PE ducts, incl. kitchen exhaust"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Technique du bâtiment",
+      "it": "Impiantistica",
+      "en": "Building Technology"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Lüftungsanlage Wohnen, PE-Kanäle, inkl. Küchenabluft",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour installation de ventilation résidentielle, conduits PE, y c. évacuation cuisine",
+      "it": "Dati ecobilancio KBOB per impianto di ventilazione residenziale, condotti PE, incl. aspirazione cucina",
+      "en": "KBOB LCA data for residential ventilation system, PE ducts, incl. kitchen exhaust"
     },
     "unit": "m2",
     "gwp": 8.25,
@@ -582,22 +582,22 @@
     "last_change": "2024-06-14",
     "name": {
       "de": "Lüftungsanlage, spez. Luftmenge 4 m3/hm2 EBF",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Installation de ventilation, débit d'air spéc. 4 m3/hm2 SRE",
+      "it": "Impianto di ventilazione, portata d'aria spec. 4 m3/hm2 SUL",
+      "en": "Ventilation system, specific air volume 4 m3/hm2 EFA"
     },
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Technique du bâtiment",
+      "it": "Impiantistica",
+      "en": "Building Technology"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Lüftungsanlage, spez. Luftmenge 4 m3/hm2 EBF",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour installation de ventilation, débit d'air spéc. 4 m3/hm2 SRE",
+      "it": "Dati ecobilancio KBOB per impianto di ventilazione, portata d'aria spec. 4 m3/hm2 SUL",
+      "en": "KBOB LCA data for ventilation system, specific air volume 4 m3/hm2 EFA"
     },
     "unit": "m2",
     "gwp": 30.6,
@@ -618,22 +618,22 @@
     "last_change": "2024-05-22",
     "name": {
       "de": "Fernreisezug Schweiz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Train grandes lignes Suisse",
+      "it": "Treno a lunga percorrenza Svizzera",
+      "en": "Long-distance train Switzerland"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Transports",
+      "it": "Trasporti",
+      "en": "Transport"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Fernreisezug Schweiz",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour train grandes lignes Suisse",
+      "it": "Dati ecobilancio KBOB per treno a lunga percorrenza Svizzera",
+      "en": "KBOB LCA data for long-distance train Switzerland"
     },
     "unit": "pkm",
     "gwp": 0.0069,
@@ -654,22 +654,22 @@
     "last_change": "2024-08-08",
     "name": {
       "de": "Lastwagen, Durchschnitt",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Camion, moyenne",
+      "it": "Autocarro, media",
+      "en": "Truck, average"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Transports",
+      "it": "Trasporti",
+      "en": "Transport"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Lastwagen, Durchschnitt",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour camion, moyenne",
+      "it": "Dati ecobilancio KBOB per autocarro, media",
+      "en": "KBOB LCA data for truck, average"
     },
     "unit": "tkm",
     "gwp": 0.142,
@@ -690,22 +690,22 @@
     "last_change": "2024-11-12",
     "name": {
       "de": "Mix Stromprodukte aus erneuerbaren Energien in Personenwagen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Mix produits électriques issus d'énergies renouvelables en voiture particulière",
+      "it": "Mix prodotti elettrici da energie rinnovabili in autovettura",
+      "en": "Renewable electricity mix for passenger cars"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Transports",
+      "it": "Trasporti",
+      "en": "Transport"
     },
     "description": {
       "de": "KBOB Ökobilanzdaten für Mix Stromprodukte aus erneuerbaren Energien in Personenwagen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Données écobilan KBOB pour mix produits électriques issus d'énergies renouvelables en voiture particulière",
+      "it": "Dati ecobilancio KBOB per mix prodotti elettrici da energie rinnovabili in autovettura",
+      "en": "KBOB LCA data for renewable electricity mix for passenger cars"
     },
     "unit": "kWh",
     "gwp": 0.0481,

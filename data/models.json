@@ -6,22 +6,22 @@
     "last_change": "2024-06-15",
     "name": {
       "de": "Architekturmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle architectural",
+      "it": "Modello architettonico",
+      "en": "Architectural Model"
     },
     "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle 3D numérique de la conception architecturale avec pièces, murs, plafonds et ouvertures",
+      "it": "Modello 3D digitale della progettazione architettonica con locali, pareti, soffitti e aperture",
+      "en": "Digital 3D model of architectural design with rooms, walls, ceilings and openings"
     },
     "phases": [
       1,
@@ -42,22 +42,22 @@
     "last_change": "2024-07-22",
     "name": {
       "de": "Tragwerksmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle de structure",
+      "it": "Modello strutturale",
+      "en": "Structural Model"
     },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle BIM de la structure porteuse avec éléments statiques et armature",
+      "it": "Modello BIM della struttura portante con elementi statici e armatura",
+      "en": "BIM model of the load-bearing structure with structural components and reinforcement"
     },
     "phases": [
       2,
@@ -77,22 +77,22 @@
     "last_change": "2024-08-10",
     "name": {
       "de": "HLKS-Modell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle CVCS",
+      "it": "Modello RICA",
+      "en": "MEP Model"
     },
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle intégré pour le chauffage, la ventilation, la climatisation et le sanitaire",
+      "it": "Modello integrato per riscaldamento, ventilazione, climatizzazione e impianti sanitari",
+      "en": "Integrated model for heating, ventilation, air conditioning and plumbing"
     },
     "phases": [
       2,
@@ -112,22 +112,22 @@
     "last_change": "2024-09-05",
     "name": {
       "de": "Elektromodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle électrique",
+      "it": "Modello elettrico",
+      "en": "Electrical Model"
     },
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle BIM des installations électriques, du câblage et des équipements électriques",
+      "it": "Modello BIM degli impianti elettrici, del cablaggio e delle apparecchiature elettriche",
+      "en": "BIM model of electrical installations, wiring and electrical equipment"
     },
     "phases": [
       2,
@@ -147,22 +147,22 @@
     "last_change": "2024-10-18",
     "name": {
       "de": "Koordinationsmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle de coordination",
+      "it": "Modello di coordinamento",
+      "en": "Coordination Model"
     },
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "domain": {
       "de": "Koordination",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Coordination",
+      "it": "Coordinamento",
+      "en": "Coordination"
     },
     "description": {
       "de": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle global fusionné de tous les modèles spécialisés pour la coordination et la détection des conflits",
+      "it": "Modello globale unificato di tutti i modelli specialistici per il coordinamento e il rilevamento delle interferenze",
+      "en": "Merged overall model of all discipline models for coordination and clash detection"
     },
     "phases": [
       2,
@@ -182,22 +182,22 @@
     "last_change": "2024-11-12",
     "name": {
       "de": "Aussenraummodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle d'aménagement extérieur",
+      "it": "Modello degli spazi esterni",
+      "en": "Site Model"
     },
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle des espaces extérieurs, de la végétation et de l'aménagement du terrain",
+      "it": "Modello degli spazi esterni, della vegetazione e della sistemazione del terreno",
+      "en": "Model of outdoor facilities, vegetation and terrain design"
     },
     "phases": [
       2,
@@ -217,22 +217,22 @@
     "last_change": "2024-12-01",
     "name": {
       "de": "Brandschutzmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle de protection incendie",
+      "it": "Modello di protezione antincendio",
+      "en": "Fire Protection Model"
     },
     "image": "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=400&h=200&fit=crop",
     "domain": {
       "de": "Spezialmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spéciaux",
+      "it": "Modelli speciali",
+      "en": "Special Models"
     },
     "description": {
       "de": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle spécialisé avec compartiments coupe-feu, voies d'évacuation et dispositifs de protection incendie",
+      "it": "Modello specialistico con compartimenti antincendio, vie di fuga e dispositivi di protezione antincendio",
+      "en": "Specialized model with fire compartments, escape routes and fire protection devices"
     },
     "phases": [
       2,
@@ -252,22 +252,22 @@
     "last_change": "2025-01-08",
     "name": {
       "de": "Baugrubenmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle de fouille",
+      "it": "Modello dello scavo",
+      "en": "Excavation Model"
     },
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "domain": {
       "de": "Spezialmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spéciaux",
+      "it": "Modelli speciali",
+      "en": "Special Models"
     },
     "description": {
       "de": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle temporaire pour le soutènement de fouille et les travaux d'excavation",
+      "it": "Modello temporaneo per il sostegno dello scavo e i lavori di scavo",
+      "en": "Temporary model for excavation support and earthworks"
     },
     "phases": [
       2,
@@ -287,22 +287,22 @@
     "last_change": "2024-06-15",
     "name": {
       "de": "Bestandsmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle d'état existant",
+      "it": "Modello as-built",
+      "en": "As-Built Model"
     },
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Bestand",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "État existant",
+      "it": "Stato esistente",
+      "en": "As-Built"
     },
     "description": {
       "de": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Représentation numérique du bâtiment achevé pour l'exploitation et la maintenance",
+      "it": "Rappresentazione digitale dell'edificio completato per l'esercizio e la manutenzione",
+      "en": "Digital representation of the completed building for operation and maintenance"
     },
     "phases": [
       3,
@@ -321,22 +321,22 @@
     "last_change": "2024-07-22",
     "name": {
       "de": "Fassadenmodell",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle de façade",
+      "it": "Modello di facciata",
+      "en": "Façade Model"
     },
     "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "domain": {
       "de": "Fachmodelle",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
     },
     "description": {
       "de": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
-      "fr": "",
-      "it": "",
-      "en": ""
+      "fr": "Modèle détaillé de l'enveloppe du bâtiment avec éléments de façade et raccordements",
+      "it": "Modello dettagliato dell'involucro edilizio con elementi di facciata e raccordi",
+      "en": "Detailed model of the building envelope with façade elements and connections"
     },
     "phases": [
       2,
