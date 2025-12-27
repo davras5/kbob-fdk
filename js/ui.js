@@ -4,6 +4,74 @@
  */
 
 /**
+ * Update all translatable UI elements in the DOM
+ * Called after language change to refresh static text
+ */
+function updateUITranslations() {
+    // Update navigation links
+    const navLinks = document.querySelectorAll('.main-nav .nav-link[data-route]');
+    navLinks.forEach(link => {
+        const route = link.dataset.route;
+        if (route) {
+            link.textContent = tNav(route);
+        }
+    });
+
+    // Update header title
+    const headerTitle = document.querySelector('.header__title span:last-child');
+    if (headerTitle) {
+        headerTitle.textContent = tUI('header.title');
+    }
+
+    // Update search button label
+    const searchToggle = document.getElementById('headerSearchToggle');
+    if (searchToggle) {
+        const searchLabel = searchToggle.querySelector('span');
+        if (searchLabel) {
+            searchLabel.textContent = tUI('search.label');
+        }
+    }
+
+    // Update search input placeholder
+    const searchInput = document.getElementById('headerSearchInput');
+    if (searchInput) {
+        searchInput.placeholder = tUI('search.placeholder');
+    }
+
+    // Update breadcrumb home link
+    const breadcrumbHome = document.querySelector('.breadcrumb-nav > a[href="#home"]');
+    if (breadcrumbHome) {
+        breadcrumbHome.textContent = tRoute('home');
+    }
+
+    // Update contact link
+    const contactLink = document.querySelector('.header__link[href*="kontakt"]');
+    if (contactLink) {
+        contactLink.textContent = tUI('actions.contact');
+    }
+
+    // Update toolbar buttons
+    const printBtn = document.querySelector('.toolbar-btn[onclick*="print"]');
+    if (printBtn) {
+        printBtn.title = tUI('actions.print');
+        printBtn.setAttribute('aria-label', tUI('actions.print'));
+    }
+
+    const shareBtn = document.querySelector('.toolbar-btn[onclick*="share"]');
+    if (shareBtn) {
+        shareBtn.title = tUI('actions.share');
+        shareBtn.setAttribute('aria-label', tUI('actions.share'));
+    }
+
+    // Update scroll to top button
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+    if (scrollTopBtn) {
+        scrollTopBtn.title = tUI('actions.scrollToTop');
+        scrollTopBtn.setAttribute('aria-label', tUI('actions.scrollToTop'));
+    }
+}
+
+/**
  * Initialize language dropdown
  */
 function initLanguageDropdown() {
@@ -13,7 +81,18 @@ function initLanguageDropdown() {
     const toggle = dropdown.querySelector('.lang-dropdown__toggle');
     const menu = dropdown.querySelector('.lang-dropdown__menu');
     const items = dropdown.querySelectorAll('.lang-dropdown__item');
-    const currentLang = document.getElementById('currentLang');
+    const currentLangEl = document.getElementById('currentLang');
+
+    // Set initial active state based on current language
+    const initialLang = getLanguage();
+    currentLangEl.textContent = initialLang.toUpperCase();
+    items.forEach(item => {
+        if (item.dataset.lang === initialLang) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
 
     // Toggle dropdown
     toggle.addEventListener('click', (e) => {
@@ -27,18 +106,27 @@ function initLanguageDropdown() {
         item.addEventListener('click', () => {
             const lang = item.dataset.lang;
 
+            // Update global language state (persists to localStorage)
+            setLanguage(lang);
+
             // Update active state
             items.forEach(i => i.classList.remove('active'));
             item.classList.add('active');
 
             // Update button text
-            currentLang.textContent = lang.toUpperCase();
+            currentLangEl.textContent = lang.toUpperCase();
 
             // Close dropdown
             dropdown.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
 
-            console.log('Language selected:', lang);
+            // Update static UI translations
+            updateUITranslations();
+
+            // Re-render current page to apply new language
+            if (typeof router === 'function') {
+                router();
+            }
         });
     });
 
