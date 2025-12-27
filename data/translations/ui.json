@@ -1,0 +1,1370 @@
+{
+  "nav": {
+    "home": {
+      "de": "Fachdatenkatalog",
+      "fr": "Catalogue de données techniques",
+      "it": "Catalogo dati tecnici",
+      "en": "Technical Data Catalog"
+    },
+    "usecases": {
+      "de": "Anwendungsfälle",
+      "fr": "Cas d'utilisation",
+      "it": "Casi d'uso",
+      "en": "Use Cases"
+    },
+    "elements": {
+      "de": "Elemente",
+      "fr": "Éléments",
+      "it": "Elementi",
+      "en": "Elements"
+    },
+    "models": {
+      "de": "Fachmodelle",
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
+    },
+    "documents": {
+      "de": "Dokumente",
+      "fr": "Documents",
+      "it": "Documenti",
+      "en": "Documents"
+    },
+    "epds": {
+      "de": "Ökobilanzdaten",
+      "fr": "Données écobilan",
+      "it": "Dati ecobilancio",
+      "en": "LCA Data"
+    },
+    "handbook": {
+      "de": "Handbuch & Downloads",
+      "fr": "Manuel & Téléchargements",
+      "it": "Manuale & Download",
+      "en": "Handbook & Downloads"
+    }
+  },
+  "routes": {
+    "home": {
+      "de": "Startseite",
+      "fr": "Page d'accueil",
+      "it": "Pagina iniziale",
+      "en": "Home"
+    },
+    "elements": {
+      "de": "Elemente",
+      "fr": "Éléments",
+      "it": "Elementi",
+      "en": "Elements"
+    },
+    "element": {
+      "de": "Element",
+      "fr": "Élément",
+      "it": "Elemento",
+      "en": "Element"
+    },
+    "documents": {
+      "de": "Dokumente",
+      "fr": "Documents",
+      "it": "Documenti",
+      "en": "Documents"
+    },
+    "document": {
+      "de": "Dokument",
+      "fr": "Document",
+      "it": "Documento",
+      "en": "Document"
+    },
+    "usecases": {
+      "de": "Anwendungsfälle",
+      "fr": "Cas d'utilisation",
+      "it": "Casi d'uso",
+      "en": "Use Cases"
+    },
+    "usecase": {
+      "de": "Anwendungsfall",
+      "fr": "Cas d'utilisation",
+      "it": "Caso d'uso",
+      "en": "Use Case"
+    },
+    "models": {
+      "de": "Fachmodelle",
+      "fr": "Modèles spécialisés",
+      "it": "Modelli specialistici",
+      "en": "Discipline Models"
+    },
+    "model": {
+      "de": "Fachmodell",
+      "fr": "Modèle spécialisé",
+      "it": "Modello specialistico",
+      "en": "Discipline Model"
+    },
+    "epds": {
+      "de": "Ökobilanzdaten",
+      "fr": "Données écobilan",
+      "it": "Dati ecobilancio",
+      "en": "LCA Data"
+    },
+    "epd": {
+      "de": "Ökobilanzdaten",
+      "fr": "Données écobilan",
+      "it": "Dati ecobilancio",
+      "en": "LCA Data"
+    },
+    "handbook": {
+      "de": "Handbuch & Downloads",
+      "fr": "Manuel & Téléchargements",
+      "it": "Manuale & Download",
+      "en": "Handbook & Downloads"
+    },
+    "search": {
+      "de": "Suchergebnisse",
+      "fr": "Résultats de recherche",
+      "it": "Risultati della ricerca",
+      "en": "Search Results"
+    },
+    "api-docs": {
+      "de": "REST API Dokumentation",
+      "fr": "Documentation API REST",
+      "it": "Documentazione API REST",
+      "en": "REST API Documentation"
+    }
+  },
+  "phases": {
+    "1": {
+      "de": "Entwicklung",
+      "fr": "Développement",
+      "it": "Sviluppo",
+      "en": "Development"
+    },
+    "2": {
+      "de": "Planung",
+      "fr": "Planification",
+      "it": "Pianificazione",
+      "en": "Planning"
+    },
+    "3": {
+      "de": "Ausführung",
+      "fr": "Exécution",
+      "it": "Esecuzione",
+      "en": "Execution"
+    },
+    "4": {
+      "de": "Betrieb",
+      "fr": "Exploitation",
+      "it": "Esercizio",
+      "en": "Operation"
+    },
+    "5": {
+      "de": "Rückbau",
+      "fr": "Déconstruction",
+      "it": "Demolizione",
+      "en": "Deconstruction"
+    }
+  },
+  "search": {
+    "label": {
+      "de": "Suche",
+      "fr": "Recherche",
+      "it": "Ricerca",
+      "en": "Search"
+    },
+    "placeholder": {
+      "de": "Suche",
+      "fr": "Recherche",
+      "it": "Ricerca",
+      "en": "Search"
+    },
+    "placeholderGlobal": {
+      "de": "Suche nach Elementen oder Dokumenten...",
+      "fr": "Rechercher des éléments ou documents...",
+      "it": "Cerca elementi o documenti...",
+      "en": "Search for elements or documents..."
+    },
+    "placeholderElements": {
+      "de": "Suche nach Elementen oder Klassifikation...",
+      "fr": "Rechercher des éléments ou classification...",
+      "it": "Cerca elementi o classificazione...",
+      "en": "Search for elements or classification..."
+    },
+    "placeholderDocuments": {
+      "de": "Suche nach Dokumenten oder Kategorie...",
+      "fr": "Rechercher des documents ou catégorie...",
+      "it": "Cerca documenti o categoria...",
+      "en": "Search for documents or category..."
+    },
+    "placeholderUsecases": {
+      "de": "Suche nach Anwendungsfällen...",
+      "fr": "Rechercher des cas d'utilisation...",
+      "it": "Cerca casi d'uso...",
+      "en": "Search for use cases..."
+    },
+    "placeholderModels": {
+      "de": "Suche nach Fachmodellen...",
+      "fr": "Rechercher des modèles spécialisés...",
+      "it": "Cerca modelli specialistici...",
+      "en": "Search for discipline models..."
+    },
+    "placeholderEpds": {
+      "de": "Suche nach Ökobilanzdaten...",
+      "fr": "Rechercher des données écobilan...",
+      "it": "Cerca dati ecobilancio...",
+      "en": "Search for LCA data..."
+    },
+    "placeholderInput": {
+      "de": "Suchbegriff eingeben...",
+      "fr": "Entrez un terme de recherche...",
+      "it": "Inserisci un termine di ricerca...",
+      "en": "Enter search term..."
+    },
+    "clear": {
+      "de": "Suche löschen",
+      "fr": "Effacer la recherche",
+      "it": "Cancella ricerca",
+      "en": "Clear search"
+    },
+    "noResults": {
+      "de": "Keine Ergebnisse gefunden",
+      "fr": "Aucun résultat trouvé",
+      "it": "Nessun risultato trovato",
+      "en": "No results found"
+    },
+    "noResultsFor": {
+      "de": "Keine Ergebnisse für",
+      "fr": "Aucun résultat pour",
+      "it": "Nessun risultato per",
+      "en": "No results for"
+    },
+    "tryOtherTerms": {
+      "de": "Versuchen Sie es mit anderen Suchbegriffen.",
+      "fr": "Essayez avec d'autres termes de recherche.",
+      "it": "Prova con altri termini di ricerca.",
+      "en": "Try different search terms."
+    },
+    "showAllResults": {
+      "de": "Alle Ergebnisse anzeigen",
+      "fr": "Afficher tous les résultats",
+      "it": "Mostra tutti i risultati",
+      "en": "Show all results"
+    },
+    "results": {
+      "de": "Suchergebnisse",
+      "fr": "Résultats de recherche",
+      "it": "Risultati della ricerca",
+      "en": "Search results"
+    },
+    "resultCount": {
+      "de": "{count} Suchergebnisse",
+      "fr": "{count} résultats de recherche",
+      "it": "{count} risultati della ricerca",
+      "en": "{count} search results"
+    }
+  },
+  "sort": {
+    "byRelevance": {
+      "de": "Nach Relevanz sortieren",
+      "fr": "Trier par pertinence",
+      "it": "Ordina per rilevanza",
+      "en": "Sort by relevance"
+    },
+    "byDateDesc": {
+      "de": "Nach Datum (Neueste zuerst)",
+      "fr": "Par date (plus récent d'abord)",
+      "it": "Per data (più recenti prima)",
+      "en": "By date (newest first)"
+    },
+    "byDateAsc": {
+      "de": "Nach Datum (Älteste zuerst)",
+      "fr": "Par date (plus ancien d'abord)",
+      "it": "Per data (meno recenti prima)",
+      "en": "By date (oldest first)"
+    },
+    "byTitleAZ": {
+      "de": "Sortiert nach Titel (A-Z)",
+      "fr": "Trié par titre (A-Z)",
+      "it": "Ordinato per titolo (A-Z)",
+      "en": "Sorted by title (A-Z)"
+    }
+  },
+  "filter": {
+    "label": {
+      "de": "Filter",
+      "fr": "Filtres",
+      "it": "Filtri",
+      "en": "Filters"
+    },
+    "reset": {
+      "de": "Filter zurücksetzen",
+      "fr": "Réinitialiser les filtres",
+      "it": "Reimposta filtri",
+      "en": "Reset filters"
+    },
+    "resetShort": {
+      "de": "Zurücksetzen",
+      "fr": "Réinitialiser",
+      "it": "Reimposta",
+      "en": "Reset"
+    },
+    "category": {
+      "de": "Kategorie",
+      "fr": "Catégorie",
+      "it": "Categoria",
+      "en": "Category"
+    },
+    "selectCategory": {
+      "de": "Kategorie wählen",
+      "fr": "Choisir une catégorie",
+      "it": "Seleziona categoria",
+      "en": "Select category"
+    },
+    "tags": {
+      "de": "Tags",
+      "fr": "Tags",
+      "it": "Tag",
+      "en": "Tags"
+    },
+    "selectTags": {
+      "de": "Tags wählen",
+      "fr": "Choisir des tags",
+      "it": "Seleziona tag",
+      "en": "Select tags"
+    },
+    "phases": {
+      "de": "Phasen",
+      "fr": "Phases",
+      "it": "Fasi",
+      "en": "Phases"
+    },
+    "phase": {
+      "de": "Phase",
+      "fr": "Phase",
+      "it": "Fase",
+      "en": "Phase"
+    }
+  },
+  "view": {
+    "list": {
+      "de": "Listenansicht",
+      "fr": "Vue liste",
+      "it": "Vista elenco",
+      "en": "List view"
+    },
+    "grid": {
+      "de": "Rasteransicht",
+      "fr": "Vue grille",
+      "it": "Vista griglia",
+      "en": "Grid view"
+    }
+  },
+  "actions": {
+    "print": {
+      "de": "Drucken",
+      "fr": "Imprimer",
+      "it": "Stampa",
+      "en": "Print"
+    },
+    "share": {
+      "de": "Teilen",
+      "fr": "Partager",
+      "it": "Condividi",
+      "en": "Share"
+    },
+    "backToList": {
+      "de": "Zurück zur Liste",
+      "fr": "Retour à la liste",
+      "it": "Torna alla lista",
+      "en": "Back to list"
+    },
+    "scrollToTop": {
+      "de": "Nach oben",
+      "fr": "Haut de page",
+      "it": "Torna su",
+      "en": "Back to top"
+    },
+    "contact": {
+      "de": "Kontakt",
+      "fr": "Contact",
+      "it": "Contatto",
+      "en": "Contact"
+    }
+  },
+  "status": {
+    "loading": {
+      "de": "Anwendung wird initialisiert...",
+      "fr": "Initialisation de l'application...",
+      "it": "Inizializzazione dell'applicazione...",
+      "en": "Initializing application..."
+    },
+    "error": {
+      "de": "Fehler beim Laden der Daten",
+      "fr": "Erreur lors du chargement des données",
+      "it": "Errore durante il caricamento dei dati",
+      "en": "Error loading data"
+    },
+    "pageNotFound": {
+      "de": "Seite nicht gefunden.",
+      "fr": "Page non trouvée.",
+      "it": "Pagina non trovata.",
+      "en": "Page not found."
+    },
+    "inDevelopment": {
+      "de": "In Entwicklung",
+      "fr": "En développement",
+      "it": "In sviluppo",
+      "en": "In development"
+    },
+    "featureInDevelopment": {
+      "de": "Diese Funktion wird derzeit entwickelt.",
+      "fr": "Cette fonctionnalité est en cours de développement.",
+      "it": "Questa funzionalità è in fase di sviluppo.",
+      "en": "This feature is currently in development."
+    }
+  },
+  "errors": {
+    "elementNotFound": {
+      "de": "Element nicht gefunden.",
+      "fr": "Élément non trouvé.",
+      "it": "Elemento non trovato.",
+      "en": "Element not found."
+    },
+    "documentNotFound": {
+      "de": "Dokument nicht gefunden.",
+      "fr": "Document non trouvé.",
+      "it": "Documento non trovato.",
+      "en": "Document not found."
+    },
+    "usecaseNotFound": {
+      "de": "Anwendungsfall nicht gefunden.",
+      "fr": "Cas d'utilisation non trouvé.",
+      "it": "Caso d'uso non trovato.",
+      "en": "Use case not found."
+    },
+    "modelNotFound": {
+      "de": "Fachmodell nicht gefunden.",
+      "fr": "Modèle spécialisé non trouvé.",
+      "it": "Modello specialistico non trovato.",
+      "en": "Discipline model not found."
+    },
+    "epdNotFound": {
+      "de": "Ökobilanzdaten nicht gefunden.",
+      "fr": "Données écobilan non trouvées.",
+      "it": "Dati ecobilancio non trovati.",
+      "en": "LCA data not found."
+    },
+    "noClassification": {
+      "de": "Keine Klassifizierung verfügbar",
+      "fr": "Aucune classification disponible",
+      "it": "Nessuna classificazione disponibile",
+      "en": "No classification available"
+    },
+    "noData": {
+      "de": "Keine Daten.",
+      "fr": "Aucune donnée.",
+      "it": "Nessun dato.",
+      "en": "No data."
+    },
+    "noAttributes": {
+      "de": "Keine Attribute (LOI).",
+      "fr": "Aucun attribut (LOI).",
+      "it": "Nessun attributo (LOI).",
+      "en": "No attributes (LOI)."
+    },
+    "noRolesDefined": {
+      "de": "Keine Rollen definiert.",
+      "fr": "Aucun rôle défini.",
+      "it": "Nessun ruolo definito.",
+      "en": "No roles defined."
+    },
+    "bpmnError": {
+      "de": "Fehler beim Laden des Prozessdiagramms",
+      "fr": "Erreur lors du chargement du diagramme de processus",
+      "it": "Errore durante il caricamento del diagramma di processo",
+      "en": "Error loading process diagram"
+    }
+  },
+  "entityTypes": {
+    "element": {
+      "de": "Element",
+      "fr": "Élément",
+      "it": "Elemento",
+      "en": "Element"
+    },
+    "document": {
+      "de": "Dokument",
+      "fr": "Document",
+      "it": "Documento",
+      "en": "Document"
+    },
+    "usecase": {
+      "de": "Anwendungsfall",
+      "fr": "Cas d'utilisation",
+      "it": "Caso d'uso",
+      "en": "Use Case"
+    },
+    "model": {
+      "de": "Fachmodell",
+      "fr": "Modèle spécialisé",
+      "it": "Modello specialistico",
+      "en": "Discipline Model"
+    },
+    "epd": {
+      "de": "Ökobilanzdaten",
+      "fr": "Données écobilan",
+      "it": "Dati ecobilancio",
+      "en": "LCA Data"
+    }
+  },
+  "detailSections": {
+    "metadata": {
+      "de": "Metadaten",
+      "fr": "Métadonnées",
+      "it": "Metadati",
+      "en": "Metadata"
+    },
+    "phases": {
+      "de": "Phasen",
+      "fr": "Phases",
+      "it": "Fasi",
+      "en": "Phases"
+    },
+    "phasesTitle": {
+      "de": "Projekt-/Lebenszyklusphasen",
+      "fr": "Phases du projet/cycle de vie",
+      "it": "Fasi del progetto/ciclo di vita",
+      "en": "Project/Lifecycle Phases"
+    },
+    "phasesDescElement": {
+      "de": "Relevante Projektphasen für dieses Element.",
+      "fr": "Phases de projet pertinentes pour cet élément.",
+      "it": "Fasi di progetto rilevanti per questo elemento.",
+      "en": "Relevant project phases for this element."
+    },
+    "phasesDescDocument": {
+      "de": "Relevante Projektphasen für dieses Dokument.",
+      "fr": "Phases de projet pertinentes pour ce document.",
+      "it": "Fasi di progetto rilevanti per questo documento.",
+      "en": "Relevant project phases for this document."
+    },
+    "phasesDescUsecase": {
+      "de": "Relevante Projektphasen für diesen Anwendungsfall.",
+      "fr": "Phases de projet pertinentes pour ce cas d'utilisation.",
+      "it": "Fasi di progetto rilevanti per questo caso d'uso.",
+      "en": "Relevant project phases for this use case."
+    },
+    "classification": {
+      "de": "Klassifizierung",
+      "fr": "Classification",
+      "it": "Classificazione",
+      "en": "Classification"
+    },
+    "ifcClass": {
+      "de": "IFC-Klasse",
+      "fr": "Classe IFC",
+      "it": "Classe IFC",
+      "en": "IFC Class"
+    },
+    "geometry": {
+      "de": "Geometrie",
+      "fr": "Géométrie",
+      "it": "Geometria",
+      "en": "Geometry"
+    },
+    "information": {
+      "de": "Informationen",
+      "fr": "Informations",
+      "it": "Informazioni",
+      "en": "Information"
+    },
+    "usecases": {
+      "de": "Anwendungsfälle",
+      "fr": "Cas d'utilisation",
+      "it": "Casi d'uso",
+      "en": "Use Cases"
+    },
+    "elements": {
+      "de": "Elemente",
+      "fr": "Éléments",
+      "it": "Elementi",
+      "en": "Elements"
+    },
+    "documents": {
+      "de": "Dokumente",
+      "fr": "Documents",
+      "it": "Documenti",
+      "en": "Documents"
+    },
+    "details": {
+      "de": "Details",
+      "fr": "Détails",
+      "it": "Dettagli",
+      "en": "Details"
+    },
+    "benefits": {
+      "de": "Nutzen",
+      "fr": "Avantages",
+      "it": "Vantaggi",
+      "en": "Benefits"
+    },
+    "prerequisites": {
+      "de": "Voraussetzungen",
+      "fr": "Prérequis",
+      "it": "Prerequisiti",
+      "en": "Prerequisites"
+    },
+    "implementation": {
+      "de": "Umsetzung",
+      "fr": "Mise en œuvre",
+      "it": "Implementazione",
+      "en": "Implementation"
+    },
+    "inputOutput": {
+      "de": "Input / Output",
+      "fr": "Entrée / Sortie",
+      "it": "Input / Output",
+      "en": "Input / Output"
+    },
+    "qualityCriteria": {
+      "de": "Qualitätskriterien",
+      "fr": "Critères de qualité",
+      "it": "Criteri di qualità",
+      "en": "Quality Criteria"
+    },
+    "actors": {
+      "de": "Beteiligte Akteure",
+      "fr": "Acteurs impliqués",
+      "it": "Attori coinvolti",
+      "en": "Involved Actors"
+    },
+    "process": {
+      "de": "Prozess",
+      "fr": "Processus",
+      "it": "Processo",
+      "en": "Process"
+    },
+    "bpmnDescription": {
+      "de": "BPMN-Prozessdiagramm für diesen Anwendungsfall.",
+      "fr": "Diagramme de processus BPMN pour ce cas d'utilisation.",
+      "it": "Diagramma di processo BPMN per questo caso d'uso.",
+      "en": "BPMN process diagram for this use case."
+    },
+    "general": {
+      "de": "Allgemein",
+      "fr": "Général",
+      "it": "Generale",
+      "en": "General"
+    },
+    "environmentalIndicators": {
+      "de": "Umweltindikatoren",
+      "fr": "Indicateurs environnementaux",
+      "it": "Indicatori ambientali",
+      "en": "Environmental Indicators"
+    },
+    "energy": {
+      "de": "Energie",
+      "fr": "Énergie",
+      "it": "Energia",
+      "en": "Energy"
+    },
+    "materialProperties": {
+      "de": "Materialeigenschaften",
+      "fr": "Propriétés des matériaux",
+      "it": "Proprietà dei materiali",
+      "en": "Material Properties"
+    }
+  },
+  "metadata": {
+    "entity": {
+      "de": "Entität",
+      "fr": "Entité",
+      "it": "Entità",
+      "en": "Entity"
+    },
+    "name": {
+      "de": "Name",
+      "fr": "Nom",
+      "it": "Nome",
+      "en": "Name"
+    },
+    "category": {
+      "de": "Kategorie",
+      "fr": "Catégorie",
+      "it": "Categoria",
+      "en": "Category"
+    },
+    "id": {
+      "de": "ID",
+      "fr": "ID",
+      "it": "ID",
+      "en": "ID"
+    },
+    "version": {
+      "de": "Version",
+      "fr": "Version",
+      "it": "Versione",
+      "en": "Version"
+    },
+    "lastChange": {
+      "de": "Letzte Änderung",
+      "fr": "Dernière modification",
+      "it": "Ultima modifica",
+      "en": "Last modified"
+    }
+  },
+  "tables": {
+    "classification": {
+      "de": "Klassifizierung",
+      "fr": "Classification",
+      "it": "Classificazione",
+      "en": "Classification"
+    },
+    "numberDescription": {
+      "de": "Nummer - Beschreibung",
+      "fr": "Numéro - Description",
+      "it": "Numero - Descrizione",
+      "en": "Number - Description"
+    },
+    "element": {
+      "de": "Element",
+      "fr": "Élément",
+      "it": "Elemento",
+      "en": "Element"
+    },
+    "description": {
+      "de": "Beschreibung",
+      "fr": "Description",
+      "it": "Descrizione",
+      "en": "Description"
+    },
+    "phasesColumn": {
+      "de": "Phasen (1-5)",
+      "fr": "Phases (1-5)",
+      "it": "Fasi (1-5)",
+      "en": "Phases (1-5)"
+    },
+    "attributeName": {
+      "de": "Name",
+      "fr": "Nom",
+      "it": "Nome",
+      "en": "Name"
+    },
+    "format": {
+      "de": "Format",
+      "fr": "Format",
+      "it": "Formato",
+      "en": "Format"
+    },
+    "list": {
+      "de": "Liste",
+      "fr": "Liste",
+      "it": "Lista",
+      "en": "List"
+    },
+    "ifcMapping": {
+      "de": "IFC Mapping",
+      "fr": "Mapping IFC",
+      "it": "Mapping IFC",
+      "en": "IFC Mapping"
+    },
+    "attribute": {
+      "de": "Attribut",
+      "fr": "Attribut",
+      "it": "Attributo",
+      "en": "Attribute"
+    },
+    "value": {
+      "de": "Wert",
+      "fr": "Valeur",
+      "it": "Valore",
+      "en": "Value"
+    },
+    "formats": {
+      "de": "Formate",
+      "fr": "Formats",
+      "it": "Formati",
+      "en": "Formats"
+    },
+    "retention": {
+      "de": "Aufbewahrung",
+      "fr": "Conservation",
+      "it": "Conservazione",
+      "en": "Retention"
+    },
+    "retentionIndefinite": {
+      "de": "unbefristet",
+      "fr": "illimité",
+      "it": "illimitato",
+      "en": "indefinite"
+    },
+    "retentionYears": {
+      "de": "{years} Jahre",
+      "fr": "{years} ans",
+      "it": "{years} anni",
+      "en": "{years} years"
+    },
+    "client": {
+      "de": "Auftraggeber (AG)",
+      "fr": "Maître d'ouvrage (MO)",
+      "it": "Committente (CO)",
+      "en": "Client"
+    },
+    "contractor": {
+      "de": "Auftragnehmer (AN)",
+      "fr": "Mandataire (MA)",
+      "it": "Appaltatore (AP)",
+      "en": "Contractor"
+    },
+    "input": {
+      "de": "Input",
+      "fr": "Entrée",
+      "it": "Input",
+      "en": "Input"
+    },
+    "output": {
+      "de": "Output",
+      "fr": "Sortie",
+      "it": "Output",
+      "en": "Output"
+    },
+    "actor": {
+      "de": "Akteur",
+      "fr": "Acteur",
+      "it": "Attore",
+      "en": "Actor"
+    },
+    "responsible": {
+      "de": "Verantwortlich (R)",
+      "fr": "Responsable (R)",
+      "it": "Responsabile (R)",
+      "en": "Responsible (R)"
+    },
+    "contributing": {
+      "de": "Mitwirkend (C)",
+      "fr": "Contributeur (C)",
+      "it": "Contributore (C)",
+      "en": "Contributing (C)"
+    },
+    "informed": {
+      "de": "Informiert (I)",
+      "fr": "Informé (I)",
+      "it": "Informato (I)",
+      "en": "Informed (I)"
+    },
+    "indicator": {
+      "de": "Indikator",
+      "fr": "Indicateur",
+      "it": "Indicatore",
+      "en": "Indicator"
+    },
+    "unit": {
+      "de": "Einheit",
+      "fr": "Unité",
+      "it": "Unità",
+      "en": "Unit"
+    },
+    "property": {
+      "de": "Eigenschaft",
+      "fr": "Propriété",
+      "it": "Proprietà",
+      "en": "Property"
+    },
+    "referenceSize": {
+      "de": "Bezugsgrösse",
+      "fr": "Taille de référence",
+      "it": "Dimensione di riferimento",
+      "en": "Reference size"
+    },
+    "gwp": {
+      "de": "Treibhauspotenzial (GWP)",
+      "fr": "Potentiel de réchauffement global (GWP)",
+      "it": "Potenziale di riscaldamento globale (GWP)",
+      "en": "Global Warming Potential (GWP)"
+    },
+    "ubp": {
+      "de": "Umweltbelastungspunkte (UBP)",
+      "fr": "Points de charge environnementale (UBP)",
+      "it": "Punti di impatto ambientale (UBP)",
+      "en": "Environmental Impact Points (UBP)"
+    },
+    "penrt": {
+      "de": "Primärenergie nicht erneuerbar (PENRT)",
+      "fr": "Énergie primaire non renouvelable (PENRT)",
+      "it": "Energia primaria non rinnovabile (PENRT)",
+      "en": "Primary Energy Non-Renewable (PENRT)"
+    },
+    "pert": {
+      "de": "Primärenergie erneuerbar (PERT)",
+      "fr": "Énergie primaire renouvelable (PERT)",
+      "it": "Energia primaria rinnovabile (PERT)",
+      "en": "Primary Energy Renewable (PERT)"
+    },
+    "density": {
+      "de": "Rohdichte",
+      "fr": "Masse volumique",
+      "it": "Densità apparente",
+      "en": "Bulk density"
+    },
+    "biogenicCarbon": {
+      "de": "Biogener Kohlenstoff",
+      "fr": "Carbone biogénique",
+      "it": "Carbonio biogenico",
+      "en": "Biogenic carbon"
+    }
+  },
+  "pages": {
+    "elements": {
+      "title": {
+        "de": "Elemente",
+        "fr": "Éléments",
+        "it": "Elementi",
+        "en": "Elements"
+      },
+      "lead": {
+        "de": "Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.",
+        "fr": "Éléments BIM standardisés pour la construction avec exigences LOD et LOI par phase de projet.",
+        "it": "Elementi BIM standardizzati per l'edilizia con requisiti LOD e LOI per fase di progetto.",
+        "en": "Standardized BIM elements for building construction with LOD and LOI requirements per project phase."
+      }
+    },
+    "documents": {
+      "title": {
+        "de": "Dokumente",
+        "fr": "Documents",
+        "it": "Documenti",
+        "en": "Documents"
+      },
+      "lead": {
+        "de": "Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.",
+        "fr": "Types de documents et modèles pour la documentation standardisée des ouvrages dans la construction.",
+        "it": "Tipi di documenti e modelli per la documentazione standardizzata delle opere edili.",
+        "en": "Document types and templates for standardized building documentation in construction."
+      }
+    },
+    "usecases": {
+      "title": {
+        "de": "Anwendungsfälle",
+        "fr": "Cas d'utilisation",
+        "it": "Casi d'uso",
+        "en": "Use Cases"
+      },
+      "lead": {
+        "de": "BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.",
+        "fr": "Cas d'utilisation BIM pour la planification, la coordination, la gestion des coûts et l'exploitation.",
+        "it": "Casi d'uso BIM per pianificazione, coordinamento, gestione dei costi e gestione.",
+        "en": "BIM use cases for planning, coordination, cost management and operations."
+      }
+    },
+    "models": {
+      "title": {
+        "de": "Fachmodelle",
+        "fr": "Modèles spécialisés",
+        "it": "Modelli specialistici",
+        "en": "Discipline Models"
+      },
+      "lead": {
+        "de": "Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.",
+        "fr": "Modèles BIM spécifiques aux domaines pour l'architecture, la structure, les équipements techniques et autres disciplines.",
+        "it": "Modelli BIM specifici per architettura, struttura, impiantistica e altre discipline.",
+        "en": "Domain-specific BIM models for architecture, structural engineering, building services and other disciplines."
+      }
+    },
+    "epds": {
+      "title": {
+        "de": "Ökobilanzdaten",
+        "fr": "Données écobilan",
+        "it": "Dati ecobilancio",
+        "en": "LCA Data"
+      },
+      "lead": {
+        "de": "Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.",
+        "fr": "Déclarations environnementales de produits (EPD) et indicateurs d'écobilan pour les matériaux de construction et les équipements.",
+        "it": "Dichiarazioni ambientali di prodotto (EPD) e indicatori di ecobilancio per materiali da costruzione e impiantistica.",
+        "en": "Environmental Product Declarations (EPD) and LCA indicators for building materials and building services."
+      }
+    },
+    "handbook": {
+      "title": {
+        "de": "Handbuch & Downloads",
+        "fr": "Manuel & Téléchargements",
+        "it": "Manuale & Download",
+        "en": "Handbook & Downloads"
+      },
+      "lead": {
+        "de": "Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.",
+        "fr": "Toutes les ressources pour la documentation des ouvrages dans la construction: modèles, fichiers de vérification et interfaces techniques.",
+        "it": "Tutte le risorse per la documentazione delle opere edili: modelli, file di verifica e interfacce tecniche.",
+        "en": "All resources for building documentation in construction: templates, validation files and technical interfaces."
+      }
+    }
+  },
+  "home": {
+    "heroTitle": {
+      "de": "Fachdatenkatalog für die digitale Bauwerksdokumentation",
+      "fr": "Catalogue de données techniques pour la documentation numérique des ouvrages",
+      "it": "Catalogo dati tecnici per la documentazione digitale delle opere",
+      "en": "Technical Data Catalog for Digital Building Documentation"
+    },
+    "heroDescription": {
+      "de": "Der Fachdatenkatalog der KBOB definiert standardisierte Anforderungen an die BIM-basierte Dokumentation von Hochbauprojekten der öffentlichen Hand in der Schweiz. Er dient als Grundlage für Auftraggeber-Informationsanforderungen (AIA) und BIM-Abwicklungspläne (BAP).",
+      "fr": "Le catalogue de données techniques de la KBOB définit les exigences standardisées pour la documentation basée sur le BIM des projets de construction publics en Suisse. Il sert de base aux exigences d'information du maître d'ouvrage (EIR) et aux plans d'exécution BIM (BEP).",
+      "it": "Il catalogo dati tecnici della KBOB definisce i requisiti standardizzati per la documentazione basata su BIM dei progetti di costruzione pubblici in Svizzera. Serve come base per i requisiti informativi del committente (EIR) e i piani di esecuzione BIM (BEP).",
+      "en": "The KBOB Technical Data Catalog defines standardized requirements for BIM-based documentation of public building projects in Switzerland. It serves as the basis for Employer's Information Requirements (EIR) and BIM Execution Plans (BEP)."
+    },
+    "topicsTitle": {
+      "de": "Themen",
+      "fr": "Thèmes",
+      "it": "Temi",
+      "en": "Topics"
+    },
+    "topicsSubtitle": {
+      "de": "Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs",
+      "fr": "Découvrez les différents domaines du catalogue de données techniques",
+      "it": "Scopri le diverse aree del catalogo dati tecnici",
+      "en": "Explore the different areas of the Technical Data Catalog"
+    },
+    "cardUsecases": {
+      "title": {
+        "de": "Anwendungsfälle",
+        "fr": "Cas d'utilisation",
+        "it": "Casi d'uso",
+        "en": "Use Cases"
+      },
+      "desc": {
+        "de": "BIM-Anwendungsfälle für Planung, Koordination und Betrieb",
+        "fr": "Cas d'utilisation BIM pour la planification, la coordination et l'exploitation",
+        "it": "Casi d'uso BIM per pianificazione, coordinamento e gestione",
+        "en": "BIM use cases for planning, coordination and operations"
+      }
+    },
+    "cardElements": {
+      "title": {
+        "de": "Elemente",
+        "fr": "Éléments",
+        "it": "Elementi",
+        "en": "Elements"
+      },
+      "desc": {
+        "de": "Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen",
+        "fr": "Éléments BIM standardisés pour la construction avec exigences LOD et LOI",
+        "it": "Elementi BIM standardizzati per l'edilizia con requisiti LOD e LOI",
+        "en": "Standardized BIM elements for building construction with LOD and LOI requirements"
+      }
+    },
+    "cardModels": {
+      "title": {
+        "de": "Fachmodelle",
+        "fr": "Modèles spécialisés",
+        "it": "Modelli specialistici",
+        "en": "Discipline Models"
+      },
+      "desc": {
+        "de": "Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik",
+        "fr": "Modèles spécifiques aux domaines pour l'architecture, la structure et les équipements techniques",
+        "it": "Modelli specifici per architettura, struttura e impiantistica",
+        "en": "Domain-specific models for architecture, structural engineering and building services"
+      }
+    },
+    "cardDocuments": {
+      "title": {
+        "de": "Dokumente",
+        "fr": "Documents",
+        "it": "Documenti",
+        "en": "Documents"
+      },
+      "desc": {
+        "de": "Dokumenttypen und Vorlagen für die Bauwerksdokumentation",
+        "fr": "Types de documents et modèles pour la documentation des ouvrages",
+        "it": "Tipi di documenti e modelli per la documentazione delle opere",
+        "en": "Document types and templates for building documentation"
+      }
+    },
+    "cardEpds": {
+      "title": {
+        "de": "Ökobilanzdaten",
+        "fr": "Données écobilan",
+        "it": "Dati ecobilancio",
+        "en": "LCA Data"
+      },
+      "desc": {
+        "de": "Umweltkennwerte für Baumaterialien und Gebäudetechnik",
+        "fr": "Indicateurs environnementaux pour les matériaux de construction et les équipements",
+        "it": "Indicatori ambientali per materiali da costruzione e impiantistica",
+        "en": "Environmental indicators for building materials and building services"
+      }
+    },
+    "cardApi": {
+      "title": {
+        "de": "REST API",
+        "fr": "API REST",
+        "it": "API REST",
+        "en": "REST API"
+      },
+      "desc": {
+        "de": "Interaktive Dokumentation der REST-Endpunkte zum Testen und Erkunden",
+        "fr": "Documentation interactive des points de terminaison REST pour tester et explorer",
+        "it": "Documentazione interattiva degli endpoint REST per testare e esplorare",
+        "en": "Interactive documentation of REST endpoints for testing and exploring"
+      }
+    }
+  },
+  "handbook": {
+    "toc": {
+      "de": "Inhaltsverzeichnis",
+      "fr": "Table des matières",
+      "it": "Indice",
+      "en": "Table of Contents"
+    },
+    "silosTitle": {
+      "de": "Von Silos zu Standards",
+      "fr": "Des silos aux standards",
+      "it": "Dai silos agli standard",
+      "en": "From Silos to Standards"
+    },
+    "silosText": {
+      "de": "Die Digitalisierung im Bauwesen scheitert oft nicht an fehlender Technologie, sondern an fehlender Datenharmonisierung. Fachplaner verschiedener Disziplinen und Auftraggeber definieren Fachbegriffe und Datenstrukturen oft unterschiedlich. Das führt zu Medienbrüchen, manuellen Nachbearbeitungen und Informationsverlust über den gesamten Lebenszyklus. Der KBOB Fachdatenkatalog schafft ein gemeinsames Vokabular: standardisierte Bausteine für BIM-Prozesse, die durchgängige Datenflüsse ermöglichen.",
+      "fr": "La numérisation dans le secteur de la construction échoue souvent non pas par manque de technologie, mais par manque d'harmonisation des données. Les planificateurs spécialisés de différentes disciplines et les maîtres d'ouvrage définissent souvent les termes techniques et les structures de données différemment. Cela entraîne des ruptures de médias, des retraitements manuels et des pertes d'information tout au long du cycle de vie. Le catalogue de données techniques KBOB crée un vocabulaire commun: des blocs standardisés pour les processus BIM qui permettent des flux de données continus.",
+      "it": "La digitalizzazione nel settore delle costruzioni spesso fallisce non per mancanza di tecnologia, ma per mancanza di armonizzazione dei dati. I progettisti specializzati di diverse discipline e i committenti definiscono spesso i termini tecnici e le strutture dei dati in modo diverso. Ciò porta a interruzioni dei media, rielaborazioni manuali e perdita di informazioni durante l'intero ciclo di vita. Il catalogo dati tecnici KBOB crea un vocabolario comune: blocchi standardizzati per i processi BIM che consentono flussi di dati continui.",
+      "en": "Digitalization in the construction industry often fails not due to lack of technology, but due to lack of data harmonization. Specialist planners from different disciplines and clients often define technical terms and data structures differently. This leads to media breaks, manual rework and information loss throughout the lifecycle. The KBOB Technical Data Catalog creates a common vocabulary: standardized building blocks for BIM processes that enable continuous data flows."
+    },
+    "silosCaption": {
+      "de": "Ohne gemeinsame Standards bleiben Daten in Silos gefangen. Der Fachdatenkatalog schafft Durchgängigkeit.",
+      "fr": "Sans normes communes, les données restent enfermées dans des silos. Le catalogue de données techniques crée la continuité.",
+      "it": "Senza standard comuni, i dati rimangono intrappolati in silos. Il catalogo dati tecnici crea continuità.",
+      "en": "Without common standards, data remains trapped in silos. The Technical Data Catalog creates continuity."
+    },
+    "exchangeTitle": {
+      "de": "Klare Spielregeln für den Informationsaustausch",
+      "fr": "Des règles claires pour l'échange d'informations",
+      "it": "Regole chiare per lo scambio di informazioni",
+      "en": "Clear Rules for Information Exchange"
+    },
+    "exchangeText": {
+      "de": "Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt, und der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.",
+      "fr": "Dans le processus BIM selon ISO 19650, le maître d'ouvrage (MO) définit les informations dont il a besoin, et le mandataire (MA) les fournit. Mais que doit-on exactement livrer? Le catalogue de données techniques répond à cette question avec des LOIN standardisés (Level of Information Need): pour chaque cas d'utilisation et phase de projet, les exigences géométriques et alphanumériques qu'un élément de construction doit remplir sont définies. Ainsi, les exigences d'information abstraites du maître d'ouvrage (EIR) deviennent un standard de données concret et vérifiable.",
+      "it": "Nel processo BIM secondo ISO 19650, il committente (CO) definisce le informazioni di cui ha bisogno e l'appaltatore (AP) le fornisce. Ma cosa deve essere esattamente consegnato? Il catalogo dati tecnici risponde a questa domanda con LOIN standardizzati (Level of Information Need): per ogni caso d'uso e fase di progetto sono definiti i requisiti geometrici e alfanumerici che un elemento costruttivo deve soddisfare. In questo modo, i requisiti informativi astratti del committente (EIR) diventano uno standard di dati concreto e verificabile.",
+      "en": "In the BIM process according to ISO 19650, the client defines what information they need, and the contractor delivers it. But what exactly should be delivered? The Technical Data Catalog answers this question with standardized LOIN (Level of Information Need): for each use case and project phase, the geometric and alphanumeric requirements that a building element must fulfill are defined. This transforms abstract Employer's Information Requirements (EIR) into a concrete, verifiable data standard."
+    },
+    "exchangeCaption": {
+      "de": "Informationsmanagement nach ISO 19650. Der Fachdatenkatalog definiert die LOIN-Bausteine für den Datenaustausch zwischen Auftraggeber und Auftragnehmer.",
+      "fr": "Gestion de l'information selon ISO 19650. Le catalogue de données techniques définit les blocs LOIN pour l'échange de données entre le maître d'ouvrage et le mandataire.",
+      "it": "Gestione delle informazioni secondo ISO 19650. Il catalogo dati tecnici definisce i blocchi LOIN per lo scambio di dati tra committente e appaltatore.",
+      "en": "Information management according to ISO 19650. The Technical Data Catalog defines the LOIN building blocks for data exchange between client and contractor."
+    },
+    "ecosystemTitle": {
+      "de": "Ein Baustein im Datenökosystem Schweiz",
+      "fr": "Un élément de l'écosystème de données suisse",
+      "it": "Un elemento dell'ecosistema dati svizzero",
+      "en": "A Building Block in the Swiss Data Ecosystem"
+    },
+    "ecosystemText": {
+      "de": "Der Fachdatenkatalog ist Teil der Massnahme «Vereinfachung des Bauens durch bessere Dateninteroperabilität» der Strategie Digitale Schweiz und orientiert sich an den Prinzipien der eCH-0279 Architekturvision 2050. Ziel ist ein offener Standard nach dem Once-Only-Prinzip: Daten einmal strukturiert erfassen, über alle Phasen und Systeme hinweg nutzen. Open Source, damit alle profitieren.",
+      "fr": "Le catalogue de données techniques fait partie de la mesure «Simplification de la construction par une meilleure interopérabilité des données» de la stratégie Suisse numérique et s'oriente vers les principes de la vision d'architecture eCH-0279 2050. L'objectif est un standard ouvert selon le principe Once-Only: saisir les données une fois de manière structurée, les utiliser à travers toutes les phases et tous les systèmes. Open Source, pour que tous en profitent.",
+      "it": "Il catalogo dati tecnici fa parte della misura «Semplificazione della costruzione attraverso una migliore interoperabilità dei dati» della strategia Svizzera digitale e si orienta ai principi della visione architetturale eCH-0279 2050. L'obiettivo è uno standard aperto secondo il principio Once-Only: acquisire i dati una volta in modo strutturato, utilizzarli in tutte le fasi e i sistemi. Open Source, affinché tutti ne traggano beneficio.",
+      "en": "The Technical Data Catalog is part of the measure 'Simplifying construction through better data interoperability' of the Digital Switzerland strategy and is oriented towards the principles of the eCH-0279 Architecture Vision 2050. The goal is an open standard following the Once-Only principle: capture data once in a structured way, use it across all phases and systems. Open Source, so everyone benefits."
+    },
+    "ecosystemCaption": {
+      "de": "Der Fachdatenkatalog als Teil der Schweizer Datenstrategie – eingebettet in digital.swiss, eCH-Standards und das Datenökosystem Schweiz.",
+      "fr": "Le catalogue de données techniques comme partie de la stratégie suisse des données – intégré dans digital.swiss, les standards eCH et l'écosystème de données suisse.",
+      "it": "Il catalogo dati tecnici come parte della strategia svizzera dei dati – integrato in digital.swiss, gli standard eCH e l'ecosistema dati svizzero.",
+      "en": "The Technical Data Catalog as part of the Swiss data strategy – embedded in digital.swiss, eCH standards and the Swiss data ecosystem."
+    },
+    "moreInfo": {
+      "de": "Weitere Informationen",
+      "fr": "Plus d'informations",
+      "it": "Ulteriori informazioni",
+      "en": "More Information"
+    },
+    "downloads": {
+      "de": "Downloads",
+      "fr": "Téléchargements",
+      "it": "Download",
+      "en": "Downloads"
+    },
+    "downloadsDesc": {
+      "de": "Vorlagen und Prüfdateien für die digitale Bauwerksdokumentation.",
+      "fr": "Modèles et fichiers de vérification pour la documentation numérique des ouvrages.",
+      "it": "Modelli e file di verifica per la documentazione digitale delle opere.",
+      "en": "Templates and validation files for digital building documentation."
+    },
+    "documentation": {
+      "de": "Dokumentation",
+      "fr": "Documentation",
+      "it": "Documentazione",
+      "en": "Documentation"
+    },
+    "documentationDesc": {
+      "de": "Anleitungen und Referenzmaterial für die Anwendung des Fachdatenkatalogs.",
+      "fr": "Guides et matériel de référence pour l'utilisation du catalogue de données techniques.",
+      "it": "Guide e materiale di riferimento per l'utilizzo del catalogo dati tecnici.",
+      "en": "Guides and reference material for using the Technical Data Catalog."
+    },
+    "dataSources": {
+      "de": "Vernetzte Datenquellen",
+      "fr": "Sources de données connectées",
+      "it": "Fonti dati collegate",
+      "en": "Connected Data Sources"
+    },
+    "dataSourcesDesc": {
+      "de": "Nationale Dateninfrastrukturen und verknüpfte Dienste.",
+      "fr": "Infrastructures de données nationales et services liés.",
+      "it": "Infrastrutture dati nazionali e servizi collegati.",
+      "en": "National data infrastructures and linked services."
+    },
+    "apis": {
+      "de": "APIs",
+      "fr": "APIs",
+      "it": "API",
+      "en": "APIs"
+    },
+    "apisDesc": {
+      "de": "Programmatische Schnittstellen für den Datenzugriff.",
+      "fr": "Interfaces programmatiques pour l'accès aux données.",
+      "it": "Interfacce programmatiche per l'accesso ai dati.",
+      "en": "Programmatic interfaces for data access."
+    },
+    "links": {
+      "de": "Links",
+      "fr": "Liens",
+      "it": "Link",
+      "en": "Links"
+    },
+    "linksDesc": {
+      "de": "Relevante Strategien und Standards für die digitale Transformation im Bauwesen.",
+      "fr": "Stratégies et normes pertinentes pour la transformation numérique dans la construction.",
+      "it": "Strategie e standard rilevanti per la trasformazione digitale nelle costruzioni.",
+      "en": "Relevant strategies and standards for digital transformation in construction."
+    },
+    "sourceCode": {
+      "de": "Quellcode",
+      "fr": "Code source",
+      "it": "Codice sorgente",
+      "en": "Source Code"
+    },
+    "applicationManual": {
+      "de": "Anwendungshandbuch",
+      "fr": "Manuel d'application",
+      "it": "Manuale applicativo",
+      "en": "Application Manual"
+    },
+    "graphqlInDev": {
+      "de": "GraphQL API (in Entwicklung)",
+      "fr": "API GraphQL (en développement)",
+      "it": "API GraphQL (in sviluppo)",
+      "en": "GraphQL API (in development)"
+    }
+  },
+  "footer": {
+    "sourceCode": {
+      "de": "Quellcode",
+      "fr": "Code source",
+      "it": "Codice sorgente",
+      "en": "Source Code"
+    },
+    "api": {
+      "de": "API",
+      "fr": "API",
+      "it": "API",
+      "en": "API"
+    },
+    "legal": {
+      "de": "Rechtliches",
+      "fr": "Mentions légales",
+      "it": "Note legali",
+      "en": "Legal"
+    },
+    "version": {
+      "de": "Version",
+      "fr": "Version",
+      "it": "Versione",
+      "en": "Version"
+    },
+    "asOf": {
+      "de": "Stand",
+      "fr": "État",
+      "it": "Stato",
+      "en": "As of"
+    }
+  },
+  "header": {
+    "title": {
+      "de": "Fachdatenkatalog",
+      "fr": "Catalogue de données techniques",
+      "it": "Catalogo dati tecnici",
+      "en": "Technical Data Catalog"
+    }
+  },
+  "pagination": {
+    "of": {
+      "de": "von",
+      "fr": "sur",
+      "it": "di",
+      "en": "of"
+    },
+    "loadingMore": {
+      "de": "Weitere laden...",
+      "fr": "Chargement...",
+      "it": "Caricamento...",
+      "en": "Loading more..."
+    },
+    "allLoaded": {
+      "de": "Alle {count} Einträge geladen",
+      "fr": "Tous les {count} éléments chargés",
+      "it": "Tutti i {count} elementi caricati",
+      "en": "All {count} items loaded"
+    }
+  },
+  "linkedUsecases": {
+    "futureFeature": {
+      "de": "Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.",
+      "fr": "Les cas d'utilisation liés seront affichés ici à l'avenir.",
+      "it": "I casi d'uso collegati saranno visualizzati qui in futuro.",
+      "en": "Linked use cases will be displayed here in the future."
+    }
+  },
+  "linkedElements": {
+    "futureFeature": {
+      "de": "Hier werden zukünftig verknüpfte Elemente angezeigt.",
+      "fr": "Les éléments liés seront affichés ici à l'avenir.",
+      "it": "Gli elementi collegati saranno visualizzati qui in futuro.",
+      "en": "Linked elements will be displayed here in the future."
+    }
+  },
+  "linkedDocuments": {
+    "futureFeature": {
+      "de": "Hier werden zukünftig verknüpfte Dokumente angezeigt.",
+      "fr": "Les documents liés seront affichés ici à l'avenir.",
+      "it": "I documenti collegati saranno visualizzati qui in futuro.",
+      "en": "Linked documents will be displayed here in the future."
+    }
+  },
+  "defaults": {
+    "elementDescription": {
+      "de": "Ein Standard-Element des KBOB Datenkatalogs.",
+      "fr": "Un élément standard du catalogue de données KBOB.",
+      "it": "Un elemento standard del catalogo dati KBOB.",
+      "en": "A standard element of the KBOB data catalog."
+    },
+    "documentDescription": {
+      "de": "Ein Dokument des KBOB Datenkatalogs.",
+      "fr": "Un document du catalogue de données KBOB.",
+      "it": "Un documento del catalogo dati KBOB.",
+      "en": "A document of the KBOB data catalog."
+    },
+    "usecaseDescription": {
+      "de": "Ein Anwendungsfall des KBOB Datenkatalogs.",
+      "fr": "Un cas d'utilisation du catalogue de données KBOB.",
+      "it": "Un caso d'uso del catalogo dati KBOB.",
+      "en": "A use case of the KBOB data catalog."
+    },
+    "modelDescription": {
+      "de": "Ein Fachmodell des KBOB Datenkatalogs.",
+      "fr": "Un modèle spécialisé du catalogue de données KBOB.",
+      "it": "Un modello specialistico del catalogo dati KBOB.",
+      "en": "A discipline model of the KBOB data catalog."
+    },
+    "epdDescription": {
+      "de": "Ein Ökobilanzdatensatz des KBOB Datenkatalogs.",
+      "fr": "Un jeu de données écobilan du catalogue de données KBOB.",
+      "it": "Un set di dati ecobilancio del catalogo dati KBOB.",
+      "en": "An LCA dataset of the KBOB data catalog."
+    }
+  }
+}
