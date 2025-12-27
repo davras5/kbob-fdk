@@ -17,7 +17,33 @@ function router() {
     // Scroll to top when navigating to a new page
     window.scrollTo(0, 0);
 
-    const { route, id, tags, searchQuery, category } = parseHashWithParams();
+    const { route, id, lang, tags, searchQuery, category } = parseHashWithParams();
+
+    // Handle language from URL
+    if (lang && typeof setLanguage === 'function') {
+        const currentLang = getLanguage();
+        if (lang !== currentLang) {
+            // Update language without persisting (URL is the source of truth)
+            setLanguage(lang, true);
+            // Update UI translations for the new language
+            if (typeof updateUITranslations === 'function') {
+                updateUITranslations();
+            }
+            // Update language dropdown to reflect URL language
+            const currentLangEl = document.getElementById('currentLang');
+            if (currentLangEl) {
+                currentLangEl.textContent = lang.toUpperCase();
+            }
+            const langItems = document.querySelectorAll('.lang-dropdown__item');
+            langItems.forEach(item => {
+                if (item.dataset.lang === lang) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    }
 
     // Update nav active states
     document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {

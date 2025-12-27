@@ -1366,5 +1366,79 @@
       "it": "Un set di dati ecobilancio del catalogo dati KBOB.",
       "en": "An LCA dataset of the KBOB data catalog."
     }
+  },
+  "months": {
+    "january": {
+      "de": "Januar",
+      "fr": "janvier",
+      "it": "gennaio",
+      "en": "January"
+    },
+    "february": {
+      "de": "Februar",
+      "fr": "février",
+      "it": "febbraio",
+      "en": "February"
+    },
+    "march": {
+      "de": "März",
+      "fr": "mars",
+      "it": "marzo",
+      "en": "March"
+    },
+    "april": {
+      "de": "April",
+      "fr": "avril",
+      "it": "aprile",
+      "en": "April"
+    },
+    "may": {
+      "de": "Mai",
+      "fr": "mai",
+      "it": "maggio",
+      "en": "May"
+    },
+    "june": {
+      "de": "Juni",
+      "fr": "juin",
+      "it": "giugno",
+      "en": "June"
+    },
+    "july": {
+      "de": "Juli",
+      "fr": "juillet",
+      "it": "luglio",
+      "en": "July"
+    },
+    "august": {
+      "de": "August",
+      "fr": "août",
+      "it": "agosto",
+      "en": "August"
+    },
+    "september": {
+      "de": "September",
+      "fr": "septembre",
+      "it": "settembre",
+      "en": "September"
+    },
+    "october": {
+      "de": "Oktober",
+      "fr": "octobre",
+      "it": "ottobre",
+      "en": "October"
+    },
+    "november": {
+      "de": "November",
+      "fr": "novembre",
+      "it": "novembre",
+      "en": "November"
+    },
+    "december": {
+      "de": "Dezember",
+      "fr": "décembre",
+      "it": "dicembre",
+      "en": "December"
+    }
   }
 }

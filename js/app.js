@@ -114,11 +114,29 @@ async function loadDataFromJson() {
  */
 async function initApp() {
     try {
-        // Initialize language from localStorage (URL language handled by router)
-        initLanguage();
+        // Check for language in URL first
+        const urlLang = typeof getLanguageFromURL === 'function' ? getLanguageFromURL() : null;
+
+        // Initialize language from URL or localStorage
+        initLanguage(urlLang);
 
         // Load UI translations first (required for error messages)
         await loadUITranslations();
+
+        // Update static UI elements with translations
+        if (typeof updateUITranslations === 'function') {
+            updateUITranslations();
+        }
+
+        // If no language in URL, redirect to include language prefix for sharability
+        if (!urlLang && typeof updateURLLanguage === 'function') {
+            // This will update the URL with current language without triggering a full reload
+            updateURLLanguage(getLanguage());
+            // Clear URL cache since we just changed the hash
+            if (typeof clearUrlCache === 'function') {
+                clearUrlCache();
+            }
+        }
 
         let data = null;
 
@@ -202,7 +220,7 @@ function setupEventDelegation() {
         const quickCard = e.target.closest('.quick-card[data-route]');
         if (quickCard) {
             e.preventDefault();
-            window.location.hash = quickCard.dataset.route;
+            window.location.hash = buildHashWithLang(quickCard.dataset.route);
             return;
         }
 
@@ -221,14 +239,14 @@ function setupEventDelegation() {
         // Handle catalog cards with data-href (navigate to detail page)
         const card = e.target.closest('.card[data-href]');
         if (card && !e.target.closest('[data-action]')) {
-            window.location.hash = card.dataset.href;
+            window.location.hash = buildHashWithLang(card.dataset.href);
             return;
         }
 
         // Handle list items with data-href
         const listItem = e.target.closest('.element-list-item[data-href]');
         if (listItem && !e.target.closest('[data-action]')) {
-            window.location.hash = listItem.dataset.href;
+            window.location.hash = buildHashWithLang(listItem.dataset.href);
             return;
         }
 

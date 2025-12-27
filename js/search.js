@@ -147,6 +147,7 @@ function renderSearchDropdown(results, query) {
     let hasAnyResults = false;
     let html = '';
     const safeQuery = escapeHtml(query);
+    const lang = typeof getLanguage === 'function' ? getLanguage() : 'de';
 
     searchDataTypes.forEach(dataType => {
         const items = results[dataType.resultKey];
@@ -158,7 +159,7 @@ function renderSearchDropdown(results, query) {
                 const title = t(item.name);
                 const safeTitle = escapeHtml(title);
                 const safeId = escapeHtml(item.id || '');
-                html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${safeId}">${safeTitle}</a>`;
+                html += `<a class="search-dropdown-item" href="#${lang}/${dataType.routePrefix}/${safeId}">${safeTitle}</a>`;
             });
             html += `</div>`;
         }
@@ -169,7 +170,7 @@ function renderSearchDropdown(results, query) {
     }
 
     const encodedQuery = encodeURIComponent(query);
-    html += `<a class="search-dropdown-footer" href="#search?q=${encodedQuery}">
+    html += `<a class="search-dropdown-footer" href="#${lang}/search?q=${encodedQuery}">
         ${escapeHtml(tUI('search.showAllResults'))}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>`;
@@ -444,7 +445,7 @@ function setupHeaderSearch() {
         const query = input.value.trim();
         if (query.length >= 2) {
             collapseSearch();
-            window.location.hash = `search?q=${encodeURIComponent(query)}`;
+            window.location.hash = buildSearchHash(query);
         }
     });
 
@@ -473,8 +474,8 @@ window.switchSearchView = function(view) {
     const currentView = getActiveViewFromURL();
     if (view !== currentView) {
         const newHash = currentSearchQuery
-            ? `search?q=${encodeURIComponent(currentSearchQuery)}&view=${view}`
-            : `search?view=${view}`;
+            ? buildSearchHash(currentSearchQuery, view)
+            : buildHashWithLang(`search?view=${view}`);
         window.location.hash = newHash;
     }
 };

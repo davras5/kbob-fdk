@@ -1,12 +1,15 @@
 /**
  * KBOB Fachdatenkatalog - URL Utilities
- * URL parsing and building functions
+ * URL parsing and building functions with language support
  */
 
 // --- URL PARSING CACHE ---
 // Cache parsed URL params to avoid redundant parsing
 let cachedHashParams = null;
 let cachedHash = null;
+
+// Supported languages for URL routing
+const URL_SUPPORTED_LANGUAGES = ['de', 'fr', 'it', 'en'];
 
 /**
  * Clear the URL parsing cache (called on hash change)
@@ -20,9 +23,10 @@ function clearUrlCache() {
 window.addEventListener('hashchange', clearUrlCache);
 
 /**
- * Parse the current hash and extract route, id, and parameters
+ * Parse the current hash and extract route, id, language, and parameters
+ * Supports URL format: #/lang/route/id?params (e.g., #/de/elements?tag=foo)
  * Results are cached until the hash changes
- * @returns {Object} { route, id, tags, phases, searchQuery, category, view }
+ * @returns {Object} { route, id, lang, tags, phases, searchQuery, category, view }
  */
 function parseHashWithParams() {
     const currentHash = window.location.hash;
@@ -32,7 +36,7 @@ function parseHashWithParams() {
         return cachedHashParams;
     }
 
-    // Remove # and any leading slash (e.g., #/api-docs -> api-docs)
+    // Remove # and any leading slash (e.g., #/de/elements -> de/elements)
     let fullHash = currentHash.slice(1) || 'home';
     if (fullHash.startsWith('/')) {
         fullHash = fullHash.slice(1);
@@ -45,28 +49,38 @@ function parseHashWithParams() {
 
     const [hashPart, queryPart] = fullHash.split('?');
 
-    // Parse route and id
+    // Parse route, id, and language
     let route = hashPart;
     let id = null;
+    let lang = null;
+
+    // Check if first segment is a language code
+    const segments = hashPart.split('/');
+    if (segments.length >= 1 && URL_SUPPORTED_LANGUAGES.includes(segments[0])) {
+        lang = segments[0];
+        // Remove language from segments and rebuild route
+        segments.shift();
+        route = segments.join('/') || 'home';
+    }
 
     // Check for api-docs route
-    if (hashPart === 'api-docs' || hashPart.startsWith('api-docs/')) {
+    if (route === 'api-docs' || route.startsWith('api-docs/')) {
         route = 'api-docs';
-    } else if (hashPart.startsWith('element/')) {
+    } else if (route.startsWith('element/')) {
+        id = route.split('/')[1];
         route = 'element';
-        id = hashPart.split('/')[1];
-    } else if (hashPart.startsWith('document/')) {
+    } else if (route.startsWith('document/')) {
+        id = route.split('/')[1];
         route = 'document';
-        id = hashPart.split('/')[1];
-    } else if (hashPart.startsWith('usecase/')) {
+    } else if (route.startsWith('usecase/')) {
+        id = route.split('/')[1];
         route = 'usecase';
-        id = hashPart.split('/')[1];
-    } else if (hashPart.startsWith('model/')) {
+    } else if (route.startsWith('model/')) {
+        id = route.split('/')[1];
         route = 'model';
-        id = hashPart.split('/')[1];
-    } else if (hashPart.startsWith('epd/')) {
+    } else if (route.startsWith('epd/')) {
+        id = route.split('/')[1];
         route = 'epd';
-        id = hashPart.split('/')[1];
     }
 
     // Parse query params
@@ -97,9 +111,17 @@ function parseHashWithParams() {
     }
 
     // Cache and return the result
-    cachedHashParams = { route, id, tags, phases, searchQuery, category, view };
+    cachedHashParams = { route, id, lang, tags, phases, searchQuery, category, view };
     cachedHash = currentHash;
     return cachedHashParams;
+}
+
+/**
+ * Get the language from URL if present
+ * @returns {string|null} Language code or null if not in URL
+ */
+function getLanguageFromURL() {
+    return parseHashWithParams().lang;
 }
 
 /**
@@ -135,15 +157,23 @@ function getActivePhasesFromURL() {
 }
 
 /**
- * Build a hash string with tags, category, phases, and view
- * @param {string} baseHash - The base hash without params
+ * Build a hash string with language, tags, category, phases, and view
+ * @param {string} baseHash - The base hash without params (e.g., 'elements', 'element/123')
  * @param {string[]} tags - Array of tag strings
  * @param {string} category - Optional category string
  * @param {number[]} phases - Optional array of phase numbers
  * @param {string} view - Optional view mode ('grid' or 'list')
- * @returns {string} Complete hash string with params
+ * @param {string} lang - Optional language code (uses current language if not provided)
+ * @returns {string} Complete hash string with language prefix and params
  */
-function buildHashWithTags(baseHash, tags, category = '', phases = [], view = '') {
+function buildHashWithTags(baseHash, tags, category = '', phases = [], view = '', lang = null) {
+    // Use provided language or get current language
+    const language = lang || (typeof getLanguage === 'function' ? getLanguage() : 'de');
+
+    // Build the base path with language prefix
+    let hashPath = `${language}/${baseHash}`;
+
+    // Build query params
     const params = [];
     if (tags && tags.length > 0) {
         tags.forEach(tag => params.push(`tag=${encodeURIComponent(tag)}`));
@@ -158,9 +188,30 @@ function buildHashWithTags(baseHash, tags, category = '', phases = [], view = ''
         params.push(`view=${view}`);
     }
     if (params.length === 0) {
-        return baseHash;
+        return hashPath;
     }
-    return `${baseHash}?${params.join('&')}`;
+    return `${hashPath}?${params.join('&')}`;
+}
+
+/**
+ * Update the URL to use a different language while preserving the current route and params
+ * @param {string} newLang - The new language code ('de', 'fr', 'it', 'en')
+ */
+function updateURLLanguage(newLang) {
+    if (!URL_SUPPORTED_LANGUAGES.includes(newLang)) {
+        return;
+    }
+
+    const { route, id, tags, phases, category, view } = parseHashWithParams();
+
+    // Build the base route (with id if present)
+    let baseRoute = route;
+    if (id) {
+        baseRoute = `${route}/${id}`;
+    }
+
+    // Update hash with new language
+    window.location.hash = buildHashWithTags(baseRoute, tags, category, phases, view, newLang);
 }
 
 /**
@@ -227,7 +278,7 @@ window.togglePhaseInURL = function(phase) {
 }
 
 /**
- * Clear all tags from URL
+ * Clear all tags from URL (preserves language)
  */
 window.clearAllTagsFromURL = function() {
     const { route, id } = parseHashWithParams();
@@ -235,7 +286,8 @@ window.clearAllTagsFromURL = function() {
     if (id) {
         baseHash = `${route}/${id}`;
     }
-    window.location.hash = baseHash;
+    // Use buildHashWithTags with empty arrays to preserve language
+    window.location.hash = buildHashWithTags(baseHash, [], '', [], '');
 }
 
 /**
@@ -255,4 +307,29 @@ function navigateWithTags(targetRoute) {
     const phases = getActivePhasesFromURL();
     const view = getActiveViewFromURL();
     window.location.hash = buildHashWithTags(targetRoute, tags, category, phases, view);
+}
+
+/**
+ * Build a simple hash with just language prefix (no filters)
+ * @param {string} path - The route path (e.g., 'home', 'elements', 'element/123')
+ * @returns {string} Hash with language prefix
+ */
+function buildHashWithLang(path) {
+    const language = typeof getLanguage === 'function' ? getLanguage() : 'de';
+    return `${language}/${path}`;
+}
+
+/**
+ * Build a search hash with language prefix
+ * @param {string} query - Search query
+ * @param {string} view - Optional view parameter
+ * @returns {string} Search hash with language prefix
+ */
+function buildSearchHash(query, view = '') {
+    const language = typeof getLanguage === 'function' ? getLanguage() : 'de';
+    let hash = `${language}/search?q=${encodeURIComponent(query)}`;
+    if (view && (view === 'grid' || view === 'list')) {
+        hash += `&view=${view}`;
+    }
+    return hash;
 }

@@ -91,32 +91,32 @@ function renderHomePage() {
                     <p class="home-section__subtitle">${escapeHtml(tUI('home.topicsSubtitle'))}</p>
                 </header>
                 <div class="quick-access-grid">
-                    <a href="#usecases" class="quick-card" data-route="usecases">
+                    <a href="#${buildHashWithLang('usecases')}" class="quick-card" data-route="usecases">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardUsecases.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardUsecases.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
-                    <a href="#elements" class="quick-card" data-route="elements">
+                    <a href="#${buildHashWithLang('elements')}" class="quick-card" data-route="elements">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardElements.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardElements.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
-                    <a href="#models" class="quick-card" data-route="models">
+                    <a href="#${buildHashWithLang('models')}" class="quick-card" data-route="models">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardModels.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardModels.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
-                    <a href="#documents" class="quick-card" data-route="documents">
+                    <a href="#${buildHashWithLang('documents')}" class="quick-card" data-route="documents">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardDocuments.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardDocuments.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
-                    <a href="#epds" class="quick-card" data-route="epds">
+                    <a href="#${buildHashWithLang('epds')}" class="quick-card" data-route="epds">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardEpds.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardEpds.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
-                    <a href="#api-docs" class="quick-card" data-route="api-docs">
+                    <a href="#${buildHashWithLang('api-docs')}" class="quick-card" data-route="api-docs">
                         <h3 class="quick-card__title">${escapeHtml(tUI('home.cardApi.title'))}</h3>
                         <p class="quick-card__desc">${escapeHtml(tUI('home.cardApi.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
@@ -157,8 +157,9 @@ function renderSearchResultsPage(query) {
             const safeType = escapeHtml(item.type || '');
             const safeId = escapeHtml(item.id || '');
             const safeCat = escapeHtml(item.category || '');
+            const itemHref = buildHashWithLang(`${safeCat}/${safeId}`);
             resultsHtml += `
-                <a href="#${safeCat}/${safeId}" class="search-result-item">
+                <a href="#${itemHref}" class="search-result-item">
                     <div class="search-result-item__meta">
                         <span class="search-result-item__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-item__date">${dateStr}</span>` : ''}
@@ -178,8 +179,9 @@ function renderSearchResultsPage(query) {
             const safeType = escapeHtml(item.type || '');
             const safeId = escapeHtml(item.id || '');
             const safeCat = escapeHtml(item.category || '');
+            const itemHref = buildHashWithLang(`${safeCat}/${safeId}`);
             resultsHtml += `
-                <a href="#${safeCat}/${safeId}" class="search-result-card">
+                <a href="#${itemHref}" class="search-result-card">
                     <div class="search-result-card__meta">
                         <span class="search-result-card__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-card__date">${dateStr}</span>` : ''}
@@ -257,8 +259,7 @@ function renderSearchResultsPage(query) {
             const newQuery = searchInput.value.trim();
             if (newQuery.length >= 2) {
                 const view = getActiveViewFromURL();
-                const viewParam = view !== 'grid' ? `&view=${view}` : '';
-                window.location.hash = `search?q=${encodeURIComponent(newQuery)}${viewParam}`;
+                window.location.hash = buildSearchHash(newQuery, view !== 'grid' ? view : '');
             }
         });
     }

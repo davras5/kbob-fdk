@@ -8,6 +8,12 @@
  * Called after language change to refresh static text
  */
 function updateUITranslations() {
+    // Update html lang attribute
+    document.documentElement.lang = getLanguage();
+
+    // Update page title
+    document.title = 'KBOB ' + tUI('header.title');
+
     // Update navigation links
     const navLinks = document.querySelectorAll('.main-nav .nav-link[data-route]');
     navLinks.forEach(link => {
@@ -44,7 +50,7 @@ function updateUITranslations() {
         breadcrumbHome.textContent = tRoute('home');
     }
 
-    // Update contact link
+    // Update contact link in header
     const contactLink = document.querySelector('.header__link[href*="kontakt"]');
     if (contactLink) {
         contactLink.textContent = tUI('actions.contact');
@@ -68,6 +74,34 @@ function updateUITranslations() {
     if (scrollTopBtn) {
         scrollTopBtn.title = tUI('actions.scrollToTop');
         scrollTopBtn.setAttribute('aria-label', tUI('actions.scrollToTop'));
+    }
+
+    // Update contact section
+    const contactHeading = document.querySelector('.contact-section h3');
+    if (contactHeading) {
+        contactHeading.textContent = tUI('actions.contact');
+    }
+
+    // Update footer links
+    const footerSourceCode = document.querySelector('.footer-content a[href*="github"]');
+    if (footerSourceCode) {
+        footerSourceCode.textContent = tUI('footer.sourceCode');
+    }
+
+    const footerApi = document.querySelector('.footer-content a[href="#api-docs"]');
+    if (footerApi) {
+        footerApi.textContent = tUI('footer.api');
+    }
+
+    const footerLegal = document.querySelector('.footer-content a[href*="rechtliches"]');
+    if (footerLegal) {
+        footerLegal.textContent = tUI('footer.legal');
+    }
+
+    // Update footer version text
+    const footerVersion = document.querySelector('.footer-version');
+    if (footerVersion) {
+        footerVersion.textContent = `${tUI('footer.version')} 1.0.0 | ${tUI('footer.asOf')}: ${tUI('months.december')} 2024`;
     }
 }
 
@@ -106,26 +140,24 @@ function initLanguageDropdown() {
         item.addEventListener('click', () => {
             const lang = item.dataset.lang;
 
-            // Update global language state (persists to localStorage)
-            setLanguage(lang);
-
-            // Update active state
-            items.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-
-            // Update button text
-            currentLangEl.textContent = lang.toUpperCase();
-
-            // Close dropdown
+            // Close dropdown first
             dropdown.classList.remove('open');
             toggle.setAttribute('aria-expanded', 'false');
 
-            // Update static UI translations
-            updateUITranslations();
-
-            // Re-render current page to apply new language
-            if (typeof router === 'function') {
-                router();
+            // Update URL with new language (this will trigger hashchange -> router)
+            // The router will handle updating the language state and UI
+            if (typeof updateURLLanguage === 'function') {
+                updateURLLanguage(lang);
+            } else {
+                // Fallback if updateURLLanguage not available
+                setLanguage(lang);
+                items.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                currentLangEl.textContent = lang.toUpperCase();
+                updateUITranslations();
+                if (typeof router === 'function') {
+                    router();
+                }
             }
         });
     });
