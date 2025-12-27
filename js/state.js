@@ -152,22 +152,34 @@ let currentSearchSort = 'relevance';
 const expandedCardTags = new Set();
 
 // --- ROUTE MAPPINGS ---
-const routeNames = {
-    'home': 'Startseite',
-    'elements': 'Elemente',
-    'element': 'Element',
-    'documents': 'Dokumente',
-    'document': 'Dokument',
-    'usecases': 'Anwendungsfälle',
-    'usecase': 'Anwendungsfall',
-    'models': 'Fachmodelle',
-    'model': 'Fachmodell',
-    'epds': 'Ökobilanzdaten',
-    'epd': 'Ökobilanzdaten',
-    'handbook': 'Handbuch & Downloads',
-    'search': 'Suchergebnisse',
-    'api-docs': 'REST API Dokumentation'
-};
+// Route keys for translation lookup
+const routeKeys = ['home', 'elements', 'element', 'documents', 'document', 'usecases', 'usecase', 'models', 'model', 'epds', 'epd', 'handbook', 'search', 'api-docs'];
+
+/**
+ * Get translated route name
+ * @param {string} routeKey - Route key
+ * @returns {string} Translated route name
+ */
+function getRouteName(routeKey) {
+    return tRoute(routeKey);
+}
+
+// Legacy compatibility: routeNames object that dynamically returns translated values
+const routeNames = new Proxy({}, {
+    get: (target, prop) => {
+        if (routeKeys.includes(prop)) {
+            return tRoute(prop);
+        }
+        return undefined;
+    },
+    ownKeys: () => routeKeys,
+    getOwnPropertyDescriptor: (target, prop) => {
+        if (routeKeys.includes(prop)) {
+            return { enumerable: true, configurable: true };
+        }
+        return undefined;
+    }
+});
 
 // Parent route mappings for detail pages (also used for detail-to-list redirects)
 const parentRoutes = {
@@ -179,14 +191,36 @@ const parentRoutes = {
     'api-docs': 'handbook'
 };
 
-// Phase labels for display
-const phaseLabels = {
-    1: 'Entwicklung',
-    2: 'Planung',
-    3: 'Ausführung',
-    4: 'Betrieb',
-    5: 'Rückbau'
-};
+// Phase keys for translation lookup
+const phaseKeys = [1, 2, 3, 4, 5];
+
+/**
+ * Get translated phase label
+ * @param {number|string} phaseNum - Phase number (1-5)
+ * @returns {string} Translated phase label
+ */
+function getPhaseLabel(phaseNum) {
+    return tPhase(phaseNum);
+}
+
+// Legacy compatibility: phaseLabels object that dynamically returns translated values
+const phaseLabels = new Proxy({}, {
+    get: (target, prop) => {
+        const num = typeof prop === 'string' ? parseInt(prop, 10) : prop;
+        if (phaseKeys.includes(num)) {
+            return tPhase(num);
+        }
+        return undefined;
+    },
+    ownKeys: () => phaseKeys.map(String),
+    getOwnPropertyDescriptor: (target, prop) => {
+        const num = parseInt(prop, 10);
+        if (phaseKeys.includes(num)) {
+            return { enumerable: true, configurable: true };
+        }
+        return undefined;
+    }
+});
 
 // Arrow SVG for Swiss CD style cards
 const arrowSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
