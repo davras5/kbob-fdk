@@ -1,7 +1,6 @@
 [
   {
     "id": "tag-abnahme",
-    "code": "abnahme",
     "name": {
       "de": "Abnahme",
       "fr": "Réception",
@@ -17,7 +16,6 @@
   },
   {
     "id": "tag-aenderungsmanagement",
-    "code": "aenderungsmanagement",
     "name": {
       "de": "Änderungsmanagement",
       "fr": "Gestion des modifications",
@@ -33,7 +31,6 @@
   },
   {
     "id": "tag-ausschreibung",
-    "code": "ausschreibung",
     "name": {
       "de": "Ausschreibung und Vergabe",
       "fr": "Appel d'offres et adjudication",
@@ -49,7 +46,6 @@
   },
   {
     "id": "tag-bedarfsplanung",
-    "code": "bedarfsplanung",
     "name": {
       "de": "Bedarfsplanung",
       "fr": "Planification des besoins",
@@ -65,7 +61,6 @@
   },
   {
     "id": "tag-bestandserfassung",
-    "code": "bestandserfassung",
     "name": {
       "de": "Bestandserfassung",
       "fr": "Relevé de l'existant",
@@ -81,7 +76,6 @@
   },
   {
     "id": "tag-betrieb",
-    "code": "betrieb",
     "name": {
       "de": "Betrieb",
       "fr": "Exploitation",
@@ -97,7 +91,6 @@
   },
   {
     "id": "tag-dokumentation",
-    "code": "dokumentation",
     "name": {
       "de": "Dokumentation",
       "fr": "Documentation",
@@ -113,7 +106,6 @@
   },
   {
     "id": "tag-genehmigung",
-    "code": "genehmigung",
     "name": {
       "de": "Genehmigung",
       "fr": "Autorisation",
@@ -129,7 +121,6 @@
   },
   {
     "id": "tag-inbetriebnahme",
-    "code": "inbetriebnahme",
     "name": {
       "de": "Inbetriebnahme",
       "fr": "Mise en service",
@@ -145,7 +136,6 @@
   },
   {
     "id": "tag-koordination",
-    "code": "koordination",
     "name": {
       "de": "Koordination",
       "fr": "Coordination",
@@ -161,7 +151,6 @@
   },
   {
     "id": "tag-kosten",
-    "code": "kosten",
     "name": {
       "de": "Kosten",
       "fr": "Coûts",
@@ -177,7 +166,6 @@
   },
   {
     "id": "tag-logistik",
-    "code": "logistik",
     "name": {
       "de": "Logistik",
       "fr": "Logistique",
@@ -193,7 +181,6 @@
   },
   {
     "id": "tag-machbarkeit",
-    "code": "machbarkeit",
     "name": {
       "de": "Machbarkeit",
       "fr": "Faisabilité",
@@ -209,7 +196,6 @@
   },
   {
     "id": "tag-nachhaltigkeit",
-    "code": "nachhaltigkeit",
     "name": {
       "de": "Nachhaltigkeit",
       "fr": "Durabilité",
@@ -225,7 +211,6 @@
   },
   {
     "id": "tag-nachweise",
-    "code": "nachweise",
     "name": {
       "de": "Nachweise",
       "fr": "Justificatifs",
@@ -241,7 +226,6 @@
   },
   {
     "id": "tag-qualitaetssicherung",
-    "code": "qualitaetssicherung",
     "name": {
       "de": "Qualitätssicherung",
       "fr": "Assurance qualité",
@@ -257,7 +241,6 @@
   },
   {
     "id": "tag-risikomanagement",
-    "code": "risikomanagement",
     "name": {
       "de": "Risikomanagement",
       "fr": "Gestion des risques",
@@ -273,7 +256,6 @@
   },
   {
     "id": "tag-termine",
-    "code": "termine",
     "name": {
       "de": "Termine",
       "fr": "Délais",
@@ -289,7 +271,6 @@
   },
   {
     "id": "tag-variantenvergleich",
-    "code": "variantenvergleich",
     "name": {
       "de": "Variantenvergleich",
       "fr": "Comparaison des variantes",
@@ -305,7 +286,6 @@
   },
   {
     "id": "tag-versicherung",
-    "code": "versicherung",
     "name": {
       "de": "Versicherung",
       "fr": "Assurance",
@@ -321,7 +301,6 @@
   },
   {
     "id": "tag-visualisierung",
-    "code": "visualisierung",
     "name": {
       "de": "Visualisierung",
       "fr": "Visualisation",
@@ -337,7 +316,6 @@
   },
   {
     "id": "tag-sonstiges",
-    "code": "sonstiges",
     "name": {
       "de": "Sonstiges",
       "fr": "Autres",

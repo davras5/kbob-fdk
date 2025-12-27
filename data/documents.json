@@ -33,20 +33,12 @@
     "retention": 0,
     "related_elements": [],
     "related_classifications": [
-      {
-        "id": "clf-0340"
-      },
-      {
-        "id": "clf-0341"
-      }
+      "clf-0340",
+      "clf-0341"
     ],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -84,12 +76,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -127,12 +115,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -171,23 +155,13 @@
     "retention": 0,
     "related_elements": [],
     "related_classifications": [
-      {
-        "id": "clf-0342"
-      },
-      {
-        "id": "clf-0343"
-      },
-      {
-        "id": "clf-0344"
-      }
+      "clf-0342",
+      "clf-0343",
+      "clf-0344"
     ],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -226,20 +200,12 @@
     "retention": 0,
     "related_elements": [],
     "related_classifications": [
-      {
-        "id": "clf-0342"
-      },
-      {
-        "id": "clf-0341"
-      }
+      "clf-0342",
+      "clf-0341"
     ],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -279,12 +245,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -325,12 +287,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -370,12 +328,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -415,12 +369,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -460,12 +410,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -505,12 +451,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -550,12 +492,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-koordination",
+      "tag-genehmigung"
     ]
   },
   {
@@ -595,12 +533,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-aenderungsmanagement"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-aenderungsmanagement",
+      "tag-genehmigung"
     ]
   },
   {
@@ -639,12 +573,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -682,12 +612,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -725,12 +651,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -770,12 +692,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-risikomanagement"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-risikomanagement",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -815,12 +733,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-qualitaetssicherung",
+      "tag-dokumentation"
     ]
   },
   {
@@ -859,12 +773,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-qualitaetssicherung",
+      "tag-koordination"
     ]
   },
   {
@@ -903,12 +813,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-risikomanagement"
-      }
+      "tag-qualitaetssicherung",
+      "tag-risikomanagement"
     ]
   },
   {
@@ -946,12 +852,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-qualitaetssicherung",
+      "tag-nachweise"
     ]
   },
   {
@@ -990,9 +892,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -1030,9 +930,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -1071,12 +969,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-betrieb",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -1114,12 +1008,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -1158,12 +1048,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -1202,12 +1088,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -1247,12 +1129,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -1291,9 +1169,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -1334,9 +1210,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -1377,12 +1251,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-dokumentation",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -1422,9 +1292,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-termine"
-      }
+      "tag-termine"
     ]
   },
   {
@@ -1463,12 +1331,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-termine"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-termine",
+      "tag-koordination"
     ]
   },
   {
@@ -1506,12 +1370,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-termine"
-      }
+      "tag-betrieb",
+      "tag-termine"
     ]
   },
   {
@@ -1549,12 +1409,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-termine"
-      }
+      "tag-betrieb",
+      "tag-termine"
     ]
   },
   {
@@ -1593,12 +1449,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-termine"
-      }
+      "tag-betrieb",
+      "tag-termine"
     ]
   },
   {
@@ -1639,9 +1491,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -1682,9 +1532,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -1722,12 +1570,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -1765,12 +1609,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -1810,12 +1650,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -1854,12 +1690,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-abnahme",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -1897,12 +1729,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-abnahme",
+      "tag-betrieb"
     ]
   },
   {
@@ -1942,9 +1770,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -1984,9 +1810,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      }
+      "tag-koordination"
     ]
   },
   {
@@ -2025,12 +1849,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-aenderungsmanagement"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-aenderungsmanagement",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2070,12 +1890,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-genehmigung",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2115,9 +1931,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -2157,12 +1971,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2200,12 +2010,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2245,9 +2051,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -2286,12 +2090,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -2329,12 +2129,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2374,12 +2170,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2417,12 +2209,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-risikomanagement"
-      }
+      "tag-betrieb",
+      "tag-risikomanagement"
     ]
   },
   {
@@ -2460,9 +2248,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -2500,9 +2286,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -2542,12 +2326,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-genehmigung",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2587,12 +2367,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-risikomanagement"
-      }
+      "tag-dokumentation",
+      "tag-risikomanagement"
     ]
   },
   {
@@ -2632,9 +2408,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -2672,12 +2446,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -2717,9 +2487,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -2759,9 +2527,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-dokumentation"
     ]
   },
   {
@@ -2799,9 +2565,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -2839,9 +2603,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -2879,9 +2641,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -2919,9 +2679,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -2959,9 +2717,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -2999,9 +2755,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3039,9 +2793,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3079,12 +2831,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -3122,12 +2870,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -3165,12 +2909,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -3208,12 +2948,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -3251,9 +2987,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3291,9 +3025,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3331,9 +3063,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3371,9 +3101,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3411,9 +3139,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3451,12 +3177,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-genehmigung",
+      "tag-kosten"
     ]
   },
   {
@@ -3494,9 +3216,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3534,9 +3254,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3574,9 +3292,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3614,9 +3330,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -3654,9 +3368,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3694,9 +3406,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3734,9 +3444,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3774,9 +3482,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3814,9 +3520,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3854,9 +3558,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3894,9 +3596,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -3934,12 +3634,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -3977,12 +3673,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -4020,12 +3712,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -4063,12 +3751,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -4106,9 +3790,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4146,9 +3828,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4187,9 +3867,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4227,9 +3905,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4267,9 +3943,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4307,12 +3981,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-genehmigung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -4350,9 +4020,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4390,12 +4058,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-genehmigung",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -4433,9 +4097,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4473,12 +4135,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-genehmigung",
+      "tag-kosten"
     ]
   },
   {
@@ -4516,9 +4174,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4556,9 +4212,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4596,9 +4250,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4637,9 +4289,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-genehmigung"
     ]
   },
   {
@@ -4678,12 +4328,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-genehmigung",
+      "tag-betrieb"
     ]
   },
   {
@@ -4721,9 +4367,7 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -4761,12 +4405,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -4805,12 +4445,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -4849,15 +4485,9 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-inbetriebnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -4896,12 +4526,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-inbetriebnahme",
+      "tag-dokumentation"
     ]
   },
   {
@@ -4940,12 +4566,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -4983,12 +4605,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-betrieb",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -5026,12 +4644,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5069,12 +4683,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-bestandserfassung"
-      }
+      "tag-qualitaetssicherung",
+      "tag-bestandserfassung"
     ]
   },
   {
@@ -5112,12 +4722,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -5155,12 +4761,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -5198,12 +4800,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5242,12 +4840,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-abnahme",
+      "tag-nachweise"
     ]
   },
   {
@@ -5285,12 +4879,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -5328,12 +4918,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5371,12 +4957,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5414,12 +4996,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5457,12 +5035,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5500,12 +5074,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -5544,12 +5114,8 @@
     "related_elements": [],
     "related_classifications": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   }
 ]

@@ -97,7 +97,7 @@ function getTagById(tagId) {
 
 /**
  * Resolve an array of related_tags to localized tag strings
- * @param {Array} relatedTags - Array of {id: "tag-id"} objects
+ * @param {Array} relatedTags - Array of tag ID strings (e.g., ["tag-koordination", "tag-dokumentation"])
  * @returns {string[]} Array of localized tag strings
  */
 function resolveTagsToStrings(relatedTags) {
@@ -105,8 +105,8 @@ function resolveTagsToStrings(relatedTags) {
         return [];
     }
     return relatedTags
-        .map(ref => {
-            const tagName = getTagById(ref.id);
+        .map(tagId => {
+            const tagName = getTagById(tagId);
             return tagName ? t(tagName) : null;
         })
         .filter(Boolean);
@@ -114,7 +114,7 @@ function resolveTagsToStrings(relatedTags) {
 
 /**
  * Resolve an array of related_tags to i18n objects (for tTags compatibility)
- * @param {Array} relatedTags - Array of {id: "tag-id"} objects
+ * @param {Array} relatedTags - Array of tag ID strings (e.g., ["tag-koordination", "tag-dokumentation"])
  * @returns {Object[]} Array of i18n name objects
  */
 function resolveTagsToI18n(relatedTags) {
@@ -122,7 +122,7 @@ function resolveTagsToI18n(relatedTags) {
         return [];
     }
     return relatedTags
-        .map(ref => getTagById(ref.id))
+        .map(tagId => getTagById(tagId))
         .filter(Boolean);
 }
 

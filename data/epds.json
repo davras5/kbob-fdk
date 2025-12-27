@@ -31,12 +31,8 @@
     "density": "2500",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -71,12 +67,8 @@
     "density": "18",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-nachhaltigkeit",
+      "tag-kosten"
     ]
   },
   {
@@ -111,12 +103,8 @@
     "density": "150",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -151,12 +139,8 @@
     "density": "15",
     "biogenic_carbon": 0.778,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -191,12 +175,8 @@
     "density": "439",
     "biogenic_carbon": 0.446,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -231,12 +211,8 @@
     "density": "436",
     "biogenic_carbon": 0.45,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -271,12 +247,8 @@
     "density": "7900",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -311,12 +283,8 @@
     "density": "7850",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -351,12 +319,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -391,12 +355,8 @@
     "density": "2500",
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -431,12 +391,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -471,12 +427,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -511,12 +463,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -551,12 +499,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -591,12 +535,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -631,12 +571,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -671,12 +607,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -711,12 +643,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-logistik"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-logistik",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -751,12 +679,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-logistik"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-logistik",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -791,12 +715,8 @@
     "density": null,
     "biogenic_carbon": null,
     "related_tags": [
-      {
-        "id": "tag-logistik"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-logistik",
+      "tag-nachhaltigkeit"
     ]
   }
 ]

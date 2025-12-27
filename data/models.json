@@ -31,12 +31,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -70,12 +66,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-koordination"
     ]
   },
   {
@@ -109,12 +101,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-koordination",
+      "tag-betrieb"
     ]
   },
   {
@@ -148,12 +136,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-koordination",
+      "tag-betrieb"
     ]
   },
   {
@@ -187,12 +171,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-koordination",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -226,12 +206,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -265,12 +241,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-nachweise",
+      "tag-genehmigung"
     ]
   },
   {
@@ -304,12 +276,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-koordination"
     ]
   },
   {
@@ -342,12 +310,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-bestandserfassung"
-      }
+      "tag-betrieb",
+      "tag-bestandserfassung"
     ]
   },
   {
@@ -381,12 +345,8 @@
     ],
     "related_elements": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   }
 ]
