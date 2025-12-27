@@ -165,12 +165,12 @@ function renderSearchDropdown(results, query) {
     });
 
     if (!hasAnyResults) {
-        html = `<div class="search-dropdown-empty">Keine Ergebnisse für "${safeQuery}"</div>`;
+        html = `<div class="search-dropdown-empty">${escapeHtml(tUI('search.noResultsFor'))} "${safeQuery}"</div>`;
     }
 
     const encodedQuery = encodeURIComponent(query);
     html += `<a class="search-dropdown-footer" href="#search?q=${encodedQuery}">
-        Alle Ergebnisse anzeigen
+        ${escapeHtml(tUI('search.showAllResults'))}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>`;
 

@@ -8,56 +8,61 @@
 // ============================================
 
 /**
- * Configuration for catalog pages
+ * Get translated catalog page configuration
+ * @param {string} type - Page type key
+ * @returns {Object} Configuration object with translated strings
  */
-const catalogPageConfig = {
-    elements: {
-        title: 'Elemente',
-        lead: 'Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.',
-        searchPlaceholder: 'Suche nach Elementen oder Klassifikation...',
-        searchInputId: 'catalogSearchInput',
-        searchClearId: 'catalogSearchClear',
-        contentId: 'catalogContent',
-        filterType: 'elements'
-    },
-    documents: {
-        title: 'Dokumente',
-        lead: 'Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.',
-        searchPlaceholder: 'Suche nach Dokumenten oder Kategorie...',
-        searchInputId: 'documentsSearchInput',
-        searchClearId: 'documentsSearchClear',
-        contentId: 'documentsContent',
-        filterType: 'documents'
-    },
-    usecases: {
-        title: 'Anwendungsfälle',
-        lead: 'BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.',
-        searchPlaceholder: 'Suche nach Anwendungsfällen...',
-        searchInputId: 'usecasesSearchInput',
-        searchClearId: 'usecasesSearchClear',
-        contentId: 'usecasesContent',
-        filterType: 'usecases',
-        hasPhases: true
-    },
-    models: {
-        title: 'Fachmodelle',
-        lead: 'Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.',
-        searchPlaceholder: 'Suche nach Fachmodellen...',
-        searchInputId: 'modelsSearchInput',
-        searchClearId: 'modelsSearchClear',
-        contentId: 'modelsContent',
-        filterType: 'models'
-    },
-    epds: {
-        title: 'Ökobilanzdaten',
-        lead: 'Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.',
-        searchPlaceholder: 'Suche nach Ökobilanzdaten...',
-        searchInputId: 'epdsSearchInput',
-        searchClearId: 'epdsSearchClear',
-        contentId: 'epdsContent',
-        filterType: 'epds'
-    }
-};
+function getCatalogPageConfig(type) {
+    const configs = {
+        elements: {
+            searchInputId: 'catalogSearchInput',
+            searchClearId: 'catalogSearchClear',
+            contentId: 'catalogContent',
+            filterType: 'elements'
+        },
+        documents: {
+            searchInputId: 'documentsSearchInput',
+            searchClearId: 'documentsSearchClear',
+            contentId: 'documentsContent',
+            filterType: 'documents'
+        },
+        usecases: {
+            searchInputId: 'usecasesSearchInput',
+            searchClearId: 'usecasesSearchClear',
+            contentId: 'usecasesContent',
+            filterType: 'usecases',
+            hasPhases: true
+        },
+        models: {
+            searchInputId: 'modelsSearchInput',
+            searchClearId: 'modelsSearchClear',
+            contentId: 'modelsContent',
+            filterType: 'models'
+        },
+        epds: {
+            searchInputId: 'epdsSearchInput',
+            searchClearId: 'epdsSearchClear',
+            contentId: 'epdsContent',
+            filterType: 'epds'
+        }
+    };
+
+    const config = configs[type];
+    if (!config) return null;
+
+    // Add translated strings dynamically
+    return {
+        ...config,
+        title: tPage(type, 'title'),
+        lead: tPage(type, 'lead'),
+        searchPlaceholder: tUI(`search.placeholder${type.charAt(0).toUpperCase() + type.slice(1)}`)
+    };
+}
+
+// Legacy compatibility: catalogPageConfig as Proxy for backward compatibility
+const catalogPageConfig = new Proxy({}, {
+    get: (target, prop) => getCatalogPageConfig(prop)
+});
 
 // ============================================
 // HOME PAGE
@@ -66,13 +71,13 @@ const catalogPageConfig = {
 function renderHomePage() {
     contentArea.innerHTML = `
         <div class="home-hero-section">
-            <h1 class="home-hero__title">Fachdatenkatalog für die digitale Bauwerksdokumentation</h1>
-            <p class="hero__description">Der Fachdatenkatalog der KBOB definiert standardisierte Anforderungen an die BIM-basierte Dokumentation von Hochbauprojekten der öffentlichen Hand in der Schweiz. Er dient als Grundlage für Auftraggeber-Informationsanforderungen (AIA) und BIM-Abwicklungspläne (BAP).</p>
+            <h1 class="home-hero__title">${escapeHtml(tUI('home.heroTitle'))}</h1>
+            <p class="hero__description">${escapeHtml(tUI('home.heroDescription'))}</p>
             <div class="home-search-container">
                 <div class="gallery-filter-wrapper">
-                    <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                    <button type="button" class="clear-btn search-clear-btn" id="globalSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                    <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
+                    <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="${escapeHtml(tUI('search.placeholderGlobal'))}" autocomplete="off">
+                    <button type="button" class="clear-btn search-clear-btn" id="globalSearchClear" aria-label="${escapeHtml(tUI('search.clear'))}"><i data-lucide="x" aria-hidden="true"></i></button>
+                    <button class="gallery-filter-btn" aria-label="${escapeHtml(tUI('search.label'))}"><i data-lucide="search" aria-hidden="true"></i></button>
                 </div>
                 <div id="globalSearchDropdown" class="search-dropdown"></div>
             </div>
@@ -82,38 +87,38 @@ function renderHomePage() {
         <section class="home-themen-section">
             <div class="container home-section">
                 <header class="home-section__header">
-                    <h2 class="home-section__title">Themen</h2>
-                    <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
+                    <h2 class="home-section__title">${escapeHtml(tUI('home.topicsTitle'))}</h2>
+                    <p class="home-section__subtitle">${escapeHtml(tUI('home.topicsSubtitle'))}</p>
                 </header>
                 <div class="quick-access-grid">
                     <a href="#usecases" class="quick-card" data-route="usecases">
-                        <h3 class="quick-card__title">Anwendungsfälle</h3>
-                        <p class="quick-card__desc">BIM-Anwendungsfälle für Planung, Koordination und Betrieb</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardUsecases.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardUsecases.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#elements" class="quick-card" data-route="elements">
-                        <h3 class="quick-card__title">Elemente</h3>
-                        <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardElements.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardElements.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#models" class="quick-card" data-route="models">
-                        <h3 class="quick-card__title">Fachmodelle</h3>
-                        <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardModels.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardModels.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#documents" class="quick-card" data-route="documents">
-                        <h3 class="quick-card__title">Dokumente</h3>
-                        <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardDocuments.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardDocuments.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#epds" class="quick-card" data-route="epds">
-                        <h3 class="quick-card__title">Ökobilanzdaten</h3>
-                        <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardEpds.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardEpds.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#api-docs" class="quick-card" data-route="api-docs">
-                        <h3 class="quick-card__title">REST API</h3>
-                        <p class="quick-card__desc">Interaktive Dokumentation der REST-Endpunkte zum Testen und Erkunden</p>
+                        <h3 class="quick-card__title">${escapeHtml(tUI('home.cardApi.title'))}</h3>
+                        <p class="quick-card__desc">${escapeHtml(tUI('home.cardApi.desc'))}</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                 </div>
@@ -139,8 +144,8 @@ function renderSearchResultsPage(query) {
         resultsHtml = `
             <div class="search-results__empty">
                 <div class="search-results__empty-icon"><i data-lucide="search-x" aria-hidden="true"></i></div>
-                <h3 class="search-results__empty-title">Keine Ergebnisse gefunden</h3>
-                <p class="search-results__empty-text">Versuchen Sie es mit anderen Suchbegriffen.</p>
+                <h3 class="search-results__empty-title">${escapeHtml(tUI('search.noResults'))}</h3>
+                <p class="search-results__empty-text">${escapeHtml(tUI('search.tryOtherTerms'))}</p>
             </div>
         `;
     } else if (getActiveViewFromURL() === 'list') {
@@ -189,17 +194,22 @@ function renderSearchResultsPage(query) {
     }
 
     const safeSearchQuery = escapeHtml(currentSearchQuery);
+    const sortLabels = {
+        'relevance': tUI('sort.byRelevance'),
+        'date-desc': tUI('sort.byDateDesc'),
+        'date-asc': tUI('sort.byDateAsc')
+    };
     contentArea.innerHTML = `
         <div class="search-hero">
             <div class="container">
-                <h1 class="search-hero__title">Suche</h1>
+                <h1 class="search-hero__title">${escapeHtml(tUI('search.label'))}</h1>
                 <form class="search-hero__form" id="searchPageForm" role="search">
                     <div class="search-hero__input-wrapper">
-                        <input type="search" id="searchPageInput" class="search-hero__input" value="${safeSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
-                        <button type="button" class="clear-btn search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="Suche löschen">
+                        <input type="search" id="searchPageInput" class="search-hero__input" value="${safeSearchQuery}" placeholder="${escapeHtml(tUI('search.placeholderInput'))}" autocomplete="off">
+                        <button type="button" class="clear-btn search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="${escapeHtml(tUI('search.clear'))}">
                             <i data-lucide="x" aria-hidden="true"></i>
                         </button>
-                        <button type="submit" class="search-hero__submit" aria-label="Suchen">
+                        <button type="submit" class="search-hero__submit" aria-label="${escapeHtml(tUI('search.label'))}">
                             <i data-lucide="search" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -210,24 +220,24 @@ function renderSearchResultsPage(query) {
             <div class="container">
                 ${currentSearchQuery.length >= 2 ? `
                 <div class="search-results__header">
-                    <span class="search-results__count">${resultCount} Suchergebnisse</span>
+                    <span class="search-results__count">${resultCount} ${escapeHtml(tUI('search.results'))}</span>
                     <div class="search-results__controls">
                         <div class="sort-dropdown-container">
                             <button class="search-results__sort" data-action="toggle-sort-dropdown">
-                                <span>${currentSearchSort === 'relevance' ? 'Nach Relevanz sortieren' : currentSearchSort === 'date-desc' ? 'Nach Datum (Neueste zuerst)' : 'Nach Datum (Älteste zuerst)'}</span>
+                                <span>${escapeHtml(sortLabels[currentSearchSort] || sortLabels['relevance'])}</span>
                                 <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
                             <div class="sort-dropdown">
-                                <button class="sort-dropdown__item ${currentSearchSort === 'relevance' ? 'active' : ''}" data-action="set-search-sort" data-sort="relevance">Nach Relevanz sortieren</button>
-                                <button class="sort-dropdown__item ${currentSearchSort === 'date-desc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-desc">Nach Datum (Neueste zuerst)</button>
-                                <button class="sort-dropdown__item ${currentSearchSort === 'date-asc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-asc">Nach Datum (Älteste zuerst)</button>
+                                <button class="sort-dropdown__item ${currentSearchSort === 'relevance' ? 'active' : ''}" data-action="set-search-sort" data-sort="relevance">${escapeHtml(tUI('sort.byRelevance'))}</button>
+                                <button class="sort-dropdown__item ${currentSearchSort === 'date-desc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-desc">${escapeHtml(tUI('sort.byDateDesc'))}</button>
+                                <button class="sort-dropdown__item ${currentSearchSort === 'date-asc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-asc">${escapeHtml(tUI('sort.byDateAsc'))}</button>
                             </div>
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" data-action="switch-search-view" data-view="list" title="Listenansicht" aria-label="Listenansicht">
+                            <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" data-action="switch-search-view" data-view="list" title="${escapeHtml(tUI('view.list'))}" aria-label="${escapeHtml(tUI('view.list'))}">
                                 <i data-lucide="list" aria-hidden="true"></i>
                             </button>
-                            <button class="view-btn ${getActiveViewFromURL() === 'grid' ? 'active' : ''}" data-action="switch-search-view" data-view="grid" title="Rasteransicht" aria-label="Rasteransicht">
+                            <button class="view-btn ${getActiveViewFromURL() === 'grid' ? 'active' : ''}" data-action="switch-search-view" data-view="grid" title="${escapeHtml(tUI('view.grid'))}" aria-label="${escapeHtml(tUI('view.grid'))}">
                                 <i data-lucide="layout-grid" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -272,7 +282,7 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
     const typeConfig = catalogTypeConfig[type];
 
     if (!pageConfig || !typeConfig) {
-        contentArea.innerHTML = '<div class="container error-state">Seite nicht gefunden.</div>';
+        contentArea.innerHTML = `<div class="container error-state">${escapeHtml(tUI('status.pageNotFound'))}</div>`;
         return;
     }
 
@@ -315,21 +325,21 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
             <div class="gallery-filter-container">
                 <div class="gallery-filter-left">
                     <div class="gallery-filter-wrapper">
-                        <input type="text" id="${pageConfig.searchInputId}" class="gallery-filter-input" placeholder="${pageConfig.searchPlaceholder}">
-                        <button type="button" class="clear-btn search-clear-btn" id="${pageConfig.searchClearId}" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                        <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
+                        <input type="text" id="${pageConfig.searchInputId}" class="gallery-filter-input" placeholder="${escapeHtml(pageConfig.searchPlaceholder)}">
+                        <button type="button" class="clear-btn search-clear-btn" id="${pageConfig.searchClearId}" aria-label="${escapeHtml(tUI('search.clear'))}"><i data-lucide="x" aria-hidden="true"></i></button>
+                        <button class="gallery-filter-btn" aria-label="${escapeHtml(tUI('search.label'))}"><i data-lucide="search" aria-hidden="true"></i></button>
                     </div>
                     ${renderFilterButton(pageConfig.filterType, typeConfig.getFilterVisible(), activeFiltersCount)}
                 </div>
                 <div class="search-results__controls">
-                    <span class="results-count" id="${type}ResultsCount">${initialBatch.loadedCount} von ${initialBatch.totalCount}</span>
+                    <span class="results-count" id="${type}ResultsCount">${initialBatch.loadedCount} ${escapeHtml(tUI('pagination.of'))} ${initialBatch.totalCount}</span>
                     <button class="search-results__sort">
-                        <span>Sortiert nach Titel (A-Z)</span>
+                        <span>${escapeHtml(tUI('sort.byTitleAZ'))}</span>
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </button>
                     <div class="view-switcher toolbar-control">
-                        <button class="view-btn ${listActive}" data-action="switch-view" data-view="list" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                        <button class="view-btn ${gridActive}" data-action="switch-view" data-view="grid" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                        <button class="view-btn ${listActive}" data-action="switch-view" data-view="list" aria-label="${escapeHtml(tUI('view.list'))}"><i data-lucide="list" aria-hidden="true"></i></button>
+                        <button class="view-btn ${gridActive}" data-action="switch-view" data-view="grid" aria-label="${escapeHtml(tUI('view.grid'))}"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>

@@ -33,8 +33,9 @@ document.addEventListener('click', function(e) {
  */
 function renderFilterBarHeader(activeTags, activeCategory = '') {
     const hasFilters = activeTags.length > 0 || activeCategory;
+    const resetTitle = tUI('filter.reset');
     const resetBtn = hasFilters
-        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="${escapeHtml(resetTitle)}" aria-label="${escapeHtml(resetTitle)}"><i data-lucide="x" aria-hidden="true"></i></button>`
         : '';
 
     let activeFiltersHtml = '';
@@ -51,7 +52,7 @@ function renderFilterBarHeader(activeTags, activeCategory = '') {
         activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-sm);">${filterBadges.join('')}</div>`;
     }
 
-    return `<div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>${activeFiltersHtml}`;
+    return `<div class="filter-bar__header"><span>${escapeHtml(tUI('filter.label'))}</span>${resetBtn}</div>${activeFiltersHtml}`;
 }
 
 /**
@@ -126,14 +127,14 @@ function renderFilterBar(options) {
     // Render phases dropdown if needed
     let phasesGroupHtml = '';
     if (showPhases) {
-        const availablePhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
+        const availablePhases = phaseKeys.slice().sort((a, b) => a - b);
         const phasesItemsHtml = availablePhases.map(phase => {
             const isActive = activePhases.includes(phase);
-            const label = phaseLabels[phase];
+            const label = tPhase(phase);
             return `
                 <div class="filter-dropdown__phase-item ${isActive ? 'active' : ''}" data-action="toggle-phase" data-phase="${phase}">
                     <span class="filter-dropdown__phase-number">${phase}</span>
-                    <span class="filter-dropdown__phase-label">${label}</span>
+                    <span class="filter-dropdown__phase-label">${escapeHtml(label)}</span>
                 </div>
             `;
         }).join('');
@@ -142,11 +143,11 @@ function renderFilterBar(options) {
         phasesGroupHtml = `
             <div class="filter-group" data-filter-id="phases">
                 <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="phases">
-                    Phase ${activePhasesCount > 0 ? `<span class="filter-count-badge">${activePhasesCount}</span>` : ''}
+                    ${escapeHtml(tUI('filter.phase'))} ${activePhasesCount > 0 ? `<span class="filter-count-badge">${activePhasesCount}</span>` : ''}
                     <i data-lucide="chevron-down" aria-hidden="true"></i>
                 </div>
                 <div class="filter-dropdown">
-                    <div class="filter-dropdown__title">Phasen</div>
+                    <div class="filter-dropdown__title">${escapeHtml(tUI('filter.phases'))}</div>
                     <div class="filter-dropdown__phases">
                         ${phasesItemsHtml}
                     </div>
@@ -156,8 +157,9 @@ function renderFilterBar(options) {
     }
 
     const hasFilters = activeTags.length > 0 || activeCategory || activePhases.length > 0;
+    const resetTitle = tUI('filter.reset');
     const resetBtn = hasFilters
-        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="${escapeHtml(resetTitle)}" aria-label="${escapeHtml(resetTitle)}"><i data-lucide="x" aria-hidden="true"></i></button>`
         : '';
 
     // Build active filters display
@@ -173,7 +175,7 @@ function renderFilterBar(options) {
             filterBadges.push(`<span class="tag-badge active" data-action="toggle-tag" data-tag="${safeTag}">${safeTag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         });
         activePhases.forEach(phase => {
-            filterBadges.push(`<span class="tag-badge active" data-action="toggle-phase" data-phase="${phase}">Phase ${phase} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-phase" data-phase="${phase}">${escapeHtml(tUI('filter.phase'))} ${phase} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         });
         activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;padding:var(--space-sm) var(--space-lg);border-top:1px solid var(--color-border-light);">${filterBadges.join('')}</div>`;
     }
@@ -183,15 +185,15 @@ function renderFilterBar(options) {
 
     return `
         <div class="filter-bar ${filterPanelClass}">
-            <div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>
+            <div class="filter-bar__header"><span>${escapeHtml(tUI('filter.label'))}</span>${resetBtn}</div>
             <div class="filter-bar__groups">
                 <div class="filter-group" data-filter-id="category">
                     <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="category">
-                        Kategorie ${activeCategoryCount > 0 ? `<span class="filter-count-badge">${activeCategoryCount}</span>` : ''}
+                        ${escapeHtml(tUI('filter.category'))} ${activeCategoryCount > 0 ? `<span class="filter-count-badge">${activeCategoryCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
                     <div class="filter-dropdown">
-                        <div class="filter-dropdown__title">Kategorie wählen</div>
+                        <div class="filter-dropdown__title">${escapeHtml(tUI('filter.selectCategory'))}</div>
                         <div class="filter-dropdown__items">
                             ${categoryItemsHtml}
                         </div>
@@ -199,11 +201,11 @@ function renderFilterBar(options) {
                 </div>
                 <div class="filter-group" data-filter-id="tags">
                     <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="tags">
-                        Tags ${activeTagsCount > 0 ? `<span class="filter-count-badge">${activeTagsCount}</span>` : ''}
+                        ${escapeHtml(tUI('filter.tags'))} ${activeTagsCount > 0 ? `<span class="filter-count-badge">${activeTagsCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
                     <div class="filter-dropdown">
-                        <div class="filter-dropdown__title">Tags wählen</div>
+                        <div class="filter-dropdown__title">${escapeHtml(tUI('filter.selectTags'))}</div>
                         <div class="filter-dropdown__items">
                             ${tagItemsHtml}
                         </div>
@@ -226,15 +228,16 @@ function renderFilterBar(options) {
 function renderFilterButton(type, isVisible, activeTagCount) {
     const activeClass = isVisible ? 'active' : '';
     const safeType = escapeHtml(type);
+    const resetTitle = tUI('filter.reset');
 
     const resetBtn = activeTagCount > 0
-        ? `<button class="filter-btn reset-filter-btn" data-action="clear-all-filters" data-type="${safeType}" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
+        ? `<button class="filter-btn reset-filter-btn" data-action="clear-all-filters" data-type="${safeType}" title="${escapeHtml(resetTitle)}"><i data-lucide="refresh-cw" aria-hidden="true"></i> ${escapeHtml(tUI('filter.resetShort'))}</button>`
         : '';
 
     return `
         <button class="filter-btn ${activeClass}" data-action="toggle-filter" data-type="${safeType}">
             <i data-lucide="filter" aria-hidden="true"></i>
-            Filter${activeTagCount > 0 ? `<span class="filter-count-badge">${activeTagCount}</span>` : ''}
+            ${escapeHtml(tUI('filter.label'))}${activeTagCount > 0 ? `<span class="filter-count-badge">${activeTagCount}</span>` : ''}
         </button>
         ${resetBtn}
     `;
