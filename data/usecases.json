@@ -281,9 +281,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      }
+      "tag-koordination"
     ]
   },
   {
@@ -561,9 +559,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-bestandserfassung"
-      }
+      "tag-bestandserfassung"
     ]
   },
   {
@@ -839,12 +835,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-bedarfsplanung",
+      "tag-koordination"
     ]
   },
   {
@@ -1121,15 +1113,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-variantenvergleich"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-variantenvergleich",
+      "tag-nachhaltigkeit",
+      "tag-koordination"
     ]
   },
   {
@@ -1402,12 +1388,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-visualisierung",
+      "tag-koordination"
     ]
   },
   {
@@ -1726,12 +1708,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      }
+      "tag-koordination",
+      "tag-qualitaetssicherung"
     ]
   },
   {
@@ -2009,12 +1987,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-qualitaetssicherung",
+      "tag-koordination"
     ]
   },
   {
@@ -2291,12 +2265,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-koordination"
     ]
   },
   {
@@ -2567,12 +2537,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -2848,12 +2814,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -3211,9 +3173,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-kosten"
-      }
+      "tag-kosten"
     ]
   },
   {
@@ -3484,12 +3444,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-ausschreibung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-ausschreibung",
+      "tag-koordination"
     ]
   },
   {
@@ -3766,12 +3722,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-termine"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-termine",
+      "tag-koordination"
     ]
   },
   {
@@ -4048,12 +4000,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-logistik"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-logistik",
+      "tag-koordination"
     ]
   },
   {
@@ -4328,15 +4276,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-qualitaetssicherung",
+      "tag-kosten",
+      "tag-koordination"
     ]
   },
   {
@@ -4611,15 +4553,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-aenderungsmanagement"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-aenderungsmanagement",
+      "tag-kosten",
+      "tag-koordination"
     ]
   },
   {
@@ -4889,12 +4825,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-kosten",
+      "tag-koordination"
     ]
   },
   {
@@ -5164,15 +5096,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-abnahme",
+      "tag-qualitaetssicherung",
+      "tag-koordination"
     ]
   },
   {
@@ -5449,15 +5375,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-inbetriebnahme",
+      "tag-abnahme",
+      "tag-betrieb"
     ]
   },
   {
@@ -5778,12 +5698,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-dokumentation",
+      "tag-koordination"
     ]
   },
   {
@@ -6052,12 +5968,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-dokumentation",
+      "tag-betrieb"
     ]
   },
   {
@@ -6326,12 +6238,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-qualitaetssicherung",
+      "tag-betrieb"
     ]
   },
   {
@@ -6606,9 +6514,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -6877,9 +6783,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-betrieb"
     ]
   },
   {
@@ -7148,12 +7052,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-bedarfsplanung",
+      "tag-betrieb"
     ]
   },
   {
@@ -7428,12 +7328,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb"
     ]
   },
   {
@@ -7695,15 +7591,9 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-qualitaetssicherung"
-      },
-      {
-        "id": "tag-risikomanagement"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-qualitaetssicherung",
+      "tag-risikomanagement",
+      "tag-betrieb"
     ]
   },
   {
@@ -7982,12 +7872,8 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-nachhaltigkeit",
+      "tag-nachweise"
     ]
   },
   {
@@ -8256,9 +8142,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -8527,9 +8411,7 @@
     "related_elements": [],
     "related_documents": [],
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-nachhaltigkeit"
     ]
   }
 ]

@@ -55,12 +55,12 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    // Build classification rows from related_classifications
+    // Build classification rows from related_classifications (now a simple string array of IDs)
     let classRows = '';
     if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
         const classificationsBySystem = new Map();
-        data.related_classifications.forEach(ref => {
-            const clf = getItemById('classifications', ref.id);
+        data.related_classifications.forEach(clfId => {
+            const clf = getItemById('classifications', clfId);
             if (clf) {
                 const system = clf.system;
                 if (!classificationsBySystem.has(system)) {
@@ -347,12 +347,12 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    // Build classifications table rows from related_classifications
+    // Build classifications table rows from related_classifications (now a simple string array of IDs)
     let classRows = '';
     if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
         const classificationsBySystem = new Map();
-        data.related_classifications.forEach(ref => {
-            const clf = getItemById('classifications', ref.id);
+        data.related_classifications.forEach(clfId => {
+            const clf = getItemById('classifications', clfId);
             if (clf) {
                 const system = clf.system;
                 if (!classificationsBySystem.has(system)) {

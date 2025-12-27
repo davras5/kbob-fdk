@@ -261,75 +261,31 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0001"
-      },
-      {
-        "id": "clf-0002"
-      },
-      {
-        "id": "clf-0003"
-      },
-      {
-        "id": "clf-0004"
-      },
-      {
-        "id": "clf-0005"
-      },
-      {
-        "id": "clf-0006"
-      },
-      {
-        "id": "clf-0007"
-      },
-      {
-        "id": "clf-0008"
-      },
-      {
-        "id": "clf-0009"
-      },
-      {
-        "id": "clf-0010"
-      },
-      {
-        "id": "clf-0011"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0013"
-      },
-      {
-        "id": "clf-0014"
-      },
-      {
-        "id": "clf-0015"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      },
-      {
-        "id": "clf-0019"
-      }
+      "clf-0001",
+      "clf-0002",
+      "clf-0003",
+      "clf-0004",
+      "clf-0005",
+      "clf-0006",
+      "clf-0007",
+      "clf-0008",
+      "clf-0009",
+      "clf-0010",
+      "clf-0011",
+      "clf-0012",
+      "clf-0013",
+      "clf-0014",
+      "clf-0015",
+      "clf-0016",
+      "clf-0017",
+      "clf-0018",
+      "clf-0019"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-koordination"
     ]
   },
   {
@@ -718,48 +674,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0020"
-      },
-      {
-        "id": "clf-0021"
-      },
-      {
-        "id": "clf-0022"
-      },
-      {
-        "id": "clf-0023"
-      },
-      {
-        "id": "clf-0024"
-      },
-      {
-        "id": "clf-0025"
-      },
-      {
-        "id": "clf-0026"
-      },
-      {
-        "id": "clf-0027"
-      },
-      {
-        "id": "clf-0028"
-      },
-      {
-        "id": "clf-0029"
-      }
+      "clf-0020",
+      "clf-0021",
+      "clf-0022",
+      "clf-0023",
+      "clf-0024",
+      "clf-0025",
+      "clf-0026",
+      "clf-0027",
+      "clf-0028",
+      "clf-0029"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-visualisierung",
+      "tag-koordination"
     ]
   },
   {
@@ -1075,51 +1005,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0030"
-      },
-      {
-        "id": "clf-0031"
-      },
-      {
-        "id": "clf-0032"
-      },
-      {
-        "id": "clf-0033"
-      },
-      {
-        "id": "clf-0034"
-      },
-      {
-        "id": "clf-0035"
-      },
-      {
-        "id": "clf-0036"
-      },
-      {
-        "id": "clf-0037"
-      },
-      {
-        "id": "clf-0038"
-      },
-      {
-        "id": "clf-0039"
-      },
-      {
-        "id": "clf-0040"
-      }
+      "clf-0030",
+      "clf-0031",
+      "clf-0032",
+      "clf-0033",
+      "clf-0034",
+      "clf-0035",
+      "clf-0036",
+      "clf-0037",
+      "clf-0038",
+      "clf-0039",
+      "clf-0040"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -1523,87 +1425,35 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0041"
-      },
-      {
-        "id": "clf-0042"
-      },
-      {
-        "id": "clf-0043"
-      },
-      {
-        "id": "clf-0044"
-      },
-      {
-        "id": "clf-0045"
-      },
-      {
-        "id": "clf-0046"
-      },
-      {
-        "id": "clf-0047"
-      },
-      {
-        "id": "clf-0048"
-      },
-      {
-        "id": "clf-0049"
-      },
-      {
-        "id": "clf-0050"
-      },
-      {
-        "id": "clf-0051"
-      },
-      {
-        "id": "clf-0052"
-      },
-      {
-        "id": "clf-0053"
-      },
-      {
-        "id": "clf-0054"
-      },
-      {
-        "id": "clf-0055"
-      },
-      {
-        "id": "clf-0056"
-      },
-      {
-        "id": "clf-0057"
-      },
-      {
-        "id": "clf-0058"
-      },
-      {
-        "id": "clf-0010"
-      },
-      {
-        "id": "clf-0059"
-      },
-      {
-        "id": "clf-0060"
-      },
-      {
-        "id": "clf-0061"
-      },
-      {
-        "id": "clf-0062"
-      }
+      "clf-0041",
+      "clf-0042",
+      "clf-0043",
+      "clf-0044",
+      "clf-0045",
+      "clf-0046",
+      "clf-0047",
+      "clf-0048",
+      "clf-0049",
+      "clf-0050",
+      "clf-0051",
+      "clf-0052",
+      "clf-0053",
+      "clf-0054",
+      "clf-0055",
+      "clf-0056",
+      "clf-0057",
+      "clf-0058",
+      "clf-0010",
+      "clf-0059",
+      "clf-0060",
+      "clf-0061",
+      "clf-0062"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-abnahme"
     ]
   },
   {
@@ -1947,81 +1797,33 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0063"
-      },
-      {
-        "id": "clf-0064"
-      },
-      {
-        "id": "clf-0065"
-      },
-      {
-        "id": "clf-0066"
-      },
-      {
-        "id": "clf-0067"
-      },
-      {
-        "id": "clf-0068"
-      },
-      {
-        "id": "clf-0069"
-      },
-      {
-        "id": "clf-0070"
-      },
-      {
-        "id": "clf-0071"
-      },
-      {
-        "id": "clf-0072"
-      },
-      {
-        "id": "clf-0073"
-      },
-      {
-        "id": "clf-0074"
-      },
-      {
-        "id": "clf-0075"
-      },
-      {
-        "id": "clf-0076"
-      },
-      {
-        "id": "clf-0077"
-      },
-      {
-        "id": "clf-0078"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0080"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0082"
-      },
-      {
-        "id": "clf-0083"
-      },
-      {
-        "id": "clf-0084"
-      }
+      "clf-0063",
+      "clf-0064",
+      "clf-0065",
+      "clf-0066",
+      "clf-0067",
+      "clf-0068",
+      "clf-0069",
+      "clf-0070",
+      "clf-0071",
+      "clf-0072",
+      "clf-0073",
+      "clf-0074",
+      "clf-0075",
+      "clf-0076",
+      "clf-0077",
+      "clf-0078",
+      "clf-0079",
+      "clf-0080",
+      "clf-0081",
+      "clf-0082",
+      "clf-0083",
+      "clf-0084"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -2589,48 +2391,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0085"
-      },
-      {
-        "id": "clf-0086"
-      },
-      {
-        "id": "clf-0087"
-      },
-      {
-        "id": "clf-0088"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0090"
-      },
-      {
-        "id": "clf-0091"
-      },
-      {
-        "id": "clf-0092"
-      },
-      {
-        "id": "clf-0093"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0085",
+      "clf-0086",
+      "clf-0087",
+      "clf-0088",
+      "clf-0089",
+      "clf-0090",
+      "clf-0091",
+      "clf-0092",
+      "clf-0093",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-ausschreibung"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-ausschreibung",
+      "tag-kosten",
+      "tag-visualisierung"
     ]
   },
   {
@@ -2909,45 +2685,21 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0095"
-      },
-      {
-        "id": "clf-0096"
-      },
-      {
-        "id": "clf-0085"
-      },
-      {
-        "id": "clf-0098"
-      },
-      {
-        "id": "clf-0087"
-      },
-      {
-        "id": "clf-0099"
-      },
-      {
-        "id": "clf-0100"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0095",
+      "clf-0096",
+      "clf-0085",
+      "clf-0098",
+      "clf-0087",
+      "clf-0099",
+      "clf-0100",
+      "clf-0089",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-genehmigung"
     ]
   },
   {
@@ -3155,36 +2907,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0101"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0103"
-      },
-      {
-        "id": "clf-0104"
-      },
-      {
-        "id": "clf-0105"
-      },
-      {
-        "id": "clf-0106"
-      }
+      "clf-0101",
+      "clf-0102",
+      "clf-0103",
+      "clf-0104",
+      "clf-0105",
+      "clf-0106"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-abnahme"
     ]
   },
   {
@@ -3538,60 +3272,26 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0107"
-      },
-      {
-        "id": "clf-0108"
-      },
-      {
-        "id": "clf-0109"
-      },
-      {
-        "id": "clf-0110"
-      },
-      {
-        "id": "clf-0111"
-      },
-      {
-        "id": "clf-0112"
-      },
-      {
-        "id": "clf-0039"
-      },
-      {
-        "id": "clf-0113"
-      },
-      {
-        "id": "clf-0114"
-      },
-      {
-        "id": "clf-0115"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0117"
-      },
-      {
-        "id": "clf-0118"
-      },
-      {
-        "id": "clf-0119"
-      }
+      "clf-0107",
+      "clf-0108",
+      "clf-0109",
+      "clf-0110",
+      "clf-0111",
+      "clf-0112",
+      "clf-0039",
+      "clf-0113",
+      "clf-0114",
+      "clf-0115",
+      "clf-0116",
+      "clf-0117",
+      "clf-0118",
+      "clf-0119"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-koordination",
+      "tag-visualisierung",
+      "tag-nachweise"
     ]
   },
   {
@@ -4027,45 +3727,21 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0120"
-      },
-      {
-        "id": "clf-0113"
-      },
-      {
-        "id": "clf-0117"
-      },
-      {
-        "id": "clf-0118"
-      },
-      {
-        "id": "clf-0090"
-      },
-      {
-        "id": "clf-0091"
-      },
-      {
-        "id": "clf-0092"
-      },
-      {
-        "id": "clf-0119"
-      },
-      {
-        "id": "clf-0093"
-      }
+      "clf-0120",
+      "clf-0113",
+      "clf-0117",
+      "clf-0118",
+      "clf-0090",
+      "clf-0091",
+      "clf-0092",
+      "clf-0119",
+      "clf-0093"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-ausschreibung"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-ausschreibung",
+      "tag-kosten",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -4398,33 +4074,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0121"
-      },
-      {
-        "id": "clf-0025"
-      },
-      {
-        "id": "clf-0122"
-      },
-      {
-        "id": "clf-0123"
-      },
-      {
-        "id": "clf-0029"
-      }
+      "clf-0121",
+      "clf-0025",
+      "clf-0122",
+      "clf-0123",
+      "clf-0029"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -4802,66 +4462,28 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0124"
-      },
-      {
-        "id": "clf-0125"
-      },
-      {
-        "id": "clf-0126"
-      },
-      {
-        "id": "clf-0085"
-      },
-      {
-        "id": "clf-0111"
-      },
-      {
-        "id": "clf-0037"
-      },
-      {
-        "id": "clf-0088"
-      },
-      {
-        "id": "clf-0127"
-      },
-      {
-        "id": "clf-0038"
-      },
-      {
-        "id": "clf-0113"
-      },
-      {
-        "id": "clf-0114"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0128"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0019"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0124",
+      "clf-0125",
+      "clf-0126",
+      "clf-0085",
+      "clf-0111",
+      "clf-0037",
+      "clf-0088",
+      "clf-0127",
+      "clf-0038",
+      "clf-0113",
+      "clf-0114",
+      "clf-0040",
+      "clf-0128",
+      "clf-0094",
+      "clf-0019",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -5234,39 +4856,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0111"
-      },
-      {
-        "id": "clf-0127"
-      },
-      {
-        "id": "clf-0114"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0091"
-      },
-      {
-        "id": "clf-0092"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0111",
+      "clf-0127",
+      "clf-0114",
+      "clf-0040",
+      "clf-0091",
+      "clf-0092",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-ausschreibung"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-ausschreibung",
+      "tag-kosten",
+      "tag-visualisierung"
     ]
   },
   {
@@ -5473,36 +5075,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0130"
-      },
-      {
-        "id": "clf-0085"
-      },
-      {
-        "id": "clf-0131"
-      },
-      {
-        "id": "clf-0132"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0130",
+      "clf-0085",
+      "clf-0131",
+      "clf-0132",
+      "clf-0089",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-koordination",
+      "tag-betrieb",
+      "tag-kosten"
     ]
   },
   {
@@ -5784,42 +5368,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0133"
-      },
-      {
-        "id": "clf-0134"
-      },
-      {
-        "id": "clf-0135"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0137"
-      },
-      {
-        "id": "clf-0138"
-      },
-      {
-        "id": "clf-0139"
-      },
-      {
-        "id": "clf-0140"
-      }
+      "clf-0133",
+      "clf-0134",
+      "clf-0135",
+      "clf-0136",
+      "clf-0137",
+      "clf-0138",
+      "clf-0139",
+      "clf-0140"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-dokumentation"
     ]
   },
   {
@@ -6174,33 +5736,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0141"
-      },
-      {
-        "id": "clf-0142"
-      },
-      {
-        "id": "clf-0027"
-      },
-      {
-        "id": "clf-0028"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0144"
-      }
+      "clf-0141",
+      "clf-0142",
+      "clf-0027",
+      "clf-0028",
+      "clf-0143",
+      "clf-0144"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -6423,30 +5969,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0145"
-      },
-      {
-        "id": "clf-0146"
-      },
-      {
-        "id": "clf-0062"
-      }
+      "clf-0145",
+      "clf-0146",
+      "clf-0062"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-abnahme",
+      "tag-genehmigung"
     ]
   },
   {
@@ -6672,45 +6204,21 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0147"
-      },
-      {
-        "id": "clf-0148"
-      },
-      {
-        "id": "clf-0149"
-      },
-      {
-        "id": "clf-0150"
-      },
-      {
-        "id": "clf-0151"
-      },
-      {
-        "id": "clf-0152"
-      },
-      {
-        "id": "clf-0153"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0154"
-      }
+      "clf-0147",
+      "clf-0148",
+      "clf-0149",
+      "clf-0150",
+      "clf-0151",
+      "clf-0152",
+      "clf-0153",
+      "clf-0016",
+      "clf-0154"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-koordination",
+      "tag-nachhaltigkeit",
+      "tag-visualisierung"
     ]
   },
   {
@@ -6899,36 +6407,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0155"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0103"
-      },
-      {
-        "id": "clf-0104"
-      },
-      {
-        "id": "clf-0105"
-      }
+      "clf-0155",
+      "clf-0102",
+      "clf-0103",
+      "clf-0104",
+      "clf-0105"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-abnahme",
+      "tag-betrieb"
     ]
   },
   {
@@ -7116,30 +6606,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0156"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0104"
-      },
-      {
-        "id": "clf-0105"
-      }
+      "clf-0156",
+      "clf-0102",
+      "clf-0104",
+      "clf-0105"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-nachweise",
+      "tag-betrieb",
+      "tag-dokumentation"
     ]
   },
   {
@@ -7379,45 +6855,21 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0157"
-      },
-      {
-        "id": "clf-0158"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0164"
-      },
-      {
-        "id": "clf-0084"
-      }
+      "clf-0157",
+      "clf-0158",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0016",
+      "clf-0164",
+      "clf-0084"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -7684,42 +7136,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0165"
-      },
-      {
-        "id": "clf-0166"
-      },
-      {
-        "id": "clf-0098"
-      },
-      {
-        "id": "clf-0167"
-      },
-      {
-        "id": "clf-0100"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0168"
-      },
-      {
-        "id": "clf-0169"
-      }
+      "clf-0165",
+      "clf-0166",
+      "clf-0098",
+      "clf-0167",
+      "clf-0100",
+      "clf-0012",
+      "clf-0168",
+      "clf-0169"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -7928,30 +7358,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0170"
-      },
-      {
-        "id": "clf-0098"
-      },
-      {
-        "id": "clf-0171"
-      },
-      {
-        "id": "clf-0100"
-      },
-      {
-        "id": "clf-0040"
-      }
+      "clf-0170",
+      "clf-0098",
+      "clf-0171",
+      "clf-0100",
+      "clf-0040"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-koordination"
     ]
   },
   {
@@ -8075,21 +7491,13 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0116"
-      }
+      "clf-0116"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-bedarfsplanung",
+      "tag-visualisierung",
+      "tag-koordination"
     ]
   },
   {
@@ -8223,30 +7631,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0172"
-      },
-      {
-        "id": "clf-0173"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0089",
+      "clf-0172",
+      "clf-0173",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bestandserfassung"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-bestandserfassung",
+      "tag-visualisierung",
+      "tag-koordination"
     ]
   },
   {
@@ -8463,33 +7857,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0180"
-      },
-      {
-        "id": "clf-0181"
-      },
-      {
-        "id": "clf-0182"
-      },
-      {
-        "id": "clf-0183"
-      },
-      {
-        "id": "clf-0184"
-      }
+      "clf-0180",
+      "clf-0181",
+      "clf-0182",
+      "clf-0183",
+      "clf-0184"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -8584,27 +7962,15 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0185"
-      },
-      {
-        "id": "clf-0186"
-      }
+      "clf-0116",
+      "clf-0185",
+      "clf-0186"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bestandserfassung"
-      },
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-bedarfsplanung"
-      }
+      "tag-bestandserfassung",
+      "tag-dokumentation",
+      "tag-bedarfsplanung"
     ]
   },
   {
@@ -8793,27 +8159,15 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0101"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0106"
-      }
+      "clf-0101",
+      "clf-0102",
+      "clf-0106"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-betrieb"
     ]
   },
   {
@@ -9137,42 +8491,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0187"
-      },
-      {
-        "id": "clf-0188"
-      },
-      {
-        "id": "clf-0189"
-      },
-      {
-        "id": "clf-0190"
-      },
-      {
-        "id": "clf-0191"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0185"
-      },
-      {
-        "id": "clf-0186"
-      }
+      "clf-0187",
+      "clf-0188",
+      "clf-0189",
+      "clf-0190",
+      "clf-0191",
+      "clf-0116",
+      "clf-0185",
+      "clf-0186"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-bedarfsplanung",
+      "tag-visualisierung",
+      "tag-kosten"
     ]
   },
   {
@@ -9390,84 +8722,34 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0134"
-      },
-      {
-        "id": "clf-0192"
-      },
-      {
-        "id": "clf-0193"
-      },
-      {
-        "id": "clf-0194"
-      },
-      {
-        "id": "clf-0195"
-      },
-      {
-        "id": "clf-0196"
-      },
-      {
-        "id": "clf-0197"
-      },
-      {
-        "id": "clf-0198"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0199"
-      },
-      {
-        "id": "clf-0137"
-      },
-      {
-        "id": "clf-0200"
-      },
-      {
-        "id": "clf-0201"
-      },
-      {
-        "id": "clf-0202"
-      },
-      {
-        "id": "clf-0203"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0204"
-      },
-      {
-        "id": "clf-0027"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0019"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0134",
+      "clf-0192",
+      "clf-0193",
+      "clf-0194",
+      "clf-0195",
+      "clf-0196",
+      "clf-0197",
+      "clf-0198",
+      "clf-0136",
+      "clf-0199",
+      "clf-0137",
+      "clf-0200",
+      "clf-0201",
+      "clf-0202",
+      "clf-0203",
+      "clf-0089",
+      "clf-0012",
+      "clf-0040",
+      "clf-0204",
+      "clf-0027",
+      "clf-0094",
+      "clf-0019",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -9652,66 +8934,28 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0134"
-      },
-      {
-        "id": "clf-0192"
-      },
-      {
-        "id": "clf-0193"
-      },
-      {
-        "id": "clf-0194"
-      },
-      {
-        "id": "clf-0195"
-      },
-      {
-        "id": "clf-0196"
-      },
-      {
-        "id": "clf-0197"
-      },
-      {
-        "id": "clf-0198"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0199"
-      },
-      {
-        "id": "clf-0137"
-      },
-      {
-        "id": "clf-0200"
-      },
-      {
-        "id": "clf-0201"
-      },
-      {
-        "id": "clf-0202"
-      },
-      {
-        "id": "clf-0203"
-      },
-      {
-        "id": "clf-0204"
-      },
-      {
-        "id": "clf-0027"
-      }
+      "clf-0134",
+      "clf-0192",
+      "clf-0193",
+      "clf-0194",
+      "clf-0195",
+      "clf-0196",
+      "clf-0197",
+      "clf-0198",
+      "clf-0136",
+      "clf-0199",
+      "clf-0137",
+      "clf-0200",
+      "clf-0201",
+      "clf-0202",
+      "clf-0203",
+      "clf-0204",
+      "clf-0027"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -9911,42 +9155,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0205"
-      },
-      {
-        "id": "clf-0206"
-      },
-      {
-        "id": "clf-0207"
-      },
-      {
-        "id": "clf-0208"
-      },
-      {
-        "id": "clf-0138"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0144"
-      },
-      {
-        "id": "clf-0016"
-      }
+      "clf-0205",
+      "clf-0206",
+      "clf-0207",
+      "clf-0208",
+      "clf-0138",
+      "clf-0116",
+      "clf-0144",
+      "clf-0016"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -10158,27 +9380,15 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0209"
-      },
-      {
-        "id": "clf-0210"
-      },
-      {
-        "id": "clf-0211"
-      }
+      "clf-0209",
+      "clf-0210",
+      "clf-0211"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-visualisierung"
     ]
   },
   {
@@ -10393,42 +9603,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0212"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0016"
-      }
+      "clf-0212",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0143",
+      "clf-0016"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-koordination"
     ]
   },
   {
@@ -10639,51 +9827,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0213"
-      },
-      {
-        "id": "clf-0214"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0144"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0164"
-      }
+      "clf-0213",
+      "clf-0214",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0143",
+      "clf-0144",
+      "clf-0016",
+      "clf-0164"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -10898,51 +10058,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0215"
-      },
-      {
-        "id": "clf-0216"
-      },
-      {
-        "id": "clf-0217"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0128"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0019"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0215",
+      "clf-0216",
+      "clf-0217",
+      "clf-0159",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0016",
+      "clf-0128",
+      "clf-0094",
+      "clf-0019",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-koordination",
+      "tag-betrieb"
     ]
   },
   {
@@ -11165,45 +10297,21 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0218"
-      },
-      {
-        "id": "clf-0219"
-      },
-      {
-        "id": "clf-0220"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0221"
-      }
+      "clf-0218",
+      "clf-0219",
+      "clf-0220",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0116",
+      "clf-0016",
+      "clf-0221"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -11459,42 +10567,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0218"
-      },
-      {
-        "id": "clf-0219"
-      },
-      {
-        "id": "clf-0220"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0221"
-      }
+      "clf-0218",
+      "clf-0219",
+      "clf-0220",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0016",
+      "clf-0221"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -11687,36 +10773,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0222"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0016"
-      }
+      "clf-0222",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0016"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-koordination",
+      "tag-nachweise"
     ]
   },
   {
@@ -11909,24 +10977,14 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0154"
-      },
-      {
-        "id": "clf-0172"
-      },
-      {
-        "id": "clf-0173"
-      }
+      "clf-0154",
+      "clf-0172",
+      "clf-0173"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -12020,21 +11078,13 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0116"
-      }
+      "clf-0116"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-bedarfsplanung",
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -12263,99 +11313,39 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0330"
-      },
-      {
-        "id": "clf-0224"
-      },
-      {
-        "id": "clf-0064"
-      },
-      {
-        "id": "clf-0065"
-      },
-      {
-        "id": "clf-0225"
-      },
-      {
-        "id": "clf-0226"
-      },
-      {
-        "id": "clf-0070"
-      },
-      {
-        "id": "clf-0071"
-      },
-      {
-        "id": "clf-0259"
-      },
-      {
-        "id": "clf-0230"
-      },
-      {
-        "id": "clf-0231"
-      },
-      {
-        "id": "clf-0232"
-      },
-      {
-        "id": "clf-0233"
-      },
-      {
-        "id": "clf-0074"
-      },
-      {
-        "id": "clf-0075"
-      },
-      {
-        "id": "clf-0076"
-      },
-      {
-        "id": "clf-0077"
-      },
-      {
-        "id": "clf-0237"
-      },
-      {
-        "id": "clf-0238"
-      },
-      {
-        "id": "clf-0239"
-      },
-      {
-        "id": "clf-0078"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0240"
-      },
-      {
-        "id": "clf-0241"
-      },
-      {
-        "id": "clf-0242"
-      },
-      {
-        "id": "clf-0243"
-      }
+      "clf-0330",
+      "clf-0224",
+      "clf-0064",
+      "clf-0065",
+      "clf-0225",
+      "clf-0226",
+      "clf-0070",
+      "clf-0071",
+      "clf-0259",
+      "clf-0230",
+      "clf-0231",
+      "clf-0232",
+      "clf-0233",
+      "clf-0074",
+      "clf-0075",
+      "clf-0076",
+      "clf-0077",
+      "clf-0237",
+      "clf-0238",
+      "clf-0239",
+      "clf-0078",
+      "clf-0079",
+      "clf-0081",
+      "clf-0240",
+      "clf-0241",
+      "clf-0242",
+      "clf-0243"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-koordination"
     ]
   },
   {
@@ -12669,36 +11659,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0244"
-      },
-      {
-        "id": "clf-0037"
-      },
-      {
-        "id": "clf-0038"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0185"
-      },
-      {
-        "id": "clf-0186"
-      }
+      "clf-0244",
+      "clf-0037",
+      "clf-0038",
+      "clf-0116",
+      "clf-0185",
+      "clf-0186"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -12923,36 +11895,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0245"
-      },
-      {
-        "id": "clf-0246"
-      },
-      {
-        "id": "clf-0128"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0019"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0245",
+      "clf-0246",
+      "clf-0128",
+      "clf-0094",
+      "clf-0019",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-bedarfsplanung",
+      "tag-visualisierung",
+      "tag-koordination"
     ]
   },
   {
@@ -13233,48 +12187,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0218"
-      },
-      {
-        "id": "clf-0247"
-      },
-      {
-        "id": "clf-0248"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      }
+      "clf-0218",
+      "clf-0247",
+      "clf-0248",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0016",
+      "clf-0017",
+      "clf-0018"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -13643,138 +12571,52 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0331"
-      },
-      {
-        "id": "clf-0224"
-      },
-      {
-        "id": "clf-0250"
-      },
-      {
-        "id": "clf-0251"
-      },
-      {
-        "id": "clf-0066"
-      },
-      {
-        "id": "clf-0252"
-      },
-      {
-        "id": "clf-0253"
-      },
-      {
-        "id": "clf-0067"
-      },
-      {
-        "id": "clf-0254"
-      },
-      {
-        "id": "clf-0257"
-      },
-      {
-        "id": "clf-0205"
-      },
-      {
-        "id": "clf-0070"
-      },
-      {
-        "id": "clf-0071"
-      },
-      {
-        "id": "clf-0258"
-      },
-      {
-        "id": "clf-0259"
-      },
-      {
-        "id": "clf-0260"
-      },
-      {
-        "id": "clf-0072"
-      },
-      {
-        "id": "clf-0230"
-      },
-      {
-        "id": "clf-0231"
-      },
-      {
-        "id": "clf-0232"
-      },
-      {
-        "id": "clf-0233"
-      },
-      {
-        "id": "clf-0074"
-      },
-      {
-        "id": "clf-0075"
-      },
-      {
-        "id": "clf-0076"
-      },
-      {
-        "id": "clf-0268"
-      },
-      {
-        "id": "clf-0269"
-      },
-      {
-        "id": "clf-0270"
-      },
-      {
-        "id": "clf-0271"
-      },
-      {
-        "id": "clf-0078"
-      },
-      {
-        "id": "clf-0272"
-      },
-      {
-        "id": "clf-0273"
-      },
-      {
-        "id": "clf-0274"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0080"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0240"
-      },
-      {
-        "id": "clf-0275"
-      },
-      {
-        "id": "clf-0083"
-      },
-      {
-        "id": "clf-0203"
-      },
-      {
-        "id": "clf-0243"
-      },
-      {
-        "id": "clf-0084"
-      }
+      "clf-0331",
+      "clf-0224",
+      "clf-0250",
+      "clf-0251",
+      "clf-0066",
+      "clf-0252",
+      "clf-0253",
+      "clf-0067",
+      "clf-0254",
+      "clf-0257",
+      "clf-0205",
+      "clf-0070",
+      "clf-0071",
+      "clf-0258",
+      "clf-0259",
+      "clf-0260",
+      "clf-0072",
+      "clf-0230",
+      "clf-0231",
+      "clf-0232",
+      "clf-0233",
+      "clf-0074",
+      "clf-0075",
+      "clf-0076",
+      "clf-0268",
+      "clf-0269",
+      "clf-0270",
+      "clf-0271",
+      "clf-0078",
+      "clf-0272",
+      "clf-0273",
+      "clf-0274",
+      "clf-0079",
+      "clf-0080",
+      "clf-0081",
+      "clf-0240",
+      "clf-0275",
+      "clf-0083",
+      "clf-0203",
+      "clf-0243",
+      "clf-0084"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -14071,135 +12913,51 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0331"
-      },
-      {
-        "id": "clf-0224"
-      },
-      {
-        "id": "clf-0250"
-      },
-      {
-        "id": "clf-0251"
-      },
-      {
-        "id": "clf-0066"
-      },
-      {
-        "id": "clf-0252"
-      },
-      {
-        "id": "clf-0253"
-      },
-      {
-        "id": "clf-0067"
-      },
-      {
-        "id": "clf-0254"
-      },
-      {
-        "id": "clf-0257"
-      },
-      {
-        "id": "clf-0205"
-      },
-      {
-        "id": "clf-0070"
-      },
-      {
-        "id": "clf-0071"
-      },
-      {
-        "id": "clf-0258"
-      },
-      {
-        "id": "clf-0259"
-      },
-      {
-        "id": "clf-0260"
-      },
-      {
-        "id": "clf-0072"
-      },
-      {
-        "id": "clf-0230"
-      },
-      {
-        "id": "clf-0231"
-      },
-      {
-        "id": "clf-0232"
-      },
-      {
-        "id": "clf-0233"
-      },
-      {
-        "id": "clf-0074"
-      },
-      {
-        "id": "clf-0075"
-      },
-      {
-        "id": "clf-0076"
-      },
-      {
-        "id": "clf-0268"
-      },
-      {
-        "id": "clf-0269"
-      },
-      {
-        "id": "clf-0270"
-      },
-      {
-        "id": "clf-0271"
-      },
-      {
-        "id": "clf-0078"
-      },
-      {
-        "id": "clf-0272"
-      },
-      {
-        "id": "clf-0273"
-      },
-      {
-        "id": "clf-0274"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0080"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0240"
-      },
-      {
-        "id": "clf-0275"
-      },
-      {
-        "id": "clf-0083"
-      },
-      {
-        "id": "clf-0203"
-      },
-      {
-        "id": "clf-0243"
-      }
+      "clf-0331",
+      "clf-0224",
+      "clf-0250",
+      "clf-0251",
+      "clf-0066",
+      "clf-0252",
+      "clf-0253",
+      "clf-0067",
+      "clf-0254",
+      "clf-0257",
+      "clf-0205",
+      "clf-0070",
+      "clf-0071",
+      "clf-0258",
+      "clf-0259",
+      "clf-0260",
+      "clf-0072",
+      "clf-0230",
+      "clf-0231",
+      "clf-0232",
+      "clf-0233",
+      "clf-0074",
+      "clf-0075",
+      "clf-0076",
+      "clf-0268",
+      "clf-0269",
+      "clf-0270",
+      "clf-0271",
+      "clf-0078",
+      "clf-0272",
+      "clf-0273",
+      "clf-0274",
+      "clf-0079",
+      "clf-0080",
+      "clf-0081",
+      "clf-0240",
+      "clf-0275",
+      "clf-0083",
+      "clf-0203",
+      "clf-0243"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -14537,33 +13295,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0276"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0082"
-      },
-      {
-        "id": "clf-0106"
-      },
-      {
-        "id": "clf-0277"
-      }
+      "clf-0276",
+      "clf-0079",
+      "clf-0082",
+      "clf-0106",
+      "clf-0277"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-genehmigung"
-      }
+      "tag-betrieb",
+      "tag-koordination",
+      "tag-genehmigung"
     ]
   },
   {
@@ -14872,36 +13614,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0133"
-      },
-      {
-        "id": "clf-0141"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0137"
-      },
-      {
-        "id": "clf-0202"
-      },
-      {
-        "id": "clf-0204"
-      },
-      {
-        "id": "clf-0279"
-      }
+      "clf-0133",
+      "clf-0141",
+      "clf-0136",
+      "clf-0137",
+      "clf-0202",
+      "clf-0204",
+      "clf-0279"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -15134,36 +13858,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0101"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0144"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0106"
-      }
+      "clf-0101",
+      "clf-0102",
+      "clf-0143",
+      "clf-0144",
+      "clf-0016",
+      "clf-0106"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-nachweise",
+      "tag-betrieb",
+      "tag-abnahme"
     ]
   },
   {
@@ -15358,39 +14064,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0280"
-      },
-      {
-        "id": "clf-0281"
-      },
-      {
-        "id": "clf-0282"
-      },
-      {
-        "id": "clf-0283"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0243"
-      },
-      {
-        "id": "clf-0084"
-      }
+      "clf-0280",
+      "clf-0281",
+      "clf-0282",
+      "clf-0283",
+      "clf-0143",
+      "clf-0243",
+      "clf-0084"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -15593,30 +14279,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0209"
-      },
-      {
-        "id": "clf-0210"
-      },
-      {
-        "id": "clf-0211"
-      },
-      {
-        "id": "clf-0284"
-      }
+      "clf-0209",
+      "clf-0210",
+      "clf-0211",
+      "clf-0284"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-abnahme"
     ]
   },
   {
@@ -15845,33 +14517,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0133"
-      },
-      {
-        "id": "clf-0285"
-      },
-      {
-        "id": "clf-0286"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0140"
-      }
+      "clf-0133",
+      "clf-0285",
+      "clf-0286",
+      "clf-0136",
+      "clf-0140"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-dokumentation"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-betrieb",
+      "tag-dokumentation",
+      "tag-abnahme"
     ]
   },
   {
@@ -16132,51 +14788,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0226"
-      },
-      {
-        "id": "clf-0287"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0288"
-      },
-      {
-        "id": "clf-0138"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0289"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      },
-      {
-        "id": "clf-0019"
-      }
+      "clf-0226",
+      "clf-0287",
+      "clf-0081",
+      "clf-0288",
+      "clf-0138",
+      "clf-0012",
+      "clf-0289",
+      "clf-0143",
+      "clf-0017",
+      "clf-0018",
+      "clf-0019"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-nachhaltigkeit",
+      "tag-betrieb",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -16358,36 +14986,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0101"
-      },
-      {
-        "id": "clf-0102"
-      },
-      {
-        "id": "clf-0104"
-      },
-      {
-        "id": "clf-0105"
-      },
-      {
-        "id": "clf-0106"
-      }
+      "clf-0101",
+      "clf-0102",
+      "clf-0104",
+      "clf-0105",
+      "clf-0106"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-abnahme"
-      },
-      {
-        "id": "tag-betrieb"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-abnahme",
+      "tag-betrieb"
     ]
   },
   {
@@ -16846,51 +15456,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0030"
-      },
-      {
-        "id": "clf-0031"
-      },
-      {
-        "id": "clf-0032"
-      },
-      {
-        "id": "clf-0033"
-      },
-      {
-        "id": "clf-0034"
-      },
-      {
-        "id": "clf-0035"
-      },
-      {
-        "id": "clf-0036"
-      },
-      {
-        "id": "clf-0037"
-      },
-      {
-        "id": "clf-0038"
-      },
-      {
-        "id": "clf-0039"
-      },
-      {
-        "id": "clf-0116"
-      }
+      "clf-0030",
+      "clf-0031",
+      "clf-0032",
+      "clf-0033",
+      "clf-0034",
+      "clf-0035",
+      "clf-0036",
+      "clf-0037",
+      "clf-0038",
+      "clf-0039",
+      "clf-0116"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -17100,39 +15682,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0141"
-      },
-      {
-        "id": "clf-0290"
-      },
-      {
-        "id": "clf-0291"
-      },
-      {
-        "id": "clf-0136"
-      },
-      {
-        "id": "clf-0137"
-      },
-      {
-        "id": "clf-0201"
-      },
-      {
-        "id": "clf-0202"
-      },
-      {
-        "id": "clf-0204"
-      }
+      "clf-0141",
+      "clf-0290",
+      "clf-0291",
+      "clf-0136",
+      "clf-0137",
+      "clf-0201",
+      "clf-0202",
+      "clf-0204"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-koordination"
     ]
   },
   {
@@ -17317,51 +15879,23 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0001"
-      },
-      {
-        "id": "clf-0002"
-      },
-      {
-        "id": "clf-0003"
-      },
-      {
-        "id": "clf-0004"
-      },
-      {
-        "id": "clf-0005"
-      },
-      {
-        "id": "clf-0006"
-      },
-      {
-        "id": "clf-0007"
-      },
-      {
-        "id": "clf-0008"
-      },
-      {
-        "id": "clf-0009"
-      },
-      {
-        "id": "clf-0011"
-      },
-      {
-        "id": "clf-0116"
-      }
+      "clf-0001",
+      "clf-0002",
+      "clf-0003",
+      "clf-0004",
+      "clf-0005",
+      "clf-0006",
+      "clf-0007",
+      "clf-0008",
+      "clf-0009",
+      "clf-0011",
+      "clf-0116"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-dokumentation"
     ]
   },
   {
@@ -17614,42 +16148,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0292"
-      },
-      {
-        "id": "clf-0288"
-      },
-      {
-        "id": "clf-0138"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0289"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      },
-      {
-        "id": "clf-0019"
-      }
+      "clf-0292",
+      "clf-0288",
+      "clf-0138",
+      "clf-0012",
+      "clf-0289",
+      "clf-0017",
+      "clf-0018",
+      "clf-0019"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -17887,27 +16399,15 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0293"
-      },
-      {
-        "id": "clf-0288"
-      },
-      {
-        "id": "clf-0140"
-      }
+      "clf-0293",
+      "clf-0288",
+      "clf-0140"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -18181,39 +16681,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0030"
-      },
-      {
-        "id": "clf-0031"
-      },
-      {
-        "id": "clf-0033"
-      },
-      {
-        "id": "clf-0035"
-      },
-      {
-        "id": "clf-0294"
-      },
-      {
-        "id": "clf-0295"
-      },
-      {
-        "id": "clf-0168"
-      }
+      "clf-0030",
+      "clf-0031",
+      "clf-0033",
+      "clf-0035",
+      "clf-0294",
+      "clf-0295",
+      "clf-0168"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -18585,36 +17065,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0296"
-      },
-      {
-        "id": "clf-0297"
-      },
-      {
-        "id": "clf-0171"
-      },
-      {
-        "id": "clf-0100"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0296",
+      "clf-0297",
+      "clf-0171",
+      "clf-0100",
+      "clf-0089",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -18817,33 +17279,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0298"
-      },
-      {
-        "id": "clf-0171"
-      },
-      {
-        "id": "clf-0100"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0094"
-      }
+      "clf-0298",
+      "clf-0171",
+      "clf-0100",
+      "clf-0089",
+      "clf-0094"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-nachweise",
+      "tag-genehmigung",
+      "tag-koordination"
     ]
   },
   {
@@ -19092,42 +17538,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0133"
-      },
-      {
-        "id": "clf-0299"
-      },
-      {
-        "id": "clf-0300"
-      },
-      {
-        "id": "clf-0301"
-      },
-      {
-        "id": "clf-0135"
-      },
-      {
-        "id": "clf-0302"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      }
+      "clf-0133",
+      "clf-0299",
+      "clf-0300",
+      "clf-0301",
+      "clf-0135",
+      "clf-0302",
+      "clf-0017",
+      "clf-0018"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-betrieb",
+      "tag-inbetriebnahme",
+      "tag-dokumentation"
     ]
   },
   {
@@ -19273,57 +17697,25 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0303"
-      },
-      {
-        "id": "clf-0086"
-      },
-      {
-        "id": "clf-0304"
-      },
-      {
-        "id": "clf-0087"
-      },
-      {
-        "id": "clf-0037"
-      },
-      {
-        "id": "clf-0088"
-      },
-      {
-        "id": "clf-0038"
-      },
-      {
-        "id": "clf-0167"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0168"
-      },
-      {
-        "id": "clf-0169"
-      },
-      {
-        "id": "clf-0060"
-      },
-      {
-        "id": "clf-0061"
-      }
+      "clf-0303",
+      "clf-0086",
+      "clf-0304",
+      "clf-0087",
+      "clf-0037",
+      "clf-0088",
+      "clf-0038",
+      "clf-0167",
+      "clf-0012",
+      "clf-0168",
+      "clf-0169",
+      "clf-0060",
+      "clf-0061"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-nachweise"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-nachweise",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -19442,36 +17834,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0167"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0168"
-      },
-      {
-        "id": "clf-0169"
-      },
-      {
-        "id": "clf-0060"
-      },
-      {
-        "id": "clf-0061"
-      }
+      "clf-0167",
+      "clf-0012",
+      "clf-0168",
+      "clf-0169",
+      "clf-0060",
+      "clf-0061"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-kosten"
-      }
+      "tag-koordination",
+      "tag-visualisierung",
+      "tag-kosten"
     ]
   },
   {
@@ -19757,48 +18131,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0305"
-      },
-      {
-        "id": "clf-0281"
-      },
-      {
-        "id": "clf-0306"
-      },
-      {
-        "id": "clf-0307"
-      },
-      {
-        "id": "clf-0150"
-      },
-      {
-        "id": "clf-0151"
-      },
-      {
-        "id": "clf-0152"
-      },
-      {
-        "id": "clf-0153"
-      },
-      {
-        "id": "clf-0172"
-      },
-      {
-        "id": "clf-0173"
-      }
+      "clf-0305",
+      "clf-0281",
+      "clf-0306",
+      "clf-0307",
+      "clf-0150",
+      "clf-0151",
+      "clf-0152",
+      "clf-0153",
+      "clf-0172",
+      "clf-0173"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-genehmigung"
-      },
-      {
-        "id": "tag-abnahme"
-      }
+      "tag-koordination",
+      "tag-genehmigung",
+      "tag-abnahme"
     ]
   },
   {
@@ -19957,63 +18305,27 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0218"
-      },
-      {
-        "id": "clf-0219"
-      },
-      {
-        "id": "clf-0308"
-      },
-      {
-        "id": "clf-0159"
-      },
-      {
-        "id": "clf-0160"
-      },
-      {
-        "id": "clf-0161"
-      },
-      {
-        "id": "clf-0162"
-      },
-      {
-        "id": "clf-0163"
-      },
-      {
-        "id": "clf-0241"
-      },
-      {
-        "id": "clf-0242"
-      },
-      {
-        "id": "clf-0016"
-      },
-      {
-        "id": "clf-0164"
-      },
-      {
-        "id": "clf-0309"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      }
+      "clf-0218",
+      "clf-0219",
+      "clf-0308",
+      "clf-0159",
+      "clf-0160",
+      "clf-0161",
+      "clf-0162",
+      "clf-0163",
+      "clf-0241",
+      "clf-0242",
+      "clf-0016",
+      "clf-0164",
+      "clf-0309",
+      "clf-0017",
+      "clf-0018"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-koordination",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -20247,39 +18559,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0310"
-      },
-      {
-        "id": "clf-0311"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0091"
-      },
-      {
-        "id": "clf-0312"
-      },
-      {
-        "id": "clf-0092"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0310",
+      "clf-0311",
+      "clf-0040",
+      "clf-0091",
+      "clf-0312",
+      "clf-0092",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      }
+      "tag-koordination",
+      "tag-visualisierung",
+      "tag-nachhaltigkeit"
     ]
   },
   {
@@ -20897,81 +19189,33 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0165"
-      },
-      {
-        "id": "clf-0314"
-      },
-      {
-        "id": "clf-0315"
-      },
-      {
-        "id": "clf-0316"
-      },
-      {
-        "id": "clf-0034"
-      },
-      {
-        "id": "clf-0317"
-      },
-      {
-        "id": "clf-0112"
-      },
-      {
-        "id": "clf-0318"
-      },
-      {
-        "id": "clf-0036"
-      },
-      {
-        "id": "clf-0319"
-      },
-      {
-        "id": "clf-0320"
-      },
-      {
-        "id": "clf-0321"
-      },
-      {
-        "id": "clf-0322"
-      },
-      {
-        "id": "clf-0323"
-      },
-      {
-        "id": "clf-0324"
-      },
-      {
-        "id": "clf-0325"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0128"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0019"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0165",
+      "clf-0314",
+      "clf-0315",
+      "clf-0316",
+      "clf-0034",
+      "clf-0317",
+      "clf-0112",
+      "clf-0318",
+      "clf-0036",
+      "clf-0319",
+      "clf-0320",
+      "clf-0321",
+      "clf-0322",
+      "clf-0323",
+      "clf-0324",
+      "clf-0325",
+      "clf-0012",
+      "clf-0128",
+      "clf-0094",
+      "clf-0019",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      },
-      {
-        "id": "tag-nachweise"
-      }
+      "tag-koordination",
+      "tag-visualisierung",
+      "tag-nachweise"
     ]
   },
   {
@@ -21474,48 +19718,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0317"
-      },
-      {
-        "id": "clf-0319"
-      },
-      {
-        "id": "clf-0320"
-      },
-      {
-        "id": "clf-0324"
-      },
-      {
-        "id": "clf-0012"
-      },
-      {
-        "id": "clf-0090"
-      },
-      {
-        "id": "clf-0091"
-      },
-      {
-        "id": "clf-0092"
-      },
-      {
-        "id": "clf-0093"
-      },
-      {
-        "id": "clf-0019"
-      }
+      "clf-0317",
+      "clf-0319",
+      "clf-0320",
+      "clf-0324",
+      "clf-0012",
+      "clf-0090",
+      "clf-0091",
+      "clf-0092",
+      "clf-0093",
+      "clf-0019"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-ausschreibung"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-ausschreibung",
+      "tag-kosten",
+      "tag-visualisierung"
     ]
   },
   {
@@ -21777,48 +19995,22 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0257"
-      },
-      {
-        "id": "clf-0207"
-      },
-      {
-        "id": "clf-0328"
-      },
-      {
-        "id": "clf-0089"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0329"
-      },
-      {
-        "id": "clf-0144"
-      },
-      {
-        "id": "clf-0094"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0257",
+      "clf-0207",
+      "clf-0328",
+      "clf-0089",
+      "clf-0040",
+      "clf-0143",
+      "clf-0329",
+      "clf-0144",
+      "clf-0094",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-koordination"
     ]
   },
   {
@@ -22014,42 +20206,20 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0257"
-      },
-      {
-        "id": "clf-0207"
-      },
-      {
-        "id": "clf-0328"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0329"
-      },
-      {
-        "id": "clf-0144"
-      },
-      {
-        "id": "clf-0017"
-      },
-      {
-        "id": "clf-0018"
-      }
+      "clf-0257",
+      "clf-0207",
+      "clf-0328",
+      "clf-0143",
+      "clf-0329",
+      "clf-0144",
+      "clf-0017",
+      "clf-0018"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-koordination"
     ]
   },
   {
@@ -22249,33 +20419,17 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0330"
-      },
-      {
-        "id": "clf-0226"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0143"
-      }
+      "clf-0330",
+      "clf-0226",
+      "clf-0079",
+      "clf-0081",
+      "clf-0143"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -22546,36 +20700,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0330"
-      },
-      {
-        "id": "clf-0226"
-      },
-      {
-        "id": "clf-0079"
-      },
-      {
-        "id": "clf-0081"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0106"
-      }
+      "clf-0330",
+      "clf-0226",
+      "clf-0079",
+      "clf-0081",
+      "clf-0143",
+      "clf-0106"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-inbetriebnahme"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-inbetriebnahme"
     ]
   },
   {
@@ -22793,30 +20929,16 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0257"
-      },
-      {
-        "id": "clf-0328"
-      },
-      {
-        "id": "clf-0143"
-      },
-      {
-        "id": "clf-0329"
-      }
+      "clf-0257",
+      "clf-0328",
+      "clf-0143",
+      "clf-0329"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-betrieb"
-      },
-      {
-        "id": "tag-nachhaltigkeit"
-      },
-      {
-        "id": "tag-koordination"
-      }
+      "tag-betrieb",
+      "tag-nachhaltigkeit",
+      "tag-koordination"
     ]
   },
   {
@@ -23035,36 +21157,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0331"
-      },
-      {
-        "id": "clf-0274"
-      },
-      {
-        "id": "clf-0117"
-      },
-      {
-        "id": "clf-0118"
-      },
-      {
-        "id": "clf-0106"
-      },
-      {
-        "id": "clf-0243"
-      },
-      {
-        "id": "clf-0119"
-      }
+      "clf-0331",
+      "clf-0274",
+      "clf-0117",
+      "clf-0118",
+      "clf-0106",
+      "clf-0243",
+      "clf-0119"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-dokumentation"
     ]
   },
   {
@@ -23240,27 +21344,15 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0245"
-      },
-      {
-        "id": "clf-0246"
-      },
-      {
-        "id": "clf-0332"
-      }
+      "clf-0245",
+      "clf-0246",
+      "clf-0332"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-bedarfsplanung",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   },
   {
@@ -23493,39 +21585,19 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0033"
-      },
-      {
-        "id": "clf-0333"
-      },
-      {
-        "id": "clf-0111"
-      },
-      {
-        "id": "clf-0334"
-      },
-      {
-        "id": "clf-0335"
-      },
-      {
-        "id": "clf-0040"
-      },
-      {
-        "id": "clf-0129"
-      }
+      "clf-0033",
+      "clf-0333",
+      "clf-0111",
+      "clf-0334",
+      "clf-0335",
+      "clf-0040",
+      "clf-0129"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-kosten"
-      },
-      {
-        "id": "tag-dokumentation"
-      }
+      "tag-koordination",
+      "tag-kosten",
+      "tag-dokumentation"
     ]
   },
   {
@@ -23785,36 +21857,18 @@
       }
     ],
     "related_classifications": [
-      {
-        "id": "clf-0336"
-      },
-      {
-        "id": "clf-0337"
-      },
-      {
-        "id": "clf-0338"
-      },
-      {
-        "id": "clf-0339"
-      },
-      {
-        "id": "clf-0116"
-      },
-      {
-        "id": "clf-0040"
-      }
+      "clf-0336",
+      "clf-0337",
+      "clf-0338",
+      "clf-0339",
+      "clf-0116",
+      "clf-0040"
     ],
     "related_usecases": [],
     "related_tags": [
-      {
-        "id": "tag-bedarfsplanung"
-      },
-      {
-        "id": "tag-koordination"
-      },
-      {
-        "id": "tag-visualisierung"
-      }
+      "tag-bedarfsplanung",
+      "tag-koordination",
+      "tag-visualisierung"
     ]
   }
 ]
