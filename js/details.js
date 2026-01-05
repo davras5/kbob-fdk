@@ -701,9 +701,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Dokument</th>
+                            <th class="th-w-50">Dokument</th>
                             <th class="th-w-phases">Phasen (1-5)</th>
-                            <th class="th-w-15">Status</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>${docRows}</tbody>
