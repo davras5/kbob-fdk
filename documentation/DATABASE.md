@@ -57,9 +57,9 @@ Interactive catalog for BIM requirements, classifications, and information speci
 erDiagram
     elements ||--o{ documents : "related_documents"
     elements ||--o{ epds : "related_epds"
-    elements ||--o{ attributes : "related_attributes"
+    elements ||--o{ usecases : "related_loin"
+    elements ||--o{ attributes : "related_loin"
     elements ||--o{ classifications : "related_classifications"
-    elements ||--o{ usecases : "related_usecases"
     elements ||--o{ tags : "related_tags"
 
     documents ||--o{ elements : "related_elements"
@@ -89,9 +89,8 @@ erDiagram
         jsonb tool_elements
         jsonb related_documents FK
         text[] related_epds FK
-        jsonb related_attributes FK
+        jsonb related_loin FK
         text[] related_classifications FK
-        text[] related_usecases FK
         text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
@@ -259,9 +258,8 @@ Physical building components with geometry (LOG) requirements.
 | `tool_elements` | `jsonb` | | Mappings to IFC classes and authoring tools (see §6.2) |
 | `related_documents` | `jsonb` | | Links to documents: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `related_epds` | `text[]` | | EPD UUIDs: `["<uuid>", ...]` |
-| `related_attributes` | `jsonb` | | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_loin` | `jsonb` | | LOI requirements per usecase: `[{"usecase_id": "<uuid>", "attributes": [{"id": "<uuid>", "phases": [2,3]}]}]` |
 | `related_classifications` | `text[]` | | Classification UUIDs: `["<uuid>", ...]` |
-| `related_usecases` | `text[]` | | Use case UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -400,9 +398,8 @@ Relationships between entities are stored on the parent entity, avoiding junctio
 |--------|-------|--------|-----------|
 | `elements` | `related_documents` | documents | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `elements` | `related_epds` | epds | `["<uuid>", ...]` |
-| `elements` | `related_attributes` | attributes | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `elements` | `related_loin` | usecases, attributes | `[{"usecase_id": "<uuid>", "attributes": [{"id": "<uuid>", "phases": [2,3]}]}]` |
 | `elements` | `related_classifications` | classifications | `["<uuid>", ...]` |
-| `elements` | `related_usecases` | usecases | `["<uuid>", ...]` |
 | `elements` | `related_tags` | tags | `["<uuid>", ...]` |
 | `documents` | `related_elements` | elements | `[{"id": "<uuid>"}]` |
 | `documents` | `related_classifications` | classifications | `["<uuid>", ...]` |
@@ -416,11 +413,11 @@ Relationships between entities are stored on the parent entity, avoiding junctio
 
 ### Bidirectional Relationships
 
-Some relationships exist on both sides (e.g., `elements.related_usecases` and `usecases.related_loin`).
+Some relationships exist on both sides (e.g., `elements.related_loin` and `usecases.related_loin`).
 
 **Source of truth:** The entity that "owns" the relationship contextually:
 - Use cases define LOI requirements (elements + attributes per phase) → `usecases.related_loin` is authoritative
-- Elements reference which use cases they support → `elements.related_usecases` is a convenience denormalization
+- Elements define LOI requirements per use case (attributes + phases) → `elements.related_loin` is a convenience denormalization
 
 Application layer is responsible for synchronization.
 
@@ -801,9 +798,8 @@ CREATE TABLE public.elements (
     tool_elements jsonb DEFAULT '[]',
     related_documents jsonb DEFAULT '[]',
     related_epds text[] DEFAULT '{}',
-    related_attributes jsonb DEFAULT '[]',
+    related_loin jsonb DEFAULT '[]',
     related_classifications text[] DEFAULT '{}',
-    related_usecases text[] DEFAULT '{}',
     related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
@@ -1023,7 +1019,7 @@ CREATE INDEX models_phases_idx ON models USING gin(phases);
 
 -- JSONB relationships (with metadata)
 CREATE INDEX elements_related_documents_idx ON elements USING gin(related_documents);
-CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
+CREATE INDEX elements_related_loin_idx ON elements USING gin(related_loin);
 CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
 CREATE INDEX usecases_related_loin_idx ON usecases USING gin(related_loin);
 CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_documents);
@@ -1032,7 +1028,6 @@ CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
 -- Simple text[] relationships (UUID arrays)
 CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
-CREATE INDEX elements_related_usecases_idx ON elements USING gin(related_usecases);
 CREATE INDEX elements_related_tags_idx ON elements USING gin(related_tags);
 CREATE INDEX documents_related_classifications_idx ON documents USING gin(related_classifications);
 CREATE INDEX documents_related_tags_idx ON documents USING gin(related_tags);
