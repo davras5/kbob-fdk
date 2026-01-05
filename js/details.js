@@ -54,7 +54,7 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'loin', text: 'LOIN' }
-    ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+    ].map(link => `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     // Build classification rows from related_classifications (now a simple string array of IDs)
     let classRows = '';
@@ -351,7 +351,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         { id: 'details', text: 'Details' },
         { id: 'elemente', text: 'Elemente' },
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
-    ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+    ].map(link => `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     // Build classifications table rows from related_classifications (now a simple string array of IDs)
     let classRows = '';
@@ -564,7 +564,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     let sidebarHtml = '';
 
     // Metadaten always first
-    sidebarHtml += '<a href="#metadaten" class="sidebar-link" data-target="metadaten">Metadaten</a>';
+    sidebarHtml += '<a href="javascript:void(0)" class="sidebar-link" data-target="metadaten">Metadaten</a>';
 
     // ALLGEMEINER TEIL
     const generalLinks = [];
@@ -577,7 +577,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     // practiceExample section removed from schema
 
     if (generalLinks.length > 0) {
-        sidebarHtml += generalLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+        sidebarHtml += generalLinks.map(link => `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
     }
 
     // UMSETZUNGSDETAILS
@@ -587,12 +587,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     if (hasProcess) detailLinks.push({ id: 'prozess', text: 'Prozess' });
 
     if (detailLinks.length > 0) {
-        sidebarHtml += detailLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+        sidebarHtml += detailLinks.map(link => `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
     }
 
     // VERKNÜPFUNGEN (always shown as placeholder)
-    sidebarHtml += '<a href="#dokumente" class="sidebar-link" data-target="dokumente">Dokumente</a>';
-    sidebarHtml += '<a href="#loin" class="sidebar-link" data-target="loin">LOIN</a>';
+    sidebarHtml += '<a href="javascript:void(0)" class="sidebar-link" data-target="dokumente">Dokumente</a>';
+    sidebarHtml += '<a href="javascript:void(0)" class="sidebar-link" data-target="loin">LOIN</a>';
 
     // Build phases HTML
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
@@ -908,7 +908,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
     sidebarLinks.push({ id: 'anwendungsfaelle', text: 'Anwendungsfälle' });
 
     const sidebarHtml = sidebarLinks.map(link =>
-        `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
+        `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
     ).join('');
 
     // Build phases HTML
@@ -1004,7 +1004,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
     sidebarLinks.push({ id: 'anwendungsfaelle', text: 'Anwendungsfälle' });
 
     const sidebarHtml = sidebarLinks.map(link =>
-        `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
+        `<a href="javascript:void(0)" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
     ).join('');
 
     // Format category
