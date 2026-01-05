@@ -552,6 +552,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const hasQualityCriteria = hasData(data.quality_criteria);
     const hasRoles = hasData(data.roles);
     const hasDocuments = hasData(data.related_documents);
+    const hasElements = hasData(data.related_loin);
 
     // Build sidebar with group labels
     let sidebarHtml = '';
@@ -711,6 +712,49 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         }
     }
 
+    // Build elements table HTML (LOI requirements)
+    let elementsHtml = '';
+    if (hasElements) {
+        const elemRows = data.related_loin.map(ref => {
+            const elem = getItemById('elements', ref.element_id);
+            if (elem) {
+                const elemName = t(elem.name);
+                const elemLink = `#elements/${elem.id}`;
+                // Build attributes list with phases
+                const attrList = ref.attributes.map(attr => {
+                    const attrData = getItemById('attributes', attr.id);
+                    if (attrData) {
+                        const attrName = t(attrData.name);
+                        const phasesStr = attr.phases && attr.phases.length > 0
+                            ? ` (${attr.phases.join(', ')})`
+                            : '';
+                        return `<span class="attr-pill">${escapeHtml(attrName)}${phasesStr}</span>`;
+                    }
+                    return '';
+                }).filter(Boolean).join(' ');
+                return `
+                <tr>
+                    <td class="col-val"><a href="${elemLink}" class="doc-link">${escapeHtml(elemName)}</a></td>
+                    <td class="col-val">${attrList || '<span class="empty-text">–</span>'}</td>
+                </tr>`;
+            }
+            return '';
+        }).filter(Boolean).join('');
+
+        if (elemRows) {
+            elementsHtml = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="th-w-30">Element</th>
+                            <th>Attribute (Phasen)</th>
+                        </tr>
+                    </thead>
+                    <tbody>${elemRows}</tbody>
+                </table>`;
+        }
+    }
+
     contentArea.innerHTML = `
         <section class="detail-hero">
             <div class="container detail-hero__inner">
@@ -804,12 +848,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
                     <div class="detail-section" id="elemente">
                         <h2>Elemente</h2>
-                        <div class="info-box info-box--inline">
-                            <i data-lucide="construction" class="info-box__icon"></i>
-                            <div>
-                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
-                            </div>
-                        </div>
+                        ${hasElements && elementsHtml ? elementsHtml : `
+                        <p class="empty-text">Keine verknüpften Elemente vorhanden.</p>
+                        `}
                     </div>
                 </div>
             </div>

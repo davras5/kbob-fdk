@@ -3359,6 +3359,18 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Attribute pill styling for LOI tables */
+.attr-pill {
+    display: inline-block;
+    background: var(--color-bg-light);
+    color: var(--color-text-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin: 0.15rem 0.25rem 0.15rem 0;
+    border: 1px solid var(--color-border-input);
+}
+
 .info-box--inline {
     display: flex;
     align-items: flex-start;
