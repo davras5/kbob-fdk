@@ -26,7 +26,7 @@
 | ✅ | Implemented |
 | 🔄 | Partially implemented |
 | ⏳ | Planned |
-| ❌ | Not started / Out of scope |
+| ❌ | Not started |
 
 ---
 
@@ -34,218 +34,132 @@
 
 ### FR-1: Data Catalogs
 
-Browse and explore BIM reference data across multiple entity types with detail views, cross-entity navigation, and versioning support.
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **5 browsable catalogs** | Elements (80), Use Cases (30), Documents (130), Models (10), EPDs (20) with list and detail views | ✅ |
+| **Reference data** | Attributes (64), Classifications (344), Tags (22) - used in relationships, no standalone UI | ✅ |
+| **Detail views** | Full specifications per entity with cross-entity navigation | ✅ |
+| **Relationships** | Bidirectional linking between entities with phase metadata | ✅ |
+| **Versioning** | Version number and last_change date displayed; no version history | 🔄 |
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| **Core Catalogs** | | |
-| Building Elements catalog | ✅ | 80 elements with geometry (LOG) and LOIN requirements |
-| Use Cases catalog | ✅ | 30 BIM processes per VDI 2552 with BPMN diagrams |
-| Documents catalog | ✅ | 130 document types per KBOB/IPB |
-| Discipline Models catalog | ✅ | 10 BIM model definitions |
-| EPD Data catalog | ✅ | 20 environmental product declarations (KBOB Ökobilanzdaten) |
-| **Reference Data (used in relationships)** | | |
-| Attributes | ✅ | 64 property definitions (displayed in LOIN tables, no standalone view) |
-| Classifications | ✅ | 344 codes (displayed on detail pages, no standalone view) |
-| Tags | ✅ | 22 keywords (used for filtering, no standalone view) |
-| **Common Features** | | |
-| Detail views with full specifications | ✅ | Per entity type |
-| Cross-entity relationships | ✅ | Bidirectional linking with phase metadata |
-| Versioning metadata | 🔄 | Version field + last_change date displayed; no version history |
-| Visual identification (images/icons) | ✅ | |
+### FR-2: Search & Discovery
 
-### FR-2: Search & Filtering
-
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| Global search across all catalogs | ✅ | |
-| Full-text search (name, domain, description) | ✅ | |
-| Search results grouped by entity type | ✅ | |
-| Real-time search suggestions | ✅ | Dropdown |
-| Category/domain filtering | ✅ | |
-| Multi-select tag filtering | ✅ | |
-| Filter state persistence via URL | ✅ | Hash-based |
-| Phase-based filtering | ⏳ | Planned |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Global search** | Full-text search across all catalogs (name, domain, description) with suggestions | ✅ |
+| **Filtering** | Category/domain and multi-select tag filtering with URL persistence | ✅ |
+| **Phase filtering** | Filter by lifecycle phase | ⏳ |
 
 ### FR-3: Multilingual Support
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| German (DE) - primary language | ✅ | |
-| French (FR) | ✅ | |
-| Italian (IT) | ✅ | |
-| English (EN) | ✅ | |
-| Multilingual data content | ✅ | JSONB storage with i18n objects |
-| Language switcher UI | 🔄 | Present but not functional |
-| Translated UI text | 🔄 | Data translated; UI chrome hardcoded German |
-| Fallback language system | ✅ | Defaults to German |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **4 languages** | German (primary), French, Italian, English | ✅ |
+| **Data content** | All catalog data translated via JSONB i18n objects | ✅ |
+| **UI text** | Navigation, labels, messages - currently hardcoded German | 🔄 |
+| **Language switcher** | Dropdown present but not functional | 🔄 |
 
-### FR-4: BIM Standards Integration
+### FR-4: BIM Standards
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| IFC 4.3 class mappings | ✅ | Entity types and predefined types |
-| IFC Property Set (PSet) specifications | ✅ | |
-| Authoring software mappings | ✅ | Revit and ArchiCAD |
-| VDI 2552 use case compliance | ✅ | Standard classification codes |
-| BPMN 2.0 process diagrams | ✅ | Interactive bpmn-js viewer |
-| VDI 2552 lifecycle phases | ✅ | 5 phases per Blatt 12.2 |
-| Phase-specific LOIN requirements | ✅ | Attributes per phase |
-| Phase-specific LOG requirements | ✅ | Geometry per phase |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **IFC 4.3 mappings** | Entity types, predefined types, and Property Set specifications | ✅ |
+| **Authoring tools** | Element mappings for Revit and ArchiCAD | ✅ |
+| **VDI 2552** | Use case compliance and 5 lifecycle phases per Blatt 12.2 | ✅ |
+| **LOIN/LOG** | Phase-specific attribute (LOI) and geometry (LOG) requirements | ✅ |
+| **BPMN diagrams** | Interactive process diagrams via bpmn-js viewer | ✅ |
 
 ### FR-5: Backend & API
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| Static JSON data files | ✅ | Current implementation |
-| Supabase PostgreSQL backend | ⏳ | Planned |
-| OpenAPI 3.0 specification | ✅ | 1,313 lines defined |
-| REST API endpoints | 🔄 | Spec defined; backend pending |
-| Swagger UI documentation | ✅ | Interactive API docs |
-| Response caching | ✅ | 5-minute duration |
-| Row Level Security | ⏳ | Planned with Supabase |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **Data storage** | Static JSON files in /data folder | ✅ |
+| **Supabase backend** | PostgreSQL cloud database | ⏳ |
+| **REST API** | OpenAPI 3.0 spec defined (1,313 lines); backend not deployed | 🔄 |
+| **API documentation** | Swagger UI for interactive exploration | ✅ |
 
 ### FR-6: User Interface
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| Swiss Federal CD Bund design | 🔄 | Partial compliance |
-| Responsive layout | 🔄 | Desktop optimized; mobile needs work |
-| Navigation sidebar | ✅ | 7 main routes |
-| Breadcrumb navigation | ✅ | |
-| Card-based list views | ✅ | |
-| Detail page layouts | ✅ | With sticky sidebar navigation |
-| Hash-based SPA routing | ✅ | No server required |
-| Deep linking support | ✅ | Direct URL to any view |
-| Print and share functionality | ✅ | |
-| Handbook & documentation section | ✅ | |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **CD Bund design** | Swiss Federal Corporate Design compliance | 🔄 |
+| **Responsive layout** | Desktop optimized; mobile/tablet needs improvement | 🔄 |
+| **Navigation** | Sidebar with 7 routes, breadcrumbs, hash-based SPA routing | ✅ |
+| **Views** | Card-based lists, detail pages with sticky nav, handbook section | ✅ |
+| **Utilities** | Print, share, deep linking support | ✅ |
 
 ### FR-7: Future Integrations
 
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| **Data Export & Validation** | | |
-| IDS checking rules export | ⏳ | Information Delivery Specification |
-| EIR Excel export | ⏳ | Exchange Information Requirements |
-| IFC file validation | ⏳ | Long-term goal |
-| **External Data Linking** | | |
-| bSDD integration | ⏳ | buildingSMART Data Dictionary |
-| TERMDAT integration | ⏳ | Federal terminology database |
-| I14Y interoperability platform | ⏳ | Swiss data interoperability |
-| LINDAS linked data service | ⏳ | Swiss linked open data |
-| **Tools & Platforms** | | |
-| Authoring software templates | ⏳ | Revit, ArchiCAD - major milestone |
-| CDE integration | ⏳ | Common Data Environment (PIM/AIM) |
-| Content management interface | ❌ | Manual JSON editing currently |
+| Feature | Description | Status |
+|---------|-------------|--------|
+| **IDS export** | Information Delivery Specification checking rules | ⏳ |
+| **EIR export** | Exchange Information Requirements as Excel | ⏳ |
+| **bSDD** | buildingSMART Data Dictionary linking | ⏳ |
+| **Swiss federal data** | TERMDAT, I14Y, LINDAS integration | ⏳ |
+| **Authoring templates** | Revit and ArchiCAD project templates | ⏳ |
+| **CDE integration** | Common Data Environment connectivity | ⏳ |
 
 ---
 
 ## Non-Functional Requirements
 
-### NFR-1: Performance
-
-| Requirement | Target | Status |
-|-------------|--------|--------|
-| Initial page load | < 2 seconds | ✅ |
-| Catalog list render | < 500ms | ✅ |
-| Search response | < 200ms | ✅ |
-| Filter application | < 100ms | ✅ |
-
-### NFR-2: Compatibility
+### NFR-1: Performance & Compatibility
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|
-| Chrome, Firefox, Safari, Edge (latest 2) | ✅ | Desktop browsers |
-| Mobile browsers (Chrome, Safari) | 🔄 | Basic support; UX needs work |
-| ES6+ JavaScript | ✅ | Required |
+| Page load < 2s, search < 200ms | ✅ | Static hosting optimized |
+| Desktop browsers (Chrome, Firefox, Safari, Edge) | ✅ | Latest 2 versions |
+| Mobile browsers | 🔄 | Basic support; UX needs work |
 | Static file hosting | ✅ | GitHub Pages compatible |
 
-### NFR-3: Usability & Accessibility
+### NFR-2: Usability & Accessibility
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|
-| WCAG 2.1 AA accessibility | ✅ | Color contrast, ARIA, focus indicators |
-| Keyboard navigation | ✅ | |
+| WCAG 2.1 AA | ✅ | Color contrast, ARIA, focus indicators |
+| Keyboard navigation | ✅ | Full support |
 | Semantic HTML | ✅ | Proper heading hierarchy |
-| Print-friendly styles | ✅ | |
+| Print-friendly | ✅ | Optimized print styles |
 
-### NFR-4: Security
+### NFR-3: Security & Maintainability
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|
 | HTTPS only | ✅ | GitHub Pages |
-| No sensitive data exposure | ✅ | Public catalog |
-| Row Level Security | ⏳ | Planned with Supabase |
-
-### NFR-5: Maintainability
-
-| Requirement | Status | Notes |
-|-------------|--------|-------|
-| No framework dependency | ✅ | Vanilla JS |
-| No build step required | ✅ | Direct HTML/CSS/JS |
-| Modular architecture | ✅ | 19 JS modules |
-| CSS design tokens | ✅ | tokens.css |
+| No framework dependency | ✅ | Vanilla JS, no build step |
+| Modular architecture | ✅ | 19 JS modules, CSS tokens |
 | MIT license | ✅ | Open source |
 
 ---
 
 ## Technology Stack
 
-### Frontend
-
-| Technology | Purpose |
-|------------|---------|
-| HTML5 / CSS3 / Vanilla JS (ES6+) | Core application |
-| Lucide Icons | SVG iconography |
-| Noto Sans | Typography (Google Fonts) |
-| bpmn-js | BPMN process visualization |
-| Swagger UI | API documentation |
-
-### Backend (Current & Planned)
-
-| Technology | Status | Notes |
-|------------|--------|-------|
-| JSON files | ✅ Current | /data/*.json |
-| Supabase PostgreSQL | ⏳ Planned | Cloud database |
-| OpenAPI 3.0 | ✅ Defined | API specification |
-
-### Design System
-
-| Aspect | Implementation |
-|--------|----------------|
-| Colors | Swiss Federal palette (CSS custom properties) |
-| Typography | Noto Sans (400, 500, 600, 700) |
-| Spacing | 4px base unit |
-| Breakpoints | 640px / 768px / 1024px / 1280px |
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend** | HTML5, CSS3 (custom properties), Vanilla JS (ES6+) |
+| **Libraries** | bpmn-js (diagrams), Swagger UI (API docs), Lucide (icons) |
+| **Typography** | Noto Sans (Google Fonts) |
+| **Data** | Static JSON (current), Supabase PostgreSQL (planned) |
+| **Hosting** | GitHub Pages |
 
 ---
 
 ## Data Model Summary
 
-### Entities
+| Entity | Count | Description |
+|--------|-------|-------------|
+| Elements | 80 | Building components with LOG/LOIN, IFC mappings |
+| Use Cases | 30 | BIM processes per VDI 2552 with BPMN |
+| Documents | 130 | KBOB/IPB document types with retention |
+| Models | 10 | Discipline model definitions |
+| EPDs | 20 | Environmental product declarations |
+| Attributes | 64 | LOI property definitions (reference) |
+| Classifications | 344 | eBKP-H and DIN 276 codes (reference) |
+| Tags | 22 | Anwendungsfeld keywords (reference) |
 
-| Entity | Records | Type | Key Features |
-|--------|---------|------|--------------|
-| Elements | 80 | Core (catalog) | LOG/LOIN requirements, IFC mappings |
-| Use Cases | 30 | Core (catalog) | VDI 2552 processes, BPMN diagrams |
-| Documents | 130 | Core (catalog) | KBOB/IPB types, retention periods |
-| Models | 10 | Core (catalog) | Discipline model definitions |
-| EPDs | 20 | Core (catalog) | Environmental impact data |
-| Attributes | 64 | Reference (no UI) | LOI property definitions |
-| Classifications | 344 | Reference (no UI) | eBKP-H, DIN 276 codes |
-| Tags | 22 | Reference (no UI) | Anwendungsfeld keywords |
+**Lifecycle Phases (VDI 2552 Blatt 12.2):** Entwicklung, Planung, Realisierung, Betrieb, Abbruch
 
-### Lifecycle Phases (VDI 2552 Blatt 12.2)
-
-| Phase | Name (DE) | Name (EN) |
-|-------|-----------|-----------|
-| 1 | Entwicklung | Development |
-| 2 | Planung | Planning |
-| 3 | Realisierung | Construction |
-| 4 | Betrieb | Operations |
-| 5 | Abbruch | Demolition |
-
-> **Note:** Full data model documentation in [data-model.md](data-model.md)
+> Full documentation: [data-model.md](data-model.md)
 
 ---
 
@@ -253,120 +167,65 @@ Browse and explore BIM reference data across multiple entity types with detail v
 
 ### Phase 1: Core Catalogs (Current)
 
-**Completed:**
-- [x] All catalog views with browse/search/filter
-- [x] Detail views for all entity types
-- [x] Cross-entity navigation and relationships
-- [x] Multilingual data content (DE/FR/IT/EN)
-- [x] IFC and classification mappings
-- [x] BPMN process viewer
-- [x] OpenAPI specification
-- [x] Desktop-optimized responsive design
+**Done:** 5 catalog views, detail pages, search/filter, multilingual data, IFC mappings, BPMN viewer, OpenAPI spec
 
-**Pending:**
-- [ ] Functional language switcher
-- [ ] Multilingual UI text
-- [ ] Mobile UX improvements
-- [ ] Full CD Bund compliance
+**Pending:** Functional language switcher, UI translations, mobile UX, full CD Bund compliance
 
 ### Phase 2: Enhanced Features
 
-- [ ] Supabase PostgreSQL backend migration
-- [ ] REST API deployment
-- [ ] Full multilingual UI
-- [ ] Improved mobile/responsive design
-- [ ] Full Swiss Federal CD Bund compliance
-- [ ] Phase-based filtering
-- [ ] Data export (CSV, JSON)
-- [ ] Comparison view for elements
+- Supabase backend migration and REST API deployment
+- Full multilingual UI
+- Mobile/responsive improvements
+- Full CD Bund compliance
+- Phase-based filtering
+- Data export (CSV, JSON)
 
 ### Phase 3: Data Export & Validation
 
-- [ ] IDS checking rules export (Information Delivery Specification)
-- [ ] EIR Excel export (Exchange Information Requirements)
-- [ ] bSDD integration (buildingSMART Data Dictionary)
+- IDS checking rules export
+- EIR Excel export
+- bSDD integration
 
-### Phase 4: Swiss Data Ecosystem Integration
+### Phase 4: Swiss Data Ecosystem
 
-- [ ] TERMDAT integration (Federal terminology)
-- [ ] I14Y interoperability platform
-- [ ] LINDAS linked data service
-- [ ] Authoring software templates (Revit, ArchiCAD)
+- TERMDAT, I14Y, LINDAS integration
+- Authoring software templates (Revit, ArchiCAD)
 
 ### Phase 5: Enterprise & Governance
 
-- [ ] Content management interface
-- [ ] User management and access control
-- [ ] Quality assurance integration
-- [ ] IFC validation engine
-- [ ] Official KBOB governance framework
+- Content management interface
+- User management
+- IFC validation engine
+- Official KBOB governance framework
 
 ---
 
 ## Standards Compliance
 
-### BIM Standards
-
-| Standard | Status |
-|----------|--------|
-| ISO 19650 (Information Management) | ✅ Aligned |
-| IFC 4.3 | ✅ Mapped |
-| EN 17412 (LOIN) | ✅ Implemented |
-| EN 15804 (EPD) | ✅ Compliant |
-| VDI 2552 (Use Cases & Phases) | ✅ Compliant |
-| BPMN 2.0 | ✅ Implemented |
-| bSDD (Data Dictionary) | ⏳ Planned |
-| IDS (Information Delivery Spec) | ⏳ Planned |
-
-### Swiss Federal Standards
-
-| Standard | Status |
-|----------|--------|
-| CD Bund (Corporate Design) | 🔄 Partial |
-| TERMDAT | ⏳ Planned |
-| I14Y | ⏳ Planned |
-| LINDAS | ⏳ Planned |
-| DCAT-AP CH | ⏳ Planned |
-
-### Classification Systems
-
-| System | Status |
-|--------|--------|
-| eBKP-H (Swiss) | ✅ Included |
-| DIN 276 (German) | ✅ Included |
+| Category | Standards | Status |
+|----------|-----------|--------|
+| **BIM** | ISO 19650, IFC 4.3, EN 17412 (LOIN), VDI 2552, BPMN 2.0 | ✅ |
+| **Environmental** | EN 15804 (EPD) | ✅ |
+| **Classifications** | eBKP-H, DIN 276 | ✅ |
+| **Swiss Federal** | CD Bund | 🔄 |
+| **Planned** | bSDD, IDS, TERMDAT, I14Y, LINDAS | ⏳ |
 
 ---
 
 ## Open Questions
 
-1. Which Common Data Environments should be prioritized for integration?
-2. Should authoring software templates be developed in-house or via partnerships?
-3. How will data standard versioning and change management work?
-4. Should IFC validation be embedded or linked to external tools?
-5. Is a dedicated mobile application needed beyond responsive web?
-6. Should the catalog support offline browsing via service workers?
+1. Which CDEs should be prioritized for integration?
+2. Should authoring templates be developed in-house or via partnerships?
+3. How will data versioning and change management work?
+4. Is a dedicated mobile app needed beyond responsive web?
 
 ---
 
 ## References
 
-### Project Resources
-- [Live Demo](https://davras5.github.io/kbob-fdk/)
-- [GitHub Repository](https://github.com/davras5/kbob-fdk)
-- [Data Model Documentation](data-model.md)
-- [Style Guide](styleguide.md)
-- [Vision Document](vision.md)
+**Project:** [Live Demo](https://davras5.github.io/kbob-fdk/) | [GitHub](https://github.com/davras5/kbob-fdk) | [Data Model](data-model.md) | [Style Guide](styleguide.md)
 
-### Standards
-- [ISO 19650](https://www.iso.org/standard/68078.html) - BIM Information Management
-- [buildingSMART IFC](https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/)
-- [VDI 2552](https://www.vdi.de/richtlinien/unsere-richtlinien-highlights/vdi-2552) - BIM Guidelines
-- [CD Bund](https://www.bk.admin.ch/bk/de/home/kommunikation/corporate-design-bund.html) - Swiss Federal Design
-
-### Technology
-- [Supabase](https://supabase.com/docs)
-- [bpmn-js](https://bpmn.io/toolkit/bpmn-js/)
-- [OpenAPI 3.0](https://spec.openapis.org/oas/v3.0.0)
+**Standards:** [ISO 19650](https://www.iso.org/standard/68078.html) | [IFC](https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/) | [VDI 2552](https://www.vdi.de/richtlinien/unsere-richtlinien-highlights/vdi-2552) | [CD Bund](https://www.bk.admin.ch/bk/de/home/kommunikation/corporate-design-bund.html)
 
 ---
 
@@ -374,16 +233,12 @@ Browse and explore BIM reference data across multiple entity types with detail v
 
 | Metric | Value |
 |--------|-------|
-| Total Data Records | ~700 |
-| Building Elements | 80 |
-| Use Cases | 30 |
-| Documents | 130 |
-| Supported Languages | 4 |
-| Lifecycle Phases | 5 |
+| Data Records | ~700 |
 | Lines of Code | ~10,900 |
-| JavaScript Modules | 19 |
+| JS Modules | 19 |
+| Languages | 4 |
+| Phases | 5 |
 
 ---
 
-*Last Updated: January 2026*
-*Version: 2.0.0*
+*Last Updated: January 2026 | Version: 2.1.0*
