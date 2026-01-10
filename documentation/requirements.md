@@ -15,7 +15,7 @@
 - BIM coordinators
 - Software vendors and system integrators
 
-**Current Status:** Production demonstration with comprehensive data model, five integrated catalogs, multilingual support, and REST API implemented
+**Current Status:** Production demonstration with comprehensive data model, five integrated catalogs, and static JSON data. Supabase backend and full multilingual UI support planned for future development.
 
 ---
 
@@ -36,7 +36,7 @@
 
 | ID | Requirement | Priority | Status | Notes |
 |----|-------------|----------|--------|-------|
-| FR-1.1 | Display standardized BIM building elements | Must | ✅ | 851 elements defined |
+| FR-1.1 | Display standardized BIM building elements | Must | ✅ | 80 elements defined |
 | FR-1.2 | Browse elements by domain/category | Must | ✅ | Gebäudetechnik, Tragwerk, Architektur, etc. |
 | FR-1.3 | Element detail view with full specifications | Must | ✅ | |
 | FR-1.4 | Phase-aware geometry requirements | Must | ✅ | Symbol, Länge, Breite, Höhe per phase |
@@ -55,7 +55,7 @@
 
 | ID | Requirement | Priority | Status | Notes |
 |----|-------------|----------|--------|-------|
-| FR-2.1 | Display BIM use cases/processes | Must | ✅ | 856 use cases defined |
+| FR-2.1 | Display BIM use cases/processes | Must | ✅ | 30 use cases defined |
 | FR-2.2 | Use case detail view | Must | ✅ | |
 | FR-2.3 | Goals, inputs, outputs documentation | Must | ✅ | |
 | FR-2.4 | Roles and responsibilities | Should | ✅ | |
@@ -173,9 +173,9 @@
 | FR-11.2 | French (FR) language support | Must | ✅ | |
 | FR-11.3 | Italian (IT) language support | Must | ✅ | |
 | FR-11.4 | English (EN) language support | Should | ✅ | |
-| FR-11.5 | Language switcher in UI | Must | ✅ | Top bar |
+| FR-11.5 | Language switcher in UI | Must | 🔄 | UI present but not functional |
 | FR-11.6 | Fallback language system | Should | ✅ | Defaults to German |
-| FR-11.7 | All UI text translated | Must | ✅ | |
+| FR-11.7 | All UI text translated | Must | 🔄 | Data content translated; UI chrome hardcoded German |
 | FR-11.8 | All content data translated | Must | ✅ | JSONB multilingual storage |
 
 ### FR-12: Phase-Based Requirements
@@ -219,16 +219,16 @@
 
 | ID | Requirement | Priority | Status | Notes |
 |----|-------------|----------|--------|-------|
-| FR-15.1 | RESTful endpoints for all entities | Must | ✅ | Supabase backend |
+| FR-15.1 | RESTful endpoints for all entities | Must | ⏳ | Supabase backend planned |
 | FR-15.2 | OpenAPI 3.0 specification | Should | ✅ | 1,313 lines |
-| FR-15.3 | Elements endpoint | Must | ✅ | /rest/v1/elements |
-| FR-15.4 | Use cases endpoint | Must | ✅ | /rest/v1/usecases |
-| FR-15.5 | Documents endpoint | Must | ✅ | /rest/v1/documents |
-| FR-15.6 | Models endpoint | Must | ✅ | /rest/v1/models |
-| FR-15.7 | EPDs endpoint | Should | ✅ | /rest/v1/epds |
-| FR-15.8 | Attributes endpoint | Should | ✅ | /rest/v1/attributes |
-| FR-15.9 | Classifications endpoint | Should | ✅ | /rest/v1/classifications |
-| FR-15.10 | Tags endpoint | Should | ✅ | /rest/v1/tags |
+| FR-15.3 | Elements endpoint | Must | 🔄 | Spec defined; backend pending |
+| FR-15.4 | Use cases endpoint | Must | 🔄 | Spec defined; backend pending |
+| FR-15.5 | Documents endpoint | Must | 🔄 | Spec defined; backend pending |
+| FR-15.6 | Models endpoint | Must | 🔄 | Spec defined; backend pending |
+| FR-15.7 | EPDs endpoint | Should | 🔄 | Spec defined; backend pending |
+| FR-15.8 | Attributes endpoint | Should | 🔄 | Spec defined; backend pending |
+| FR-15.9 | Classifications endpoint | Should | 🔄 | Spec defined; backend pending |
+| FR-15.10 | Tags endpoint | Should | 🔄 | Spec defined; backend pending |
 | FR-15.11 | Swagger UI documentation | Should | ✅ | Interactive API docs |
 
 ### FR-16: Handbook & Documentation
@@ -264,11 +264,11 @@
 
 | ID | Requirement | Priority | Status | Notes |
 |----|-------------|----------|--------|-------|
-| FR-18.1 | JSON file data source | Must | ✅ | Primary for static hosting |
-| FR-18.2 | Supabase PostgreSQL backend | Should | ✅ | Enterprise option |
-| FR-18.3 | Dual data source support | Should | ✅ | Configurable fallback |
+| FR-18.1 | JSON file data source | Must | ✅ | Current implementation |
+| FR-18.2 | Supabase PostgreSQL backend | Should | ⏳ | Planned for future |
+| FR-18.3 | Dual data source support | Should | ⏳ | Planned for future |
 | FR-18.4 | Response caching | Should | ✅ | 5-minute cache duration |
-| FR-18.5 | Row Level Security (RLS) | Could | ✅ | Supabase policies |
+| FR-18.5 | Row Level Security (RLS) | Could | ⏳ | Planned with Supabase |
 
 ### FR-19: Administration (Future)
 
@@ -285,12 +285,14 @@
 
 | ID | Requirement | Priority | Status | Notes |
 |----|-------------|----------|--------|-------|
-| FR-20.1 | Authoring software plugins (Revit) | Could | ⏳ | Medium-term goal |
-| FR-20.2 | Authoring software plugins (ArchiCAD) | Could | ⏳ | Medium-term goal |
-| FR-20.3 | CDE integration (Common Data Environment) | Could | ⏳ | PIM/AIM connectivity |
-| FR-20.4 | Swiss Data Ecosystem linking | Could | ⏳ | DCAT-AP CH |
-| FR-20.5 | Quality assurance software hooks | Could | ⏳ | Automated validation |
-| FR-20.6 | IFC file validation | Could | ⏳ | Long-term goal |
+| FR-20.1 | Authoring software templates (Revit) | Should | ⏳ | Major milestone |
+| FR-20.2 | Authoring software templates (ArchiCAD) | Should | ⏳ | Major milestone |
+| FR-20.3 | TERMDAT integration | Should | ⏳ | Federal terminology database |
+| FR-20.4 | I14Y interoperability platform | Should | ⏳ | Swiss data interoperability |
+| FR-20.5 | LINDAS linked data service | Should | ⏳ | Swiss linked open data |
+| FR-20.6 | CDE integration (Common Data Environment) | Could | ⏳ | PIM/AIM connectivity |
+| FR-20.7 | Quality assurance software hooks | Could | ⏳ | Automated validation |
+| FR-20.8 | IFC file validation | Could | ⏳ | Long-term goal |
 
 ---
 
@@ -312,10 +314,10 @@
 
 | ID | Requirement | Status | Notes |
 |----|-------------|--------|-------|
-| NFR-2.1 | Responsive design (desktop, tablet, mobile) | ✅ | Breakpoint-based |
+| NFR-2.1 | Responsive design (desktop, tablet, mobile) | 🔄 | Desktop optimized; mobile needs improvement |
 | NFR-2.2 | Keyboard navigable | ✅ | |
 | NFR-2.3 | WCAG 2.1 AA accessibility | ✅ | Color contrast, ARIA |
-| NFR-2.4 | Swiss Federal Corporate Design (CD Bund) | ✅ | Official compliance |
+| NFR-2.4 | Swiss Federal Corporate Design (CD Bund) | 🔄 | Partial compliance; full alignment planned |
 | NFR-2.5 | Consistent visual language | ✅ | Token-based design system |
 | NFR-2.6 | Semantic HTML structure | ✅ | |
 | NFR-2.7 | Focus indicators | ✅ | |
@@ -330,8 +332,8 @@
 | NFR-3.2 | Firefox (latest 2 versions) | ✅ | |
 | NFR-3.3 | Safari (latest 2 versions) | ✅ | Desktop + iOS |
 | NFR-3.4 | Edge (latest 2 versions) | ✅ | |
-| NFR-3.5 | Chrome Mobile (Android) | ✅ | |
-| NFR-3.6 | Safari Mobile (iOS) | ✅ | |
+| NFR-3.5 | Chrome Mobile (Android) | 🔄 | Basic support; UX needs work |
+| NFR-3.6 | Safari Mobile (iOS) | 🔄 | Basic support; UX needs work |
 | NFR-3.7 | ES6+ JavaScript support | ✅ | Required |
 
 ### NFR-4: Security
@@ -340,7 +342,7 @@
 |----|-------------|--------|-------|
 | NFR-4.1 | HTTPS only | ✅ | GitHub Pages |
 | NFR-4.2 | No sensitive data exposure | ✅ | Public catalog |
-| NFR-4.3 | Row Level Security (Supabase) | ✅ | When using backend |
+| NFR-4.3 | Row Level Security (Supabase) | ⏳ | Planned with Supabase migration |
 | NFR-4.4 | API key protection | ✅ | Anon key only |
 | NFR-4.5 | CORS compliance | ✅ | |
 
@@ -360,8 +362,8 @@
 
 | ID | Requirement | Status | Notes |
 |----|-------------|--------|-------|
-| NFR-6.1 | Support 1000+ elements | ✅ | Currently 851 |
-| NFR-6.2 | Support 1000+ use cases | ✅ | Currently 856 |
+| NFR-6.1 | Support 1000+ elements | 🔄 | Currently 80 (demo data) |
+| NFR-6.2 | Support 1000+ use cases | 🔄 | Currently 30 (demo data) |
 | NFR-6.3 | Pagination for large datasets | ✅ | Intersection Observer |
 | NFR-6.4 | Static file hosting compatible | ✅ | GitHub Pages |
 | NFR-6.5 | CDN-ready assets | ✅ | |
@@ -405,10 +407,10 @@
 
 | Technology | Purpose | Notes |
 |------------|---------|-------|
-| JSON files | Primary data source | /data/*.json |
-| Supabase | Cloud PostgreSQL | Enterprise option |
-| OpenAPI 3.0 | API specification | REST endpoints |
-| Edge Functions | Supabase API | /functions/v1/kbob-api |
+| JSON files | Primary data source | /data/*.json (current) |
+| Supabase | Cloud PostgreSQL | Planned for future |
+| OpenAPI 3.0 | API specification | Schema defined |
+| Edge Functions | Supabase API | Planned for future |
 
 ### Development Tools
 
@@ -427,8 +429,8 @@
 
 | Entity | Records | Key Fields | Relationships |
 |--------|---------|------------|---------------|
-| **Elements** | 851 | id, name, domain, phases, geometry, tool_elements | → Documents, EPDs, Classifications, Use Cases (LOIN), Tags |
-| **Use Cases** | 856 | id, code, name, domain, phases, goals, inputs, outputs, roles | → Elements (LOIN), Documents, Tags |
+| **Elements** | 80 | id, name, domain, phases, geometry, tool_elements | → Documents, EPDs, Classifications, Use Cases (LOIN), Tags |
+| **Use Cases** | 30 | id, code, name, domain, phases, goals, inputs, outputs, roles | → Elements (LOIN), Documents, Tags |
 | **Documents** | 130 | id, code, name, domain, phases, formats, retention | → Elements, Classifications, Tags |
 | **Models** | 10 | id, code, name, domain, phases | → Elements, Tags |
 
@@ -471,7 +473,7 @@
 | Metric | Value |
 |--------|-------|
 | Total JSON lines | ~54,700 |
-| Total data records | 2,212 |
+| Total data records | ~700 |
 | Estimated size | ~1.5 MB |
 
 ---
@@ -480,8 +482,8 @@
 
 ```
 /data
-├── elements.json        # 851 building elements (23,792 lines)
-├── usecases.json        # 856 BIM use cases (15,931 lines)
+├── elements.json        # 80 building elements (23,792 lines)
+├── usecases.json        # 30 BIM use cases (15,931 lines)
 ├── documents.json       # 130 document types
 ├── models.json          # 10 discipline models
 ├── epds.json            # 20 environmental product declarations
@@ -499,8 +501,8 @@
 
 **Data:**
 - [x] JSON data files for all entities
-- [x] 851 building elements with full specifications
-- [x] 856 use cases with BPMN references
+- [x] 80 building elements with full specifications (demo data)
+- [x] 30 use cases with BPMN references (demo data)
 - [x] 130 document types with KBOB/IPB codes
 - [x] 10 discipline models
 - [x] 20 EPD records with environmental metrics
@@ -513,17 +515,23 @@
 - [x] EPD data catalog
 - [x] Detail views for all entity types
 - [x] Navigation sidebar and breadcrumbs
-- [x] Responsive design
+- [x] Responsive design (desktop; mobile needs improvement)
 
 **Features:**
 - [x] Global search across all catalogs
 - [x] Category and tag filtering
-- [x] Multilingual support (DE, FR, IT, EN)
+- [x] Multilingual data content (DE, FR, IT, EN)
+- [ ] Multilingual UI (currently hardcoded German)
 - [x] IFC mappings and classifications
-- [x] REST API with OpenAPI specification
+- [x] OpenAPI specification defined
+- [ ] REST API backend (Supabase migration pending)
 
 ### Phase 2: Enhanced Features (Planned)
 
+- [ ] Supabase PostgreSQL backend migration
+- [ ] Functional language switcher with full UI translations
+- [ ] Improved mobile/responsive design
+- [ ] Full Swiss Federal Corporate Design (CD Bund) compliance
 - [ ] Phase-based filtering in catalog views
 - [ ] Advanced search within specific catalogs
 - [ ] Comparison view for elements
@@ -533,7 +541,14 @@
 - [ ] Community of Practice features
 - [ ] Data standard versioning
 
-### Phase 3: Enterprise & Governance (Planned)
+### Phase 3: Swiss Data Ecosystem Integration (Major Milestone)
+
+- [ ] TERMDAT integration (Federal terminology database)
+- [ ] I14Y interoperability platform linking
+- [ ] LINDAS linked data service connection
+- [ ] Authoring software templates (Revit, ArchiCAD)
+
+### Phase 4: Enterprise & Governance (Planned)
 
 - [ ] Content management interface
 - [ ] User management and access control
@@ -563,7 +578,10 @@
 
 | Standard | Purpose | Status |
 |----------|---------|--------|
-| CD Bund | Swiss Federal Corporate Design | ✅ Compliant |
+| CD Bund | Swiss Federal Corporate Design | 🔄 Partial compliance |
+| TERMDAT | Federal terminology database | ⏳ Planned (major milestone) |
+| I14Y | Interoperability platform | ⏳ Planned (major milestone) |
+| LINDAS | Linked data service | ⏳ Planned (major milestone) |
 | DCAT-AP CH | Data Catalog Vocabulary | ⏳ Planned |
 | eCH-0279 | Architecture Vision 2050 | ⏳ Aligned |
 | eCH-0122 | E-Government Architecture | ⏳ Aligned |
@@ -597,9 +615,9 @@
 ### Project Resources
 - [Live Demo](https://davras5.github.io/kbob-fdk/) - Production deployment
 - [GitHub Repository](https://github.com/davras5/kbob-fdk) - Source code
-- [Database Documentation](documentation/DATABASE.md) - Schema details
-- [Design Guide](documentation/DESIGNGUIDE.md) - Design system
-- [Vision Document](documentation/VISION.md) - Strategic roadmap
+- [Data Model Documentation](documentation/data-model.md) - Schema details
+- [Style Guide](documentation/styleguide.md) - Design system
+- [Vision Document](documentation/vision.md) - Strategic roadmap
 
 ### BIM & Construction Standards
 - [ISO 19650](https://www.iso.org/standard/68078.html) - Information management using BIM
@@ -628,9 +646,9 @@
 | **Total Lines of Code** | ~10,900 (JS + CSS) |
 | **JavaScript Modules** | 19 |
 | **CSS Files** | 2 (tokens + styles) |
-| **Total Data Records** | 2,212 |
-| **Building Elements** | 851 |
-| **Use Cases** | 856 |
+| **Total Data Records** | 700 |
+| **Building Elements** | 80 |
+| **Use Cases** | 30 |
 | **Documents** | 130 |
 | **Classifications** | 344 |
 | **Attributes** | 64 |

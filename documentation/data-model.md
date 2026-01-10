@@ -1,7 +1,7 @@
 # KBOB Fachdatenkatalog – Database Schema
 
 > **Repository:** [kbob-fdk](https://github.com/davras5/kbob-fdk)
-> **Database:** PostgreSQL on Supabase
+> **Database:** Static JSON files (PostgreSQL on Supabase planned for future)
 > **Schema Version:** 2.4.0  
 
 ---
@@ -776,7 +776,7 @@ WHERE u.phases @> ARRAY[2];
 ```sql
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
--- PostgreSQL on Supabase
+-- PostgreSQL on Supabase (planned for future migration)
 -- Version: 2.4.0
 -- =============================================================================
 

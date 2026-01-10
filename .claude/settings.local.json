@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(done)",
+      "Bash(powershell -Command \"Get-Content data/elements.json | ConvertFrom-Json | Measure-Object | Select-Object -ExpandProperty Count\")",
+      "Bash(powershell -Command:*)"
+    ]
+  }
+}
